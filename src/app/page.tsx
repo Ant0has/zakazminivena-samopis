@@ -1,9 +1,13 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { AdvantagesSection } from "@/components/AdvantagesSection";
+import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { PriceComparisonSection } from "@/components/PriceComparisonSection";
 import { RoutesSection } from "@/components/RoutesSection";
+import { StatsSection } from "@/components/StatsSection";
 import { TariffsSection } from "@/components/TariffsSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
@@ -34,6 +38,12 @@ const jsonLd = {
     unitText: "руб/км",
     description: "Минивэн с водителем, 7 мест, фиксированная цена",
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "2000",
+    bestRating: "5",
+  },
 };
 
 export default function Home() {
@@ -47,9 +57,13 @@ export default function Home() {
       <main>
         <HeroSection />
         <AdvantagesSection />
+        <HowItWorksSection />
         <PriceComparisonSection />
         <RoutesSection />
+        <StatsSection />
         <TariffsSection />
+        <TestimonialsSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
