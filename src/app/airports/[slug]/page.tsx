@@ -1,0 +1,219 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  PlaneIcon,
+  MapPinIcon,
+  PhoneIcon,
+  CheckIcon,
+  ClockIcon,
+} from "lucide-react";
+import { TelegramIcon } from "@/components/icons";
+import { allAirports, allRoutes, type AirportData } from "@/lib/routes-data";
+
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return allAirports.map((airport) => ({ slug: airport.slug }));
+}
+
+function getAirport(slug: string): AirportData | undefined {
+  return allAirports.find((a) => a.slug === slug);
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const airport = getAirport(slug);
+  if (!airport) return {};
+
+  return {
+    title: `Трансфер минивэн — аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
+    description: `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. Звоните +7 (918) 587-54-54.`,
+    alternates: {
+      canonical: `https://zakazminivena.ru/airports/${slug}`,
+    },
+  };
+}
+
+export default async function AirportPage({ params }: Props) {
+  const { slug } = await params;
+  const airport = getAirport(slug);
+  if (!airport) notFound();
+
+  // Find routes from this airport's city
+  const cityRoutes = allRoutes.filter(
+    (r) => r.fromSlug === airport.citySlug || r.toSlug === airport.citySlug
+  );
+
+  const advantages = [
+    "Встреча с табличкой в зоне прилёта",
+    "Помощь с багажом до автомобиля",
+    "Детское кресло бесплатно",
+    "Отслеживание рейса — подъедем к прилёту",
+    "Фиксированная цена без доплат",
+    "7 комфортных мест + большой багажник",
+    "Бесплатное ожидание 30 минут",
+    "Кондиционер, USB-зарядка, Wi-Fi",
+  ];
+
+  return (
+    <div className="relative min-h-screen">
+      <Header />
+      <main className="pt-16">
+        <section className="py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            {/* Breadcrumb */}
+            <nav className="mb-8 text-sm text-muted-foreground">
+              <Link href="/" className="hover:text-foreground">
+                Главная
+              </Link>
+              <span className="mx-2">/</span>
+              <Link href="/airports" className="hover:text-foreground">
+                Аэропорты
+              </Link>
+              <span className="mx-2">/</span>
+              <span className="text-foreground">{airport.name}</span>
+            </nav>
+
+            {/* Header */}
+            <Badge className="mb-4 bg-emerald/10 text-emerald hover:bg-emerald/10">
+              <PlaneIcon className="mr-1 h-3 w-3" />
+              {airport.code}
+            </Badge>
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              Трансфер минивэн — аэропорт {airport.name}
+            </h1>
+
+            {/* Info cards */}
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="rounded-xl border border-border bg-card p-5">
+                <div className="mb-2 text-sm text-muted-foreground">Город</div>
+                <div className="flex items-center gap-2 font-semibold">
+                  <MapPinIcon className="h-4 w-4 text-emerald" />
+                  {airport.city}
+                </div>
+              </div>
+              <div className="rounded-xl border border-border bg-card p-5">
+                <div className="mb-2 text-sm text-muted-foreground">
+                  Расстояние от центра
+                </div>
+                <div className="flex items-center gap-2 font-semibold">
+                  <ClockIcon className="h-4 w-4 text-emerald" />
+                  {airport.km} км
+                </div>
+              </div>
+              <div className="rounded-xl border border-border bg-card p-5">
+                <div className="mb-2 text-sm text-muted-foreground">
+                  Код аэропорта
+                </div>
+                <div className="flex items-center gap-2 font-mono font-semibold">
+                  <PlaneIcon className="h-4 w-4 text-emerald" />
+                  {airport.code}
+                </div>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="mt-10 space-y-4 text-muted-foreground">
+              <p>
+                Закажите комфортный минивэн на 7 мест для трансфера из аэропорта{" "}
+                {airport.name} ({airport.code}) в {airport.city} и обратно.
+                Водитель встретит вас с табличкой в зоне прилёта, поможет с
+                багажом и доставит по адресу без лишних остановок.
+              </p>
+              <p>
+                Мы отслеживаем ваш рейс и подъезжаем к моменту прилёта —
+                бесплатное ожидание 30 минут. Фиксированная цена без счётчика и
+                наценок за ночное время.
+              </p>
+            </div>
+
+            {/* Advantages */}
+            <div className="mt-10">
+              <h2 className="mb-6 text-2xl font-bold">
+                Преимущества трансфера в аэропорт {airport.name}
+              </h2>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {advantages.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-lg border border-border bg-card p-4"
+                  >
+                    <CheckIcon className="h-5 w-5 shrink-0 text-emerald" />
+                    <span className="text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Related routes */}
+            {cityRoutes.length > 0 && (
+              <div className="mt-10">
+                <h2 className="mb-6 text-2xl font-bold">
+                  Маршруты из {airport.city}
+                </h2>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {cityRoutes.slice(0, 6).map((route) => (
+                    <Link
+                      key={route.slug}
+                      href={`/routes/${route.slug}`}
+                      className="flex items-center justify-between rounded-lg border border-border bg-card p-4 transition-colors hover:border-emerald/40 hover:bg-emerald/5"
+                    >
+                      <span className="text-sm font-medium">
+                        {route.from} — {route.to}
+                      </span>
+                      <span className="text-sm text-muted-foreground">
+                        {route.km} км
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* CTA */}
+            <div className="mt-12 rounded-2xl border border-emerald/20 bg-emerald/5 p-8 text-center sm:p-10">
+              <h2 className="text-2xl font-bold sm:text-3xl">
+                Заказать трансфер в аэропорт {airport.name}
+              </h2>
+              <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
+                Напишите нам маршрут и дату — рассчитаем стоимость за 5 минут.
+                Фиксированная цена, никаких доплат.
+              </p>
+              <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+                <Button
+                  size="lg"
+                  className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
+                  asChild
+                >
+                  <a href="https://t.me/zakazminivena">
+                    <TelegramIcon className="mr-2 h-5 w-5" />
+                    Написать в Telegram
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="h-14 text-base font-semibold"
+                  asChild
+                >
+                  <a href="tel:+79185875454">
+                    <PhoneIcon className="mr-2 h-5 w-5 text-emerald" />
+                    +7 (918) 587-54-54
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}
