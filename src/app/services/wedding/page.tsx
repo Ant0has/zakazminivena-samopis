@@ -10,7 +10,7 @@ import { TelegramIcon } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Минивэн на свадьбу — трансфер гостей на минивэне | ЗаказМинивена.ru",
   description:
-    "Минивэн на свадьбу для трансфера гостей: 7 мест, кондиционер, большой багажник. Развозка гостей из аэропорта, в ЗАГС, ресторан и обратно. Фиксированная цена.",
+    "Минивэн на свадьбу для трансфера гостей: 7 мест, кондиционер, большой багажник. Развозка гостей из аэропорта, в ЗАГС, ресторан и обратно. Фиксированная цена. Звоните +7 (918) 587-54-54",
   alternates: {
     canonical: "https://zakazminivena.ru/services/wedding",
   },
@@ -50,6 +50,11 @@ export default function WeddingServicePage() {
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Минивэн на свадьбу — трансфер гостей
             </h1>
+
+            {/* TODO: Replace with <Image src="/images/services/wedding.jpg" /> */}
+            <div className="mt-8 flex aspect-[16/9] items-center justify-center rounded-2xl border-2 border-dashed border-muted-foreground/20 bg-muted sm:aspect-[21/9]">
+              <span className="text-sm text-muted-foreground/40">Фото: минивэн на свадебном трансфере</span>
+            </div>
 
             {/* Content */}
             <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed">

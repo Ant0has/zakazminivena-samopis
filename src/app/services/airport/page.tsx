@@ -10,7 +10,7 @@ import { TelegramIcon } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Трансфер в аэропорт на минивэне 7 мест — ЗаказМинивена.ru",
   description:
-    "Трансфер в аэропорт на минивэне с водителем для семьи или группы до 7 человек. Встреча с табличкой, отслеживание рейса, детское кресло бесплатно. От 60 руб/км.",
+    "Трансфер в аэропорт на минивэне с водителем для семьи или группы до 7 человек. Встреча с табличкой, отслеживание рейса, детское кресло бесплатно. От 60 руб/км. Звоните +7 (918) 587-54-54",
   alternates: {
     canonical: "https://zakazminivena.ru/services/airport",
   },
@@ -50,6 +50,11 @@ export default function AirportServicePage() {
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Трансфер в аэропорт на минивэне 7 мест
             </h1>
+
+            {/* TODO: Replace with <Image src="/images/services/airport.jpg" /> */}
+            <div className="mt-8 flex aspect-[16/9] items-center justify-center rounded-2xl border-2 border-dashed border-muted-foreground/20 bg-muted sm:aspect-[21/9]">
+              <span className="text-sm text-muted-foreground/40">Фото: встреча с табличкой в аэропорту</span>
+            </div>
 
             {/* Content */}
             <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed">

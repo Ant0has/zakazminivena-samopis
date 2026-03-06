@@ -81,6 +81,11 @@ export default function AboutPage() {
               О сервисе ЗаказМинивена.ru
             </h1>
 
+            {/* TODO: Replace with <Image src="/images/services/about.jpg" /> */}
+            <div className="mt-8 flex aspect-[16/9] items-center justify-center rounded-2xl border-2 border-dashed border-muted-foreground/20 bg-muted sm:aspect-[21/9]">
+              <span className="text-sm text-muted-foreground/40">Фото: наш минивэн и водитель</span>
+            </div>
+
             {/* Description */}
             <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed">
               <p>
@@ -131,6 +136,31 @@ export default function AboutPage() {
                   >
                     <CheckIcon className="h-5 w-5 shrink-0 text-emerald" />
                     <span className="text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="mt-12">
+              <h2 className="mb-6 text-2xl font-bold">Наши цифры</h2>
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+                {[
+                  { value: "2 000+", label: "выполненных поездок" },
+                  { value: "67", label: "маршрутов по России" },
+                  { value: "21+", label: "регионов присутствия" },
+                  { value: "4.9", label: "средняя оценка клиентов" },
+                ].map((stat) => (
+                  <div
+                    key={stat.value}
+                    className="rounded-xl border border-border p-6 text-center"
+                  >
+                    <div className="text-3xl font-bold text-emerald">
+                      {stat.value}
+                    </div>
+                    <div className="mt-2 text-sm text-muted-foreground">
+                      {stat.label}
+                    </div>
                   </div>
                 ))}
               </div>

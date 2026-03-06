@@ -38,7 +38,7 @@ export async function generateMetadata({
 
   return {
     title: `Минивэн с водителем в ${city.nameIn} — заказать от 60 руб/км`,
-    description: `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена от 60 руб/км, 7 мест, детское кресло бесплатно.`,
+    description: `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена от 60 руб/км, 7 мест, детское кресло бесплатно. +7 (918) 587-54-54`,
     alternates: {
       canonical: `https://zakazminivena.ru/cities/${slug}`,
     },
@@ -88,6 +88,21 @@ export default async function CityPage({
             фиксированная цена от 60 руб/км, детское кресло бесплатно, без
             предоплаты.
           </p>
+          <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
+            Мы выполняем межгородние перевозки из {city.name} по{" "}
+            {cityRoutes.length} направлениям. Стоимость поездки рассчитывается от
+            60 руб/км на весь минивэн — при 7 пассажирах это дешевле, чем два
+            обычных такси. Напишите маршрут и дату в Telegram — назовём точную
+            цену за 5 минут.
+          </p>
+        </div>
+
+        {/* Image placeholder */}
+        {/* TODO: Replace with <Image src="/images/cities/{slug}.jpg" /> */}
+        <div className="mb-10 overflow-hidden rounded-2xl border-2 border-dashed border-muted-foreground/20 bg-muted aspect-[16/9] sm:aspect-[21/9] flex items-center justify-center">
+          <span className="text-muted-foreground/40 text-lg">
+            Фото минивэна в {city.nameIn}
+          </span>
         </div>
 
         {/* Routes section */}
@@ -172,6 +187,40 @@ export default async function CityPage({
             </div>
           </section>
         )}
+
+        {/* How to order */}
+        <div className="mb-12">
+          <h2 className="mb-6 text-2xl font-bold tracking-tight">
+            Как заказать минивэн в {city.nameIn}
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {[
+              {
+                step: 1,
+                title: "Напишите маршрут",
+                desc: "Укажите откуда, куда, дату и количество пассажиров в Telegram или по телефону.",
+              },
+              {
+                step: 2,
+                title: "Получите цену за 5 мин",
+                desc: "Рассчитаем стоимость и пришлём точную цену — фиксированную, без доплат.",
+              },
+              {
+                step: 3,
+                title: "Поездка без предоплаты",
+                desc: "Водитель подъедет в назначенное время. Оплата наличными или переводом по факту.",
+              },
+            ].map((item) => (
+              <div key={item.step} className="flex flex-col items-center text-center sm:items-start sm:text-left">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-emerald text-white font-bold text-lg">
+                  {item.step}
+                </div>
+                <h3 className="font-semibold text-lg">{item.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* CTA section */}
         <section className="rounded-2xl border border-emerald/20 bg-card p-6 shadow-sm sm:p-8">

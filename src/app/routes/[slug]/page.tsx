@@ -48,20 +48,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const price = formatPrice(calcPrice(route.km));
 
   return {
-    title: `Минивэн ${route.from} — ${route.to}: цена ${price} руб., ${route.km} км`,
-    description: `Заказать минивэн с водителем ${route.from} — ${route.to}. Расстояние ${route.km} км, время в пути ${route.hours}. Цена ${price} руб. за минивэн 7 мест. Детское кресло бесплатно.`,
+    title: `Заказать минивэн ${route.from} — ${route.to}: цена ${price} руб., ${route.km} км`,
+    description: `Заказать минивэн с водителем ${route.from} — ${route.to}. Расстояние ${route.km} км, время в пути ${route.hours}. Фиксированная цена ${price} руб. за весь минивэн 7 мест. Детское кресло бесплатно, встреча с табличкой. Звоните: +7 (918) 587-54-54`,
     alternates: {
       canonical: `https://zakazminivena.ru/routes/${slug}`,
     },
     openGraph: {
-      title: `Минивэн ${route.from} — ${route.to} | ${price} руб.`,
-      description: `Заказать минивэн с водителем ${route.from} — ${route.to}. ${route.km} км, ${route.hours}. Цена ${price} руб. за минивэн 7 мест.`,
+      title: `Заказать минивэн ${route.from} — ${route.to} | ${price} руб.`,
+      description: `Заказать минивэн с водителем ${route.from} — ${route.to}. ${route.km} км, ${route.hours}. Фиксированная цена ${price} руб. за минивэн 7 мест. Звоните: +7 (918) 587-54-54`,
       url: `https://zakazminivena.ru/routes/${slug}`,
       siteName: "ЗаказМинивена.ru",
       locale: "ru_RU",
       type: "website",
     },
   };
+}
+
+function getRouteDescription(route: RouteData, priceFormatted: string, perPerson: string): string[] {
+  return [
+    `Маршрут ${route.from} — ${route.to} протяжённостью ${route.km} км — одно из самых популярных направлений для поездок на минивэне. Время в пути составляет около ${route.hours} по комфортной трассе.`,
+    `Стоимость поездки на минивэне ${route.from} — ${route.to} — ${priceFormatted} рублей за весь автомобиль. При полной загрузке 7 пассажиров это всего ${perPerson} рублей на человека — значительно дешевле, чем заказывать два обычных такси. Маршрут особенно популярен среди семей с детьми и больших компаний, которым важно ехать вместе в одной машине.`,
+    `Цена фиксируется при заказе и не меняется: никаких наценок за время суток, праздники или пробки. В стоимость включены детское кресло, встреча с табличкой, кондиционер и бутылки воды.`,
+  ];
 }
 
 const advantages = [
@@ -161,6 +169,13 @@ export default async function RoutePage({ params }: Props) {
             <p className="mt-3 text-lg text-muted-foreground">
               Комфортный трансфер на минивэне 7 мест с водителем
             </p>
+
+            {/* TODO: Replace with real photo: <Image src="/images/routes/{slug}.jpg" /> */}
+            <div className="mt-8 flex items-center justify-center rounded-2xl border-2 border-dashed border-border bg-muted aspect-[4/3] sm:aspect-[16/9]">
+              <span className="text-sm text-muted-foreground px-4 text-center">
+                Фото минивэна на маршруте {route.from} — {route.to}
+              </span>
+            </div>
           </div>
         </section>
 
@@ -228,6 +243,24 @@ export default async function RoutePage({ params }: Props) {
                   </div>
                 </div>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Route description */}
+        <section className="pb-12 sm:pb-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="mb-6 text-2xl font-bold tracking-tight sm:text-3xl">
+              О маршруте {route.from} — {route.to}
+            </h2>
+            <div className="prose prose-lg max-w-none text-muted-foreground">
+              {getRouteDescription(route, priceFormatted, perPerson).map(
+                (paragraph, i) => (
+                  <p key={i} className="mb-4 leading-relaxed">
+                    {paragraph}
+                  </p>
+                )
+              )}
             </div>
           </div>
         </section>

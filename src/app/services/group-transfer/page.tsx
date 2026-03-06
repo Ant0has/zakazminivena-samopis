@@ -10,7 +10,7 @@ import { TelegramIcon } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Групповой трансфер на минивэне 7 мест — ЗаказМинивена.ru",
   description:
-    "Групповой трансфер на минивэне с водителем для 7 пассажиров. Межгородние поездки, корпоративные перевозки, экскурсии. Фиксированная цена от 60 руб/км.",
+    "Групповой трансфер на минивэне с водителем для 7 пассажиров. Межгородние поездки, корпоративные перевозки, экскурсии. Фиксированная цена от 60 руб/км. Звоните +7 (918) 587-54-54",
   alternates: {
     canonical: "https://zakazminivena.ru/services/group-transfer",
   },
@@ -50,6 +50,11 @@ export default function GroupTransferPage() {
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Групповой трансфер на минивэне
             </h1>
+
+            {/* TODO: Replace with <Image src="/images/services/group-transfer.jpg" /> */}
+            <div className="mt-8 flex aspect-[16/9] items-center justify-center rounded-2xl border-2 border-dashed border-muted-foreground/20 bg-muted sm:aspect-[21/9]">
+              <span className="text-sm text-muted-foreground/40">Фото: группа пассажиров у минивэна</span>
+            </div>
 
             {/* Content */}
             <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed">

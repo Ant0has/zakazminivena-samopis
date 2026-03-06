@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "Детские перевозки на минивэне — с детским креслом бесплатно | ЗаказМинивена.ru",
   description:
-    "Безопасные детские перевозки на минивэне с детским автокреслом бесплатно. 7 мест, кондиционер, плавная езда. Межгородние поездки с детьми от 60 руб/км.",
+    "Безопасные детские перевозки на минивэне с детским автокреслом бесплатно. 7 мест, кондиционер, плавная езда. Межгородние поездки с детьми от 60 руб/км. Звоните +7 (918) 587-54-54",
   alternates: {
     canonical: "https://zakazminivena.ru/services/children",
   },
@@ -51,6 +51,11 @@ export default function ChildrenServicePage() {
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Детские перевозки на минивэне — с детским креслом
             </h1>
+
+            {/* TODO: Replace with <Image src="/images/services/children.jpg" /> */}
+            <div className="mt-8 flex aspect-[16/9] items-center justify-center rounded-2xl border-2 border-dashed border-muted-foreground/20 bg-muted sm:aspect-[21/9]">
+              <span className="text-sm text-muted-foreground/40">Фото: детское кресло в салоне минивэна</span>
+            </div>
 
             {/* Content */}
             <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed">

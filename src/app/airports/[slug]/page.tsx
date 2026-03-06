@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Трансфер минивэн — аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
-    description: `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. Звоните +7 (918) 587-54-54.`,
+    description: `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. +7 (918) 587-54-54`,
     alternates: {
       canonical: `https://zakazminivena.ru/airports/${slug}`,
     },
@@ -89,6 +89,14 @@ export default async function AirportPage({ params }: Props) {
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Трансфер минивэн — аэропорт {airport.name}
             </h1>
+
+            {/* Image placeholder */}
+            {/* TODO: Replace with <Image src="/images/airports/{slug}.jpg" /> */}
+            <div className="mt-8 overflow-hidden rounded-2xl border-2 border-dashed border-muted-foreground/20 bg-muted aspect-[16/9] sm:aspect-[21/9] flex items-center justify-center">
+              <span className="text-muted-foreground/40 text-lg">
+                Трансфер в аэропорт {airport.name}
+              </span>
+            </div>
 
             {/* Info cards */}
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -147,6 +155,50 @@ export default async function AirportPage({ params }: Props) {
                   >
                     <CheckIcon className="h-5 w-5 shrink-0 text-emerald" />
                     <span className="text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* How it works */}
+            <div className="mt-10">
+              <h2 className="mb-6 text-2xl font-bold">
+                Как это работает
+              </h2>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  {
+                    step: 1,
+                    title: "Бронирование",
+                    desc: "Напишите рейс, дату и количество пассажиров",
+                  },
+                  {
+                    step: 2,
+                    title: "Отслеживание",
+                    desc: "Мы следим за вашим рейсом и подъезжаем к прилёту",
+                  },
+                  {
+                    step: 3,
+                    title: "Встреча",
+                    desc: "Водитель ждёт с табличкой в зоне прилёта",
+                  },
+                  {
+                    step: 4,
+                    title: "Поездка",
+                    desc: "Доставим по адресу с комфортом, оплата по факту",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.step}
+                    className="flex flex-col items-center text-center rounded-xl border border-border bg-card p-5"
+                  >
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-emerald text-white font-bold text-lg">
+                      {item.step}
+                    </div>
+                    <h3 className="font-semibold">{item.title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {item.desc}
+                    </p>
                   </div>
                 ))}
               </div>
