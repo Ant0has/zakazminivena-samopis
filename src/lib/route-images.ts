@@ -2,7 +2,7 @@
 const RESORT_SLUGS = [
   "sochi", "krasnodar", "simferopol", "yalta", "anapa", "gelendzhik",
   "novorossiysk", "adler", "alushta", "evpatoriya", "feodosiya", "sudak",
-  "sevastopol",
+  "sevastopol", "rostov",
 ];
 
 const MOUNTAIN_SLUGS = [
@@ -13,19 +13,22 @@ const URAL_SLUGS = [
   "ekaterinburg", "chelyabinsk", "tyumen", "perm", "kurgan",
 ];
 
+const SIBERIA_SLUGS = [
+  "novosibirsk", "barnaul", "tomsk", "kemerovo", "omsk",
+];
+
 export function getRouteImage(fromSlug: string, toSlug: string): string {
-  // Check if either endpoint is a resort destination
   if (RESORT_SLUGS.some(s => fromSlug.includes(s) || toSlug.includes(s))) {
     return "/images/routes/resort.png";
   }
-  // Mountain / Caucasus
   if (MOUNTAIN_SLUGS.some(s => fromSlug.includes(s) || toSlug.includes(s))) {
     return "/images/routes/mountains.png";
   }
-  // Ural
   if (URAL_SLUGS.some(s => fromSlug.includes(s) || toSlug.includes(s))) {
     return "/images/routes/ural.png";
   }
-  // Default: highway
+  if (SIBERIA_SLUGS.some(s => fromSlug.includes(s) || toSlug.includes(s))) {
+    return "/images/routes/winter.png";
+  }
   return "/images/routes/highway.png";
 }

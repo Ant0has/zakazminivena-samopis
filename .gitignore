@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+generate-images.mjs
+generate-qwen.mjs
+generate-routes.mjs
+regenerate.mjs
