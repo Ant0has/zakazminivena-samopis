@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +16,8 @@ import {
 } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
 import { allAirports, allRoutes, type AirportData } from "@/lib/routes-data";
+import { getAirportContent } from "@/lib/airport-content";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -35,11 +38,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Трансфер минивэн — аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
-    description: `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. +7 (918) 587-54-54`,
+    description: getAirportContent(slug)?.metaDescription || `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. +7 (918) 587-54-54`,
     alternates: {
       canonical: `https://zakazminivena.ru/airports/${slug}`,
     },
   };
+}
+
+
+function getAirportTags(citySlug: string): string[] {
+  const tags: string[] = ["airport"];
+  if (/sochi|krasnodar|adler|anapa|gelendzhik|rostov/.test(citySlug)) {
+    tags.push("south");
+  } else if (/simferopol|yalta|sevastopol/.test(citySlug)) {
+    tags.push("south");
+  } else if (/mineralnye-vody|kislovodsk|pyatigorsk/.test(citySlug)) {
+    tags.push("kmv");
+  } else if (/ekaterinburg|chelyabinsk|tyumen|perm/.test(citySlug)) {
+    tags.push("ural");
+  } else if (/novosibirsk|barnaul|tomsk/.test(citySlug)) {
+    tags.push("siberia");
+  } else if (/moskva/.test(citySlug)) {
+    tags.push("moscow");
+  } else if (/spb|sankt-peterburg/.test(citySlug)) {
+    tags.push("spb");
+  }
+  return tags;
 }
 
 export default async function AirportPage({ params }: Props) {
@@ -51,6 +75,8 @@ export default async function AirportPage({ params }: Props) {
   const cityRoutes = allRoutes.filter(
     (r) => r.fromSlug === airport.citySlug || r.toSlug === airport.citySlug
   );
+  const reviewTags = getAirportTags(airport.citySlug);
+  const airportContent = getAirportContent(slug);
 
   const advantages = [
     "Встреча с табличкой в зоне прилёта",
@@ -98,18 +124,11 @@ export default async function AirportPage({ params }: Props) {
       <main className="pt-16">
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="mb-8 text-sm text-muted-foreground">
-              <Link href="/" className="hover:text-foreground">
-                Главная
-              </Link>
-              <span className="mx-2">/</span>
-              <Link href="/airports" className="hover:text-foreground">
-                Аэропорты
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="text-foreground">{airport.name}</span>
-            </nav>
+            <Breadcrumbs items={[
+              { label: "Главная", href: "/" },
+              { label: "Аэропорты", href: "/airports" },
+              { label: airport.name },
+            ]} />
 
             {/* Header */}
             <Badge className="mb-4 bg-emerald/10 text-emerald hover:bg-emerald/10">
@@ -155,17 +174,45 @@ export default async function AirportPage({ params }: Props) {
 
             {/* Description */}
             <div className="mt-10 space-y-4 text-muted-foreground">
-              <p>
-                Закажите комфортный минивэн на 7 мест для трансфера из аэропорта{" "}
-                {airport.name} ({airport.code}) в {airport.city} и обратно.
-                Водитель встретит вас с табличкой в зоне прилёта, поможет с
-                багажом и доставит по адресу без лишних остановок.
-              </p>
-              <p>
-                Мы отслеживаем ваш рейс и подъезжаем к моменту прилёта —
-                бесплатное ожидание 30 минут. Фиксированная цена без счётчика и
-                наценок за ночное время.
-              </p>
+              {airportContent ? (
+                <>
+                  {airportContent.paragraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mt-6">
+                    <div className="rounded-xl border border-border bg-card p-4">
+                      <div className="text-sm font-medium text-muted-foreground mb-1">Терминалы</div>
+                      <p className="text-sm">{airportContent.terminalInfo}</p>
+                    </div>
+                    <div className="rounded-xl border border-border bg-card p-4">
+                      <div className="text-sm font-medium text-muted-foreground mb-1">Расстояние</div>
+                      <p className="text-sm">{airportContent.distanceInfo}</p>
+                    </div>
+                    <div className="rounded-xl border border-border bg-card p-4">
+                      <div className="text-sm font-medium text-muted-foreground mb-1">Зона встречи</div>
+                      <p className="text-sm">{airportContent.pickupZone}</p>
+                    </div>
+                    <div className="rounded-xl border border-border bg-card p-4">
+                      <div className="text-sm font-medium text-muted-foreground mb-1">Популярные направления</div>
+                      <p className="text-sm">{airportContent.popularRoutes}</p>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p>
+                    Закажите комфортный минивэн на 7 мест для трансфера из аэропорта{" "}
+                    {airport.name} ({airport.code}) в {airport.city} и обратно.
+                    Водитель встретит вас с табличкой в зоне прилёта, поможет с
+                    багажом и доставит по адресу без лишних остановок.
+                  </p>
+                  <p>
+                    Мы отслеживаем ваш рейс и подъезжаем к моменту прилёта —
+                    бесплатное ожидание 30 минут. Фиксированная цена без счётчика и
+                    наценок за ночное время.
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Advantages */}
@@ -254,6 +301,9 @@ export default async function AirportPage({ params }: Props) {
                 </div>
               </div>
             )}
+
+            {/* Reviews */}
+            <ReviewsSection tags={reviewTags} />
 
             {/* CTA */}
             <div className="mt-12 rounded-2xl border border-emerald/20 bg-emerald/5 p-8 text-center sm:p-10">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +15,7 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
   title:
@@ -95,14 +97,10 @@ export default function AboutPage() {
       <main className="pt-16">
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="mb-8 text-sm text-muted-foreground">
-              <Link href="/" className="hover:text-foreground">
-                Главная
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="text-foreground">О нас</span>
-            </nav>
+            <Breadcrumbs items={[
+              { label: "Главная", href: "/" },
+              { label: "О нас" },
+            ]} />
 
             <Badge className="mb-4 bg-emerald/10 text-emerald hover:bg-emerald/10">
               О сервисе
@@ -193,6 +191,9 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
+
+            {/* Reviews */}
+            <ReviewsSection tags={["intercity", "airport"]} />
 
             {/* Contacts */}
             <div className="mt-12 rounded-2xl border border-emerald/20 bg-emerald/5 p-8 sm:p-10">

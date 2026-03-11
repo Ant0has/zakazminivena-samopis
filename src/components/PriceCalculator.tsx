@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { allRoutes, calcPrice, formatPrice } from "@/lib/routes-data";
+import { allRoutes, calcPrice, calcReturnPrice, calcRoundTripTotal, formatPrice } from "@/lib/routes-data";
 import {
   Select,
   SelectContent,
@@ -21,6 +21,7 @@ import {
   UsersIcon,
   CalendarIcon,
   ArrowRightIcon,
+  PercentIcon,
 } from "lucide-react";
 
 export function PriceCalculator() {
@@ -59,6 +60,8 @@ export function PriceCalculator() {
   const bothSelected = from !== "" && to !== "" && from !== to;
   const price = route ? calcPrice(route.km) : null;
   const perPerson = price ? Math.ceil(price / passengers) : null;
+  const returnPrice = route ? calcReturnPrice(route.km) : null;
+  const roundTripTotal = route ? calcRoundTripTotal(route.km) : null;
 
   // Build Telegram booking link
   const telegramLink = useMemo(() => {
@@ -192,6 +195,18 @@ export function PriceCalculator() {
                   >
                     {formatPrice(perPerson!)} руб/чел
                   </Badge>
+                </div>
+
+                {/* Return trip discount */}
+                <div className="mt-4 rounded-lg border border-emerald/30 bg-emerald/10 p-3">
+                  <div className="flex items-center gap-1.5 text-sm font-medium text-emerald">
+                    <PercentIcon className="h-3.5 w-3.5" />
+                    Скидка 20% на обратный путь
+                  </div>
+                  <div className="mt-1 text-sm text-muted-foreground">
+                    Обратно: <span className="font-semibold text-foreground">{formatPrice(returnPrice!)} руб.</span>{" "}
+                    Туда-обратно: <span className="font-semibold text-foreground">{formatPrice(roundTripTotal!)} руб.</span>
+                  </div>
                 </div>
 
                 {/* CTA Buttons */}

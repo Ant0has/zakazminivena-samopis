@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +25,10 @@ export default function AirportsPage() {
       <main className="pt-16">
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <Breadcrumbs items={[
+              { label: "Главная", href: "/" },
+              { label: "Аэропорты" },
+            ]} />
             <div className="mb-12 text-center sm:mb-16">
               <Badge className="mb-4 bg-emerald/10 text-emerald hover:bg-emerald/10">
                 <PlaneIcon className="mr-1 h-3 w-3" />

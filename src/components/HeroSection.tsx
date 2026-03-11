@@ -6,6 +6,7 @@ import {
   ShieldCheckIcon,
   UsersIcon,
   BabyIcon,
+  PercentIcon,
 } from "lucide-react";
 import { PriceCalculator } from "@/components/PriceCalculator";
 
@@ -38,6 +39,13 @@ export function HeroSection() {
             >
               <BabyIcon className="mr-1 h-3 w-3" />
               Детское кресло бесплатно
+            </Badge>
+            <Badge
+              variant="outline"
+              className="border-amber-500/40 bg-amber-500/10 text-amber-600 dark:text-amber-400"
+            >
+              <PercentIcon className="mr-1 h-3 w-3" />
+              −20% на обратный путь
             </Badge>
           </div>
 

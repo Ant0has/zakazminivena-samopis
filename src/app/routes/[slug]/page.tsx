@@ -6,16 +6,20 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { TelegramIcon, MaxIcon } from "@/components/icons";
 import {
   allRoutes,
   calcPrice,
+  calcReturnPrice,
+  calcRoundTripTotal,
   formatPrice,
   pricePerPerson,
   RouteData,
 } from "@/lib/routes-data";
 import { getRouteImage } from "@/lib/route-images";
+import { getRouteContent, getRouteMetaDescription } from "@/lib/route-content";
 import {
   ShieldCheckIcon,
   UsersIcon,
@@ -28,10 +32,12 @@ import {
   RulerIcon,
   PhoneIcon,
   ArrowLeftIcon,
+  PercentIcon,
   CheckIcon,
   XIcon,
   HelpCircleIcon,
 } from "lucide-react";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 export function generateStaticParams() {
   return allRoutes.map((route) => ({
@@ -52,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Заказать минивэн ${route.from} — ${route.to}: цена ${price} руб., ${route.km} км`,
-    description: `Заказать минивэн с водителем ${route.from} — ${route.to}. Расстояние ${route.km} км, время в пути ${route.hours}. Фиксированная цена ${price} руб. за весь минивэн 7 мест. Детское кресло бесплатно, встреча с табличкой. Звоните: +7 (918) 587-54-54`,
+    description: getRouteMetaDescription(slug, route.fromSlug, route.toSlug, route.from, route.to, route.km, route.hours, price),
     alternates: {
       canonical: `https://zakazminivena.ru/routes/${slug}`,
     },
@@ -68,11 +74,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function getRouteDescription(route: RouteData, priceFormatted: string, perPerson: string): string[] {
-  return [
-    `Маршрут ${route.from} — ${route.to} протяжённостью ${route.km} км — одно из самых популярных направлений для поездок на минивэне. Время в пути составляет около ${route.hours} по комфортной трассе.`,
-    `Стоимость поездки на минивэне ${route.from} — ${route.to} — ${priceFormatted} рублей за весь автомобиль. При полной загрузке 7 пассажиров это всего ${perPerson} рублей на человека — значительно дешевле, чем заказывать два обычных такси. Маршрут особенно популярен среди семей с детьми и больших компаний, которым важно ехать вместе в одной машине.`,
-    `Цена фиксируется при заказе и не меняется: никаких наценок за время суток, праздники или пробки. В стоимость включены детское кресло, встреча с табличкой, кондиционер и бутылки воды.`,
-  ];
+  const content = getRouteContent(route.slug, route.fromSlug, route.toSlug);
+  const priceParagraph = `Стоимость поездки на минивэне ${route.from} — ${route.to} — ${priceFormatted} рублей за весь автомобиль. При полной загрузке 7 пассажиров это всего ${perPerson} рублей на человека — значительно дешевле, чем заказывать два обычных такси. Цена фиксируется при заказе и не меняется: никаких наценок за время суток, праздники или пробки. В стоимость включены детское кресло, встреча с табличкой, кондиционер и бутылки воды.`;
+
+  // Insert price paragraph after first content paragraph
+  const result = [content.description[0], priceParagraph, ...content.description.slice(1)];
+
+  // Add road info and landmarks as final paragraph
+  if (content.roadInfo || content.landmarks) {
+    result.push(`Дорожные условия: ${content.roadInfo} Достопримечательности по маршруту: ${content.landmarks}.`);
+  }
+
+  return result;
 }
 
 const advantages = [
@@ -108,6 +121,30 @@ const advantages = [
   },
 ];
 
+
+function getRouteTags(fromSlug: string, toSlug: string): string[] {
+  const slugs = fromSlug + " " + toSlug;
+  const tags: string[] = [];
+  if (/sochi|krasnodar|adler|anapa|gelendzhik/.test(slugs)) {
+    tags.push("resort", "south");
+  } else if (/simferopol|yalta|sevastopol/.test(slugs)) {
+    tags.push("resort", "south");
+  } else if (/mineralnye-vody|kislovodsk|pyatigorsk|dombay|essentuki|elbrus/.test(slugs)) {
+    tags.push("kmv");
+  } else if (/ekaterinburg|chelyabinsk|tyumen|perm/.test(slugs)) {
+    tags.push("ural");
+  } else if (/novosibirsk|barnaul|tomsk|gorno-altaysk/.test(slugs)) {
+    tags.push("siberia");
+  } else if (/moskva/.test(slugs)) {
+    tags.push("moscow");
+  } else if (/spb|sankt-peterburg/.test(slugs)) {
+    tags.push("spb");
+  }
+  if (tags.length === 0) tags.push("intercity");
+  else if (!tags.includes("intercity")) tags.push("intercity");
+  return tags;
+}
+
 export default async function RoutePage({ params }: Props) {
   const { slug } = await params;
   const route = allRoutes.find((r) => r.slug === slug);
@@ -119,6 +156,14 @@ export default async function RoutePage({ params }: Props) {
   const price = calcPrice(route.km);
   const priceFormatted = formatPrice(price);
   const perPerson = pricePerPerson(route.km);
+  const reviewTags = getRouteTags(route.fromSlug, route.toSlug);
+
+  const returnPrice = calcReturnPrice(route.km);
+  const returnPriceFormatted = formatPrice(returnPrice);
+  const roundTripTotal = calcRoundTripTotal(route.km);
+  const roundTripFormatted = formatPrice(roundTripTotal);
+  const fullPriceRoundTrip = price * 2;
+  const roundTripSavings = fullPriceRoundTrip - roundTripTotal;
 
   // Taxi comparison: 2 taxis at ~70 rub/km each
   const taxiPrice = Math.ceil((route.km * 70 * 2) / 500) * 500;
@@ -192,20 +237,14 @@ export default async function RoutePage({ params }: Props) {
       <Header />
 
       <main className="pt-16">
-        {/* Breadcrumb */}
-        <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
-          <Link
-            href="/routes"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <ArrowLeftIcon className="h-4 w-4" />
-            Все маршруты
-          </Link>
-        </div>
-
         {/* Hero */}
         <section className="py-10 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <Breadcrumbs items={[
+              { label: "Главная", href: "/" },
+              { label: "Маршруты", href: "/routes" },
+              { label: `${route.from} — ${route.to}` },
+            ]} />
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Минивэн {route.from} — {route.to}
             </h1>
@@ -273,6 +312,32 @@ export default async function RoutePage({ params }: Props) {
 
                 </div>
               </Card>
+            </div>
+            {/* Return trip discount */}
+            <div className="mt-4 relative overflow-hidden rounded-2xl border-2 border-emerald/40 bg-gradient-to-r from-emerald/5 via-emerald/10 to-emerald/5 p-6 sm:p-8">
+              <div className="absolute -right-4 -top-4 flex h-20 w-20 items-center justify-center rounded-full bg-emerald/20">
+                <span className="text-lg font-bold text-emerald">−20%</span>
+              </div>
+              <div className="flex items-center gap-2 mb-4">
+                <PercentIcon className="h-5 w-5 text-emerald" />
+                <h3 className="text-xl font-bold text-emerald">Скидка 20% на обратный путь</h3>
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div>
+                  <div className="text-sm text-muted-foreground">Обратный путь</div>
+                  <div className="text-2xl font-bold">{returnPriceFormatted} <span className="text-base text-emerald">руб.</span></div>
+                  <div className="text-xs text-emerald font-medium">скидка 20%</div>
+                </div>
+                <div>
+                  <div className="text-sm text-muted-foreground">Туда-обратно</div>
+                  <div className="text-2xl font-bold">{roundTripFormatted} <span className="text-base text-emerald">руб.</span></div>
+                  <div className="text-xs text-muted-foreground line-through">{formatPrice(fullPriceRoundTrip)} руб.</div>
+                </div>
+                <div>
+                  <div className="text-sm text-muted-foreground">Экономия</div>
+                  <div className="text-2xl font-bold text-emerald">{formatPrice(roundTripSavings)} <span className="text-base">руб.</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -398,11 +463,17 @@ export default async function RoutePage({ params }: Props) {
                   </span>{" "}
                   + все едут вместе
                 </p>
+                <p className="mt-2 text-sm text-emerald font-medium">
+                  А при заказе туда-обратно — скидка 20% на обратный путь!
+                </p>
               </div>
             )}
           </div>
         </section>
 
+
+        {/* Reviews */}
+        <ReviewsSection tags={reviewTags} />
 
         {/* FAQ */}
         <section className="py-12 sm:py-16">
@@ -461,7 +532,7 @@ export default async function RoutePage({ params }: Props) {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href={`https://t.me/zakazminivena?text=${encodeURIComponent(`Заявка: ${route.from} → ${route.to}, ${priceFormatted} руб.`)}`}>
+                  <a href={`https://t.me/zakazminivena?text=${encodeURIComponent(`Заявка: ${route.from} → ${route.to}, ${priceFormatted} руб. (обратно со скидкой 20%: ${returnPriceFormatted} руб.)`)}`}>
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Заказать в Telegram
                   </a>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,6 +17,7 @@ import {
   type CityData,
 } from "@/lib/routes-data";
 import { getRouteImage } from "@/lib/route-images";
+import { getCityContent } from "@/lib/city-content";
 import {
   MapPinIcon,
   PlaneIcon,
@@ -24,6 +26,7 @@ import {
   PhoneIcon,
 } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 export function generateStaticParams() {
   return allCities.map((city) => ({ slug: city.slug }));
@@ -40,7 +43,7 @@ export async function generateMetadata({
 
   return {
     title: `Минивэн с водителем в ${city.nameIn} — заказать по фиксированной цене`,
-    description: `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена, 7 мест, детское кресло бесплатно. +7 (918) 587-54-54`,
+    description: getCityContent(slug)?.metaDescription || `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена, 7 мест, детское кресло бесплатно. +7 (918) 587-54-54`,
     alternates: {
       canonical: `https://zakazminivena.ru/cities/${slug}`,
     },
@@ -55,6 +58,29 @@ export async function generateMetadata({
   };
 }
 
+
+function getCityTags(slug: string): string[] {
+  const tags: string[] = [];
+  if (/sochi|krasnodar|adler|anapa|gelendzhik|rostov/.test(slug)) {
+    tags.push("resort", "south");
+  } else if (/simferopol|yalta|sevastopol/.test(slug)) {
+    tags.push("resort", "south");
+  } else if (/mineralnye-vody|kislovodsk|pyatigorsk|essentuki/.test(slug)) {
+    tags.push("kmv");
+  } else if (/ekaterinburg|chelyabinsk|tyumen|perm/.test(slug)) {
+    tags.push("ural");
+  } else if (/novosibirsk|barnaul|tomsk/.test(slug)) {
+    tags.push("siberia");
+  } else if (/moskva/.test(slug)) {
+    tags.push("moscow");
+  } else if (/spb|sankt-peterburg/.test(slug)) {
+    tags.push("spb");
+  }
+  if (tags.length === 0) tags.push("intercity");
+  else if (!tags.includes("intercity")) tags.push("intercity");
+  return tags;
+}
+
 export default async function CityPage({
   params,
 }: {
@@ -66,6 +92,8 @@ export default async function CityPage({
 
   const cityRoutes = allRoutes.filter((r) => r.fromSlug === city.slug);
   const cityAirports = allAirports.filter((a) => a.citySlug === city.slug);
+  const reviewTags = getCityTags(city.slug);
+  const cityContent = getCityContent(city.slug);
 
 
   const cityJsonLd = {
@@ -100,32 +128,50 @@ export default async function CityPage({
       />
       <Header />
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        {/* Back link */}
-        <Link
-          href="/cities"
-          className="mb-6 inline-flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeftIcon className="mr-1 h-4 w-4" />
-          Все города
-        </Link>
+        <Breadcrumbs items={[
+          { label: "Главная", href: "/" },
+          { label: "Города", href: "/cities" },
+          { label: city.name },
+        ]} />
 
         {/* H1 + description */}
         <div className="mb-10">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Минивэн с водителем в {city.nameIn}
           </h1>
-          <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
-            {city.description}. Комфортный минивэн на 7 мест с водителем —
-            фиксированная цена, детское кресло бесплатно, без
-            предоплаты.
-          </p>
-          <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
-            Мы выполняем межгородние перевозки из {city.name} по{" "}
-            {cityRoutes.length} направлениям. Стоимость поездки рассчитывается от
-            фиксированная цена на весь минивэн — при 7 пассажирах это дешевле, чем два
-            обычных такси. Напишите маршрут и дату в Telegram — назовём точную
-            цену за 5 минут.
-          </p>
+          {cityContent ? (
+            <>
+              {cityContent.paragraphs.map((p, i) => (
+                <p key={i} className="mt-4 max-w-3xl text-lg text-muted-foreground">
+                  {p}
+                </p>
+              ))}
+              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-3xl">
+                <div className="rounded-xl border border-border bg-card p-4">
+                  <div className="text-sm font-medium text-muted-foreground mb-1">Достопримечательности</div>
+                  <p className="text-sm">{cityContent.attractions}</p>
+                </div>
+                <div className="rounded-xl border border-border bg-card p-4">
+                  <div className="text-sm font-medium text-muted-foreground mb-1">Ближайшие аэропорты</div>
+                  <p className="text-sm">{cityContent.nearbyAirports}</p>
+                </div>
+              </div>
+              <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
+                {cityContent.whyMinivan}
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
+                {city.description}. Комфортный минивэн на 7 мест с водителем —
+                фиксированная цена, детское кресло бесплатно, без предоплаты.
+              </p>
+              <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
+                Мы выполняем межгородние перевозки из {city.name} по{" "}
+                {cityRoutes.length} направлениям. Напишите маршрут и дату в Telegram — назовём точную цену за 5 минут.
+              </p>
+            </>
+          )}
         </div>
 
         <div className="mb-10 overflow-hidden rounded-2xl">
@@ -248,6 +294,9 @@ export default async function CityPage({
             ))}
           </div>
         </div>
+
+        {/* Reviews */}
+        <ReviewsSection tags={reviewTags} />
 
         {/* CTA section */}
         <section className="rounded-2xl border border-emerald/20 bg-card p-6 shadow-sm sm:p-8">

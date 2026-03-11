@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -51,16 +52,10 @@ export default function YandexTaxiMinivanPage() {
       <main className="pt-16">
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="mb-8 text-sm text-muted-foreground">
-              <Link href="/" className="hover:text-foreground">
-                Главная
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="text-foreground">
-                Минивэн vs Яндекс Такси
-              </span>
-            </nav>
+            <Breadcrumbs items={[
+              { label: "Главная", href: "/" },
+              { label: "Минивэн vs Яндекс Такси" },
+            ]} />
 
             <Badge className="mb-4 bg-amber-500/10 text-amber-600 hover:bg-amber-500/10">
               <AlertTriangleIcon className="mr-1 h-3 w-3" />

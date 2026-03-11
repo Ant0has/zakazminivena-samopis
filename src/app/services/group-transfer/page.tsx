@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckIcon, UsersIcon, PhoneIcon } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
   title: "Групповой трансфер на минивэне 7 мест — ЗаказМинивена.ru",
@@ -35,14 +37,11 @@ export default function GroupTransferPage() {
       <main className="pt-16">
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="mb-8 text-sm text-muted-foreground">
-              <Link href="/" className="hover:text-foreground">
-                Главная
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="text-foreground">Групповой трансфер</span>
-            </nav>
+            <Breadcrumbs items={[
+              { label: "Главная", href: "/" },
+              { label: "Услуги", href: "/services/airport" },
+              { label: "Групповой трансфер" },
+            ]} />
 
             <Badge className="mb-4 bg-emerald/10 text-emerald hover:bg-emerald/10">
               <UsersIcon className="mr-1 h-3 w-3" />
@@ -100,6 +99,9 @@ export default function GroupTransferPage() {
                 ))}
               </div>
             </div>
+
+            {/* Reviews */}
+            <ReviewsSection tags={["group"]} />
 
             {/* CTA */}
             <div className="mt-12 rounded-2xl border border-emerald/20 bg-emerald/5 p-8 text-center sm:p-10">

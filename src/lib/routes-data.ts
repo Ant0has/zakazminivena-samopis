@@ -17,6 +17,17 @@ export function formatPrice(price: number): string {
   return price.toLocaleString("ru-RU");
 }
 
+export function calcReturnPrice(km: number): number {
+  const oneWay = calcPrice(km);
+  const returnTrip = Math.ceil((oneWay * 0.8) / 500) * 500;
+  return Math.max(4000, returnTrip);
+}
+
+export function calcRoundTripTotal(km: number): number {
+  return calcPrice(km) + calcReturnPrice(km);
+}
+
+
 export function pricePerPerson(km: number, people: number = 7): string {
   return Math.ceil(calcPrice(km) / people).toLocaleString("ru-RU");
 }

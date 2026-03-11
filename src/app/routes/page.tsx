@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import {
   allRoutes,
@@ -186,6 +187,10 @@ export default function RoutesListPage() {
         {/* Hero */}
         <section className="py-12 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <Breadcrumbs items={[
+              { label: "Главная", href: "/" },
+              { label: "Маршруты" },
+            ]} />
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Все маршруты минивэна по России
             </h1>

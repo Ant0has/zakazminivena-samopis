@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -17,6 +18,7 @@ import {
   LuggageIcon,
 } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
   title: "Автопарк минивэнов — ЗаказМинивена.ru",
@@ -114,14 +116,10 @@ const fleetJsonLd = {
       <main className="pt-16">
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="mb-8 text-sm text-muted-foreground">
-              <Link href="/" className="hover:text-foreground">
-                Главная
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="text-foreground">Автопарк</span>
-            </nav>
+            <Breadcrumbs items={[
+              { label: "Главная", href: "/" },
+              { label: "Автопарк" },
+            ]} />
 
             <Badge className="mb-4 bg-emerald/10 text-emerald hover:bg-emerald/10">
               Наши автомобили
@@ -192,6 +190,9 @@ const fleetJsonLd = {
                 </Card>
               ))}
             </div>
+
+            {/* Reviews */}
+            <ReviewsSection tags={["intercity", "resort"]} />
 
             {/* CTA */}
             <div className="mt-16 rounded-2xl border border-emerald/20 bg-emerald/5 p-8 text-center sm:p-10">

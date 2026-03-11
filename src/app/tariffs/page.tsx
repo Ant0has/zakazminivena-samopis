@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,9 +13,11 @@ import {
   CalculatorIcon,
   BanknoteIcon,
   CreditCardIcon,
+  PercentIcon,
   SmartphoneIcon,
 } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
   title: "Тарифы на минивэн с водителем | ЗаказМинивена.ru",
@@ -65,14 +68,10 @@ export default function TariffsPage() {
       <main className="pt-16">
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="mb-8 text-sm text-muted-foreground">
-              <Link href="/" className="hover:text-foreground">
-                Главная
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="text-foreground">Тарифы</span>
-            </nav>
+            <Breadcrumbs items={[
+              { label: "Главная", href: "/" },
+              { label: "Тарифы" },
+            ]} />
 
             <div className="mb-12 text-center sm:mb-16">
               <Badge className="mb-4 bg-emerald/10 text-emerald hover:bg-emerald/10">
@@ -173,7 +172,19 @@ export default function TariffsPage() {
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="mt-8 rounded-xl border-2 border-emerald/40 bg-gradient-to-r from-emerald/5 to-emerald/10 p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <PercentIcon className="h-5 w-5 text-emerald" />
+                  <h3 className="text-lg font-bold text-emerald">Скидка 20% на обратный путь</h3>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  При заказе поездки туда-обратно стоимость обратного пути рассчитывается со скидкой 20%.
+                  Например, если поездка в одну сторону стоит 10 000 руб., обратный путь обойдётся в 8 000 руб.
+                  Итого туда-обратно: 18 000 руб. вместо 20 000 руб. Скидка применяется автоматически.
+                </p>
+              </div>
+
+              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <div className="rounded-xl border border-emerald/20 bg-emerald/5 p-5 text-center">
                   <div className="text-2xl font-bold text-emerald">
                     Индивидуальный
@@ -233,6 +244,9 @@ export default function TariffsPage() {
                 </div>
               </div>
             </div>
+
+            {/* Reviews */}
+            <ReviewsSection tags={["intercity", "airport"]} />
 
             {/* CTA */}
             <div className="mt-12 rounded-2xl border border-emerald/20 bg-emerald/5 p-8 text-center sm:p-10">
