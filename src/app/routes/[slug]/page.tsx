@@ -15,6 +15,7 @@ import {
   pricePerPerson,
   RouteData,
 } from "@/lib/routes-data";
+import { getRouteImage } from "@/lib/route-images";
 import {
   ShieldCheckIcon,
   UsersIcon,
@@ -117,7 +118,6 @@ export default async function RoutePage({ params }: Props) {
   const price = calcPrice(route.km);
   const priceFormatted = formatPrice(price);
   const perPerson = pricePerPerson(route.km);
-  const pricePerKm = Math.round(price / route.km);
 
   // Taxi comparison: 2 taxis at ~70 rub/km each
   const taxiPrice = Math.ceil((route.km * 70 * 2) / 500) * 500;
@@ -172,7 +172,7 @@ export default async function RoutePage({ params }: Props) {
             </p>
 
             <div className="mt-8 overflow-hidden rounded-2xl">
-              <Image src="/images/cities/default.png" alt={`Маршрут на минивэне`} width={1024} height={576} className="w-full h-auto object-cover" />
+              <Image src={getRouteImage(route.fromSlug, route.toSlug)} alt={`Минивэн ${route.from} — ${route.to}`} width={1024} height={576} className="w-full h-auto object-cover" />
             </div>
           </div>
         </section>
@@ -205,7 +205,7 @@ export default async function RoutePage({ params }: Props) {
                 <div className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
                   Информация о маршруте
                 </div>
-                <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+                <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div className="flex items-start gap-3">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald/10 text-emerald">
                       <RulerIcon className="h-5 w-5" />
@@ -228,17 +228,7 @@ export default async function RoutePage({ params }: Props) {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald/10 text-emerald">
-                      <MapPinIcon className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold">{pricePerKm} руб</div>
-                      <div className="text-sm text-muted-foreground">
-                        Цена за км
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
               </Card>
             </div>

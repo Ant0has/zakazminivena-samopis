@@ -15,6 +15,7 @@ import {
   formatPrice,
   type CityData,
 } from "@/lib/routes-data";
+import { getRouteImage } from "@/lib/route-images";
 import {
   MapPinIcon,
   PlaneIcon,
@@ -38,14 +39,14 @@ export async function generateMetadata({
   if (!city) return {};
 
   return {
-    title: `Минивэн с водителем в ${city.nameIn} — заказать от 60 руб/км`,
-    description: `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена от 60 руб/км, 7 мест, детское кресло бесплатно. +7 (918) 587-54-54`,
+    title: `Минивэн с водителем в ${city.nameIn} — заказать по фиксированной цене`,
+    description: `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена, 7 мест, детское кресло бесплатно. +7 (918) 587-54-54`,
     alternates: {
       canonical: `https://zakazminivena.ru/cities/${slug}`,
     },
     openGraph: {
-      title: `Минивэн с водителем в ${city.nameIn} — заказать от 60 руб/км`,
-      description: `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена от 60 руб/км.`,
+      title: `Минивэн с водителем в ${city.nameIn} — заказать по фиксированной цене`,
+      description: `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена.`,
       url: `https://zakazminivena.ru/cities/${slug}`,
       siteName: "ЗаказМинивена.ru",
       locale: "ru_RU",
@@ -86,20 +87,20 @@ export default async function CityPage({
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
             {city.description}. Комфортный минивэн на 7 мест с водителем —
-            фиксированная цена от 60 руб/км, детское кресло бесплатно, без
+            фиксированная цена, детское кресло бесплатно, без
             предоплаты.
           </p>
           <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
             Мы выполняем межгородние перевозки из {city.name} по{" "}
             {cityRoutes.length} направлениям. Стоимость поездки рассчитывается от
-            60 руб/км на весь минивэн — при 7 пассажирах это дешевле, чем два
+            фиксированная цена на весь минивэн — при 7 пассажирах это дешевле, чем два
             обычных такси. Напишите маршрут и дату в Telegram — назовём точную
             цену за 5 минут.
           </p>
         </div>
 
         <div className="mb-10 overflow-hidden rounded-2xl">
-          <Image src="/images/cities/default.png" alt={`Минивэн с водителем в ${city.nameIn}`} width={1024} height={576} className="w-full h-auto object-cover" priority />
+          <Image src={getRouteImage(city.slug, city.slug)} alt={`Минивэн с водителем в ${city.nameIn}`} width={1024} height={576} className="w-full h-auto object-cover" priority />
         </div>
 
         {/* Routes section */}

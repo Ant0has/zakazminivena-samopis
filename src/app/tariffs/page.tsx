@@ -14,9 +14,9 @@ import {
 import { TelegramIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Тарифы на минивэн с водителем — от 60 руб/км | ЗаказМинивена.ru",
+  title: "Тарифы на минивэн с водителем | ЗаказМинивена.ru",
   description:
-    "Тарифы на минивэн с водителем: Стандарт и Комфорт+. Базовая ставка от 60 руб/км на 7 мест. Фиксированная цена, детское кресло бесплатно, без предоплаты.",
+    "Тарифы на минивэн с водителем: Стандарт и Комфорт+. Фиксированная цена на 7 мест. Индивидуальный расчёт, детское кресло бесплатно, без предоплаты.",
   alternates: {
     canonical: "https://zakazminivena.ru/tariffs",
   },
@@ -153,13 +153,8 @@ export default function TariffsPage() {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Базовая ставка —{" "}
-                  <span className="font-semibold text-foreground">
-                    от 60 руб/км
-                  </span>{" "}
-                  на весь минивэн (не на человека). Итоговая стоимость
-                  рассчитывается по расстоянию маршрута и округляется до 500
-                  рублей.
+                  Стоимость рассчитывается на весь минивэн (не на человека) и зависит от
+                  расстояния маршрута. Цена округляется до 500 рублей.
                 </p>
                 <p>
                   Цена фиксируется при заказе и не меняется. Нет наценок за
@@ -177,11 +172,11 @@ export default function TariffsPage() {
 
               <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <div className="rounded-xl border border-emerald/20 bg-emerald/5 p-5 text-center">
-                  <div className="text-3xl font-bold text-emerald">
-                    60 руб
+                  <div className="text-2xl font-bold text-emerald">
+                    Индивидуальный
                   </div>
                   <div className="mt-1 text-sm text-muted-foreground">
-                    за километр
+                    расчёт цены
                   </div>
                 </div>
                 <div className="rounded-xl border border-emerald/20 bg-emerald/5 p-5 text-center">

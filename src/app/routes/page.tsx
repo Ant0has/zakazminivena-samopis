@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title:
     "Все маршруты минивэна по России — цены и расстояния | ЗаказМинивена.ru",
   description:
-    "Маршруты минивэна с водителем по России: цены, расстояния, время в пути. Более 80 направлений из Москвы, Краснодара, Сочи, Казани, Екатеринбурга и других городов. От 60 руб/км.",
+    "Маршруты минивэна с водителем по России: цены, расстояния, время в пути. Более 80 направлений из Москвы, Краснодара, Сочи, Казани, Екатеринбурга и других городов. Фиксированная цена.",
   alternates: {
     canonical: "https://zakazminivena.ru/routes",
   },
@@ -180,7 +180,7 @@ export default function RoutesListPage() {
                 variant="secondary"
                 className="bg-emerald/10 text-emerald hover:bg-emerald/15"
               >
-                От 60 руб/км
+                Фиксированная цена
               </Badge>
               <Badge variant="secondary">Без предоплаты</Badge>
               <Badge variant="secondary">Детское кресло бесплатно</Badge>

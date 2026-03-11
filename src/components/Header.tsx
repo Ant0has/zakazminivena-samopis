@@ -17,6 +17,7 @@ const navLinks = [
   { href: "/routes", label: "Маршруты" },
   { href: "/cities", label: "Города" },
   { href: "/airports", label: "Аэропорты" },
+  { href: "/fleet", label: "Автопарк" },
   { href: "/tariffs", label: "Тарифы" },
   { href: "/about", label: "О нас" },
 ];

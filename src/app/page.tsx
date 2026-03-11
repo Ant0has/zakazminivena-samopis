@@ -19,7 +19,7 @@ const jsonLd = {
     "Заказ минивэна с водителем на 7 мест для межгородних поездок и трансфера в аэропорт по России",
   url: "https://zakazminivena.ru",
   telephone: "+79185875454",
-  priceRange: "от 60 руб/км",
+  priceRange: "Фиксированная цена",
   areaServed: {
     "@type": "Country",
     name: "Россия",
@@ -34,8 +34,8 @@ const jsonLd = {
   offers: {
     "@type": "Offer",
     priceCurrency: "RUB",
-    price: "60",
-    unitText: "руб/км",
+    price: "Индивидуальный расчёт",
+    
     description: "Минивэн с водителем, 7 мест, фиксированная цена",
   },
   aggregateRating: {
