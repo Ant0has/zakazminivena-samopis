@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { allRoutes, allCities, allAirports } from "@/lib/routes-data";
+import { blogPosts } from "@/lib/blog-data";
+import { seasonalPages } from "@/lib/seasonal-data";
 
 const BASE = "https://zakazminivena.ru";
 
@@ -19,7 +21,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/services/group-transfer`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/services/wedding`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/yandex-taxi-minivan`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${BASE}/seasonal`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
+
+  const seasonalPageEntries: MetadataRoute.Sitemap = seasonalPages.map((p) => ({
+    url: `${BASE}/seasonal/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
 
   const routePages: MetadataRoute.Sitemap = allRoutes.map((r) => ({
     url: `${BASE}/routes/${r.slug}`,
@@ -35,6 +46,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${BASE}/blog/${post.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   const airportPages: MetadataRoute.Sitemap = allAirports.map((a) => ({
     url: `${BASE}/airports/${a.slug}`,
     lastModified: now,
@@ -42,5 +60,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...routePages, ...cityPages, ...airportPages];
+  return [...staticPages, ...seasonalPageEntries, ...routePages, ...cityPages, ...airportPages, ...blogPages];
 }

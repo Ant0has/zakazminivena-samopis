@@ -20,6 +20,7 @@ const navLinks = [
   { href: "/fleet", label: "Автопарк" },
   { href: "/tariffs", label: "Тарифы" },
   { href: "/about", label: "О нас" },
+  { href: "/blog", label: "Блог" },
 ];
 
 export function Header() {

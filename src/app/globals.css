@@ -103,3 +103,37 @@
     background-clip: text;
   }
 }
+
+@layer utilities {
+  .prose-custom {
+    @apply text-foreground leading-relaxed;
+  }
+  .prose-custom h2 {
+    @apply mt-10 mb-4 text-2xl font-bold tracking-tight;
+  }
+  .prose-custom h3 {
+    @apply mt-8 mb-3 text-xl font-semibold;
+  }
+  .prose-custom p {
+    @apply mb-4 text-muted-foreground leading-relaxed;
+  }
+  .prose-custom ul,
+  .prose-custom ol {
+    @apply mb-4 ml-6 space-y-2 text-muted-foreground;
+  }
+  .prose-custom ul {
+    @apply list-disc;
+  }
+  .prose-custom ol {
+    @apply list-decimal;
+  }
+  .prose-custom li {
+    @apply leading-relaxed;
+  }
+  .prose-custom a {
+    @apply text-emerald underline underline-offset-2 hover:text-emerald/80 transition-colors;
+  }
+  .prose-custom strong {
+    @apply font-semibold text-foreground;
+  }
+}
