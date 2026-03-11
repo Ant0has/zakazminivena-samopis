@@ -67,6 +67,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: page.title,
     description: page.description,
+    openGraph: {
+      title: page.title,
+      description: page.description,
+      url: `https://zakazminivena.ru/seasonal/${slug}`,
+      siteName: "ЗаказМинивена.ru",
+      locale: "ru_RU",
+      type: "article",
+    },
     alternates: {
       canonical: `https://zakazminivena.ru/seasonal/${page.slug}`,
     },

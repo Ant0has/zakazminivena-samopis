@@ -27,6 +27,14 @@ export async function generateMetadata({
   return {
     title: page.title,
     description: page.description,
+    openGraph: {
+      title: page.title,
+      description: page.description,
+      url: `https://zakazminivena.ru/compare/${slug}`,
+      siteName: "ЗаказМинивена.ru",
+      locale: "ru_RU",
+      type: "article",
+    },
     alternates: {
       canonical: `https://zakazminivena.ru/compare/${page.slug}`,
     },

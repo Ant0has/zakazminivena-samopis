@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   title: "Сравнение: минивэн vs другие виды транспорта | ЗаказМинивена.ru",
   description:
     "Честное сравнение минивэна с поездом, автобусом и BlaBlaCar. Что выбрать для семьи, группы или поездки с детьми? Комфорт, безопасность, стоимость — все параметры.",
+  openGraph: {
+    title: "Сравнение: минивэн vs другие виды транспорта | ЗаказМинивена.ru",
+    description: "Честное сравнение минивэна с поездом, автобусом и BlaBlaCar. Что выбрать для семьи, группы или поездки с детьми? Комфорт, безопасность, стоимость — все параметры.",
+    url: "https://zakazminivena.ru/compare",
+    siteName: "ЗаказМинивена.ru",
+    locale: "ru_RU",
+    type: "website",
+  },
   alternates: {
     canonical: "https://zakazminivena.ru/compare",
   },

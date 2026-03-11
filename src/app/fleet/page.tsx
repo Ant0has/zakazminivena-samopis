@@ -24,6 +24,14 @@ export const metadata: Metadata = {
   title: "Автопарк минивэнов — ЗаказМинивена.ru",
   description:
     "Наш автопарк: Toyota Alphard, Hyundai Staria, Volkswagen Caravelle. Комфортные минивэны на 7 мест с кондиционером, USB-зарядками и вместительным багажником.",
+  openGraph: {
+    title: "Автопарк минивэнов — ЗаказМинивена.ru",
+    description: "Наш автопарк: Toyota Alphard, Hyundai Staria, Volkswagen Caravelle. Комфортные минивэны на 7 мест с кондиционером, USB-зарядками и вместительным багажником.",
+    url: "https://zakazminivena.ru/fleet",
+    siteName: "ЗаказМинивена.ru",
+    locale: "ru_RU",
+    type: "website",
+  },
   alternates: {
     canonical: "https://zakazminivena.ru/fleet",
   },

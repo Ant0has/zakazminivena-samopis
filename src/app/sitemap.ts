@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { allRoutes, allCities, allAirports } from "@/lib/routes-data";
 import { blogPosts } from "@/lib/blog-data";
 import { seasonalPages } from "@/lib/seasonal-data";
+import { comparisons } from "@/lib/comparison-data";
 
 const BASE = "https://zakazminivena.ru";
 
@@ -21,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/services/group-transfer`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/services/wedding`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/yandex-taxi-minivan`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/compare`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/seasonal`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
@@ -60,5 +62,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...seasonalPageEntries, ...routePages, ...cityPages, ...airportPages, ...blogPages];
+  const comparePages: MetadataRoute.Sitemap = comparisons.map((c) => ({
+    url: `${BASE}/compare/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...seasonalPageEntries, ...routePages, ...cityPages, ...airportPages, ...blogPages, ...comparePages];
 }

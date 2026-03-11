@@ -39,6 +39,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Трансфер минивэн — аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
     description: getAirportContent(slug)?.metaDescription || `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. +7 (918) 587-54-54`,
+    openGraph: {
+      title: `Трансфер минивэн — аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
+      description: getAirportContent(slug)?.metaDescription || `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. +7 (918) 587-54-54`,
+      url: `https://zakazminivena.ru/airports/${slug}`,
+      siteName: "ЗаказМинивена.ru",
+      locale: "ru_RU",
+      type: "article",
+    },
     alternates: {
       canonical: `https://zakazminivena.ru/airports/${slug}`,
     },
