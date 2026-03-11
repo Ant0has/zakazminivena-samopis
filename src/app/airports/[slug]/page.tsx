@@ -63,8 +63,37 @@ export default async function AirportPage({ params }: Props) {
     "Кондиционер, USB-зарядка, Wi-Fi",
   ];
 
+
+  const airportJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": `Трансфер в аэропорт ${airport.name} — ЗаказМинивена.ru`,
+    "url": `https://zakazminivena.ru/airports/${slug}`,
+    "telephone": "+79185875454",
+    "description": `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
+    "areaServed": {
+      "@type": "City",
+      "name": airport.city,
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "ЗаказМинивена.ru",
+      "url": "https://zakazminivena.ru",
+    },
+    "serviceType": "Airport Transfer",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://t.me/zakazminivena",
+      "servicePhone": "+79185875454",
+    },
+  };
+
   return (
     <div className="relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(airportJsonLd) }}
+      />
       <Header />
       <main className="pt-16">
         <section className="py-16 sm:py-24">

@@ -88,8 +88,28 @@ const commonFeatures = [
 ];
 
 export default function FleetPage() {
+
+const fleetJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Автопарк минивэнов ЗаказМинивена.ru",
+  "itemListElement": vehicles.map((v, i) => ({
+    "@type": "Vehicle",
+    "position": i + 1,
+    "name": v.name,
+    "vehicleConfiguration": v.category,
+    "seatingCapacity": v.seats,
+    "description": v.description,
+    "brand": { "@type": "Brand", "name": v.name.split(" ")[0] },
+  })),
+};
+
   return (
     <div className="relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(fleetJsonLd) }}
+      />
       <Header />
       <main className="pt-16">
         <section className="py-16 sm:py-24">

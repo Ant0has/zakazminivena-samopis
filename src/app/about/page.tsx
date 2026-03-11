@@ -60,8 +60,37 @@ export default function AboutPage() {
     "Опытные водители со стажем от 5 лет",
   ];
 
+
+  const aboutJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TransportationService",
+    "name": "ЗаказМинивена.ru",
+    "url": "https://zakazminivena.ru",
+    "telephone": "+79185875454",
+    "description": "Сервис заказа минивэнов с водителем на 7 мест для межгородних поездок и трансфера в аэропорт по России",
+    "areaServed": { "@type": "Country", "name": "Russia" },
+    "serviceType": "Minivan Transfer",
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "2000" },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+79185875454",
+      "contactType": "customer service",
+      "availableLanguage": "Russian",
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "22:00"
+      }
+    }
+  };
+
   return (
     <div className="relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
+      />
       <Header />
       <main className="pt-16">
         <section className="py-16 sm:py-24">

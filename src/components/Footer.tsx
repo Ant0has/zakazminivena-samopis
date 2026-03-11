@@ -159,6 +159,12 @@ export function Footer() {
             </Link>
           </div>
         </div>
+
+        <div className="mt-4 text-center">
+          <p className="text-xs text-muted-foreground/60">
+            ИП Фурсенко А.Д. | ИНН: уточняется
+          </p>
+        </div>
       </div>
     </footer>
   );

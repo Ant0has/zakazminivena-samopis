@@ -10,6 +10,9 @@ import {
   StarIcon,
   PhoneIcon,
   CalculatorIcon,
+  BanknoteIcon,
+  CreditCardIcon,
+  SmartphoneIcon,
 } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
 
@@ -190,6 +193,43 @@ export default function TariffsPage() {
                   <div className="mt-1 text-sm text-muted-foreground">
                     за детское кресло
                   </div>
+                </div>
+              </div>
+            </div>
+
+
+            {/* Payment methods */}
+            <div className="mt-16">
+              <h2 className="mb-6 text-center text-2xl font-bold">
+                Способы оплаты
+              </h2>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div className="rounded-2xl border border-border bg-card p-6 text-center">
+                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald/10">
+                    <BanknoteIcon className="h-6 w-6 text-emerald" />
+                  </div>
+                  <h3 className="mb-2 font-semibold">Наличные водителю</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Оплата наличными водителю по завершении поездки
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-border bg-card p-6 text-center">
+                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald/10">
+                    <CreditCardIcon className="h-6 w-6 text-emerald" />
+                  </div>
+                  <h3 className="mb-2 font-semibold">Перевод на карту</h3>
+                  <p className="text-sm text-muted-foreground">
+                    СберБанк, Тинькофф — переводом перед или после поездки
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-border bg-card p-6 text-center">
+                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald/10">
+                    <SmartphoneIcon className="h-6 w-6 text-emerald" />
+                  </div>
+                  <h3 className="mb-2 font-semibold">СБП</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Система быстрых платежей — мгновенный перевод по номеру телефона
+                  </p>
                 </div>
               </div>
             </div>

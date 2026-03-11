@@ -67,8 +67,37 @@ export default async function CityPage({
   const cityRoutes = allRoutes.filter((r) => r.fromSlug === city.slug);
   const cityAirports = allAirports.filter((a) => a.citySlug === city.slug);
 
+
+  const cityJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": `Минивэн с водителем в ${city.nameIn} — ЗаказМинивена.ru`,
+    "url": `https://zakazminivena.ru/cities/${slug}`,
+    "telephone": "+79185875454",
+    "description": `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}`,
+    "areaServed": {
+      "@type": "City",
+      "name": city.name,
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "ЗаказМинивена.ru",
+      "url": "https://zakazminivena.ru",
+    },
+    "serviceType": "Minivan Transfer",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://t.me/zakazminivena",
+      "servicePhone": "+79185875454",
+    },
+  };
+
   return (
     <div className="relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cityJsonLd) }}
+      />
       <Header />
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         {/* Back link */}

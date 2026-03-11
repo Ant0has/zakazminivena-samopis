@@ -160,8 +160,26 @@ export default function RoutesListPage() {
   const routeGroups = groupRoutes();
   const totalRoutes = allRoutes.length;
 
+
+  const routesJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Все маршруты минивэна по России",
+    "numberOfItems": totalRoutes,
+    "itemListElement": allRoutes.map((route, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": `${route.from} — ${route.to}`,
+      "url": `https://zakazminivena.ru/routes/${route.slug}`,
+    })),
+  };
+
   return (
     <div className="relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(routesJsonLd) }}
+      />
       <Header />
 
       <main className="pt-16">

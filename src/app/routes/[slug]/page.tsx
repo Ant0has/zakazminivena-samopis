@@ -30,6 +30,7 @@ import {
   ArrowLeftIcon,
   CheckIcon,
   XIcon,
+  HelpCircleIcon,
 } from "lucide-react";
 
 export function generateStaticParams() {
@@ -146,6 +147,47 @@ export default async function RoutePage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": `Сколько стоит минивэн ${route.from} — ${route.to}?`,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": `Стоимость поездки на минивэне ${route.from} — ${route.to} составляет ${priceFormatted} рублей за весь автомобиль на 7 мест. Цена фиксированная и не меняется. При полной загрузке это ${perPerson} рублей на человека.`
+              }
+            },
+            {
+              "@type": "Question",
+              "name": `Сколько ехать на минивэне ${route.from} — ${route.to}?`,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": `Расстояние ${route.from} — ${route.to} составляет ${route.km} км. Время в пути на минивэне — около ${route.hours}.`
+              }
+            },
+            {
+              "@type": "Question",
+              "name": `Можно ли заказать детское кресло на маршрут ${route.from} — ${route.to}?`,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Да, детское автокресло предоставляется бесплатно по запросу. Укажите возраст ребёнка при заказе — мы подберём подходящее кресло."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": `Как заказать минивэн ${route.from} — ${route.to}?`,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Напишите нам в Telegram (@zakazminivena) или позвоните по номеру +7 (918) 587-54-54. Укажите маршрут, дату и количество пассажиров — мы подтвердим заказ за 5 минут. Предоплата не требуется."
+              }
+            }
+          ]
+        }) }}
       />
       <Header />
 
@@ -361,6 +403,43 @@ export default async function RoutePage({ params }: Props) {
           </div>
         </section>
 
+
+        {/* FAQ */}
+        <section className="py-12 sm:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="mb-10 text-2xl font-bold tracking-tight sm:text-3xl">
+              <HelpCircleIcon className="mr-2 inline h-7 w-7 text-emerald" />
+              Часто задаваемые вопросы
+            </h2>
+            <div className="mx-auto max-w-3xl space-y-4">
+              <div className="rounded-xl border border-border bg-card p-6">
+                <h3 className="font-semibold">Сколько стоит минивэн {route.from} — {route.to}?</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  Стоимость поездки на минивэне {route.from} — {route.to} составляет {priceFormatted} рублей за весь автомобиль на 7 мест. Цена фиксированная и не меняется. При полной загрузке это {perPerson} рублей на человека.
+                </p>
+              </div>
+              <div className="rounded-xl border border-border bg-card p-6">
+                <h3 className="font-semibold">Сколько ехать на минивэне {route.from} — {route.to}?</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  Расстояние {route.from} — {route.to} составляет {route.km} км. Время в пути на минивэне — около {route.hours}. Водитель выбирает оптимальный маршрут с учётом дорожной обстановки.
+                </p>
+              </div>
+              <div className="rounded-xl border border-border bg-card p-6">
+                <h3 className="font-semibold">Можно ли заказать детское кресло на маршрут {route.from} — {route.to}?</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  Да, детское автокресло предоставляется бесплатно по запросу. Укажите возраст ребёнка при заказе — мы подберём подходящее кресло (группа 0+, 1 или 2-3).
+                </p>
+              </div>
+              <div className="rounded-xl border border-border bg-card p-6">
+                <h3 className="font-semibold">Как заказать минивэн {route.from} — {route.to}?</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  Напишите нам в Telegram (@zakazminivena) или позвоните по номеру +7 (918) 587-54-54. Укажите маршрут, дату и количество пассажиров — мы подтвердим заказ за 5 минут. Предоплата не требуется, оплата по факту поездки.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -382,9 +461,9 @@ export default async function RoutePage({ params }: Props) {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href={`https://t.me/zakazminivena?text=${encodeURIComponent(`Заявка: ${route.from} → ${route.to}, ${priceFormatted} руб.`)}`}>
                     <TelegramIcon className="mr-2 h-5 w-5" />
-                    Написать в Telegram
+                    Заказать в Telegram
                   </a>
                 </Button>
                 <Button

@@ -10,7 +10,7 @@ export interface RouteData {
 
 // Цена = Math.ceil((km * 60) / 500) * 500
 export function calcPrice(km: number): number {
-  return Math.ceil((km * 60) / 500) * 500;
+  return Math.max(4000, Math.ceil((km * 60) / 500) * 500);
 }
 
 export function formatPrice(price: number): string {
