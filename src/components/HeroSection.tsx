@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -85,6 +86,10 @@ export function HeroSection() {
                 +7 (918) 587-54-54
               </a>
             </p>
+          </div>
+          {/* Hero image */}
+          <div className="mt-12 w-full max-w-4xl overflow-hidden rounded-2xl">
+            <Image src="/images/services/hero.png" alt="Минивэн с водителем для семейных поездок" width={1024} height={576} className="w-full h-auto object-cover" priority />
           </div>
         </div>
       </div>

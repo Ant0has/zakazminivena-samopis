@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -170,11 +171,8 @@ export default async function RoutePage({ params }: Props) {
               Комфортный трансфер на минивэне 7 мест с водителем
             </p>
 
-            {/* TODO: Replace with real photo: <Image src="/images/routes/{slug}.jpg" /> */}
-            <div className="mt-8 flex items-center justify-center rounded-2xl border-2 border-dashed border-border bg-muted aspect-[4/3] sm:aspect-[16/9]">
-              <span className="text-sm text-muted-foreground px-4 text-center">
-                Фото минивэна на маршруте {route.from} — {route.to}
-              </span>
+            <div className="mt-8 overflow-hidden rounded-2xl">
+              <Image src="/images/cities/default.png" alt={`Маршрут на минивэне`} width={1024} height={576} className="w-full h-auto object-cover" />
             </div>
           </div>
         </section>

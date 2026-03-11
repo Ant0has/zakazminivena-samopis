@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -51,9 +52,8 @@ export default function WeddingServicePage() {
               Минивэн на свадьбу — трансфер гостей
             </h1>
 
-            {/* TODO: Replace with <Image src="/images/services/wedding.jpg" /> */}
-            <div className="mt-8 flex aspect-[16/9] items-center justify-center rounded-2xl border-2 border-dashed border-muted-foreground/20 bg-muted sm:aspect-[21/9]">
-              <span className="text-sm text-muted-foreground/40">Фото: минивэн на свадебном трансфере</span>
+            <div className="mt-8 overflow-hidden rounded-2xl">
+              <Image src="/images/services/wedding.png" alt="Минивэн на свадьбу" width={1024} height={576} className="w-full h-auto object-cover" priority />
             </div>
 
             {/* Content */}

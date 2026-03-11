@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -90,12 +91,8 @@ export default async function AirportPage({ params }: Props) {
               Трансфер минивэн — аэропорт {airport.name}
             </h1>
 
-            {/* Image placeholder */}
-            {/* TODO: Replace with <Image src="/images/airports/{slug}.jpg" /> */}
-            <div className="mt-8 overflow-hidden rounded-2xl border-2 border-dashed border-muted-foreground/20 bg-muted aspect-[16/9] sm:aspect-[21/9] flex items-center justify-center">
-              <span className="text-muted-foreground/40 text-lg">
-                Трансфер в аэропорт {airport.name}
-              </span>
+            <div className="mt-8 overflow-hidden rounded-2xl">
+              <Image src="/images/airports/default.png" alt={`Трансфер в аэропорт ${airport.name} на минивэне`} width={1024} height={576} className="w-full h-auto object-cover" priority />
             </div>
 
             {/* Info cards */}
