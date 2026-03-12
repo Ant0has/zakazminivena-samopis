@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { Badge } from "@/components/ui/badge";
 import { CheckIcon, HeartIcon, PhoneIcon } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
@@ -108,6 +109,8 @@ export default function WeddingServicePage() {
                 ))}
               </div>
             </div>
+
+            <B2bCtaBlock />
 
             {/* Reviews */}
             <ReviewsSection tags={["wedding"]} />

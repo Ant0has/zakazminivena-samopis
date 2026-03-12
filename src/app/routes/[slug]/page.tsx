@@ -1,3 +1,4 @@
+import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -471,6 +472,8 @@ export default async function RoutePage({ params }: Props) {
           </div>
         </section>
 
+
+        <B2bCtaBlock routeName={`${route.from} — ${route.to}`} />
 
         {/* Reviews */}
         <ReviewsSection tags={reviewTags} />

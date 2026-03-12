@@ -3,6 +3,8 @@ import { allRoutes, allCities, allAirports } from "@/lib/routes-data";
 import { blogPosts } from "@/lib/blog-data";
 import { seasonalPages } from "@/lib/seasonal-data";
 import { comparisons } from "@/lib/comparison-data";
+import { b2bPillars } from "@/lib/b2b-data";
+import { b2bCases } from "@/lib/b2b-cases-data";
 
 const BASE = "https://zakazminivena.ru";
 
@@ -16,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/airports`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/tariffs`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/b2b`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/b2b/cases`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/fleet`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/services/airport`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
@@ -70,5 +73,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...seasonalPageEntries, ...routePages, ...cityPages, ...airportPages, ...blogPages, ...comparePages];
+  const b2bPillarPages: MetadataRoute.Sitemap = b2bPillars.map((p) => ({
+    url: `${BASE}/b2b/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const b2bCasePages: MetadataRoute.Sitemap = b2bCases.map((c) => ({
+    url: `${BASE}/b2b/cases/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticPages,
+    ...seasonalPageEntries,
+    ...routePages,
+    ...cityPages,
+    ...airportPages,
+    ...blogPages,
+    ...comparePages,
+    ...b2bPillarPages,
+    ...b2bCasePages,
+  ];
 }

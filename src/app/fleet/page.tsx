@@ -1,3 +1,4 @@
+import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -198,6 +199,8 @@ const fleetJsonLd = {
                 </Card>
               ))}
             </div>
+
+            <B2bCtaBlock />
 
             {/* Reviews */}
             <ReviewsSection tags={["intercity", "resort"]} />

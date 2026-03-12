@@ -1,3 +1,4 @@
+import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -309,6 +310,8 @@ export default async function AirportPage({ params }: Props) {
                 </div>
               </div>
             )}
+
+            <B2bCtaBlock airportName={airport.name} />
 
             {/* Reviews */}
             <ReviewsSection tags={reviewTags} />

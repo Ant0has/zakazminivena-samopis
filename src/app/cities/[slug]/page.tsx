@@ -1,3 +1,4 @@
+import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -294,6 +295,8 @@ export default async function CityPage({
             ))}
           </div>
         </div>
+
+        <B2bCtaBlock cityName={city.name} />
 
         {/* Reviews */}
         <ReviewsSection tags={reviewTags} />
