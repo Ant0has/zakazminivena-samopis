@@ -149,7 +149,7 @@ export default async function AirportPage({ params }: Props) {
             </h1>
 
             <div className="mt-8 overflow-hidden rounded-2xl">
-              <Image src="/images/airports/default.png" alt={`Трансфер в аэропорт ${airport.name} на минивэне`} width={1024} height={576} className="w-full h-auto object-cover" priority />
+              <Image src="/images/airports/default.webp" alt={`Трансфер в аэропорт ${airport.name} на минивэне`} width={1024} height={576} className="w-full h-auto object-cover" priority />
             </div>
 
             {/* Info cards */}

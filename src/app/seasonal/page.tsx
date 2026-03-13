@@ -28,6 +28,21 @@ export default function SeasonalIndexPage() {
     <div className="relative min-h-screen">
       <Header />
       <main className="pt-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Сезонные предложения",
+            "description": "Сезонные предложения на заказ минивэна: новогодние трансферы, свадебный сезон, летний отпуск к морю.",
+            "url": "https://zakazminivena.ru/seasonal",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "ЗаказМинивена.ru",
+              "url": "https://zakazminivena.ru"
+            }
+          }) }}
+        />
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <Breadcrumbs

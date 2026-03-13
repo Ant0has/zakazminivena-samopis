@@ -44,6 +44,22 @@ export default function AirportServicePage() {
     <div className="relative min-h-screen">
       <Header />
       <main className="pt-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Трансфер в аэропорт на минивэне 7 мест",
+            "description": "Трансфер в аэропорт на минивэне с водителем для семьи или группы до 7 человек. Встреча с табличкой, отслеживание рейса, детское кресло бесплатно.",
+            "provider": {
+              "@type": "Organization",
+              "name": "ЗаказМинивена.ru",
+              "url": "https://zakazminivena.ru"
+            },
+            "areaServed": "Россия",
+            "serviceType": "Транспортные услуги"
+          }) }}
+        />
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={[
@@ -61,7 +77,7 @@ export default function AirportServicePage() {
             </h1>
 
             <div className="mt-8 overflow-hidden rounded-2xl">
-              <Image src="/images/services/airport.png" alt="Встреча с табличкой в аэропорту" width={1024} height={576} className="w-full h-auto object-cover" priority />
+              <Image src="/images/services/airport.webp" alt="Встреча с табличкой в аэропорту" width={1024} height={576} className="w-full h-auto object-cover" priority />
             </div>
 
             {/* Content */}

@@ -32,6 +32,21 @@ export default function CitiesPage() {
     <div className="relative min-h-screen">
       <Header />
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Минивэн с водителем — города России",
+            "description": "Заказать минивэн с водителем в городах России. Межгородние поездки и трансферы в аэропорт на комфортном минивэне 7 мест.",
+            "url": "https://zakazminivena.ru/cities",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "ЗаказМинивена.ru",
+              "url": "https://zakazminivena.ru"
+            }
+          }) }}
+        />
         <Breadcrumbs items={[
           { label: "Главная", href: "/" },
           { label: "Города" },

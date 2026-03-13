@@ -118,7 +118,7 @@ export default function AboutPage() {
             </h1>
 
             <div className="mt-8 overflow-hidden rounded-2xl">
-              <Image src="/images/services/about.png" alt="Минивэн ЗаказМинивена.ru с водителем" width={1024} height={576} className="w-full h-auto object-cover" priority />
+              <Image src="/images/services/about.webp" alt="Минивэн ЗаказМинивена.ru с водителем" width={1024} height={576} className="w-full h-auto object-cover" priority />
             </div>
 
             {/* Description */}

@@ -13,6 +13,15 @@ export const metadata: Metadata = {
   title: "Блог о минивэнах и трансферах | ЗаказМинивена.ru",
   description:
     "Полезные статьи о путешествиях на минивэне, советы по организации трансфера, сравнение видов транспорта, обзоры маршрутов по России.",
+  openGraph: {
+    title: "Блог о минивэнах и трансферах",
+    description:
+      "Полезные статьи о путешествиях на минивэне, советы по организации трансфера, сравнение видов транспорта, обзоры маршрутов по России.",
+    url: "https://zakazminivena.ru/blog",
+    siteName: "ЗаказМинивена.ru",
+    locale: "ru_RU",
+    type: "website",
+  },
   alternates: {
     canonical: "https://zakazminivena.ru/blog",
   },

@@ -211,7 +211,7 @@ export default function B2BPage() {
 
                 <div className="overflow-hidden rounded-2xl">
                   <Image
-                    src="/images/services/group-transfer.png"
+                    src="/images/services/group-transfer.webp"
                     alt="Корпоративный трансфер на минивэне"
                     width={1024}
                     height={576}

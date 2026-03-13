@@ -74,6 +74,36 @@ export default function TariffsPage() {
     <div className="relative min-h-screen">
       <Header />
       <main className="pt-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Тарифы на минивэн с водителем",
+            "description": "Тарифы на минивэн с водителем: Стандарт и Комфорт+. Фиксированная цена на 7 мест. Индивидуальный расчёт, детское кресло бесплатно, без предоплаты.",
+            "provider": {
+              "@type": "Organization",
+              "name": "ЗаказМинивена.ru",
+              "url": "https://zakazminivena.ru"
+            },
+            "areaServed": "Россия",
+            "serviceType": "Транспортные услуги",
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Минивэн Стандарт",
+                "description": "Комфортный минивэн для семьи или группы, 7 мест",
+                "priceCurrency": "RUB"
+              },
+              {
+                "@type": "Offer",
+                "name": "Минивэн Комфорт+",
+                "description": "Премиум минивэн для особых поездок, 7 мест VIP",
+                "priceCurrency": "RUB"
+              }
+            ]
+          }) }}
+        />
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={[

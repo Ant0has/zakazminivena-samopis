@@ -58,6 +58,22 @@ export default function YandexTaxiMinivanPage() {
     <div className="relative min-h-screen">
       <Header />
       <main className="pt-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Минивэн с водителем — альтернатива Яндекс Такси",
+            "description": "Минивэн 7 мест напрямую с фиксированной ценой. Альтернатива Яндекс Такси для межгородних поездок.",
+            "provider": {
+              "@type": "Organization",
+              "name": "ЗаказМинивена.ru",
+              "url": "https://zakazminivena.ru"
+            },
+            "areaServed": "Россия",
+            "serviceType": "Транспортные услуги"
+          }) }}
+        />
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={[

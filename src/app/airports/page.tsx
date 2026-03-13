@@ -31,6 +31,21 @@ export default function AirportsPage() {
     <div className="relative min-h-screen">
       <Header />
       <main className="pt-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Трансфер минивэн в аэропорт",
+            "description": "Трансфер на минивэне 7 мест в аэропорты России: Шереметьево, Домодедово, Внуково, Пулково, Кольцово и другие.",
+            "url": "https://zakazminivena.ru/airports",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "ЗаказМинивена.ru",
+              "url": "https://zakazminivena.ru"
+            }
+          }) }}
+        />
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={[

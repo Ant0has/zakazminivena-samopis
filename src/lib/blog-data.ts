@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [
     title: "Путешествие на минивэне с детьми: 10 советов",
     description: "Как организовать комфортную поездку на минивэне с детьми. 10 проверенных советов от опытных родителей: детские кресла, остановки, развлечения в дороге.",
     date: "2025-12-15",
-    image: "/images/services/children.png",
+    image: "/images/services/children.webp",
     category: "Советы",
     tags: ["children", "intercity"],
     content: `<h2>Почему минивэн — лучший выбор для поездки с детьми</h2>
@@ -59,7 +59,7 @@ export const blogPosts: BlogPost[] = [
     title: "Почему минивэн, а не обычное такси: 7 причин",
     description: "7 причин выбрать минивэн вместо обычного такси для поездки с семьёй или группой. Простор, комфорт, багаж, детские кресла и экономия на группу.",
     date: "2025-11-28",
-    image: "/images/routes/highway.png",
+    image: "/images/routes/highway.webp",
     category: "Советы",
     tags: ["intercity", "group"],
     content: `<h2>Минивэн vs обычное такси: 7 причин пересесть</h2>
@@ -94,7 +94,7 @@ export const blogPosts: BlogPost[] = [
     title: "Трансфер из аэропорта на минивэне: полный гид",
     description: "Полное руководство по трансферу из аэропорта на минивэне. Как заказать, сколько стоит, табличка с именем, помощь с багажом — всё о встрече в аэропорту.",
     date: "2025-11-10",
-    image: "/images/services/airport.png",
+    image: "/images/services/airport.webp",
     category: "Гид",
     tags: ["airport"],
     content: `<h2>Зачем заказывать минивэн в аэропорт</h2>
@@ -139,7 +139,7 @@ export const blogPosts: BlogPost[] = [
     title: "Свадебный минивэн: как организовать трансфер гостей",
     description: "Организация трансфера гостей на свадьбу минивэном. Советы по логистике, украшение автомобиля, маршруты ЗАГС-ресторан, экономия бюджета.",
     date: "2025-10-20",
-    image: "/images/services/wedding.png",
+    image: "/images/services/wedding.webp",
     category: "Советы",
     tags: ["wedding"],
     content: `<h2>Свадебный трансфер: почему минивэн — идеальный выбор</h2>
@@ -182,7 +182,7 @@ export const blogPosts: BlogPost[] = [
     title: "Групповые поездки на минивэне: экономия до 70%",
     description: "Как сэкономить на групповых поездках до 70%. Расчёт стоимости на человека, сравнение с такси и поездом, выгода минивэна для компании 5-7 человек.",
     date: "2025-10-05",
-    image: "/images/services/group-transfer.png",
+    image: "/images/services/group-transfer.webp",
     category: "Экономия",
     tags: ["group"],
     content: `<h2>Экономика групповых поездок</h2>
@@ -229,7 +229,7 @@ export const blogPosts: BlogPost[] = [
     title: "Крым на минивэне: лучшие маршруты из Симферополя",
     description: "Лучшие маршруты по Крыму на минивэне из Симферополя. Ялта, Севастополь, Алушта, Судак — трансфер из аэропорта и экскурсионные поездки.",
     date: "2025-09-18",
-    image: "/images/routes/resort.png",
+    image: "/images/routes/resort.webp",
     category: "Маршруты",
     tags: ["resort", "south"],
     content: `<h2>Крым: идеальное направление для минивэна</h2>
@@ -269,7 +269,7 @@ export const blogPosts: BlogPost[] = [
     title: "Сочи и Красная Поляна: зимний трансфер на минивэне",
     description: "Трансфер из аэропорта Адлер в Красную Поляну на минивэне. Горнолыжный сезон, безопасность на горных дорогах, перевозка лыж и сноубордов.",
     date: "2025-09-01",
-    image: "/images/routes/mountains.png",
+    image: "/images/routes/mountains.webp",
     category: "Маршруты",
     tags: ["resort", "south"],
     content: `<h2>Зимний Сочи: от аэропорта до горнолыжного курорта</h2>
@@ -312,7 +312,7 @@ export const blogPosts: BlogPost[] = [
     title: "Как выбрать трансфер межгород: 5 критериев",
     description: "5 главных критериев выбора межгороднего трансфера. На что обратить внимание: цена, безопасность, автопарк, отзывы, условия отмены.",
     date: "2025-08-15",
-    image: "/images/services/hero.png",
+    image: "/images/services/hero.webp",
     category: "Гид",
     tags: ["intercity"],
     content: `<h2>Как не ошибиться с выбором трансфера</h2>

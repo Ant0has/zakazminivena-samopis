@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 const vehicles = [
   {
     name: "Toyota Alphard",
-    image: "/images/fleet/alphard.png",
+    image: "/images/fleet/alphard.webp",
     seats: 7,
     category: "Премиум",
     description:
@@ -57,7 +57,7 @@ const vehicles = [
   },
   {
     name: "Hyundai Staria",
-    image: "/images/fleet/staria.png",
+    image: "/images/fleet/staria.webp",
     seats: 7,
     category: "Комфорт",
     description:
@@ -73,7 +73,7 @@ const vehicles = [
   },
   {
     name: "Volkswagen Caravelle",
-    image: "/images/fleet/caravelle.png",
+    image: "/images/fleet/caravelle.webp",
     seats: 7,
     category: "Бизнес",
     description:

@@ -32,7 +32,7 @@ export const b2bCases: B2bCase[] = [
     quote: "Минивэн полностью решил нашу проблему с логистикой. Ребята приезжают вовремя, едут с комфортом и даже успевают провести мини-стендап по дороге. А бухгалтерия довольна документами.",
     quoteName: "Алексей Петров",
     quoteRole: "Операционный директор ООО «ТехноСервис»",
-    image: "/images/b2b/case-it.png",
+    image: "/images/b2b/case-it.webp",
     pillarSlug: "corporate-transport",
     routeSlugs: ["moskva-spb"],
     stats: [
@@ -57,7 +57,7 @@ export const b2bCases: B2bCase[] = [
     quote: "Для строительной компании надёжность транспорта — критически важна. За 8 месяцев не было ни одного срыва рейса. Ребята приезжают на объект вовремя, с инструментом и отдохнувшие.",
     quoteName: "Игорь Сидоров",
     quoteRole: "Прораб ООО «СтройМастер»",
-    image: "/images/b2b/case-construction.png",
+    image: "/images/b2b/case-construction.webp",
     pillarSlug: "shift-workers",
     routeSlugs: ["ekaterinburg-chelyabinsk", "chelyabinsk-ekaterinburg"],
     stats: [
@@ -82,7 +82,7 @@ export const b2bCases: B2bCase[] = [
     quote: "Нам было важно доставить не только людей, но и хрупкие медицинские образцы. Водители отнеслись к грузу очень аккуратно, а координация двух машин прошла безупречно.",
     quoteName: "Марина Козлова",
     quoteRole: "Менеджер по логистике ООО «ФармаЛогистик»",
-    image: "/images/b2b/case-pharma.png",
+    image: "/images/b2b/case-pharma.webp",
     pillarSlug: "medical",
     routeSlugs: ["krasnodar-sochi"],
     stats: [
@@ -107,7 +107,7 @@ export const b2bCases: B2bCase[] = [
     quote: "Транспортная логистика на свадьбе — это всегда головная боль. С ЗаказМинивена мы просто передали список адресов и забыли. Все гости приехали вовремя, все вернулись домой безопасно. Теперь работаем постоянно.",
     quoteName: "Елена Новикова",
     quoteRole: "Директор агентства «Счастливый день»",
-    image: "/images/b2b/case-wedding.png",
+    image: "/images/b2b/case-wedding.webp",
     pillarSlug: "events",
     routeSlugs: ["rostov-krasnodar"],
     stats: [
@@ -132,7 +132,7 @@ export const b2bCases: B2bCase[] = [
     quote: "Наши немецкие партнёры очень ценят пунктуальность и внимание к деталям. Минивэн бизнес-класса, водитель в костюме, табличка на английском — всё было на высшем уровне. Теперь все иностранные делегации встречаем только так.",
     quoteName: "Дмитрий Волков",
     quoteRole: "Директор по развитию ООО «ГлобалТрейд»",
-    image: "/images/b2b/case-airport.png",
+    image: "/images/b2b/case-airport.webp",
     pillarSlug: "airport-vip",
     routeSlugs: ["moskva-spb"],
     stats: [
@@ -157,7 +157,7 @@ export const b2bCases: B2bCase[] = [
     quote: "Трансфер для клиентов — это не расход, а инвестиция. Конверсия визитов в покупку выросла с 40% до 65%. Клиент приезжает отдохнувший, в хорошем настроении — и гораздо лучше настроен на покупку.",
     quoteName: "Олег Миронов",
     quoteRole: "Коммерческий директор ООО «АвтоПремиум»",
-    image: "/images/b2b/case-dealer.png",
+    image: "/images/b2b/case-dealer.webp",
     pillarSlug: "corporate-transport",
     routeSlugs: ["moskva-spb"],
     stats: [
@@ -182,7 +182,7 @@ export const b2bCases: B2bCase[] = [
     quote: "Минивэн идеально подходит для наших задач: и команда, и оборудование в одной машине. Водитель знает дорогу до всех наших полей, приезжает в 6 утра без напоминаний. Надёжно и экономично.",
     quoteName: "Виктор Краснов",
     quoteRole: "Главный агроном АО «АгроЮг»",
-    image: "/images/b2b/case-agro.png",
+    image: "/images/b2b/case-agro.webp",
     pillarSlug: "cargo",
     routeSlugs: ["krasnodar-sochi", "rostov-krasnodar"],
     stats: [
@@ -207,7 +207,7 @@ export const b2bCases: B2bCase[] = [
     quote: "Когда товар заканчивается на складе — каждый час на счету. Минивэн довозит партию за ночь, и утром товар уже на полке. Это быстрее грузовика и дешевле курьерки. Идеальное решение для наших объёмов.",
     quoteName: "Андрей Зайцев",
     quoteRole: "Руководитель логистики ООО «СкладЛогистик»",
-    image: "/images/b2b/case-ecommerce.png",
+    image: "/images/b2b/case-ecommerce.webp",
     pillarSlug: "cargo",
     routeSlugs: ["moskva-spb"],
     stats: [

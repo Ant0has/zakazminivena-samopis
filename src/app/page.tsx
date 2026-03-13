@@ -11,6 +11,14 @@ import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://zakazminivena.ru",
+  },
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "TransportationService",

@@ -30,6 +30,21 @@ export default function ComparePage() {
     <div className="relative min-h-screen">
       <Header />
       <main className="pt-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Минивэн vs другие виды транспорта",
+            "description": "Честное сравнение минивэна с поездом, автобусом и BlaBlaCar. Комфорт, безопасность, стоимость — все параметры.",
+            "url": "https://zakazminivena.ru/compare",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "ЗаказМинивена.ru",
+              "url": "https://zakazminivena.ru"
+            }
+          }) }}
+        />
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <Breadcrumbs

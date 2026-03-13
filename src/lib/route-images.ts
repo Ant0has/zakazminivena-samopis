@@ -19,16 +19,16 @@ const SIBERIA_SLUGS = [
 
 export function getRouteImage(fromSlug: string, toSlug: string): string {
   if (RESORT_SLUGS.some(s => fromSlug.includes(s) || toSlug.includes(s))) {
-    return "/images/routes/resort.png";
+    return "/images/routes/resort.webp";
   }
   if (MOUNTAIN_SLUGS.some(s => fromSlug.includes(s) || toSlug.includes(s))) {
-    return "/images/routes/mountains.png";
+    return "/images/routes/mountains.webp";
   }
   if (URAL_SLUGS.some(s => fromSlug.includes(s) || toSlug.includes(s))) {
-    return "/images/routes/ural.png";
+    return "/images/routes/ural.webp";
   }
   if (SIBERIA_SLUGS.some(s => fromSlug.includes(s) || toSlug.includes(s))) {
-    return "/images/routes/winter.png";
+    return "/images/routes/winter.webp";
   }
-  return "/images/routes/highway.png";
+  return "/images/routes/highway.webp";
 }

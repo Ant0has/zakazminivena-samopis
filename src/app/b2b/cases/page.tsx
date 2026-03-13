@@ -33,6 +33,21 @@ export default function B2bCasesPage() {
       <Header />
       <main className="pt-16">
         <div className="b2b-dark bg-[var(--background)] text-[var(--foreground)] min-h-screen">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              "name": "Кейсы наших B2B-клиентов",
+              "description": "Реальные кейсы корпоративных клиентов: IT-компании, строительство, фармацевтика, event-индустрия.",
+              "url": "https://zakazminivena.ru/b2b/cases",
+              "isPartOf": {
+                "@type": "WebSite",
+                "name": "ЗаказМинивена.ru",
+                "url": "https://zakazminivena.ru"
+              }
+            }) }}
+          />
           {/* Hero */}
           <section className="py-12 sm:py-16">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
