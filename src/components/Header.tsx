@@ -56,6 +56,14 @@ export function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
+          {/* Mobile phone button - visible on small screens only */}
+          <a
+            href="tel:+79185875454"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-emerald transition-colors hover:bg-emerald/10 sm:hidden"
+            aria-label="Позвонить"
+          >
+            <PhoneIcon className="h-5 w-5" />
+          </a>
           <a
             href="https://t.me/zakazminivena"
             target="_blank"

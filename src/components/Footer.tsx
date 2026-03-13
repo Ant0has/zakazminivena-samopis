@@ -31,7 +31,7 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-secondary/30">
+    <footer className="border-t border-border bg-secondary/30 pb-16 sm:pb-0">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           {/* Routes */}

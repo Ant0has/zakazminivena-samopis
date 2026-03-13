@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { MobileBottomBar } from "@/components/MobileBottomBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,9 +74,10 @@ export default function RootLayout({
         </noscript>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased pb-14 sm:pb-0`}
       >
         {children}
+        <MobileBottomBar />
       </body>
     </html>
   );

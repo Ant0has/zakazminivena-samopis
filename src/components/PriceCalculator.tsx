@@ -46,15 +46,17 @@ export function PriceCalculator() {
     return allRoutes.find((r) => r.from === from && r.to === to) || null;
   }, [from, to]);
 
-  // Filter "to" cities: only show destinations available from the selected origin
+  // Filter "to" cities: show available destinations first, then others
   const toCities = useMemo(() => {
-    if (!from) return cities;
+    if (!from) return { available: cities, unavailable: [] as string[] };
     const available = new Set<string>();
     allRoutes.forEach((r) => {
       if (r.from === from) available.add(r.to);
     });
-    // Still show all cities but available ones first
-    return cities;
+    return {
+      available: cities.filter(c => available.has(c) && c !== from),
+      unavailable: cities.filter(c => !available.has(c) && c !== from),
+    };
   }, [from, cities]);
 
   const bothSelected = from !== "" && to !== "" && from !== to;
@@ -107,13 +109,17 @@ export function PriceCalculator() {
                 <SelectValue placeholder="Выберите город" />
               </SelectTrigger>
               <SelectContent>
-                {toCities
-                  .filter((city) => city !== from)
-                  .map((city) => (
-                    <SelectItem key={city} value={city}>
-                      {city}
-                    </SelectItem>
-                  ))}
+                {(from ? toCities.available : toCities.available).map((city) => (
+                  <SelectItem key={city} value={city}>{city}</SelectItem>
+                ))}
+                {from && toCities.unavailable.length > 0 && toCities.available.length > 0 && (
+                  <SelectItem value="__separator__" disabled className="text-xs text-muted-foreground">
+                    — Рассчитаем индивидуально —
+                  </SelectItem>
+                )}
+                {from && toCities.unavailable.map((city) => (
+                  <SelectItem key={city} value={city} className="text-muted-foreground">{city}</SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
