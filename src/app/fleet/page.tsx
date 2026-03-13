@@ -200,6 +200,22 @@ const fleetJsonLd = {
               ))}
             </div>
 
+
+            {/* Meet our drivers */}
+            <div className="mt-16 rounded-2xl border border-emerald/20 bg-emerald/5 p-8 text-center sm:p-10">
+              <h2 className="text-2xl font-bold sm:text-3xl">
+                Познакомьтесь с нашими водителями
+              </h2>
+              <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
+                За рулём наших минивэнов — опытные профессионалы со средним стажем
+                более 9 лет и рейтингом 4.9
+              </p>
+              <div className="mt-6">
+                <Button size="lg" variant="outline" className="h-12 text-base font-semibold" asChild>
+                  <Link href="/drivers">Наши водители</Link>
+                </Button>
+              </div>
+            </div>
             <B2bCtaBlock />
 
             {/* Reviews */}

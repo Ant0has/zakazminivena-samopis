@@ -15,6 +15,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  manifest: "/manifest.json",
+  themeColor: "#10b981",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "ЗаказМинивена",
+  },
   title:
     "Заказать минивэн с водителем межгород — ЗаказМинивена.ru",
   description:
