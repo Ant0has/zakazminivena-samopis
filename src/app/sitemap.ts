@@ -5,6 +5,11 @@ import { seasonalPages } from "@/lib/seasonal-data";
 import { comparisons } from "@/lib/comparison-data";
 import { b2bPillars } from "@/lib/b2b-data";
 import { b2bCases } from "@/lib/b2b-cases-data";
+import { iataAirports } from "@/lib/iata-airports";
+import { airportRoutes } from "@/lib/airport-routes-data";
+import { destinationHubs, destinationRoutes } from "@/lib/destinations-data";
+import { fleetModels } from "@/lib/fleet-data";
+import { servicesData } from "@/lib/services-data";
 
 const BASE = "https://zakazminivena.ru";
 
@@ -33,7 +38,60 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/compare`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/seasonal`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // Новая структура v3
+    { url: `${BASE}/airport`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/destination`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/service`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/partnership`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/payment`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/documents`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/contacts`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/reviews`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
   ];
+
+  // Новая иерархия v3
+  const iataHubPages: MetadataRoute.Sitemap = iataAirports.map((a) => ({
+    url: `${BASE}/airport/${a.iata}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  const iataRoutePages: MetadataRoute.Sitemap = airportRoutes.map((r) => ({
+    url: `${BASE}/airport/${r.iata}/${r.destinationSlug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  const destinationHubPages: MetadataRoute.Sitemap = destinationHubs.map((h) => ({
+    url: `${BASE}/destination/${h.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  const destinationRoutePages: MetadataRoute.Sitemap = destinationRoutes.map((r) => ({
+    url: `${BASE}/destination/${r.regionSlug}/${r.routeSlug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  const fleetPages: MetadataRoute.Sitemap = fleetModels.map((m) => ({
+    url: `${BASE}/fleet/${m.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  const servicePages: MetadataRoute.Sitemap = servicesData.map((s) => ({
+    url: `${BASE}/service/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
   const seasonalPageEntries: MetadataRoute.Sitemap = seasonalPages.map((p) => ({
     url: `${BASE}/seasonal/${p.slug}`,
@@ -101,5 +159,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...comparePages,
     ...b2bPillarPages,
     ...b2bCasePages,
+    // Новая иерархия v3
+    ...iataHubPages,
+    ...iataRoutePages,
+    ...destinationHubPages,
+    ...destinationRoutePages,
+    ...fleetPages,
+    ...servicePages,
   ];
 }

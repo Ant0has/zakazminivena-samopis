@@ -14,13 +14,13 @@ import { MenuIcon, PhoneIcon } from "lucide-react";
 import { TelegramIcon, MaxIcon } from "@/components/icons";
 
 const navLinks = [
-  { href: "/routes", label: "Маршруты" },
+  { href: "/airport", label: "Аэропорты" },
+  { href: "/destination", label: "Направления" },
+  { href: "/service", label: "Сценарии" },
   { href: "/cities", label: "Города" },
-  { href: "/airports", label: "Аэропорты" },
   { href: "/fleet", label: "Автопарк" },
   { href: "/tariffs", label: "Тарифы" },
   { href: "/b2b", label: "Для бизнеса" },
-  { href: "/about", label: "О нас" },
   { href: "/blog", label: "Блог" },
 ];
 
