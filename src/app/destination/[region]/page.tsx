@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
@@ -7,6 +8,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BookingForm } from "@/components/BookingForm";
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   destinationHubs,
   getDestinationHub,
@@ -14,7 +16,15 @@ import {
 } from "@/lib/destinations-data";
 import { fleetBySlug } from "@/lib/fleet-data";
 import { calcPrice, formatPrice } from "@/lib/routes-data";
-import { CheckIcon, MapPinIcon } from "lucide-react";
+import { getDestinationHeroImage } from "@/lib/hero-images";
+import {
+  CheckIcon,
+  MapPinIcon,
+  CompassIcon,
+  CameraIcon,
+  CalendarIcon,
+  PackageIcon,
+} from "lucide-react";
 
 export function generateStaticParams() {
   return destinationHubs.map((h) => ({ region: h.slug }));
@@ -40,7 +50,9 @@ export default async function DestinationHubPage({ params }: Props) {
   const hub = getDestinationHub(region);
   if (!hub) notFound();
   const routes = getDestinationRoutesByRegion(region);
+  const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
   const fleet = hub.fleetModels.map((s) => fleetBySlug[s]).filter(Boolean);
+  const heroImage = getDestinationHeroImage(region);
 
   return (
     <div className="relative min-h-screen">
@@ -53,56 +65,117 @@ export default async function DestinationHubPage({ params }: Props) {
             { label: hub.regionName },
           ]}
         />
-        <section className="py-10 sm:py-16">
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr,1fr] lg:px-8">
-            <div>
-              <div className="mb-3 inline-flex items-center gap-2 rounded bg-emerald/10 px-2 py-1 text-xs font-medium uppercase text-emerald">
-                <MapPinIcon className="h-4 w-4" /> Туркластер
+
+        {/* ===== HERO ===== */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-emerald/5 via-transparent to-transparent" />
+          <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div>
+                <div className="mb-5 flex flex-wrap items-center gap-2">
+                  <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
+                    <MapPinIcon className="mr-1 h-3 w-3" /> Туркластер
+                  </Badge>
+                  <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
+                    <CompassIcon className="mr-1 h-3 w-3" /> Водитель знает регион
+                  </Badge>
+                </div>
+                <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                  Минивэн в {hub.regionName} из {hub.hubCity}{" "}
+                  <span className="text-gradient">от {formatPrice(minPrice)} ₽</span>
+                </h1>
+                <p className="mt-4 text-base font-medium text-foreground sm:text-lg">
+                  {hub.topPointsShort}
+                </p>
+                <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
+                  {hub.heroIntro}
+                </p>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a href="#routes" className="rounded-lg bg-emerald px-6 py-3 text-sm font-medium text-emerald-foreground hover:bg-emerald/90">
+                    Все маршруты ({routes.length})
+                  </a>
+                  <a href="#booking" className="rounded-lg border px-6 py-3 text-sm font-medium hover:border-emerald hover:text-emerald">
+                    Узнать цену
+                  </a>
+                </div>
               </div>
-              <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                Минивэн в {hub.regionName} из {hub.hubCity}
-              </h1>
-              <p className="mb-2 text-base text-muted-foreground sm:text-lg">
-                {hub.topPointsShort}
-              </p>
-              <p className="mb-4 text-sm leading-6 text-muted-foreground">{hub.heroIntro}</p>
-              <ul className="mb-6 grid grid-cols-2 gap-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="h-4 w-4 text-emerald" /> Водитель знает регион
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="h-4 w-4 text-emerald" /> Гибкий маршрут
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="h-4 w-4 text-emerald" /> Остановки для фото
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="h-4 w-4 text-emerald" /> До 8 пассажиров
-                </li>
-              </ul>
+
+              <div className="relative h-72 overflow-hidden rounded-2xl shadow-xl sm:h-96 lg:h-[480px]">
+                <Image
+                  src={heroImage}
+                  alt={`Минивэн в ${hub.regionName}`}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                  <div className="text-xs uppercase tracking-wide text-white/80">Регион</div>
+                  <div className="text-xl font-semibold text-white sm:text-2xl">
+                    {hub.regionName}
+                  </div>
+                </div>
+              </div>
             </div>
-            <aside className="lg:sticky lg:top-24 lg:self-start">
-              <BookingForm defaultFrom={hub.hubCity} />
-            </aside>
           </div>
         </section>
 
-        <section className="border-t bg-muted/30 py-12 sm:py-16">
+        {/* ===== ПРЕИМУЩЕСТВА ТУРКЛАСТЕРА ===== */}
+        <section className="border-t bg-muted/30 py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-6 text-2xl font-bold tracking-tight sm:text-3xl">
-              Популярные маршруты в {hub.regionName}
-            </h2>
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Что входит в туристическую поездку
+              </h2>
+              <p className="mt-3 text-base text-muted-foreground">
+                Отличие от обычного такси — формат для путешествия
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { icon: CompassIcon, title: "Водитель знает регион", desc: "Рассказы и рекомендации в дороге" },
+                { icon: CameraIcon, title: "Остановки для фото", desc: "Без дополнительной оплаты" },
+                { icon: MapPinIcon, title: "Гибкий маршрут", desc: "Меняйте по ходу поездки" },
+                { icon: CheckIcon, title: "До 8 пассажиров", desc: "С местом под рюкзаки и багаж" },
+              ].map((a) => (
+                <Card key={a.title} className="p-6">
+                  <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald/10 text-emerald">
+                    <a.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mb-1 font-semibold">{a.title}</h3>
+                  <p className="text-sm text-muted-foreground">{a.desc}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== МАРШРУТЫ ===== */}
+        <section id="routes" className="py-16 sm:py-24 scroll-mt-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Популярные маршруты в {hub.regionName}
+              </h2>
+              <p className="mt-3 text-base text-muted-foreground">
+                Цена за машину 6–8 мест. Можно менять маршрут в дороге.
+              </p>
+            </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {routes.map((r) => (
                 <Link key={r.routeSlug} href={`/destination/${region}/${r.routeSlug}`}>
-                  <Card className="h-full p-4 transition-colors hover:border-emerald">
-                    <div className="font-medium">
+                  <Card className="h-full p-5 transition-all hover:border-emerald hover:shadow-md">
+                    <div className="text-xs uppercase tracking-wide text-emerald">
+                      {hub.regionName}
+                    </div>
+                    <div className="mt-1 text-lg font-semibold">
                       {r.fromCity} → {r.toCity}
                     </div>
-                    <div className="mt-1 text-xs text-muted-foreground">
+                    <div className="mt-2 text-sm text-muted-foreground">
                       {r.km} км · {r.hours}
                     </div>
-                    <div className="mt-2 text-sm font-semibold">
+                    <div className="mt-3 text-base font-bold">
                       от {formatPrice(calcPrice(r.km))} ₽
                     </div>
                   </Card>
@@ -112,41 +185,52 @@ export default async function DestinationHubPage({ params }: Props) {
           </div>
         </section>
 
-        <section className="py-12 sm:py-16">
+        {/* ===== СЕЗОННОСТЬ ===== */}
+        <section className="border-t bg-muted/30 py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-              Лучшее время для поездки
-            </h2>
-            <p className="mb-6 text-sm text-muted-foreground">
-              Сезонные особенности и рекомендации по месяцам
-            </p>
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Когда лучше поехать в {hub.regionName}
+              </h2>
+              <p className="mt-3 text-base text-muted-foreground">
+                Сезонные особенности и рекомендации по месяцам
+              </p>
+            </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {hub.seasons.map((s) => (
-                <Card key={s.months} className="p-4">
-                  <div className="mb-1 text-xs uppercase text-emerald">{s.months}</div>
-                  <div className="text-sm">{s.description}</div>
+                <Card key={s.months} className="p-5">
+                  <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-emerald/10 text-emerald">
+                    <CalendarIcon className="h-5 w-5" />
+                  </div>
+                  <div className="text-sm uppercase tracking-wide text-emerald">{s.months}</div>
+                  <div className="mt-1 text-sm">{s.description}</div>
                 </Card>
               ))}
             </div>
           </div>
         </section>
 
+        {/* ===== МНОГОДНЕВНЫЕ ТУРЫ ===== */}
         {hub.multidayTours.length > 0 && (
-          <section className="border-t bg-muted/30 py-12 sm:py-16">
+          <section className="py-16 sm:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-                Многодневные туры с ночёвкой водителя
-              </h2>
-              <p className="mb-6 text-sm text-muted-foreground">
-                Готовые пакеты — мы делаем то, что Яндекс Go по определению не делает
-              </p>
+              <div className="mb-10 text-center">
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                  Многодневные туры с ночёвкой водителя
+                </h2>
+                <p className="mt-3 text-base text-muted-foreground">
+                  То, что Яндекс Go по определению не делает — готовые маршруты на 2+ дня
+                </p>
+              </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 {hub.multidayTours.map((t) => (
-                  <Card key={t.name} className="p-5">
-                    <div className="mb-1 text-xs uppercase text-emerald">{t.days} {t.days === 1 ? "день" : "дня"}</div>
-                    <h3 className="mb-2 text-lg font-semibold">{t.name}</h3>
-                    <p className="mb-3 text-sm text-muted-foreground">{t.description}</p>
-                    <div className="text-base font-semibold">от {formatPrice(t.priceFrom)} ₽</div>
+                  <Card key={t.name} className="p-6">
+                    <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-emerald/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-emerald">
+                      <CalendarIcon className="h-3 w-3" /> {t.days} {t.days === 1 ? "день" : "дня"}
+                    </div>
+                    <h3 className="text-xl font-semibold">{t.name}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{t.description}</p>
+                    <div className="mt-4 text-2xl font-bold">от {formatPrice(t.priceFrom)} ₽</div>
                   </Card>
                 ))}
               </div>
@@ -154,36 +238,47 @@ export default async function DestinationHubPage({ params }: Props) {
           </section>
         )}
 
-        <section className="py-12 sm:py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-6 text-2xl font-bold tracking-tight sm:text-3xl">
-              Что взять с собой
-            </h2>
-            <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {/* ===== ЧТО ВЗЯТЬ С СОБОЙ ===== */}
+        <section className="border-t bg-muted/30 py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-8 flex items-center gap-4">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald/10 text-emerald">
+                <PackageIcon className="h-6 w-6" />
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Что взять с собой
+              </h2>
+            </div>
+            <ul className="grid gap-3 sm:grid-cols-2">
               {hub.packingList.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm">
-                  <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-emerald" />
-                  <span>{item}</span>
+                <li key={item} className="flex items-start gap-3 rounded-lg bg-card p-4 border">
+                  <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-emerald" />
+                  <span className="text-sm">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
+        {/* ===== ПАРК ===== */}
         {fleet.length > 0 && (
-          <section className="border-t bg-muted/30 py-12 sm:py-16">
+          <section className="py-16 sm:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="mb-6 text-2xl font-bold tracking-tight sm:text-3xl">
-                Парк на {hub.regionNameAcc}
-              </h2>
+              <div className="mb-10 text-center">
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                  Парк на {hub.regionNameAcc}
+                </h2>
+              </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {fleet.map((m) => (
                   <Link key={m.slug} href={`/fleet/${m.slug}`}>
-                    <Card className="h-full p-4 transition-colors hover:border-emerald">
-                      <div className="mb-1 text-xs uppercase text-muted-foreground">{m.tier}</div>
-                      <div className="font-semibold">{m.fullName}</div>
-                      <div className="text-sm text-muted-foreground">
-                        {m.seats} пасс. · {m.luggageL} л
+                    <Card className="h-full p-5 transition-all hover:border-emerald hover:shadow-md">
+                      <div className="mb-2 text-xs uppercase tracking-wide text-emerald">
+                        {m.tier}
+                      </div>
+                      <div className="text-lg font-semibold">{m.fullName}</div>
+                      <div className="mt-2 text-sm text-muted-foreground">
+                        {m.seats} пасс. · {m.luggageL} л багаж
                       </div>
                     </Card>
                   </Link>
@@ -192,6 +287,23 @@ export default async function DestinationHubPage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* ===== CTA / ФОРМА ===== */}
+        <section id="booking" className="border-t bg-muted/30 py-16 sm:py-20 scroll-mt-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                  Заказать поездку в {hub.regionNameAcc}
+                </h2>
+                <p className="mt-3 text-base text-muted-foreground sm:text-lg">
+                  Менеджер подберёт водителя, знающего регион, и пришлёт фикс цену за 5 минут.
+                </p>
+              </div>
+              <BookingForm defaultFrom={hub.hubCity} />
+            </div>
+          </div>
+        </section>
 
         <B2bCtaBlock />
       </main>
