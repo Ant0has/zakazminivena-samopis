@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { HeroBackground, HeroVehicleImage } from "@/components/HeroBackground";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -116,10 +116,11 @@ export default async function AirportRoutePage({ params }: Props) {
 
         {/* ===== HERO ===== */}
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald/5 via-transparent to-transparent" />
-          <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
-            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-              <div>
+          <HeroBackground />
+          <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
+            <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+              {/* Бейджи + H1 — всегда первыми */}
+              <div className="order-1 lg:order-1">
                 <div className="mb-5 flex flex-wrap items-center gap-2">
                   <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
                     <PlaneIcon className="mr-1 h-3 w-3" /> {iata.toUpperCase()} → {route.destinationName}
@@ -135,54 +136,51 @@ export default async function AirportRoutePage({ params }: Props) {
                   Минивэн из {airport.nameFull} в {route.destinationName} —{" "}
                   <span className="text-gradient">от {price} ₽</span>
                 </h1>
-                <p className="mt-6 max-w-xl text-lg text-muted-foreground sm:text-xl">
+              </div>
+
+              {/* Картинка — на мобильном сразу под H1, на десктопе справа */}
+              <div className="order-2 lg:order-2 lg:row-span-2">
+                <HeroVehicleImage
+                  src={heroImage}
+                  alt={`Минивэн ${airport.name} → ${route.destinationName}`}
+                  captionLabel="Маршрут"
+                  captionValue={`${airport.name} → ${route.destinationName}`}
+                  priority
+                />
+              </div>
+
+              {/* Подзаголовок + метрики + CTA — на мобильном после картинки, на десктопе под H1 в левой колонке */}
+              <div className="order-3 lg:order-3 lg:col-start-1">
+                <p className="max-w-xl text-lg text-muted-foreground sm:text-xl">
                   6–8 мест с багажом. Время в пути {route.hours}. {route.km} км по маршруту.
                   Фикс цена за машину, не за пассажира.
                 </p>
 
-                <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
-                  <div className="rounded-xl border bg-card p-4 text-center">
+                <div className="mt-6 grid grid-cols-3 gap-3 sm:gap-4">
+                  <div className="rounded-xl border bg-card/80 backdrop-blur p-4 text-center">
                     <RulerIcon className="mx-auto mb-1.5 h-5 w-5 text-emerald" />
                     <div className="text-xs text-muted-foreground">Расстояние</div>
                     <div className="text-base font-semibold sm:text-lg">{route.km} км</div>
                   </div>
-                  <div className="rounded-xl border bg-card p-4 text-center">
+                  <div className="rounded-xl border bg-card/80 backdrop-blur p-4 text-center">
                     <ClockIcon className="mx-auto mb-1.5 h-5 w-5 text-emerald" />
                     <div className="text-xs text-muted-foreground">Время</div>
                     <div className="text-base font-semibold sm:text-lg">{route.hours}</div>
                   </div>
-                  <div className="rounded-xl border bg-card p-4 text-center">
+                  <div className="rounded-xl border bg-card/80 backdrop-blur p-4 text-center">
                     <WalletIcon className="mx-auto mb-1.5 h-5 w-5 text-emerald" />
-                    <div className="text-xs text-muted-foreground">Цена за машину</div>
+                    <div className="text-xs text-muted-foreground">Цена</div>
                     <div className="text-base font-semibold sm:text-lg">от {price} ₽</div>
                   </div>
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-6 flex flex-wrap gap-3">
                   <a href="#booking" className="rounded-lg bg-emerald px-6 py-3 text-sm font-medium text-emerald-foreground hover:bg-emerald/90">
                     Узнать точную цену
                   </a>
-                  <a href="https://wa.me/79185875454" className="rounded-lg border px-6 py-3 text-sm font-medium hover:border-emerald hover:text-emerald">
+                  <a href="https://wa.me/79185875454" className="rounded-lg border bg-background/70 backdrop-blur px-6 py-3 text-sm font-medium hover:border-emerald hover:text-emerald">
                     Заказать в WhatsApp
                   </a>
-                </div>
-              </div>
-
-              {/* Hero image — большая, занимает всю правую колонку */}
-              <div className="relative h-72 overflow-hidden rounded-2xl shadow-xl sm:h-96 lg:h-[480px]">
-                <Image
-                  src={heroImage}
-                  alt={`Минивэн ${airport.name} → ${route.destinationName}`}
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                  <div className="text-xs uppercase tracking-wide text-white/80">Маршрут</div>
-                  <div className="text-xl font-semibold text-white sm:text-2xl">
-                    {airport.name} → {route.destinationName}
-                  </div>
                 </div>
               </div>
             </div>

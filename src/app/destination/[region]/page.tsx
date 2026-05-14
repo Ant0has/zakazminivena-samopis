@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { HeroBackground, HeroVehicleImage } from "@/components/HeroBackground";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -68,10 +68,10 @@ export default async function DestinationHubPage({ params }: Props) {
 
         {/* ===== HERO ===== */}
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald/5 via-transparent to-transparent" />
-          <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
-            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-              <div>
+          <HeroBackground />
+          <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
+            <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+              <div className="order-1 lg:order-1">
                 <div className="mb-5 flex flex-wrap items-center gap-2">
                   <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
                     <MapPinIcon className="mr-1 h-3 w-3" /> Туркластер
@@ -84,37 +84,33 @@ export default async function DestinationHubPage({ params }: Props) {
                   Минивэн в {hub.regionName} из {hub.hubCity}{" "}
                   <span className="text-gradient">от {formatPrice(minPrice)} ₽</span>
                 </h1>
-                <p className="mt-4 text-base font-medium text-foreground sm:text-lg">
+              </div>
+
+              <div className="order-2 lg:order-2 lg:row-span-2">
+                <HeroVehicleImage
+                  src={heroImage}
+                  alt={`Минивэн в ${hub.regionName}`}
+                  captionLabel="Регион"
+                  captionValue={hub.regionName}
+                  priority
+                />
+              </div>
+
+              <div className="order-3 lg:order-3 lg:col-start-1">
+                <p className="text-base font-medium text-foreground sm:text-lg">
                   {hub.topPointsShort}
                 </p>
-                <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
+                <p className="mt-3 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
                   {hub.heroIntro}
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-6 flex flex-wrap gap-3">
                   <a href="#routes" className="rounded-lg bg-emerald px-6 py-3 text-sm font-medium text-emerald-foreground hover:bg-emerald/90">
                     Все маршруты ({routes.length})
                   </a>
-                  <a href="#booking" className="rounded-lg border px-6 py-3 text-sm font-medium hover:border-emerald hover:text-emerald">
+                  <a href="#booking" className="rounded-lg border bg-background/70 backdrop-blur px-6 py-3 text-sm font-medium hover:border-emerald hover:text-emerald">
                     Узнать цену
                   </a>
-                </div>
-              </div>
-
-              <div className="relative h-72 overflow-hidden rounded-2xl shadow-xl sm:h-96 lg:h-[480px]">
-                <Image
-                  src={heroImage}
-                  alt={`Минивэн в ${hub.regionName}`}
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                  <div className="text-xs uppercase tracking-wide text-white/80">Регион</div>
-                  <div className="text-xl font-semibold text-white sm:text-2xl">
-                    {hub.regionName}
-                  </div>
                 </div>
               </div>
             </div>
