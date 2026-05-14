@@ -16,7 +16,7 @@ import {
 } from "@/lib/airport-routes-data";
 import { getIataAirport } from "@/lib/iata-airports";
 import { calcPrice, calcRoundTripTotal, formatPrice } from "@/lib/routes-data";
-import { getAirportHeroImage } from "@/lib/hero-images";
+import { getAirportRouteHeroImage } from "@/lib/hero-images";
 import {
   CheckIcon,
   ClockIcon,
@@ -67,7 +67,7 @@ export default async function AirportRoutePage({ params }: Props) {
   const sameHubRoutes = getAirportRoutesByIata(iata)
     .filter((r) => r.destinationSlug !== destination)
     .slice(0, 6);
-  const heroImage = getAirportHeroImage(iata);
+  const heroImage = getAirportRouteHeroImage(iata);
 
   const jsonLd = {
     "@context": "https://schema.org",

@@ -13,7 +13,7 @@ import { iataAirports, getIataAirport } from "@/lib/iata-airports";
 import { getAirportRoutesByIata } from "@/lib/airport-routes-data";
 import { calcPrice, formatPrice } from "@/lib/routes-data";
 import { fleetBySlug } from "@/lib/fleet-data";
-import { getAirportHeroImage } from "@/lib/hero-images";
+import { getAirportHubHeroImage } from "@/lib/hero-images";
 import {
   PlaneIcon,
   MapPinIcon,
@@ -52,7 +52,7 @@ export default async function AirportHubPage({ params }: Props) {
   const routes = getAirportRoutesByIata(iata);
   const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
   const fleetForHub = airport.fleet.map((s) => fleetBySlug[s]).filter(Boolean);
-  const heroImage = getAirportHeroImage(iata);
+  const heroImage = getAirportHubHeroImage(iata);
 
   const otherMoscowAirports = ["svo", "vko", "dme", "zia"].filter((c) => c !== iata);
   const sameRegionAirports =

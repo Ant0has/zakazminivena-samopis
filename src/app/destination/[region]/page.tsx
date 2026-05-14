@@ -16,7 +16,7 @@ import {
 } from "@/lib/destinations-data";
 import { fleetBySlug } from "@/lib/fleet-data";
 import { calcPrice, formatPrice } from "@/lib/routes-data";
-import { getDestinationHeroImage } from "@/lib/hero-images";
+import { getDestinationHubHeroImage } from "@/lib/hero-images";
 import {
   CheckIcon,
   MapPinIcon,
@@ -52,7 +52,7 @@ export default async function DestinationHubPage({ params }: Props) {
   const routes = getDestinationRoutesByRegion(region);
   const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
   const fleet = hub.fleetModels.map((s) => fleetBySlug[s]).filter(Boolean);
-  const heroImage = getDestinationHeroImage(region);
+  const heroImage = getDestinationHubHeroImage(region);
 
   return (
     <div className="relative min-h-screen">

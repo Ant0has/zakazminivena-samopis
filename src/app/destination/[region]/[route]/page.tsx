@@ -16,7 +16,7 @@ import {
   getDestinationHub,
 } from "@/lib/destinations-data";
 import { calcPrice, calcRoundTripTotal, formatPrice } from "@/lib/routes-data";
-import { getDestinationHeroImage } from "@/lib/hero-images";
+import { getDestinationRouteHeroImage } from "@/lib/hero-images";
 import {
   CheckIcon,
   ClockIcon,
@@ -55,7 +55,7 @@ export default async function DestinationRoutePage({ params }: Props) {
   const relatedRoutes = getDestinationRoutesByRegion(region)
     .filter((r) => r.routeSlug !== route)
     .slice(0, 6);
-  const heroImage = getDestinationHeroImage(region);
+  const heroImage = getDestinationRouteHeroImage(region);
 
   const jsonLd = {
     "@context": "https://schema.org",

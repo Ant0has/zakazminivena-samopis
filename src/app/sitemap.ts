@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { allRoutes, allCities, allAirports } from "@/lib/routes-data";
-import { blogPosts } from "@/lib/blog-data";
 import { seasonalPages } from "@/lib/seasonal-data";
 import { comparisons } from "@/lib/comparison-data";
 import { b2bPillars } from "@/lib/b2b-data";
@@ -36,7 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/services/wedding`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/yandex-taxi-minivan`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/compare`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/seasonal`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     // Новая структура v3
     { url: `${BASE}/airport`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
@@ -114,13 +112,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${BASE}/blog/${post.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-
   const airportPages: MetadataRoute.Sitemap = allAirports.map((a) => ({
     url: `${BASE}/airports/${a.slug}`,
     lastModified: now,
@@ -155,7 +146,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...routePages,
     ...cityPages,
     ...airportPages,
-    ...blogPages,
     ...comparePages,
     ...b2bPillarPages,
     ...b2bCasePages,

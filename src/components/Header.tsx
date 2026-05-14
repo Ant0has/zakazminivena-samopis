@@ -21,7 +21,6 @@ const navLinks = [
   { href: "/fleet", label: "Автопарк" },
   { href: "/tariffs", label: "Тарифы" },
   { href: "/b2b", label: "Для бизнеса" },
-  { href: "/blog", label: "Блог" },
 ];
 
 export function Header() {
