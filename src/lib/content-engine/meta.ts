@@ -106,15 +106,18 @@ export function metaAirportHub(opts: {
 export function metaDestinationHub(opts: {
   regionSlug: string;
   regionName: string;
+  /** Винительный падеж: «в Карелию», «в Алтай», «на Байкал». Если не передан — fallback на regionName. */
+  regionNameAcc?: string;
   hubCity: string;
   topPointsShort: string;
   minPrice: number;
 }): Metadata {
   const { regionSlug, regionName, hubCity, topPointsShort, minPrice } = opts;
+  const acc = opts.regionNameAcc ?? regionName;
 
-  const title = `Минивэн в ${regionName} из ${hubCity} — от ${formatRub(minPrice)} ₽ | ${BRAND}`;
+  const title = `Минивэн в ${acc} из ${hubCity} — от ${formatRub(minPrice)} ₽ | ${BRAND}`;
   const description =
-    `Туристические поездки на минивэне в ${regionName}: ${topPointsShort}. ` +
+    `Туристические поездки на минивэне в ${acc}: ${topPointsShort}. ` +
     `Однодневные и многодневные туры из ${hubCity}. До 8 мест с багажом. ` +
     `Водитель знает регион. Цена от ${formatRub(minPrice)} ₽ за машину.`;
 

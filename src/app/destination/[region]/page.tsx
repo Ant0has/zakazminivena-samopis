@@ -46,6 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const meta = metaDestinationHub({
     regionSlug: region,
     regionName: hub.regionName,
+    regionNameAcc: hub.regionNameAcc,
     hubCity: hub.hubCity,
     topPointsShort: hub.topPointsShort,
     minPrice,
