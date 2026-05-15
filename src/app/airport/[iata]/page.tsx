@@ -14,6 +14,9 @@ import { getAirportRoutesByIata } from "@/lib/airport-routes-data";
 import { calcPrice, formatPrice } from "@/lib/routes-data";
 import { fleetBySlug } from "@/lib/fleet-data";
 import { getAirportHubHeroImage } from "@/lib/hero-images";
+import { FleetTariffCards } from "@/components/FleetTariffCards";
+import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
+import { PaymentMethods } from "@/components/PaymentMethods";
 import {
   PlaneIcon,
   MapPinIcon,
@@ -196,6 +199,14 @@ export default async function AirportHubPage({ params }: Props) {
           </div>
         </section>
 
+        {/* ===== ТАРИФНЫЕ КАРТОЧКИ ===== */}
+        <FleetTariffCards
+          title={`Минивэны, которые подаём в ${airport.name}`}
+          subtitle="Выберите класс — цена за машину, не за пассажира"
+          contextLabel={`Аэропорт ${iata.toUpperCase()}`}
+          bg="default"
+        />
+
         {/* ===== ТЕРМИНАЛЫ ===== */}
         <section className="border-t bg-muted/30 py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -269,6 +280,12 @@ export default async function AirportHubPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {/* ===== КАК ЗАКАЗАТЬ ===== */}
+        <HowItWorks3Steps bg="muted" />
+
+        {/* ===== ВИДЫ ОПЛАТЫ ===== */}
+        <PaymentMethods />
 
         <B2bCtaBlock />
 

@@ -17,6 +17,9 @@ import {
 import { fleetBySlug } from "@/lib/fleet-data";
 import { calcPrice, formatPrice } from "@/lib/routes-data";
 import { getDestinationHubHeroImage } from "@/lib/hero-images";
+import { FleetTariffCards } from "@/components/FleetTariffCards";
+import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
+import { PaymentMethods } from "@/components/PaymentMethods";
 import {
   CheckIcon,
   MapPinIcon,
@@ -284,8 +287,19 @@ export default async function DestinationHubPage({ params }: Props) {
           </section>
         )}
 
+        {/* ===== ТАРИФНЫЕ КАРТОЧКИ ===== */}
+        <FleetTariffCards
+          title={`Минивэны для поездок в ${hub.regionNameAcc}`}
+          subtitle="Выберите класс. Цена за машину, не за пассажира."
+          contextLabel={hub.regionName}
+          bg="default"
+        />
+
+        {/* ===== КАК ЗАКАЗАТЬ ===== */}
+        <HowItWorks3Steps bg="muted" />
+
         {/* ===== CTA / ФОРМА ===== */}
-        <section id="booking" className="border-t bg-muted/30 py-16 sm:py-20 scroll-mt-20">
+        <section id="booking" className="py-16 sm:py-20 scroll-mt-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
               <div>
@@ -300,6 +314,9 @@ export default async function DestinationHubPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {/* ===== ВИДЫ ОПЛАТЫ ===== */}
+        <PaymentMethods />
 
         <B2bCtaBlock />
       </main>

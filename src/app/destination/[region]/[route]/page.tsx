@@ -17,6 +17,11 @@ import {
 } from "@/lib/destinations-data";
 import { calcPrice, calcRoundTripTotal, formatPrice } from "@/lib/routes-data";
 import { getDestinationRouteHeroImage } from "@/lib/hero-images";
+import { FleetTariffCards } from "@/components/FleetTariffCards";
+import { TariffTable, defaultBaseFare, defaultExtras } from "@/components/TariffTable";
+import { RouteFactsLongread } from "@/components/RouteFactsLongread";
+import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
+import { PaymentMethods } from "@/components/PaymentMethods";
 import {
   CheckIcon,
   ClockIcon,
@@ -25,6 +30,9 @@ import {
   CompassIcon,
   CameraIcon,
   PlaneIcon,
+  Clock,
+  Sparkles,
+  Backpack,
 } from "lucide-react";
 
 export function generateStaticParams() {
@@ -198,62 +206,59 @@ export default async function DestinationRoutePage({ params }: Props) {
           </div>
         </section>
 
-        {/* ===== ЧТО В ЭТОЙ ПОЕЗДКЕ ===== */}
-        <section className="border-t bg-muted/30 py-16 sm:py-24">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
-              Что в этой поездке
-            </h2>
-            <p className="text-base leading-7 text-muted-foreground sm:text-lg">
-              {data.uniqueIntro}
-            </p>
-            <p className="mt-4 text-base leading-7 text-muted-foreground sm:text-lg">
-              {data.uniqueRouteDesc}
-            </p>
-          </div>
-        </section>
+        {/* ===== ТАРИФНЫЕ КАРТОЧКИ ===== */}
+        <FleetTariffCards
+          title="Какой минивэн подаём"
+          subtitle={`Выберите класс для поездки ${data.fromCity} → ${data.toCity}`}
+          contextLabel={hub.regionName}
+        />
 
-        {/* ===== ЦЕНА И ВАРИАНТЫ ===== */}
-        <section className="py-16 sm:py-24">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-10 text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Стоимость и варианты
-              </h2>
-              <p className="mt-3 text-base text-muted-foreground">
-                Цена за машину, не за пассажира. Минивэн до 8 мест.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <Card className="p-6">
-                <div className="text-sm text-muted-foreground">В одну сторону</div>
-                <div className="mt-1 text-3xl font-bold">от {price} ₽</div>
-                <div className="mt-2 text-sm text-muted-foreground">
-                  Подача · водитель · бензин
-                </div>
-              </Card>
-              <Card className="p-6">
-                <div className="text-sm text-muted-foreground">Туда-обратно за день</div>
-                <div className="mt-1 text-3xl font-bold">{priceRoundTrip} ₽</div>
-                <div className="mt-2 text-sm text-muted-foreground">
-                  Ожидание + обратный путь со скидкой 20%
-                </div>
-              </Card>
-              <Card className="p-6">
-                <div className="text-sm text-muted-foreground">С ночёвкой водителя</div>
-                <div className="mt-1 text-3xl font-bold">
-                  от {formatPrice(calcPrice(data.km) + 8000)} ₽
-                </div>
-                <div className="mt-2 text-sm text-muted-foreground">
-                  Расходы на размещение водителя — отдельно
-                </div>
-              </Card>
-            </div>
-            <p className="mt-6 text-center text-sm text-muted-foreground">
-              <strong className="text-foreground">Доплаты:</strong> ночь +20% · праздники · доп.остановки +500 ₽
-            </p>
-          </div>
-        </section>
+        {/* ===== ЛОНГРИД «ВСЁ, ЧТО НУЖНО ЗНАТЬ» ===== */}
+        <RouteFactsLongread
+          title={`Всё, что нужно знать о поездке ${data.fromCity} → ${data.toCity}`}
+          intro={data.uniqueIntro}
+          sections={[
+            {
+              icon: Clock,
+              title: "Маршрут и время",
+              paragraph: data.uniqueRouteDesc,
+              callout: data.seasonalNotes || `Гибкий маршрут — можно менять точки и порядок остановок прямо в поездке.`,
+            },
+            {
+              icon: Sparkles,
+              title: "Что включает поездка",
+              list: [
+                { title: "Подача в любую точку", description: data.fromCity },
+                { title: "Водитель-проводник", description: "знает регион, рассказывает по дороге" },
+                { title: "Остановки для фото", description: "без дополнительной платы" },
+                { title: "Бесплатное ожидание", description: "в локациях по согласованию" },
+                { title: "Гибкий маршрут", description: "меняйте план в дороге" },
+                { title: "Помощь с багажом", description: "до и от машины" },
+              ],
+            },
+            {
+              icon: Backpack,
+              title: "Что взять с собой в поездку",
+              paragraph: data.specifics,
+            },
+          ]}
+        />
+
+        {/* ===== ТАРИФНАЯ ТАБЛИЦА ===== */}
+        <TariffTable
+          modelName="Минивэн 7–8 мест"
+          title="Цена и дополнительные услуги"
+          baseFare={[
+            { label: "В одну сторону", value: `от ${price} ₽`, highlight: true },
+            { label: "Туда-обратно за день (−20%)", value: `${priceRoundTrip} ₽` },
+            { label: "С ночёвкой водителя (за машину + сутки)", value: `от ${formatPrice(calcPrice(data.km) + 8000)} ₽` },
+            ...defaultBaseFare(),
+          ]}
+          extras={defaultExtras()}
+        />
+
+        {/* ===== КАК ЗАКАЗАТЬ ===== */}
+        <HowItWorks3Steps bg="default" />
 
         {/* ===== ЧТО ПОСМОТРЕТЬ ===== */}
         <section className="border-t bg-muted/30 py-16 sm:py-24">
@@ -354,6 +359,12 @@ export default async function DestinationRoutePage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* ===== ВИДЫ ОПЛАТЫ ===== */}
+        <PaymentMethods
+          title="Как оплатить поездку"
+          intro="Карта, СБП, наличные водителю или безналичный для юрлиц с полным пакетом документов и постоплатой до 14 дней."
+        />
 
         <B2bCtaBlock />
       </main>

@@ -17,6 +17,11 @@ import {
 import { getIataAirport } from "@/lib/iata-airports";
 import { calcPrice, calcRoundTripTotal, formatPrice } from "@/lib/routes-data";
 import { getAirportRouteHeroImage } from "@/lib/hero-images";
+import { FleetTariffCards } from "@/components/FleetTariffCards";
+import { TariffTable, defaultBaseFare, defaultExtras } from "@/components/TariffTable";
+import { RouteFactsLongread } from "@/components/RouteFactsLongread";
+import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
+import { PaymentMethods } from "@/components/PaymentMethods";
 import {
   CheckIcon,
   ClockIcon,
@@ -27,6 +32,9 @@ import {
   UsersIcon,
   BabyIcon,
   WalletIcon,
+  Clock,
+  Backpack,
+  Sparkles,
 } from "lucide-react";
 
 export function generateStaticParams() {
@@ -223,108 +231,63 @@ export default async function AirportRoutePage({ params }: Props) {
           </div>
         </section>
 
-        {/* ===== ПРЕИМУЩЕСТВА ===== */}
-        <section className="border-t bg-muted/30 py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Что входит в цену
-              </h2>
-              <p className="mt-3 text-base text-muted-foreground">
-                Без скрытых доплат. Всё включено в фиксированную цену за машину.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {advantages.map((a) => (
-                <Card key={a.title} className="p-6">
-                  <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald/10 text-emerald">
-                    <a.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mb-1 text-lg font-semibold">{a.title}</h3>
-                  <p className="text-sm text-muted-foreground">{a.desc}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* ===== ТАРИФНЫЕ КАРТОЧКИ ===== */}
+        <FleetTariffCards
+          title="Какой минивэн подаём"
+          subtitle={`Выберите класс для маршрута ${airport.name} → ${route.destinationName}`}
+          contextLabel={`Аэропорт ${airport.name}`}
+        />
 
-        {/* ===== О МАРШРУТЕ ===== */}
-        <section className="py-16 sm:py-24">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
-              О маршруте
-            </h2>
-            <p className="mb-4 text-base leading-7 text-muted-foreground sm:text-lg">
-              {route.uniqueIntro}
-            </p>
-            <p className="text-base leading-7 text-muted-foreground sm:text-lg">
-              {route.uniqueRouteDesc}
-            </p>
-          </div>
-        </section>
+        {/* ===== ЛОНГРИД «ВСЁ, ЧТО НУЖНО ЗНАТЬ» ===== */}
+        <RouteFactsLongread
+          title={`Всё, что нужно знать о поездке ${airport.name} → ${route.destinationName}`}
+          intro={route.uniqueIntro}
+          sections={[
+            {
+              icon: Clock,
+              title: "Идеальное время выезда и ожидания",
+              paragraph: route.uniqueRouteDesc,
+              callout: `Бесплатное ожидание 60 минут при задержке рейса. Контакт водителя приходит за 30 минут до прибытия — никаких «потерь» в зоне прилёта.`,
+            },
+            {
+              icon: Sparkles,
+              title: "Преимущества заказа минивэна",
+              list: [
+                { title: "Фикс цена", description: "не зависит от пробок и времени" },
+                { title: "Цена за машину", description: "выгоднее, чем 2 такси" },
+                { title: "Безналичный расчёт", description: "карта, СБП, по счёту для юрлиц" },
+                { title: "Документы для отчётности", description: "договор, счёт, акт, УПД, ККТ" },
+                { title: "Дет.кресла", description: "бустер / 9–18 / 18–36 кг — бесплатно" },
+                { title: "Безопасность", description: "опытные водители, проверка перед сменой" },
+              ],
+            },
+            {
+              icon: Backpack,
+              title: "Что приготовить к подаче",
+              list: [
+                { title: "Номер рейса", description: "для отслеживания задержки" },
+                { title: "Точный адрес", description: "куда довезти после прилёта" },
+                { title: "Количество багажа", description: "большие чемоданы / спорт-инвентарь" },
+                { title: "Возраст детей", description: "для подбора кресла" },
+              ],
+            },
+          ]}
+        />
 
-        {/* ===== ЦЕНА И ВАРИАНТЫ ===== */}
-        <section className="border-t bg-muted/30 py-16 sm:py-24">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-10 text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Стоимость и варианты
-              </h2>
-              <p className="mt-3 text-base text-muted-foreground">
-                Цена за машину 6–8 мест. Не зависит от количества пассажиров.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Card className="p-6">
-                <div className="text-sm text-muted-foreground">В одну сторону</div>
-                <div className="mt-1 text-3xl font-bold">от {price} ₽</div>
-                <div className="mt-2 text-sm text-muted-foreground">
-                  Минивэн с водителем · до 8 пасс. · бесплатное ожидание 60 мин
-                </div>
-              </Card>
-              <Card className="p-6">
-                <div className="text-sm text-muted-foreground">Туда-обратно за день</div>
-                <div className="mt-1 text-3xl font-bold">{priceRoundTrip} ₽</div>
-                <div className="mt-2 text-sm text-muted-foreground">
-                  Подача + ожидание + обратный путь со скидкой 20%
-                </div>
-              </Card>
-            </div>
-            <p className="mt-6 text-center text-sm text-muted-foreground">
-              <strong className="text-foreground">Доплаты:</strong> ночной тариф (00:00–06:00) +20% ·
-              доп.остановка +500 ₽
-            </p>
-          </div>
-        </section>
+        {/* ===== ТАРИФНАЯ ТАБЛИЦА ===== */}
+        <TariffTable
+          modelName="Минивэн 7–8 мест"
+          title="Тариф и дополнительные услуги"
+          baseFare={[
+            { label: "В одну сторону", value: `от ${price} ₽`, highlight: true },
+            { label: "Туда-обратно за день (скидка 20%)", value: `${priceRoundTrip} ₽` },
+            ...defaultBaseFare(),
+          ]}
+          extras={defaultExtras()}
+        />
 
         {/* ===== КАК ЗАКАЗАТЬ ===== */}
-        <section className="py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Как заказать
-              </h2>
-              <p className="mt-3 text-base text-muted-foreground">
-                Три шага — от заявки до встречи водителя в аэропорту
-              </p>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-3">
-              {[
-                { step: "1", title: "Заявка", desc: "Заполните форму или напишите в WhatsApp/Telegram" },
-                { step: "2", title: "Подтверждение", desc: "Менеджер свяжется в течение 5 минут, пришлёт контакт водителя" },
-                { step: "3", title: "Поездка", desc: "Водитель встретит вас в зоне прилёта с табличкой по фамилии" },
-              ].map((s) => (
-                <Card key={s.step} className="p-6">
-                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald text-lg font-bold text-emerald-foreground">
-                    {s.step}
-                  </div>
-                  <h3 className="mb-2 text-lg font-semibold">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground">{s.desc}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        <HowItWorks3Steps bg="muted" />
 
         {/* ===== ДРУГИЕ НАПРАВЛЕНИЯ ===== */}
         {sameHubRoutes.length > 0 && (
@@ -388,6 +351,12 @@ export default async function AirportRoutePage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* ===== ВИДЫ ОПЛАТЫ ===== */}
+        <PaymentMethods
+          title="Как оплатить заказ"
+          intro="Все основные способы оплаты — наличные, карта, безналичный для юрлиц. После 3 поездок открываем постоплату до 14 дней."
+        />
 
         <B2bCtaBlock />
       </main>
