@@ -20,6 +20,8 @@ import { getDestinationHubHeroImage } from "@/lib/hero-images";
 import { FleetTariffCards } from "@/components/FleetTariffCards";
 import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
 import { PaymentMethods } from "@/components/PaymentMethods";
+import { RouteFaq } from "@/components/RouteFaq";
+import { metaDestinationHub } from "@/lib/content-engine/meta";
 import {
   CheckIcon,
   MapPinIcon,
@@ -41,11 +43,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!hub) return {};
   const routes = getDestinationRoutesByRegion(region);
   const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
-  return {
-    title: `Минивэн в ${hub.regionName} из ${hub.hubCity} — туры и трансферы | ЗаказМинивена.ru`,
-    description: `Минивэн с водителем в ${hub.regionName}: однодневные и многодневные поездки из ${hub.hubCity}. До 8 мест. Водитель, знающий регион. От ${formatPrice(minPrice)} ₽`,
-    alternates: { canonical: `https://zakazminivena.ru/destination/${region}` },
-  };
+  const meta = metaDestinationHub({
+    regionSlug: region,
+    regionName: hub.regionName,
+    hubCity: hub.hubCity,
+    topPointsShort: hub.topPointsShort,
+    minPrice,
+  });
+  return { ...meta, alternates: { canonical: `https://zakazminivena.ru/destination/${region}` } };
 }
 
 export default async function DestinationHubPage({ params }: Props) {
@@ -314,6 +319,40 @@ export default async function DestinationHubPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {/* ===== FAQ ===== */}
+        <RouteFaq
+          title={`Частые вопросы про поездки в ${hub.regionNameAcc}`}
+          items={[
+            {
+              q: `Сколько стоит минивэн в ${hub.regionNameAcc}?`,
+              a: `Базовая цена за машину 6–8 мест — от ${formatPrice(minPrice)} ₽. Конкретные маршруты — в карточках выше. Точная цена за вашу поездку — через форму или WhatsApp за 5 минут.`,
+            },
+            {
+              q: `Что особенного в поездках по ${hub.regionNameAcc}?`,
+              a: `Водитель знает регион ${hub.regionName} и его дороги: где остановиться для фото, какой маршрут оптимальнее в текущий сезон, что посмотреть. Это отличие от обычного такси.`,
+            },
+            {
+              q: `Бывают ли многодневные туры?`,
+              a: hub.multidayTours.length > 0
+                ? `Да, ${hub.multidayTours.length} готовых пакета: ${hub.multidayTours.map((t) => t.name).join("; ")}. Можем сделать индивидуальный маршрут с ночёвкой водителя.`
+                : `Да, по запросу — с ночёвкой водителя в любом пункте региона. Расходы на гостиницу водителя оплачиваются отдельно.`,
+            },
+            {
+              q: `Можно ли менять маршрут в дороге?`,
+              a: `Да. Это главное преимущество индивидуального минивэна — гибкость. Дополнительные остановки до 15 минут — бесплатно, дольше — по часовому тарифу.`,
+            },
+            {
+              q: `Какой минивэн подадите?`,
+              a: `Под ваш запрос подбираем класс: эконом 5–6 мест, универсальный 7–8, бизнес-премиум (V-Class, Alphard). Все 4 класса в карточках выше — с ценами и иконками вместимости.`,
+            },
+            {
+              q: `Что взять с собой?`,
+              a: hub.packingList.slice(0, 5).join(", ") + ". Подробнее — в описании конкретного маршрута.",
+            },
+          ]}
+          bg="muted"
+        />
 
         {/* ===== ВИДЫ ОПЛАТЫ ===== */}
         <PaymentMethods />

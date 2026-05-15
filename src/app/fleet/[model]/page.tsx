@@ -8,6 +8,7 @@ import { BookingForm } from "@/components/BookingForm";
 import { Card } from "@/components/ui/card";
 import { fleetModels, getFleetModel } from "@/lib/fleet-data";
 import { CheckIcon } from "lucide-react";
+import { metaFleetModel } from "@/lib/content-engine/meta";
 
 export function generateStaticParams() {
   return fleetModels.map((m) => ({ model: m.slug }));
@@ -19,11 +20,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { model } = await params;
   const m = getFleetModel(model);
   if (!m) return {};
-  return {
-    title: `${m.fullName} с водителем — заказать минивэн | ЗаказМинивена.ru`,
-    description: `Заказать ${m.fullName} с водителем. ${m.seats} пассажиров, ${m.luggageL} л багажа. ${m.description.slice(0, 100)}`,
-    alternates: { canonical: `https://zakazminivena.ru/fleet/${model}` },
-  };
+  const minPrice = m.pricing[0]?.price ?? 4000;
+  const meta = metaFleetModel({
+    slug: model,
+    fullName: m.fullName,
+    brand: m.brand,
+    model: m.model,
+    tier: m.tier,
+    seats: m.seats,
+    luggageL: m.luggageL,
+    minPrice,
+  });
+  return { ...meta, alternates: { canonical: `https://zakazminivena.ru/fleet/${model}` } };
 }
 
 export default async function FleetModelPage({ params }: Props) {

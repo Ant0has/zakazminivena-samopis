@@ -17,6 +17,8 @@ import { getAirportHubHeroImage } from "@/lib/hero-images";
 import { FleetTariffCards } from "@/components/FleetTariffCards";
 import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
 import { PaymentMethods } from "@/components/PaymentMethods";
+import { RouteFaq } from "@/components/RouteFaq";
+import { metaAirportHub } from "@/lib/content-engine/meta";
 import {
   PlaneIcon,
   MapPinIcon,
@@ -39,13 +41,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!airport) return {};
   const routes = getAirportRoutesByIata(iata);
   const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
-  return {
-    title: `Минивэн в аэропорт ${airport.name} (${iata.toUpperCase()}) — заказ с водителем | ЗаказМинивена.ru`,
-    description: `Минивэн в ${airport.name} и обратно. Фикс цена от ${formatPrice(
-      minPrice
-    )} ₽ за машину 6–8 мест. Встреча с табличкой, ожидание при задержке рейса. Заказ онлайн`,
-    alternates: { canonical: `https://zakazminivena.ru/airport/${iata}` },
-  };
+  const meta = metaAirportHub({
+    iata,
+    airportName: airport.name,
+    airportNameFull: airport.nameFull,
+    city: airport.city,
+    minPrice,
+  });
+  return { ...meta, alternates: { canonical: `https://zakazminivena.ru/airport/${iata}` } };
 }
 
 export default async function AirportHubPage({ params }: Props) {
@@ -283,6 +286,38 @@ export default async function AirportHubPage({ params }: Props) {
 
         {/* ===== КАК ЗАКАЗАТЬ ===== */}
         <HowItWorks3Steps bg="muted" />
+
+        {/* ===== FAQ ===== */}
+        <RouteFaq
+          title={`Частые вопросы про трансфер в аэропорт ${airport.name}`}
+          items={[
+            {
+              q: `Сколько стоит минивэн в аэропорт ${airport.name}?`,
+              a: `Цена зависит от точки подачи. Базовая стоимость — от ${formatPrice(minPrice)} ₽ за машину 6–8 мест. Для конкретной точки укажите её в форме — менеджер пришлёт фикс цену за 5 минут.`,
+            },
+            {
+              q: `Сколько ждёте, если рейс задерживается?`,
+              a: `Бесплатно 60 минут от времени прилёта. Свыше — 500 ₽/час. Время отсчитывается от факта приземления, не от расписания.`,
+            },
+            {
+              q: `Как водитель найдёт меня в ${airport.name}?`,
+              a: `Встреча в зоне прилёта с табличкой по вашей фамилии. За 30 минут до прибытия рейса вы получите имя водителя, номер машины и WhatsApp/Telegram-контакт.`,
+            },
+            {
+              q: `К каким терминалам подаёте?`,
+              a: `Ко всем терминалам ${airport.name}: ${airport.terminals.map((t) => t.code).join(", ")}. Точное место встречи водитель сообщает в момент подачи.`,
+            },
+            {
+              q: `Можно ли с дет.креслом или питомцем?`,
+              a: `Дет.кресло любого типа (бустер, 9–18 кг, 18–36 кг) — бесплатно. Питомец в переноске — бесплатно, собака до 10 кг — 1 000 ₽, до 25 кг — 1 500 ₽.`,
+            },
+            {
+              q: `Принимаете ли безналичный расчёт?`,
+              a: `Да. Картой онлайн (Юкасса/Тинькофф), СБП по телефону, наличные водителю, банковский перевод для юрлиц. Документы для отчётности: договор, счёт, акт, ККТ-чек.`,
+            },
+          ]}
+          bg="muted"
+        />
 
         {/* ===== ВИДЫ ОПЛАТЫ ===== */}
         <PaymentMethods />

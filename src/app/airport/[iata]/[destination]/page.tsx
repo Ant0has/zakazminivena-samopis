@@ -22,6 +22,9 @@ import { TariffTable, defaultBaseFare, defaultExtras } from "@/components/Tariff
 import { RouteFactsLongread } from "@/components/RouteFactsLongread";
 import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
 import { PaymentMethods } from "@/components/PaymentMethods";
+import { RouteFaq } from "@/components/RouteFaq";
+import { metaAirportRoute } from "@/lib/content-engine/meta";
+import { generateAirportRouteContent } from "@/lib/content-engine/copy-airport";
 import {
   CheckIcon,
   ClockIcon,
@@ -48,19 +51,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const airport = getIataAirport(iata);
   const route = getAirportRoute(iata, destination);
   if (!airport || !route) return {};
-  const price = formatPrice(calcPrice(route.km));
+  // Уникальные мета через content-engine: учитывают цену, км, время и точное название аэропорта.
+  const meta = metaAirportRoute({
+    iata,
+    airportName: airport.name,
+    airportNameFull: airport.nameFull,
+    destinationName: route.destinationName,
+    km: route.km,
+    hours: route.hours,
+    city: airport.city,
+  });
   return {
-    title: `Минивэн ${airport.name} → ${route.destinationName} от ${price} ₽ | ЗаказМинивена.ru`,
-    description: `Минивэн из аэропорта ${airport.nameFull} в ${route.destinationName}: ${route.km} км, ${route.hours}. Цена от ${price} ₽ за машину 6–8 мест. Встреча с табличкой. Заказ онлайн.`,
+    ...meta,
     alternates: { canonical: `https://zakazminivena.ru/airport/${iata}/${destination}` },
-    openGraph: {
-      title: `Минивэн ${airport.name} → ${route.destinationName} — от ${price} ₽`,
-      description: `Маршрут ${airport.nameFull} → ${route.destinationName}. ${route.km} км, ${route.hours}. Фикс цена ${price} ₽.`,
-      url: `https://zakazminivena.ru/airport/${iata}/${destination}`,
-      siteName: "ЗаказМинивена.ru",
-      locale: "ru_RU",
-      type: "website",
-    },
   };
 }
 
@@ -76,6 +79,19 @@ export default async function AirportRoutePage({ params }: Props) {
     .filter((r) => r.destinationSlug !== destination)
     .slice(0, 6);
   const heroImage = getAirportRouteHeroImage(iata);
+
+  // Уникальные тексты от content-engine с подстановкой данных маршрута.
+  const content = generateAirportRouteContent({
+    iata,
+    airportName: airport.name,
+    airportNameFull: airport.nameFull,
+    destinationName: route.destinationName,
+    destinationCity: airport.city,
+    km: route.km,
+    hours: route.hours,
+    uniqueIntro: route.uniqueIntro,
+    uniqueRouteDesc: route.uniqueRouteDesc,
+  });
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -144,6 +160,8 @@ export default async function AirportRoutePage({ params }: Props) {
                   Минивэн из {airport.nameFull} в {route.destinationName} —{" "}
                   <span className="text-gradient">от {price} ₽</span>
                 </h1>
+                {/* SR-only расширенный H1-контекст для контентного веса */}
+                <p className="sr-only">{content.h1}</p>
               </div>
 
               {/* Картинка — на мобильном сразу под H1, на десктопе справа */}
@@ -160,8 +178,7 @@ export default async function AirportRoutePage({ params }: Props) {
               {/* Подзаголовок + метрики + CTA — на мобильном после картинки, на десктопе под H1 в левой колонке */}
               <div className="order-3 lg:order-3 lg:col-start-1">
                 <p className="max-w-xl text-lg text-muted-foreground sm:text-xl">
-                  6–8 мест с багажом. Время в пути {route.hours}. {route.km} км по маршруту.
-                  Фикс цена за машину, не за пассажира.
+                  {content.heroSubtitle}
                 </p>
 
                 <div className="mt-6 grid grid-cols-3 gap-3 sm:gap-4">
@@ -241,13 +258,13 @@ export default async function AirportRoutePage({ params }: Props) {
         {/* ===== ЛОНГРИД «ВСЁ, ЧТО НУЖНО ЗНАТЬ» ===== */}
         <RouteFactsLongread
           title={`Всё, что нужно знать о поездке ${airport.name} → ${route.destinationName}`}
-          intro={route.uniqueIntro}
+          intro={content.intro}
           sections={[
             {
               icon: Clock,
-              title: "Идеальное время выезда и ожидания",
-              paragraph: route.uniqueRouteDesc,
-              callout: `Бесплатное ожидание 60 минут при задержке рейса. Контакт водителя приходит за 30 минут до прибытия — никаких «потерь» в зоне прилёта.`,
+              title: "Маршрут и время в пути",
+              paragraph: content.routeDescription,
+              callout: content.longreadCallout,
             },
             {
               icon: Sparkles,
@@ -351,6 +368,13 @@ export default async function AirportRoutePage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* ===== FAQ ===== */}
+        <RouteFaq
+          title={`Частые вопросы про маршрут ${airport.name} → ${route.destinationName}`}
+          items={content.faq}
+          bg="muted"
+        />
 
         {/* ===== ВИДЫ ОПЛАТЫ ===== */}
         <PaymentMethods

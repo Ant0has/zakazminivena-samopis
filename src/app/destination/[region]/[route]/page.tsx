@@ -22,6 +22,9 @@ import { TariffTable, defaultBaseFare, defaultExtras } from "@/components/Tariff
 import { RouteFactsLongread } from "@/components/RouteFactsLongread";
 import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
 import { PaymentMethods } from "@/components/PaymentMethods";
+import { RouteFaq } from "@/components/RouteFaq";
+import { metaDestinationRoute } from "@/lib/content-engine/meta";
+import { generateDestinationRouteContent } from "@/lib/content-engine/copy-destination";
 import {
   CheckIcon,
   ClockIcon,
@@ -44,11 +47,19 @@ type Props = { params: Promise<{ region: string; route: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { region, route } = await params;
   const data = getDestinationRoute(region, route);
-  if (!data) return {};
-  const price = formatPrice(calcPrice(data.km));
+  const hub = getDestinationHub(region);
+  if (!data || !hub) return {};
+  const meta = metaDestinationRoute({
+    regionSlug: region,
+    routeSlug: route,
+    regionName: hub.regionName,
+    fromCity: data.fromCity,
+    toCity: data.toCity,
+    km: data.km,
+    hours: data.hours,
+  });
   return {
-    title: `Минивэн ${data.fromCity} → ${data.toCity} — от ${price} ₽ за машину | ЗаказМинивена.ru`,
-    description: `Маршрут ${data.fromCity} → ${data.toCity} на минивэне: ${data.km} км, ${data.hours}. 6–8 мест с багажом. Возможны остановки. Цена от ${price} ₽.`,
+    ...meta,
     alternates: { canonical: `https://zakazminivena.ru/destination/${region}/${route}` },
   };
 }
@@ -64,6 +75,19 @@ export default async function DestinationRoutePage({ params }: Props) {
     .filter((r) => r.routeSlug !== route)
     .slice(0, 6);
   const heroImage = getDestinationRouteHeroImage(region);
+
+  // Уникальные тексты от content-engine.
+  const content = generateDestinationRouteContent({
+    regionName: hub.regionName,
+    fromCity: data.fromCity,
+    toCity: data.toCity,
+    km: data.km,
+    hours: data.hours,
+    uniqueIntro: data.uniqueIntro,
+    uniqueRouteDesc: data.uniqueRouteDesc,
+    specifics: data.specifics,
+    seasonalNotes: data.seasonalNotes,
+  });
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -121,6 +145,7 @@ export default async function DestinationRoutePage({ params }: Props) {
                   Минивэн {data.fromCity} → {data.toCity}{" "}
                   <span className="text-gradient">от {price} ₽</span>
                 </h1>
+                <p className="sr-only">{content.h1}</p>
               </div>
 
               <div className="order-2 lg:order-2 lg:row-span-2">
@@ -135,8 +160,7 @@ export default async function DestinationRoutePage({ params }: Props) {
 
               <div className="order-3 lg:order-3 lg:col-start-1">
                 <p className="max-w-xl text-lg text-muted-foreground sm:text-xl">
-                  {data.km} км, {data.hours} в пути. До 8 пассажиров с багажом. Гибкий маршрут с
-                  остановками — водитель, знающий регион.
+                  {content.heroSubtitle}
                 </p>
 
                 <div className="mt-6 grid grid-cols-3 gap-3 sm:gap-4">
@@ -216,13 +240,13 @@ export default async function DestinationRoutePage({ params }: Props) {
         {/* ===== ЛОНГРИД «ВСЁ, ЧТО НУЖНО ЗНАТЬ» ===== */}
         <RouteFactsLongread
           title={`Всё, что нужно знать о поездке ${data.fromCity} → ${data.toCity}`}
-          intro={data.uniqueIntro}
+          intro={content.intro}
           sections={[
             {
               icon: Clock,
               title: "Маршрут и время",
-              paragraph: data.uniqueRouteDesc,
-              callout: data.seasonalNotes || `Гибкий маршрут — можно менять точки и порядок остановок прямо в поездке.`,
+              paragraph: content.routeDescription,
+              callout: content.callout,
             },
             {
               icon: Sparkles,
@@ -359,6 +383,13 @@ export default async function DestinationRoutePage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* ===== FAQ ===== */}
+        <RouteFaq
+          title={`Частые вопросы про маршрут ${data.fromCity} → ${data.toCity}`}
+          items={content.faq}
+          bg="muted"
+        />
 
         {/* ===== ВИДЫ ОПЛАТЫ ===== */}
         <PaymentMethods

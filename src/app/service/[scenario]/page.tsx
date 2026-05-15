@@ -10,6 +10,7 @@ import { Card } from "@/components/ui/card";
 import { servicesData, getService } from "@/lib/services-data";
 import { fleetBySlug } from "@/lib/fleet-data";
 import { CheckIcon } from "lucide-react";
+import { metaService } from "@/lib/content-engine/meta";
 
 export function generateStaticParams() {
   return servicesData.map((s) => ({ scenario: s.slug }));
@@ -21,11 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { scenario } = await params;
   const s = getService(scenario);
   if (!s) return {};
-  return {
-    title: s.metaTitle + " | ЗаказМинивена.ru",
-    description: s.metaDescription,
-    alternates: { canonical: `https://zakazminivena.ru/service/${scenario}` },
-  };
+  const minPrice = s.pricing[0]?.price ?? 4000;
+  const meta = metaService({
+    slug: scenario,
+    scenarioGenitive: s.scenarioGenitive,
+    minPrice,
+  });
+  return { ...meta, alternates: { canonical: `https://zakazminivena.ru/service/${scenario}` } };
 }
 
 export default async function ServicePage({ params }: Props) {
