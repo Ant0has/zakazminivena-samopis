@@ -66,6 +66,10 @@ export function pricePerPersonFromKm(km: number, people = 7): string {
 }
 
 export const BRAND = "ЗаказМинивена.ru";
+
+export function formatRubFromInt(n: number): string {
+  return n.toLocaleString("ru-RU");
+}
 export const PHONE = "+7 (918) 587-54-54";
 
 /** Безопасно обрезает заголовок до limit символов на границе слова. */

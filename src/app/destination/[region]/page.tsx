@@ -21,7 +21,10 @@ import { FleetTariffCards } from "@/components/FleetTariffCards";
 import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
 import { PaymentMethods } from "@/components/PaymentMethods";
 import { RouteFaq } from "@/components/RouteFaq";
+import { RouteFactsLongread } from "@/components/RouteFactsLongread";
 import { metaDestinationHub } from "@/lib/content-engine/meta";
+import { generateDestinationHubContent } from "@/lib/content-engine/copy-destination-hub";
+import { iconFor } from "@/lib/content-engine/icon-map";
 import {
   CheckIcon,
   MapPinIcon,
@@ -62,6 +65,23 @@ export default async function DestinationHubPage({ params }: Props) {
   const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
   const fleet = hub.fleetModels.map((s) => fleetBySlug[s]).filter(Boolean);
   const heroImage = getDestinationHubHeroImage(region);
+  const hubContent = generateDestinationHubContent({
+    regionSlug: region,
+    regionName: hub.regionName,
+    regionNameAcc: hub.regionNameAcc,
+    hubCity: hub.hubCity,
+    topPointsShort: hub.topPointsShort,
+    heroIntro: hub.heroIntro,
+    routesCount: routes.length,
+    minPrice,
+    packingList: hub.packingList,
+    multidayTours: hub.multidayTours.map((t) => ({
+      name: t.name,
+      days: t.days,
+      priceFrom: t.priceFrom,
+      description: t.description,
+    })),
+  });
 
   return (
     <div className="relative min-h-screen">
@@ -301,6 +321,17 @@ export default async function DestinationHubPage({ params }: Props) {
           bg="default"
         />
 
+        {/* ===== ЛОНГРИД ХАБА ===== */}
+        <RouteFactsLongread
+          title={`Всё про минивэн в ${hub.regionNameAcc}`}
+          intro={hubContent.intro}
+          sections={hubContent.sections.map((s) => ({
+            icon: iconFor(s.iconKey),
+            title: s.title,
+            paragraph: s.body,
+          }))}
+        />
+
         {/* ===== КАК ЗАКАЗАТЬ ===== */}
         <HowItWorks3Steps bg="muted" />
 
@@ -324,7 +355,7 @@ export default async function DestinationHubPage({ params }: Props) {
         {/* ===== FAQ ===== */}
         <RouteFaq
           title={`Частые вопросы про поездки в ${hub.regionNameAcc}`}
-          items={[
+          items={hubContent.faq.length > 0 ? hubContent.faq : [
             {
               q: `Сколько стоит минивэн в ${hub.regionNameAcc}?`,
               a: `Базовая цена за машину 6–8 мест — от ${formatPrice(minPrice)} ₽. Конкретные маршруты — в карточках выше. Точная цена за вашу поездку — через форму или WhatsApp за 5 минут.`,

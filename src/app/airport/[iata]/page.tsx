@@ -18,7 +18,10 @@ import { FleetTariffCards } from "@/components/FleetTariffCards";
 import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
 import { PaymentMethods } from "@/components/PaymentMethods";
 import { RouteFaq } from "@/components/RouteFaq";
+import { RouteFactsLongread } from "@/components/RouteFactsLongread";
 import { metaAirportHub } from "@/lib/content-engine/meta";
+import { generateAirportHubContent } from "@/lib/content-engine/copy-airport-hub";
+import { iconFor } from "@/lib/content-engine/icon-map";
 import {
   PlaneIcon,
   MapPinIcon,
@@ -59,6 +62,17 @@ export default async function AirportHubPage({ params }: Props) {
   const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
   const fleetForHub = airport.fleet.map((s) => fleetBySlug[s]).filter(Boolean);
   const heroImage = getAirportHubHeroImage(iata);
+  const hubContent = generateAirportHubContent({
+    iata,
+    airportName: airport.name,
+    airportNameFull: airport.nameFull,
+    city: airport.city,
+    region: airport.region,
+    kmToCenter: airport.kmToCenter,
+    terminals: airport.terminals,
+    routesCount: routes.length,
+    routesMinPrice: minPrice,
+  });
 
   const otherMoscowAirports = ["svo", "vko", "dme", "zia"].filter((c) => c !== iata);
   const sameRegionAirports =
@@ -284,13 +298,24 @@ export default async function AirportHubPage({ params }: Props) {
           </div>
         </section>
 
+        {/* ===== ЛОНГРИД ХАБА ===== */}
+        <RouteFactsLongread
+          title={`Всё про минивэн в ${airport.nameFull}`}
+          intro={hubContent.intro}
+          sections={hubContent.sections.map((s) => ({
+            icon: iconFor(s.iconKey),
+            title: s.title,
+            paragraph: s.body,
+          }))}
+        />
+
         {/* ===== КАК ЗАКАЗАТЬ ===== */}
         <HowItWorks3Steps bg="muted" />
 
         {/* ===== FAQ ===== */}
         <RouteFaq
           title={`Частые вопросы про трансфер в аэропорт ${airport.name}`}
-          items={[
+          items={hubContent.faq.length > 0 ? hubContent.faq : [
             {
               q: `Сколько стоит минивэн в аэропорт ${airport.name}?`,
               a: `Цена зависит от точки подачи. Базовая стоимость — от ${formatPrice(minPrice)} ₽ за машину 6–8 мест. Для конкретной точки укажите её в форме — менеджер пришлёт фикс цену за 5 минут.`,
