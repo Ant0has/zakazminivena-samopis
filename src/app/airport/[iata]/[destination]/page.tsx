@@ -25,6 +25,7 @@ import { PaymentMethods } from "@/components/PaymentMethods";
 import { RouteFaq } from "@/components/RouteFaq";
 import { metaAirportRoute } from "@/lib/content-engine/meta";
 import { generateAirportRouteContent } from "@/lib/content-engine/copy-airport";
+import { iconFor } from "@/lib/content-engine/icon-map";
 import {
   CheckIcon,
   ClockIcon,
@@ -266,28 +267,11 @@ export default async function AirportRoutePage({ params }: Props) {
               paragraph: content.routeDescription,
               callout: content.longreadCallout,
             },
-            {
-              icon: Sparkles,
-              title: "Преимущества заказа минивэна",
-              list: [
-                { title: "Фикс цена", description: "не зависит от пробок и времени" },
-                { title: "Цена за машину", description: "выгоднее, чем 2 такси" },
-                { title: "Безналичный расчёт", description: "карта, СБП, по счёту для юрлиц" },
-                { title: "Документы для отчётности", description: "договор, счёт, акт, УПД, ККТ" },
-                { title: "Дет.кресла", description: "бустер / 9–18 / 18–36 кг — бесплатно" },
-                { title: "Безопасность", description: "опытные водители, проверка перед сменой" },
-              ],
-            },
-            {
-              icon: Backpack,
-              title: "Что приготовить к подаче",
-              list: [
-                { title: "Номер рейса", description: "для отслеживания задержки" },
-                { title: "Точный адрес", description: "куда довезти после прилёта" },
-                { title: "Количество багажа", description: "большие чемоданы / спорт-инвентарь" },
-                { title: "Возраст детей", description: "для подбора кресла" },
-              ],
-            },
+            ...content.sections.map((s) => ({
+              icon: iconFor(s.iconKey),
+              title: s.title,
+              paragraph: s.body,
+            })),
           ]}
         />
 

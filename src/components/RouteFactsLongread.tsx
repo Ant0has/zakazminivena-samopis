@@ -22,6 +22,7 @@ interface RouteFactsLongreadProps {
 }
 
 export function RouteFactsLongread({ title, intro, sections }: RouteFactsLongreadProps) {
+  const introParagraphs = intro ? intro.split(/\n\n+/).filter(Boolean) : [];
   return (
     <section className="bg-muted/40 border-y py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -29,11 +30,14 @@ export function RouteFactsLongread({ title, intro, sections }: RouteFactsLongrea
           <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl">
             {title}
           </h2>
-          {intro && (
-            <p className="mt-4 max-w-3xl text-base text-muted-foreground sm:text-lg">
-              {intro}
+          {introParagraphs.map((p, i) => (
+            <p
+              key={i}
+              className="mt-4 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg"
+            >
+              {p}
             </p>
-          )}
+          ))}
         </header>
 
         <div className="space-y-12">
@@ -64,11 +68,14 @@ function LongreadBlock({
         </h3>
       </div>
 
-      {paragraph && (
-        <p className="mb-4 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">
-          {paragraph}
+      {paragraph && paragraph.split(/\n\n+/).filter(Boolean).map((p, i) => (
+        <p
+          key={i}
+          className="mb-4 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base"
+        >
+          {p}
         </p>
-      )}
+      ))}
 
       {callout && (
         <div className="mb-4 flex items-start gap-3 rounded-xl border border-emerald/20 bg-emerald/5 p-4 text-sm sm:text-base">

@@ -25,6 +25,7 @@ import { PaymentMethods } from "@/components/PaymentMethods";
 import { RouteFaq } from "@/components/RouteFaq";
 import { metaDestinationRoute } from "@/lib/content-engine/meta";
 import { generateDestinationRouteContent } from "@/lib/content-engine/copy-destination";
+import { iconFor } from "@/lib/content-engine/icon-map";
 import {
   CheckIcon,
   ClockIcon,
@@ -87,6 +88,7 @@ export default async function DestinationRoutePage({ params }: Props) {
     uniqueRouteDesc: data.uniqueRouteDesc,
     specifics: data.specifics,
     seasonalNotes: data.seasonalNotes,
+    pointsOfInterest: data.pointsOfInterest,
   });
 
   const jsonLd = {
@@ -248,23 +250,11 @@ export default async function DestinationRoutePage({ params }: Props) {
               paragraph: content.routeDescription,
               callout: content.callout,
             },
-            {
-              icon: Sparkles,
-              title: "Что включает поездка",
-              list: [
-                { title: "Подача в любую точку", description: data.fromCity },
-                { title: "Водитель-проводник", description: "знает регион, рассказывает по дороге" },
-                { title: "Остановки для фото", description: "без дополнительной платы" },
-                { title: "Бесплатное ожидание", description: "в локациях по согласованию" },
-                { title: "Гибкий маршрут", description: "меняйте план в дороге" },
-                { title: "Помощь с багажом", description: "до и от машины" },
-              ],
-            },
-            {
-              icon: Backpack,
-              title: "Что взять с собой в поездку",
-              paragraph: data.specifics,
-            },
+            ...content.sections.map((s) => ({
+              icon: iconFor(s.iconKey),
+              title: s.title,
+              paragraph: s.body,
+            })),
           ]}
         />
 
