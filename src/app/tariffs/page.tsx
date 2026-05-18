@@ -13,7 +13,6 @@ import {
   CalculatorIcon,
   BanknoteIcon,
   CreditCardIcon,
-  PercentIcon,
   SmartphoneIcon,
 } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
@@ -207,18 +206,6 @@ export default function TariffsPage() {
                   обычном такси. Например, маршрут 300 км обойдётся примерно
                   в 18 500 рублей на весь минивэн — около 2 650 рублей на
                   человека.
-                </p>
-              </div>
-
-              <div className="mt-8 rounded-xl border-2 border-emerald/40 bg-gradient-to-r from-emerald/5 to-emerald/10 p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <PercentIcon className="h-5 w-5 text-emerald" />
-                  <h3 className="text-lg font-bold text-emerald">Скидка 20% на обратный путь</h3>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  При заказе поездки туда-обратно стоимость обратного пути рассчитывается со скидкой 20%.
-                  Например, если поездка в одну сторону стоит 10 000 руб., обратный путь обойдётся в 8 000 руб.
-                  Итого туда-обратно: 18 000 руб. вместо 20 000 руб. Скидка применяется автоматически.
                 </p>
               </div>
 

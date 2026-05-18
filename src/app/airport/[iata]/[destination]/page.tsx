@@ -15,7 +15,7 @@ import {
   getAirportRoutesByIata,
 } from "@/lib/airport-routes-data";
 import { getIataAirport } from "@/lib/iata-airports";
-import { calcPrice, calcRoundTripTotal, formatPrice } from "@/lib/routes-data";
+import { calcPrice, formatPrice } from "@/lib/routes-data";
 import { getAirportRouteHeroImage } from "@/lib/hero-images";
 import { FleetTariffCards } from "@/components/FleetTariffCards";
 import { TariffTable, defaultBaseFare, defaultExtras } from "@/components/TariffTable";
@@ -75,7 +75,6 @@ export default async function AirportRoutePage({ params }: Props) {
   if (!airport || !route) notFound();
 
   const price = formatPrice(calcPrice(route.km));
-  const priceRoundTrip = formatPrice(calcRoundTripTotal(route.km));
   const sameHubRoutes = getAirportRoutesByIata(iata)
     .filter((r) => r.destinationSlug !== destination)
     .slice(0, 6);
@@ -281,7 +280,7 @@ export default async function AirportRoutePage({ params }: Props) {
           title="Тариф и дополнительные услуги"
           baseFare={[
             { label: "В одну сторону", value: `от ${price} ₽`, highlight: true },
-            { label: "Туда-обратно за день (скидка 20%)", value: `${priceRoundTrip} ₽` },
+            { label: "Туда-обратно за день", value: "по согласованию" },
             ...defaultBaseFare(),
           ]}
           extras={defaultExtras()}

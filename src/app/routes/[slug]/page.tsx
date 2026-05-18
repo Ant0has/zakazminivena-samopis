@@ -13,8 +13,6 @@ import { TelegramIcon, MaxIcon } from "@/components/icons";
 import {
   allRoutes,
   calcPrice,
-  calcReturnPrice,
-  calcRoundTripTotal,
   formatPrice,
   pricePerPerson,
   RouteData,
@@ -33,7 +31,6 @@ import {
   RulerIcon,
   PhoneIcon,
   ArrowLeftIcon,
-  PercentIcon,
   CheckIcon,
   XIcon,
   HelpCircleIcon,
@@ -158,13 +155,6 @@ export default async function RoutePage({ params }: Props) {
   const priceFormatted = formatPrice(price);
   const perPerson = pricePerPerson(route.km);
   const reviewTags = getRouteTags(route.fromSlug, route.toSlug);
-
-  const returnPrice = calcReturnPrice(route.km);
-  const returnPriceFormatted = formatPrice(returnPrice);
-  const roundTripTotal = calcRoundTripTotal(route.km);
-  const roundTripFormatted = formatPrice(roundTripTotal);
-  const fullPriceRoundTrip = price * 2;
-  const roundTripSavings = fullPriceRoundTrip - roundTripTotal;
 
   // Taxi comparison: 2 taxis at ~70 rub/km each
   const taxiPrice = Math.ceil((route.km * 70 * 2) / 500) * 500;
@@ -314,32 +304,6 @@ export default async function RoutePage({ params }: Props) {
                 </div>
               </Card>
             </div>
-            {/* Return trip discount */}
-            <div className="mt-4 relative overflow-hidden rounded-2xl border-2 border-emerald/40 bg-gradient-to-r from-emerald/5 via-emerald/10 to-emerald/5 p-6 sm:p-8">
-              <div className="absolute -right-4 -top-4 flex h-20 w-20 items-center justify-center rounded-full bg-emerald/20">
-                <span className="text-lg font-bold text-emerald">−20%</span>
-              </div>
-              <div className="flex items-center gap-2 mb-4">
-                <PercentIcon className="h-5 w-5 text-emerald" />
-                <h3 className="text-xl font-bold text-emerald">Скидка 20% на обратный путь</h3>
-              </div>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                <div>
-                  <div className="text-sm text-muted-foreground">Обратный путь</div>
-                  <div className="text-2xl font-bold">{returnPriceFormatted} <span className="text-base text-emerald">руб.</span></div>
-                  <div className="text-xs text-emerald font-medium">скидка 20%</div>
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">Туда-обратно</div>
-                  <div className="text-2xl font-bold">{roundTripFormatted} <span className="text-base text-emerald">руб.</span></div>
-                  <div className="text-xs text-muted-foreground line-through">{formatPrice(fullPriceRoundTrip)} руб.</div>
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">Экономия</div>
-                  <div className="text-2xl font-bold text-emerald">{formatPrice(roundTripSavings)} <span className="text-base">руб.</span></div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -464,9 +428,6 @@ export default async function RoutePage({ params }: Props) {
                   </span>{" "}
                   + все едут вместе
                 </p>
-                <p className="mt-2 text-sm text-emerald font-medium">
-                  А при заказе туда-обратно — скидка 20% на обратный путь!
-                </p>
               </div>
             )}
           </div>
@@ -535,7 +496,7 @@ export default async function RoutePage({ params }: Props) {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href={`https://t.me/zakazminivena?text=${encodeURIComponent(`Заявка: ${route.from} → ${route.to}, ${priceFormatted} руб. (обратно со скидкой 20%: ${returnPriceFormatted} руб.)`)}`}>
+                  <a href={`https://t.me/zakazminivena?text=${encodeURIComponent(`Заявка: ${route.from} → ${route.to}, ${priceFormatted} руб.`)}`}>
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Заказать в Telegram
                   </a>

@@ -144,7 +144,7 @@ export function metaDestinationRoute(opts: {
   const title = `Минивэн ${fromCity} → ${toCity}: ${km} км, от ${price} ₽ | ${BRAND}`;
   const description =
     `Заказать минивэн с водителем по маршруту ${fromCity} → ${toCity} (${regionName}). ` +
-    `${km} км, ${duration}. Цена ${price} ₽ за машину 6–8 мест, туда-обратно ${priceRT} ₽. ` +
+    `${km} км, ${duration}. Цена от ${price} ₽ за машину 6–8 мест. ` +
     `Возможны остановки для фото, водитель знает регион.`;
 
   return buildMeta(title, description, {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import { calcPrice, calcReturnPrice, calcRoundTripTotal, formatPrice } from "@/lib/routes-data";
+import { calcPrice, formatPrice } from "@/lib/routes-data";
 import { dadataOsrmService } from "@/lib/dadata-osrm";
 import { AddressAutocomplete } from "@/components/AddressAutocomplete";
 import {
@@ -22,7 +22,6 @@ import {
   PhoneIcon,
   UsersIcon,
   CalendarIcon,
-  PercentIcon,
   ArrowLeftRightIcon,
   CalculatorIcon,
   LoaderIcon,
@@ -89,8 +88,6 @@ export function PriceCalculator() {
 
   const price = result?.price ?? null;
   const perPerson = price ? Math.ceil(price / passengers) : null;
-  const returnPrice = result ? calcReturnPrice(result.km) : null;
-  const roundTripTotal = result ? calcRoundTripTotal(result.km) : null;
   const durationText = useMemo(() => {
     if (!result) return "";
     const h = Math.floor(result.minutes / 60);
@@ -247,18 +244,6 @@ export function PriceCalculator() {
                   {formatPrice(perPerson)} ₽ / чел
                 </Badge>
               )}
-            </div>
-
-            <div className="mt-4 rounded-lg border border-emerald/30 bg-emerald/10 p-3">
-              <div className="flex items-center gap-1.5 text-sm font-medium text-emerald">
-                <PercentIcon className="h-3.5 w-3.5" />
-                Скидка 20% на обратный путь
-              </div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                Обратно: <span className="font-semibold text-foreground">{formatPrice(returnPrice!)} ₽</span>
-                {" · "}Туда-обратно:{" "}
-                <span className="font-semibold text-foreground">{formatPrice(roundTripTotal!)} ₽</span>
-              </div>
             </div>
 
             <div className="mt-5 flex flex-col gap-2 sm:flex-row">

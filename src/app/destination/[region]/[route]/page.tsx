@@ -15,7 +15,7 @@ import {
   getDestinationRoutesByRegion,
   getDestinationHub,
 } from "@/lib/destinations-data";
-import { calcPrice, calcRoundTripTotal, formatPrice } from "@/lib/routes-data";
+import { calcPrice, formatPrice } from "@/lib/routes-data";
 import { getDestinationRouteHeroImage } from "@/lib/hero-images";
 import { FleetTariffCards } from "@/components/FleetTariffCards";
 import { TariffTable, defaultBaseFare, defaultExtras } from "@/components/TariffTable";
@@ -71,7 +71,6 @@ export default async function DestinationRoutePage({ params }: Props) {
   const hub = getDestinationHub(region);
   if (!data || !hub) notFound();
   const price = formatPrice(calcPrice(data.km));
-  const priceRoundTrip = formatPrice(calcRoundTripTotal(data.km));
   const relatedRoutes = getDestinationRoutesByRegion(region)
     .filter((r) => r.routeSlug !== route)
     .slice(0, 6);
@@ -264,7 +263,7 @@ export default async function DestinationRoutePage({ params }: Props) {
           title="Цена и дополнительные услуги"
           baseFare={[
             { label: "В одну сторону", value: `от ${price} ₽`, highlight: true },
-            { label: "Туда-обратно за день (−20%)", value: `${priceRoundTrip} ₽` },
+            { label: "Туда-обратно за день", value: "по согласованию" },
             { label: "С ночёвкой водителя (за машину + сутки)", value: `от ${formatPrice(calcPrice(data.km) + 8000)} ₽` },
             ...defaultBaseFare(),
           ]}
