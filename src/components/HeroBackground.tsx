@@ -35,8 +35,8 @@ export function HeroBackground() {
 }
 
 // Контейнер для самого фото минивэна.
-// Машина приходит со студийным белым фоном — оборачиваем в брендовую цветную плашку
-// и используем object-contain, чтобы белый плавно «растворился» в цветном фоне.
+// Тематические фото минивэна в контексте локации — object-cover на всю плашку,
+// caption-наложение снизу.
 import Image from "next/image";
 
 export function HeroVehicleImage({
@@ -54,27 +54,20 @@ export function HeroVehicleImage({
 }) {
   return (
     <div className="relative isolate h-72 overflow-hidden rounded-3xl sm:h-96 lg:h-[480px]
-                    bg-gradient-to-br from-emerald/15 via-emerald/5 to-sky-400/10
-                    ring-1 ring-black/5 shadow-2xl shadow-emerald/10">
-      {/* Декор блика внутри плашки */}
-      <div className="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-white/30 blur-3xl" />
-      <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-emerald/30 blur-3xl" />
-
-      {/* Сама машина — без растяжения, с воздухом по краям */}
+                    ring-1 ring-black/5 shadow-2xl shadow-emerald/10 bg-muted">
       <Image
         src={src}
         alt={alt}
         fill
         priority={priority}
         sizes="(min-width: 1024px) 50vw, 100vw"
-        className="object-contain p-6 sm:p-8"
-        style={{ mixBlendMode: "multiply" }}
+        className="object-cover"
       />
 
-      {/* Caption внизу плашки */}
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent p-6">
+      {/* Caption внизу с лёгким градиентом для читаемости */}
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 via-black/30 to-transparent p-6">
         <div className="text-xs uppercase tracking-wide text-white/85">{captionLabel}</div>
-        <div className="text-xl font-semibold text-white sm:text-2xl">{captionValue}</div>
+        <div className="text-xl font-semibold text-white sm:text-2xl drop-shadow-md">{captionValue}</div>
       </div>
     </div>
   );

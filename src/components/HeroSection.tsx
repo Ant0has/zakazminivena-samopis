@@ -60,7 +60,7 @@ export function HeroSection() {
 
           {/* Hero image */}
           <div className="mt-12 w-full max-w-4xl overflow-hidden rounded-2xl">
-            <Image src="/images/services/hero.webp" alt="Минивэн с водителем для семейных поездок" width={1024} height={576} className="w-full h-auto object-cover" priority />
+            <Image src="/images/heroes/zastavka.webp" alt="Минивэн с водителем для семейных поездок" width={1792} height={1024} className="w-full h-auto object-cover" priority />
           </div>
         </div>
       </div>
