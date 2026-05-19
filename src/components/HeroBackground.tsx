@@ -53,7 +53,7 @@ export function HeroVehicleImage({
   priority?: boolean;
 }) {
   return (
-    <div className="relative isolate h-72 overflow-hidden rounded-3xl sm:h-96 lg:h-[480px]
+    <div className="relative isolate aspect-[16/9] w-full overflow-hidden rounded-3xl
                     ring-1 ring-black/5 shadow-2xl shadow-emerald/10 bg-muted">
       <Image
         src={src}
@@ -61,7 +61,7 @@ export function HeroVehicleImage({
         fill
         priority={priority}
         sizes="(min-width: 1024px) 50vw, 100vw"
-        className="object-cover"
+        className="object-cover object-center"
       />
 
       {/* Caption внизу с лёгким градиентом для читаемости */}
