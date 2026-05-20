@@ -110,16 +110,16 @@ export default async function AirportHubPage({ params }: Props) {
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
               <div className="order-1 lg:order-1">
                 <div className="mb-5 flex flex-wrap items-center gap-2">
-                  <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
+                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
                     <PlaneIcon className="mr-1 h-3 w-3" /> {iata.toUpperCase()}
                   </Badge>
-                  <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
+                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
                     <MapPinIcon className="mr-1 h-3 w-3" /> {airport.city}
                   </Badge>
                 </div>
-                <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
                   Минивэн в аэропорт {airport.name}{" "}
-                  <span className="text-gradient">от {formatPrice(minPrice)} ₽</span>
+                  <span className="text-amber-300">от {formatPrice(minPrice)} ₽</span>
                 </h1>
               </div>
 
@@ -134,7 +134,7 @@ export default async function AirportHubPage({ params }: Props) {
               </div>
 
               <div className="order-3 lg:order-3 lg:col-start-1">
-                <p className="max-w-xl text-lg text-muted-foreground sm:text-xl">
+                <p className="max-w-xl text-lg text-white/90 sm:text-xl drop-shadow">
                   6–8 пассажиров с багажом. Подача к терминалу. Бесплатное ожидание 60 минут при
                   задержке рейса. Расстояние до центра — {airport.kmToCenter} км.
                 </p>

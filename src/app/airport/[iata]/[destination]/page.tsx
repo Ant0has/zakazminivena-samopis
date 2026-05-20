@@ -146,21 +146,20 @@ export default async function AirportRoutePage({ params }: Props) {
               {/* Бейджи + H1 — всегда первыми */}
               <div className="order-1 lg:order-1">
                 <div className="mb-5 flex flex-wrap items-center gap-2">
-                  <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
+                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
                     <PlaneIcon className="mr-1 h-3 w-3" /> {iata.toUpperCase()} → {route.destinationName}
                   </Badge>
-                  <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
+                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
                     <ShieldCheckIcon className="mr-1 h-3 w-3" /> Фикс цена
                   </Badge>
-                  <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
+                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
                     <UsersIcon className="mr-1 h-3 w-3" /> До 8 мест
                   </Badge>
                 </div>
-                <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
                   Минивэн из {airport.nameFull} в {route.destinationName} —{" "}
-                  <span className="text-gradient">от {price} ₽</span>
+                  <span className="text-amber-300">от {price} ₽</span>
                 </h1>
-                {/* SR-only расширенный H1-контекст для контентного веса */}
                 <p className="sr-only">{content.h1}</p>
               </div>
 
@@ -177,7 +176,7 @@ export default async function AirportRoutePage({ params }: Props) {
 
               {/* Подзаголовок + метрики + CTA — на мобильном после картинки, на десктопе под H1 в левой колонке */}
               <div className="order-3 lg:order-3 lg:col-start-1">
-                <p className="max-w-xl text-lg text-muted-foreground sm:text-xl">
+                <p className="max-w-xl text-lg text-white/90 sm:text-xl drop-shadow">
                   {content.heroSubtitle}
                 </p>
 

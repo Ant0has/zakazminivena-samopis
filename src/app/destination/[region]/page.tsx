@@ -102,16 +102,16 @@ export default async function DestinationHubPage({ params }: Props) {
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
               <div className="order-1 lg:order-1">
                 <div className="mb-5 flex flex-wrap items-center gap-2">
-                  <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
+                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
                     <MapPinIcon className="mr-1 h-3 w-3" /> Туркластер
                   </Badge>
-                  <Badge variant="outline" className="border-emerald/30 bg-emerald/5 text-emerald">
+                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
                     <CompassIcon className="mr-1 h-3 w-3" /> Водитель знает регион
                   </Badge>
                 </div>
-                <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
                   Минивэн в {hub.regionName} из {hub.hubCity}{" "}
-                  <span className="text-gradient">от {formatPrice(minPrice)} ₽</span>
+                  <span className="text-amber-300">от {formatPrice(minPrice)} ₽</span>
                 </h1>
               </div>
 
@@ -126,10 +126,10 @@ export default async function DestinationHubPage({ params }: Props) {
               </div>
 
               <div className="order-3 lg:order-3 lg:col-start-1">
-                <p className="text-base font-medium text-foreground sm:text-lg">
+                <p className="text-base font-medium text-white sm:text-lg drop-shadow">
                   {hub.topPointsShort}
                 </p>
-                <p className="mt-3 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
+                <p className="mt-3 max-w-xl text-base leading-7 text-white/85 sm:text-lg drop-shadow">
                   {hub.heroIntro}
                 </p>
 
