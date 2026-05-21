@@ -51,9 +51,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  verification: {
-    yandex: "d3872f2227bd5309",
-  },
 };
 
 export default function RootLayout({
