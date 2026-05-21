@@ -1,25 +1,36 @@
-// Hero-фон: отдельная картинка для десктопа (16:9) и мобайла (9:16).
-// PNG-исходники сконвертированы в WebP (~52 KB каждый).
+// Hero-фон: тематическая иллюстрация для десктопа (16:9) и мобайла (9:16) +
+// тёмно-зелёный overlay для контрастного белого текста.
 
-export function HeroBackground() {
+interface HeroBackgroundProps {
+  /** intensity тёмно-зелёного overlay'я (0..1). По умолчанию 0.7 — текст хорошо читается. */
+  overlay?: number;
+}
+
+export function HeroBackground({ overlay = 0.7 }: HeroBackgroundProps = {}) {
   return (
     <>
-      {/* Desktop background — виден от sm: и выше */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 hidden sm:block bg-no-repeat bg-cover bg-center
+        className="absolute inset-0 -z-20 hidden sm:block bg-no-repeat bg-cover bg-center
                    [background-image:url('/images/heroes/bg-desktop.webp')]"
       />
-      {/* Mobile background — виден до sm: */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 sm:hidden bg-no-repeat bg-cover bg-center
+        className="absolute inset-0 -z-20 sm:hidden bg-no-repeat bg-cover bg-center
                    [background-image:url('/images/heroes/bg-mobile.webp')]"
       />
-      {/* Мягкая маска снизу, чтобы фон плавно переходил в background ниже Hero */}
+      {/* Тёмно-зелёный overlay для контраста */}
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-b from-transparent to-background"
+        className="absolute inset-0 -z-10"
+        style={{
+          background: `linear-gradient(to bottom right, oklch(0.25 0.07 162 / ${overlay}), oklch(0.18 0.05 162 / ${overlay + 0.1}))`,
+        }}
+      />
+      {/* Плавный переход к background ниже Hero */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-b from-transparent to-background"
       />
     </>
   );

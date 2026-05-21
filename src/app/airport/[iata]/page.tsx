@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { HeroBackground, HeroVehicleImage } from "@/components/HeroBackground";
+import { HeroBackground } from "@/components/HeroBackground";
+import { AirportHeroForm } from "@/components/AirportHeroForm";
+import { AirportPhotoCard } from "@/components/AirportPhotoCard";
+import { AirportFeaturesGrid } from "@/components/AirportFeaturesGrid";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -103,51 +106,49 @@ export default async function AirportHubPage({ params }: Props) {
           ]}
         />
 
-        {/* ===== HERO ===== */}
+        {/* ===== HERO (airport hub) ===== */}
         <section className="relative overflow-hidden">
           <HeroBackground />
-          <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
-            <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-              <div className="order-1 lg:order-1">
-                <div className="mb-5 flex flex-wrap items-center gap-2">
-                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
-                    <PlaneIcon className="mr-1 h-3 w-3" /> {iata.toUpperCase()}
-                  </Badge>
-                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
-                    <MapPinIcon className="mr-1 h-3 w-3" /> {airport.city}
-                  </Badge>
-                </div>
-                <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
-                  Минивэн в аэропорт {airport.name}{" "}
-                  <span className="text-amber-300">от {formatPrice(minPrice)} ₽</span>
-                </h1>
-              </div>
+          <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20">
+            {/* Бейджи-чеклист */}
+            <div className="mb-6 flex flex-wrap justify-center gap-2 sm:justify-start">
+              {["Фиксированная цена", "До 8 мест", "Дет.кресло бесплатно", "Без предоплаты"].map((b) => (
+                <span
+                  key={b}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-emerald/20 px-3 py-1 text-xs font-medium text-emerald-100 ring-1 ring-emerald-300/30"
+                >
+                  <CheckIcon className="h-3 w-3" /> {b}
+                </span>
+              ))}
+            </div>
 
-              <div className="order-2 lg:order-2 lg:row-span-2">
-                <HeroVehicleImage
-                  src={heroImage}
-                  alt={`Минивэн в ${airport.name}`}
-                  captionLabel="Аэропорт"
-                  captionValue={airport.nameFull}
-                  priority
-                />
-              </div>
+            {/* H1 */}
+            <h1 className="mx-auto max-w-3xl text-center text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl sm:text-left lg:text-5xl">
+              Минивэн в{" "}
+              <span className="underline decoration-emerald-300 decoration-4 underline-offset-4">
+                {airport.name} ({iata.toUpperCase()})
+              </span>{" "}
+              — встретим с табличкой, ждём при задержке рейса
+            </h1>
+            <p className="mx-auto mt-4 max-w-3xl text-center text-base text-white/85 sm:text-left sm:text-lg">
+              Комфортная поездка для семьи или компании до 8 пассажиров с багажом. Подача к
+              терминалу, фиксированная цена от {formatPrice(minPrice)} ₽ за машину — без скрытых
+              доплат.
+            </p>
 
-              <div className="order-3 lg:order-3 lg:col-start-1">
-                <p className="max-w-xl text-lg text-white/90 sm:text-xl drop-shadow">
-                  6–8 пассажиров с багажом. Подача к терминалу. Бесплатное ожидание 60 минут при
-                  задержке рейса. Расстояние до центра — {airport.kmToCenter} км.
-                </p>
+            {/* Сетка: форма + photo-card */}
+            <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr,1fr]">
+              <AirportHeroForm iata={iata} airportShort={airport.name} />
+              <AirportPhotoCard
+                caption={`Минивэн Mercedes V-class в ${airport.name}`}
+                description={`Премиум-минивэн на стоянке у входа в терминал. Тёплый утренний свет. Водитель встречает пассажиров с табличкой по фамилии.`}
+                alternative={`салон V-class изнутри, в окно — виды на ${airport.city}.`}
+              />
+            </div>
 
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a href="#routes" className="rounded-lg bg-emerald px-6 py-3 text-sm font-medium text-emerald-foreground hover:bg-emerald/90">
-                    Все направления
-                  </a>
-                  <a href="#booking" className="rounded-lg border bg-background/70 backdrop-blur px-6 py-3 text-sm font-medium hover:border-emerald hover:text-emerald">
-                    Узнать цену
-                  </a>
-                </div>
-              </div>
+            {/* Сетка фишек */}
+            <div className="mt-8">
+              <AirportFeaturesGrid airportShort={airport.name} />
             </div>
           </div>
         </section>

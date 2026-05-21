@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { HeroBackground, HeroVehicleImage } from "@/components/HeroBackground";
+import { HeroBackground } from "@/components/HeroBackground";
+import { AirportHeroForm } from "@/components/AirportHeroForm";
+import { AirportPhotoCard } from "@/components/AirportPhotoCard";
+import { AirportFeaturesGrid } from "@/components/AirportFeaturesGrid";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -138,75 +141,68 @@ export default async function AirportRoutePage({ params }: Props) {
           ]}
         />
 
-        {/* ===== HERO ===== */}
+        {/* ===== HERO (airport route) ===== */}
         <section className="relative overflow-hidden">
           <HeroBackground />
-          <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
-            <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-              {/* Бейджи + H1 — всегда первыми */}
-              <div className="order-1 lg:order-1">
-                <div className="mb-5 flex flex-wrap items-center gap-2">
-                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
-                    <PlaneIcon className="mr-1 h-3 w-3" /> {iata.toUpperCase()} → {route.destinationName}
-                  </Badge>
-                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
-                    <ShieldCheckIcon className="mr-1 h-3 w-3" /> Фикс цена
-                  </Badge>
-                  <Badge variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur">
-                    <UsersIcon className="mr-1 h-3 w-3" /> До 8 мест
-                  </Badge>
-                </div>
-                <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
-                  Минивэн из {airport.nameFull} в {route.destinationName} —{" "}
-                  <span className="text-amber-300">от {price} ₽</span>
-                </h1>
-                <p className="sr-only">{content.h1}</p>
-              </div>
+          <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20">
+            {/* Бейджи-чеклист */}
+            <div className="mb-6 flex flex-wrap justify-center gap-2 sm:justify-start">
+              {["Фиксированная цена", "До 8 мест", "Дет.кресло бесплатно", "Без предоплаты"].map((b) => (
+                <span
+                  key={b}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-emerald/20 px-3 py-1 text-xs font-medium text-emerald-100 ring-1 ring-emerald-300/30"
+                >
+                  <CheckIcon className="h-3 w-3" /> {b}
+                </span>
+              ))}
+            </div>
 
-              {/* Картинка — на мобильном сразу под H1, на десктопе справа */}
-              <div className="order-2 lg:order-2 lg:row-span-2">
-                <HeroVehicleImage
-                  src={heroImage}
-                  alt={`Минивэн ${airport.name} → ${route.destinationName}`}
-                  captionLabel="Маршрут"
-                  captionValue={`${airport.name} → ${route.destinationName}`}
-                  priority
-                />
-              </div>
+            {/* H1 */}
+            <h1 className="mx-auto max-w-3xl text-center text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl sm:text-left lg:text-5xl">
+              Минивэн в{" "}
+              <span className="underline decoration-emerald-300 decoration-4 underline-offset-4">
+                {airport.name} ({iata.toUpperCase()})
+              </span>{" "}
+              → {route.destinationName} — встретим с табличкой, ждём при задержке рейса
+            </h1>
+            <p className="mx-auto mt-4 max-w-3xl text-center text-base text-white/85 sm:text-left sm:text-lg">
+              {content.heroSubtitle}
+            </p>
+            <p className="sr-only">{content.h1}</p>
 
-              {/* Подзаголовок + метрики + CTA — на мобильном после картинки, на десктопе под H1 в левой колонке */}
-              <div className="order-3 lg:order-3 lg:col-start-1">
-                <p className="max-w-xl text-lg text-white/90 sm:text-xl drop-shadow">
-                  {content.heroSubtitle}
-                </p>
+            {/* Сетка: форма + photo-card */}
+            <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr,1fr]">
+              <AirportHeroForm
+                iata={iata}
+                airportShort={airport.name}
+                defaultDestination={route.destinationName}
+              />
+              <AirportPhotoCard
+                caption={`Минивэн Mercedes V-class в ${airport.name}`}
+                description={`Премиум-минивэн встречает гостей у входа в терминал. Точное место подачи водитель сообщает за 30 минут до прибытия рейса.`}
+                alternative={`Mercedes V-class изнутри: кожаный салон, индивидуальные кресла, климат-контроль.`}
+              />
+            </div>
 
-                <div className="mt-6 grid grid-cols-3 gap-3 sm:gap-4">
-                  <div className="rounded-xl border bg-card/80 backdrop-blur p-4 text-center">
-                    <RulerIcon className="mx-auto mb-1.5 h-5 w-5 text-emerald" />
-                    <div className="text-xs text-muted-foreground">Расстояние</div>
-                    <div className="text-base font-semibold sm:text-lg">{route.km} км</div>
-                  </div>
-                  <div className="rounded-xl border bg-card/80 backdrop-blur p-4 text-center">
-                    <ClockIcon className="mx-auto mb-1.5 h-5 w-5 text-emerald" />
-                    <div className="text-xs text-muted-foreground">Время</div>
-                    <div className="text-base font-semibold sm:text-lg">{route.hours}</div>
-                  </div>
-                  <div className="rounded-xl border bg-card/80 backdrop-blur p-4 text-center">
-                    <WalletIcon className="mx-auto mb-1.5 h-5 w-5 text-emerald" />
-                    <div className="text-xs text-muted-foreground">Цена</div>
-                    <div className="text-base font-semibold sm:text-lg">от {price} ₽</div>
-                  </div>
-                </div>
+            {/* Сетка фишек */}
+            <div className="mt-8">
+              <AirportFeaturesGrid airportShort={airport.name} />
+            </div>
 
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a href="#booking" className="rounded-lg bg-emerald px-6 py-3 text-sm font-medium text-emerald-foreground hover:bg-emerald/90">
-                    Узнать точную цену
-                  </a>
-                  <a href="https://wa.me/79185875454" className="rounded-lg border bg-background/70 backdrop-blur px-6 py-3 text-sm font-medium hover:border-emerald hover:text-emerald">
-                    Заказать в WhatsApp
-                  </a>
-                </div>
-              </div>
+            {/* Метрики маршрута */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/85 sm:justify-start">
+              <span className="inline-flex items-center gap-1.5">
+                <RulerIcon className="h-4 w-4 text-emerald-300" />
+                Расстояние: <strong className="text-white">{route.km} км</strong>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <ClockIcon className="h-4 w-4 text-emerald-300" />
+                Время в пути: <strong className="text-white">{route.hours}</strong>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <WalletIcon className="h-4 w-4 text-emerald-300" />
+                Цена: <strong className="text-white">от {price} ₽</strong>
+              </span>
             </div>
           </div>
         </section>
