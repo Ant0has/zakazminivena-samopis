@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useCallback } from "react";
 import { calcPrice, formatPrice } from "@/lib/routes-data";
+import { submitLead } from "@/lib/lead";
 import { dadataOsrmService } from "@/lib/dadata-osrm";
 import { AddressAutocomplete } from "@/components/AddressAutocomplete";
 import {
@@ -41,6 +42,9 @@ export function PriceCalculator() {
   const [result, setResult] = useState<CalcResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [phone, setPhone] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const calculate = useCallback(async () => {
     setError(null);
@@ -85,6 +89,24 @@ export function PriceCalculator() {
     setTo(from);
     setResult(null);
   };
+
+  async function order() {
+    if (!phone.trim()) return;
+    setSubmitting(true);
+    const ok = await submitLead({
+      from,
+      to,
+      date,
+      passengers,
+      phone: phone.trim(),
+      comment: result
+        ? `Расчёт: ${result.km} км, ${durationText}, ${formatPrice(result.price)} ₽`
+        : undefined,
+    });
+    setSubmitting(false);
+    if (ok) setSent(true);
+    else window.open(telegramLink, "_blank");
+  }
 
   const price = result?.price ?? null;
   const perPerson = price ? Math.ceil(price / passengers) : null;
@@ -246,29 +268,42 @@ export function PriceCalculator() {
               )}
             </div>
 
-            <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-              <Button
-                size="lg"
-                className="h-12 flex-1 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
-                asChild
-              >
-                <a href={telegramLink} target="_blank" rel="noopener noreferrer">
-                  <TelegramIcon className="mr-2 h-5 w-5" />
-                  Заказать в Telegram
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="h-12 flex-1 text-base font-semibold"
-                asChild
-              >
-                <a href="tel:+79185875454">
-                  <PhoneIcon className="mr-2 h-4 w-4 text-emerald" />
-                  +7 (918) 587-54-54
-                </a>
-              </Button>
-            </div>
+            {sent ? (
+              <div className="mt-5 rounded-xl border border-emerald/30 bg-emerald/10 p-4 text-center">
+                <p className="text-base font-semibold text-emerald">Заявка принята ✅</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Перезвоним на {phone.trim()} за 5 минут и подтвердим цену.
+                </p>
+              </div>
+            ) : (
+              <>
+                <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+                  <Input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Ваш телефон"
+                    className="h-12 flex-1 bg-secondary text-base"
+                  />
+                  <Button
+                    size="lg"
+                    disabled={submitting || !phone.trim()}
+                    onClick={order}
+                    className="h-12 flex-1 bg-emerald text-base font-semibold text-emerald-foreground hover:bg-emerald/90"
+                  >
+                    {submitting ? "Отправляем…" : "Заказать — перезвоним"}
+                  </Button>
+                </div>
+                <div className="mt-2 flex items-center justify-center gap-4 text-sm">
+                  <a href="tel:+79185875454" className="inline-flex items-center gap-1 font-medium text-emerald">
+                    <PhoneIcon className="h-4 w-4" /> +7 (918) 587-54-54
+                  </a>
+                  <a href={telegramLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[#26A5E4]">
+                    <TelegramIcon className="h-4 w-4" /> Telegram
+                  </a>
+                </div>
+              </>
+            )}
 
             <p className="mt-3 text-xs text-muted-foreground">
               Расчёт по реальным дорогам (OSRM). Цена ориентировочная — финальная подтверждается менеджером.

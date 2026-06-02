@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { submitLead } from "@/lib/lead";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { PhoneIcon } from "lucide-react";
@@ -19,21 +20,12 @@ export function AirportConsultationForm({ context = "" }: AirportConsultationFor
     e.preventDefault();
     if (!phone.trim()) return;
     setStatus("sending");
-    try {
-      const res = await fetch("/api/order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name.trim() || "—",
-          phone: phone.trim(),
-          message: `Запрос консультации${context ? ` (${context})` : ""}`,
-          source: "airport-consultation",
-        }),
-      });
-      setStatus(res.ok ? "ok" : "err");
-    } catch {
-      setStatus("err");
-    }
+    const ok = await submitLead({
+      name: name.trim() || "—",
+      phone: phone.trim(),
+      comment: `Запрос консультации${context ? ` (${context})` : ""}`,
+    });
+    setStatus(ok ? "ok" : "err");
   }
 
   return (

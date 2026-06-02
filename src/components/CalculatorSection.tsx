@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { CalculatorIcon, TrendingDownIcon, UsersIcon, SendIcon } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
+import { submitLead } from "@/lib/lead";
 
 const POPULAR_ROUTES = [
   { label: "Казань — Самара", km: 375 },
@@ -45,6 +46,9 @@ export function CalculatorSection() {
   const [km, setKm] = useState<number | null>(null);
   const [inputValue, setInputValue] = useState("");
   const [selectedRoute, setSelectedRoute] = useState("");
+  const [phone, setPhone] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
 
   function handleInputChange(value: string) {
     const num = parseInt(value, 10);
@@ -66,13 +70,25 @@ export function CalculatorSection() {
     }
   }
 
-  function handleOrder() {
-    if (!km) return;
+  async function handleOrder() {
+    if (!km || !phone.trim()) return;
     const { total } = calcPrice(km);
     const routeName = selectedRoute || `${km} км`;
-    const message = `Заказ минивэна\nРасстояние: ${km} км\nМаршрут: ${routeName}\nСтоимость: ${formatPrice(total)} руб.`;
-    const url = `https://t.me/ZakazMinivena?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
+    setSubmitting(true);
+    const ok = await submitLead({
+      from: selectedRoute || undefined,
+      phone: phone.trim(),
+      comment: `Расчёт: ${routeName}, ${km} км, ${formatPrice(total)} ₽`,
+    });
+    setSubmitting(false);
+    if (ok) setSent(true);
+    else
+      window.open(
+        `https://t.me/ZakazMinivena?text=${encodeURIComponent(
+          `Заказ минивэна, ${routeName}, ${km} км, ${formatPrice(total)} руб., тел. ${phone.trim()}`,
+        )}`,
+        "_blank",
+      );
   }
 
   const result = km && km > 0 ? calcPrice(km) : null;
@@ -180,17 +196,33 @@ export function CalculatorSection() {
                       </div>
                     </div>
 
-                    {/* CTA */}
-                    <div className="mt-6">
-                      <Button
-                        size="lg"
-                        className="h-14 w-full bg-emerald text-base font-semibold text-emerald-foreground hover:bg-emerald/90 sm:w-auto"
-                        onClick={handleOrder}
-                      >
-                        <TelegramIcon className="mr-2 h-5 w-5" />
-                        Заказать за {formatPrice(result.total)} руб.
-                      </Button>
-                    </div>
+                    {/* CTA — заявка в CRM */}
+                    {sent ? (
+                      <div className="mt-6 rounded-2xl border border-emerald/30 bg-emerald/5 p-4 text-center">
+                        <p className="text-base font-semibold text-emerald">Заявка принята ✅</p>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          Перезвоним на {phone.trim()} за 5 минут и подтвердим цену.
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                        <Input
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="Ваш телефон"
+                          className="h-14 bg-secondary text-base sm:max-w-[240px]"
+                        />
+                        <Button
+                          size="lg"
+                          disabled={submitting || !phone.trim()}
+                          className="h-14 bg-emerald text-base font-semibold text-emerald-foreground hover:bg-emerald/90"
+                          onClick={handleOrder}
+                        >
+                          {submitting ? "Отправляем…" : `Заказать за ${formatPrice(result.total)} руб.`}
+                        </Button>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </div>

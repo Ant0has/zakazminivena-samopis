@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { submitLead } from "@/lib/lead";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -36,8 +37,10 @@ export function BookingForm({ defaultFrom = "", defaultTo = "" }: BookingFormPro
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     const newErrors: { name?: string; phone?: string } = {};
@@ -48,18 +51,45 @@ export function BookingForm({ defaultFrom = "", defaultTo = "" }: BookingFormPro
       return;
     }
     setErrors({});
+    setSubmitting(true);
 
-    const parts = [
-      `Заявка: ${from} → ${to}`,
-      date || "дата не указана",
-      time || "время не указано",
-      `${passengers} чел.`,
-      name.trim(),
-      phone.trim(),
-    ];
-    const msg = parts.join(", ");
-    const url = `https://t.me/ZakazMinivena?text=${encodeURIComponent(msg)}`;
-    window.open(url, "_blank");
+    const ok = await submitLead({
+      from,
+      to,
+      date,
+      time,
+      passengers,
+      name: name.trim(),
+      phone: phone.trim(),
+    });
+    setSubmitting(false);
+
+    if (ok) {
+      setSent(true);
+    } else {
+      // Резерв: если сервер недоступен — открываем Telegram, чтобы заявка не потерялась
+      const msg = [
+        `Заявка: ${from} → ${to}`,
+        date || "дата не указана",
+        time || "время не указано",
+        `${passengers} чел.`,
+        name.trim(),
+        phone.trim(),
+      ].join(", ");
+      window.open(`https://t.me/ZakazMinivena?text=${encodeURIComponent(msg)}`, "_blank");
+    }
+  }
+
+  if (sent) {
+    return (
+      <Card className="border-emerald/20 p-6 shadow-sm sm:p-8">
+        <h3 className="mb-2 text-xl font-bold tracking-tight sm:text-2xl">Заявка принята ✅</h3>
+        <p className="text-sm text-muted-foreground">
+          Спасибо, {name.trim()}! Менеджер перезвонит на {phone.trim()} в течение 5 минут и
+          подтвердит детали поездки.
+        </p>
+      </Card>
+    );
   }
 
   return (
@@ -173,11 +203,22 @@ export function BookingForm({ defaultFrom = "", defaultTo = "" }: BookingFormPro
         <Button
           type="submit"
           size="lg"
-          className="h-12 w-full bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
+          disabled={submitting}
+          className="h-12 w-full bg-emerald text-base font-semibold text-white hover:bg-emerald/90"
         >
-          <TelegramIcon className="mr-2 h-5 w-5" />
-          Отправить заявку в Telegram
+          {submitting ? "Отправляем…" : "Оставить заявку"}
         </Button>
+        <p className="text-center text-xs text-muted-foreground">
+          Перезвоним за 5 минут. Или напишите в{" "}
+          <a
+            href="https://t.me/ZakazMinivena"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-[#26A5E4] underline"
+          >
+            <TelegramIcon className="h-3.5 w-3.5" /> Telegram
+          </a>
+        </p>
       </form>
     </Card>
   );

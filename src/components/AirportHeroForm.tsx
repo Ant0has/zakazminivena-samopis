@@ -24,6 +24,7 @@ import {
 import { dadataOsrmService } from "@/lib/dadata-osrm";
 import { CUSTOM_POI } from "@/lib/custom-poi";
 import { calcPrice, formatPrice } from "@/lib/routes-data";
+import { submitLead } from "@/lib/lead";
 
 interface AirportHeroFormProps {
   iata: string;
@@ -46,6 +47,9 @@ export function AirportHeroForm({ iata, airportShort, defaultDestination = "" }:
   const [pax, setPax] = useState("5");
   const [calc, setCalc] = useState<CalcResult | null>(null);
   const [calculating, setCalculating] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
 
   // Координаты выбранного аэропорта (из CUSTOM_POI по iata).
   const airportPoi = CUSTOM_POI.find(
@@ -109,6 +113,25 @@ export function AirportHeroForm({ iata, airportShort, defaultDestination = "" }:
     if (channel === "tg") url = `https://t.me/ZakazMinivena?text=${enc}`;
     if (channel === "max") url = `https://max.ru/zakazminivena`;
     window.open(url, "_blank");
+  }
+
+  // Заказ через сервер → лид в CRM (с маршрутом, ценой, рейсом)
+  async function order() {
+    if (!phone.trim()) return;
+    setSubmitting(true);
+    const airport = `${airportShort} (${iata.toUpperCase()})`;
+    const ok = await submitLead({
+      from: direction === "arrival" ? airport : destination || "—",
+      to: direction === "arrival" ? destination || "—" : airport,
+      date,
+      time,
+      passengers: pax,
+      phone: phone.trim(),
+      comment: buildMessage(),
+    });
+    setSubmitting(false);
+    if (ok) setSent(true);
+    else submit("tg"); // резерв
   }
 
   const labelCls = "mb-2 block text-sm font-semibold uppercase tracking-wide text-slate-600";
@@ -244,21 +267,44 @@ export function AirportHeroForm({ iata, airportShort, defaultDestination = "" }:
         </Select>
       </div>
 
-      {/* CTA — текст меняется: «Рассчитать» → «Заказать за X ₽» */}
-      <Button
-        type="button"
-        size="lg"
-        onClick={() => submit("tg")}
-        className="h-14 w-full bg-emerald text-lg font-semibold text-emerald-foreground hover:bg-emerald/90"
-      >
-        <CalculatorIcon className="mr-2 h-6 w-6" />
-        {calc ? `Заказать за ${formatPrice(calc.price)} ₽ →` : "Рассчитать стоимость →"}
-      </Button>
-      <p className="mt-3 text-center text-sm text-slate-500">
-        {calc
-          ? "Цена фиксированная — за машину, не за пассажира"
-          : "Введите адрес — рассчитаем за 2 секунды"}
-      </p>
+      {/* Заказ через сервер → лид в CRM */}
+      {sent ? (
+        <div className="rounded-xl border border-emerald/30 bg-emerald/5 p-4 text-center">
+          <p className="text-base font-semibold text-emerald">Заявка принята ✅</p>
+          <p className="mt-1 text-sm text-slate-600">
+            Перезвоним на {phone.trim()} за 5 минут и подтвердим цену.
+          </p>
+        </div>
+      ) : (
+        <>
+          <Input
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="Ваш телефон — перезвоним за 5 минут"
+            className={`${inputCls} mb-3`}
+          />
+          <Button
+            type="button"
+            size="lg"
+            disabled={submitting || !phone.trim()}
+            onClick={order}
+            className="h-14 w-full bg-emerald text-lg font-semibold text-emerald-foreground hover:bg-emerald/90"
+          >
+            <CalculatorIcon className="mr-2 h-6 w-6" />
+            {submitting
+              ? "Отправляем…"
+              : calc
+                ? `Заказать за ${formatPrice(calc.price)} ₽ →`
+                : "Оставить заявку →"}
+          </Button>
+          <p className="mt-3 text-center text-sm text-slate-500">
+            {calc
+              ? "Цена фиксированная — за машину, не за пассажира"
+              : "Введите адрес — рассчитаем цену за 2 секунды"}
+          </p>
+        </>
+      )}
 
       {/* Мессенджеры */}
       <div className="mt-auto pt-5">

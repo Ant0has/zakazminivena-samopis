@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { submitLead } from "@/lib/lead";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,6 +9,37 @@ import { PhoneIcon } from "lucide-react";
 import { TelegramIcon, MaxIcon } from "@/components/icons";
 
 export function CTASection() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [route, setRoute] = useState("");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!name.trim() || !phone.trim()) {
+      setError("Укажите имя и телефон");
+      return;
+    }
+    setError("");
+    setSubmitting(true);
+    const ok = await submitLead({
+      name: name.trim(),
+      phone: phone.trim(),
+      comment: route.trim() ? `Маршрут: ${route.trim()}` : undefined,
+    });
+    setSubmitting(false);
+    if (ok) setSent(true);
+    else
+      window.open(
+        `https://t.me/ZakazMinivena?text=${encodeURIComponent(
+          `Заявка: ${name.trim()}, ${phone.trim()}${route.trim() ? ", " + route.trim() : ""}`,
+        )}`,
+        "_blank",
+      );
+  }
+
   return (
     <section className="relative py-20 sm:py-28">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald/3 to-transparent" />
@@ -61,52 +94,64 @@ export function CTASection() {
 
               {/* Right: Form */}
               <div>
-                <h3 className="mb-6 text-lg font-semibold">
-                  Или оставьте заявку
-                </h3>
-                <form
-                  className="flex flex-col gap-4"
-                  onSubmit={(e) => e.preventDefault()}
-                >
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Имя</Label>
-                    <Input
-                      id="name"
-                      placeholder="Ваше имя"
-                      className="h-11 bg-secondary"
-                    />
+                <h3 className="mb-6 text-lg font-semibold">Или оставьте заявку</h3>
+                {sent ? (
+                  <div className="rounded-2xl border border-emerald/30 bg-emerald/5 p-6">
+                    <p className="text-lg font-semibold">Заявка принята ✅</p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Перезвоним на {phone.trim()} в течение 5 минут.
+                    </p>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Телефон</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="+7 (___) ___-__-__"
-                      className="h-11 bg-secondary"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="route">Маршрут</Label>
-                    <Input
-                      id="route"
-                      placeholder="Откуда — Куда"
-                      className="h-11 bg-secondary"
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="mt-2 h-12 bg-emerald text-base font-semibold text-emerald-foreground hover:bg-emerald/90"
-                  >
-                    Отправить заявку
-                  </Button>
-                  <p className="text-xs text-muted-foreground">
-                    Нажимая кнопку, вы соглашаетесь с{" "}
-                    <a href="/privacy" className="underline">
-                      политикой конфиденциальности
-                    </a>
-                  </p>
-                </form>
+                ) : (
+                  <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                    <div className="space-y-2">
+                      <Label htmlFor="cta-name">Имя</Label>
+                      <Input
+                        id="cta-name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Ваше имя"
+                        className="h-11 bg-secondary"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="cta-phone">Телефон</Label>
+                      <Input
+                        id="cta-phone"
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="+7 (___) ___-__-__"
+                        className="h-11 bg-secondary"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="cta-route">Маршрут</Label>
+                      <Input
+                        id="cta-route"
+                        value={route}
+                        onChange={(e) => setRoute(e.target.value)}
+                        placeholder="Откуда — Куда"
+                        className="h-11 bg-secondary"
+                      />
+                    </div>
+                    {error && <p className="text-xs text-destructive">{error}</p>}
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={submitting}
+                      className="mt-2 h-12 bg-emerald text-base font-semibold text-emerald-foreground hover:bg-emerald/90"
+                    >
+                      {submitting ? "Отправляем…" : "Отправить заявку"}
+                    </Button>
+                    <p className="text-xs text-muted-foreground">
+                      Нажимая кнопку, вы соглашаетесь с{" "}
+                      <a href="/privacy" className="underline">
+                        политикой конфиденциальности
+                      </a>
+                    </p>
+                  </form>
+                )}
               </div>
             </div>
           </div>
