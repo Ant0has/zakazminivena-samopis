@@ -13,14 +13,14 @@ import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
   title:
-    "Детские перевозки на минивэне — с детским креслом бесплатно | ЗаказМинивена.ru",
+    "Детские перевозки на минивэне — с детским креслом бесплатно | ЗаказМинивэна.ru",
   description:
     "Безопасные детские перевозки на минивэне с детским автокреслом бесплатно. 7 мест, кондиционер, плавная езда. Межгородние поездки с детьми по фиксированной цене. Звоните +7 (918) 587-54-54",
   openGraph: {
-    title: "Детские перевозки на минивэне — с детским креслом бесплатно | ЗаказМинивена.ru",
+    title: "Детские перевозки на минивэне — с детским креслом бесплатно | ЗаказМинивэна.ru",
     description: "Безопасные детские перевозки на минивэне с детским автокреслом бесплатно. 7 мест, кондиционер, плавная езда. Межгородние поездки с детьми по фиксированной цене. Звоните +7 (918) 587-54-54",
     url: "https://zakazminivena.ru/services/children",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -54,7 +54,7 @@ export default function ChildrenServicePage() {
             "description": "Безопасные детские перевозки на минивэне с детским автокреслом бесплатно. 7 мест, кондиционер, плавная езда.",
             "provider": {
               "@type": "Organization",
-              "name": "ЗаказМинивена.ru",
+              "name": "ЗаказМинивэна.ru",
               "url": "https://zakazminivena.ru"
             },
             "areaServed": "Россия",
@@ -147,7 +147,7 @@ export default function ChildrenServicePage() {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { CheckIcon, HandshakeIcon, FileTextIcon, BanknoteIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Партнёрская программа для турагентств — 10% комиссия | ЗаказМинивена.ru",
+  title: "Партнёрская программа для турагентств — 10% комиссия | ЗаказМинивэна.ru",
   description:
     "Партнёрская программа для турагентств, гидов, отелей. Комиссия 10% за каждого клиента. Договор, отчёты, прозрачные выплаты.",
   alternates: { canonical: "https://zakazminivena.ru/partnership" },

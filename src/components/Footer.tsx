@@ -108,7 +108,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://t.me/zakazminivena"
+                  href="https://t.me/ZakazMinivena"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -144,7 +144,7 @@ export function Footer() {
               M
             </div>
             <span className="text-sm font-medium">
-              ЗаказМинивена<span className="text-emerald">.ru</span>
+              ЗаказМинивэна<span className="text-emerald">.ru</span>
             </span>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">

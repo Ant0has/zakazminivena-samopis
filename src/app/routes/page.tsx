@@ -20,18 +20,18 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "Все маршруты минивэна по России — цены и расстояния | ЗаказМинивена.ru",
+    "Все маршруты минивэна по России — цены и расстояния | ЗаказМинивэна.ru",
   description:
     "Маршруты минивэна с водителем по России: цены, расстояния, время в пути. Более 80 направлений из Москвы, Краснодара, Сочи, Казани, Екатеринбурга и других городов. Фиксированная цена.",
   alternates: {
     canonical: "https://zakazminivena.ru/routes",
   },
   openGraph: {
-    title: "Все маршруты минивэна по России | ЗаказМинивена.ru",
+    title: "Все маршруты минивэна по России | ЗаказМинивэна.ru",
     description:
       "Более 80 маршрутов на минивэне 7 мест с водителем. Фиксированные цены, детское кресло бесплатно.",
     url: "https://zakazminivena.ru/routes",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -280,7 +280,7 @@ export default function RoutesListPage() {
                   className="h-12 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     Написать в Telegram
                   </a>
                 </Button>

@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: page.title,
       description: page.description,
       url: `https://zakazminivena.ru/seasonal/${slug}`,
-      siteName: "ЗаказМинивена.ru",
+      siteName: "ЗаказМинивэна.ru",
       locale: "ru_RU",
       type: "article",
     },
@@ -115,7 +115,7 @@ export default async function SeasonalSlugPage({ params }: PageProps) {
     image: `https://zakazminivena.ru${page.heroImage}`,
     publisher: {
       "@type": "Organization",
-      name: "ЗаказМинивена.ru",
+      name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
     },
   };
@@ -276,7 +276,7 @@ export default async function SeasonalSlugPage({ params }: PageProps) {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

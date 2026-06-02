@@ -110,7 +110,7 @@ export async function generateMetadata({
       title: pillar.h1,
       description: pillar.description,
       url: `https://zakazminivena.ru/b2b/${slug}`,
-      siteName: "ЗаказМинивена.ru",
+      siteName: "ЗаказМинивэна.ru",
       locale: "ru_RU",
       type: "article",
     },
@@ -156,7 +156,7 @@ export default async function B2bPillarPage({
     name: pillar.h1,
     provider: {
       "@type": "Organization",
-      name: "ЗаказМинивена.ru",
+      name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
       telephone: "+79185875454",
     },
@@ -201,7 +201,7 @@ export default async function B2bPillarPage({
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href="https://t.me/zakazminivena"
+                  href="https://t.me/ZakazMinivena"
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#26A5E4] px-6 py-3.5 font-semibold text-white transition-colors hover:bg-[#26A5E4]/90"
                 >
                   <TelegramIcon className="h-5 w-5" />
@@ -432,7 +432,7 @@ export default async function B2bPillarPage({
               </p>
               <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                 <a
-                  href="https://t.me/zakazminivena"
+                  href="https://t.me/ZakazMinivena"
                   className="inline-flex items-center gap-2 rounded-lg bg-[#26A5E4] px-6 py-3.5 font-semibold text-white transition-colors hover:bg-[#26A5E4]/90"
                 >
                   <TelegramIcon className="h-5 w-5" />

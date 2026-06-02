@@ -38,15 +38,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Минивэн для бизнеса — корпоративные трансферы | ЗаказМинивена.ru",
+  title: "Минивэн для бизнеса — корпоративные трансферы | ЗаказМинивэна.ru",
   description:
     "Корпоративные трансферы на минивэнах 7 мест: закрывающие документы, фиксированная цена, персональный менеджер. Работаем по договору с юридическими лицами.",
   openGraph: {
-    title: "Минивэн для бизнеса — корпоративные трансферы | ЗаказМинивена.ru",
+    title: "Минивэн для бизнеса — корпоративные трансферы | ЗаказМинивэна.ru",
     description:
       "Корпоративные трансферы на минивэнах 7 мест: закрывающие документы, фиксированная цена, персональный менеджер. Работаем по договору с юридическими лицами.",
     url: "https://zakazminivena.ru/b2b",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -122,7 +122,7 @@ export default function B2BPage() {
     name: "Корпоративные трансферы на минивэнах",
     provider: {
       "@type": "Organization",
-      name: "ЗаказМинивена.ru",
+      name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
       telephone: "+79185875454",
     },
@@ -185,7 +185,7 @@ export default function B2BPage() {
                     {[
                       { value: "8 мест", label: "в каждом авто" },
                       { value: "112+", label: "маршрутов" },
-                      { value: "14 дн", label: "постоплата" },
+                      { value: "5 раб.дн", label: "постоплата" },
                       { value: "0 ₽", label: "предоплата" },
                     ].map((stat) => (
                       <div key={stat.label} className="rounded-xl border border-zinc-700/50 bg-zinc-800/50 p-3 text-center">
@@ -201,7 +201,7 @@ export default function B2BPage() {
                       className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                       asChild
                     >
-                      <a href="https://t.me/zakazminivena">
+                      <a href="https://t.me/ZakazMinivena">
                         <TelegramIcon className="mr-2 h-5 w-5" />
                         Оставить заявку в Telegram
                       </a>
@@ -692,7 +692,7 @@ export default function B2BPage() {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

@@ -8,7 +8,7 @@ import { PlaneIcon, MapPinIcon } from "lucide-react";
 import { iataAirports } from "@/lib/iata-airports";
 
 export const metadata: Metadata = {
-  title: "Минивэн в аэропорт — 14 хабов России | ЗаказМинивена.ru",
+  title: "Минивэн в аэропорт — 14 хабов России | ЗаказМинивэна.ru",
   description:
     "Минивэн в аэропорты России: SVO, VKO, DME, LED, AER, MRV и другие. 14 хабов с подробным прайсом и маршрутами. Фикс цена, встреча с табличкой.",
   alternates: { canonical: "https://zakazminivena.ru/airport" },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Минивэн в аэропорт — 14 хабов России",
     description: "Минивэн в аэропорты России: SVO, VKO, DME, LED, AER, MRV и другие. Фикс цена, встреча с табличкой.",
     url: "https://zakazminivena.ru/airport",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },

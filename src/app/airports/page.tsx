@@ -10,14 +10,14 @@ import { TelegramIcon } from "@/components/icons";
 import { allAirports } from "@/lib/routes-data";
 
 export const metadata: Metadata = {
-  title: "Трансфер минивэн в аэропорт — ЗаказМинивена.ru",
+  title: "Трансфер минивэн в аэропорт — ЗаказМинивэна.ru",
   description:
     "Трансфер на минивэне 7 мест в аэропорты России: Шереметьево, Домодедово, Внуково, Пулково, Кольцово и другие. Фиксированная цена, встреча с табличкой, детское кресло бесплатно.",
   openGraph: {
-    title: "Трансфер минивэн в аэропорт — ЗаказМинивена.ru",
+    title: "Трансфер минивэн в аэропорт — ЗаказМинивэна.ru",
     description: "Трансфер на минивэне 7 мест в аэропорты России: Шереметьево, Домодедово, Внуково, Пулково, Кольцово и другие. Фиксированная цена, встреча с табличкой, детское кресло бесплатно.",
     url: "https://zakazminivena.ru/airports",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -41,7 +41,7 @@ export default function AirportsPage() {
             "url": "https://zakazminivena.ru/airports",
             "isPartOf": {
               "@type": "WebSite",
-              "name": "ЗаказМинивена.ru",
+              "name": "ЗаказМинивэна.ru",
               "url": "https://zakazminivena.ru"
             }
           }) }}
@@ -105,7 +105,7 @@ export default function AirportsPage() {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

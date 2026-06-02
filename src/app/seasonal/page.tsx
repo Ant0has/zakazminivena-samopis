@@ -7,14 +7,14 @@ import { Footer } from "@/components/Footer";
 import { seasonalPages } from "@/lib/seasonal-data";
 
 export const metadata: Metadata = {
-  title: "Сезонные предложения — минивэн на праздники, свадьбы и отпуск | ЗаказМинивена.ru",
+  title: "Сезонные предложения — минивэн на праздники, свадьбы и отпуск | ЗаказМинивэна.ru",
   description:
     "Сезонные предложения на заказ минивэна: новогодние трансферы, свадебный сезон, летний отпуск к морю. Специальные маршруты и комфортные условия для каждого сезона.",
   openGraph: {
-    title: "Сезонные предложения — минивэн на праздники, свадьбы и отпуск | ЗаказМинивена.ru",
+    title: "Сезонные предложения — минивэн на праздники, свадьбы и отпуск | ЗаказМинивэна.ru",
     description: "Сезонные предложения на заказ минивэна: новогодние трансферы, свадебный сезон, летний отпуск к морю. Специальные маршруты и комфортные условия для каждого сезона.",
     url: "https://zakazminivena.ru/seasonal",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -38,7 +38,7 @@ export default function SeasonalIndexPage() {
             "url": "https://zakazminivena.ru/seasonal",
             "isPartOf": {
               "@type": "WebSite",
-              "name": "ЗаказМинивена.ru",
+              "name": "ЗаказМинивэна.ru",
               "url": "https://zakazminivena.ru"
             }
           }) }}

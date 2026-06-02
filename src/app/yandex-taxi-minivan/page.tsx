@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Минивэн в Яндекс Такси — почему не всегда доступен и как заказать напрямую",
     description: "Почему минивэн в Яндекс Такси часто недоступен, особенно на межгород. Ограничения по местам, динамическое ценообразование. Альтернатива: минивэн 7 мест напрямую с фиксированной ценой.",
     url: "https://zakazminivena.ru/yandex-taxi-minivan",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -67,7 +67,7 @@ export default function YandexTaxiMinivanPage() {
             "description": "Минивэн 7 мест напрямую с фиксированной ценой. Альтернатива Яндекс Такси для межгородних поездок.",
             "provider": {
               "@type": "Organization",
-              "name": "ЗаказМинивена.ru",
+              "name": "ЗаказМинивэна.ru",
               "url": "https://zakazminivena.ru"
             },
             "areaServed": "Россия",
@@ -139,7 +139,7 @@ export default function YandexTaxiMinivanPage() {
               {/* Our advantages */}
               <div className="rounded-2xl border border-emerald/20 bg-emerald/5 p-6 sm:p-8">
                 <h2 className="mb-6 text-xl font-bold text-emerald-700">
-                  ЗаказМинивена.ru — преимущества
+                  ЗаказМинивэна.ru — преимущества
                 </h2>
                 <ul className="space-y-3">
                   {ourAdvantages.map((item) => (
@@ -167,7 +167,7 @@ export default function YandexTaxiMinivanPage() {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

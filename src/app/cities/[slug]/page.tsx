@@ -52,7 +52,7 @@ export async function generateMetadata({
       title: `Минивэн с водителем в ${city.nameIn} — заказать по фиксированной цене`,
       description: `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена.`,
       url: `https://zakazminivena.ru/cities/${slug}`,
-      siteName: "ЗаказМинивена.ru",
+      siteName: "ЗаказМинивэна.ru",
       locale: "ru_RU",
       type: "website",
     },
@@ -100,7 +100,7 @@ export default async function CityPage({
   const cityJsonLd = {
     "@context": "https://schema.org",
     "@type": "TaxiService",
-    "name": `Минивэн с водителем в ${city.nameIn} — ЗаказМинивена.ru`,
+    "name": `Минивэн с водителем в ${city.nameIn} — ЗаказМинивэна.ru`,
     "url": `https://zakazminivena.ru/cities/${slug}`,
     "telephone": "+79185875454",
     "description": `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}`,
@@ -110,13 +110,13 @@ export default async function CityPage({
     },
     "provider": {
       "@type": "Organization",
-      "name": "ЗаказМинивена.ru",
+      "name": "ЗаказМинивэна.ru",
       "url": "https://zakazminivena.ru",
     },
     "serviceType": "Minivan Transfer",
     "availableChannel": {
       "@type": "ServiceChannel",
-      "serviceUrl": "https://t.me/zakazminivena",
+      "serviceUrl": "https://t.me/ZakazMinivena",
       "servicePhone": "+79185875454",
     },
   };
@@ -316,7 +316,7 @@ export default async function CityPage({
               className="h-12 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
               asChild
             >
-              <a href="https://t.me/zakazminivena">
+              <a href="https://t.me/ZakazMinivena">
                 <TelegramIcon className="mr-2 h-5 w-5" />
                 Написать в Telegram
               </a>

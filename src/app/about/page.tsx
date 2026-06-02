@@ -19,14 +19,14 @@ import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
   title:
-    "О сервисе ЗаказМинивена.ru — минивэн с водителем по России",
+    "О сервисе ЗаказМинивэна.ru — минивэн с водителем по России",
   description:
-    "ЗаказМинивена.ru — сервис заказа минивэнов с водителем на 7 мест для межгородних поездок и трансфера в аэропорт. Фиксированные цены, 21+ регион России.",
+    "ЗаказМинивэна.ru — сервис заказа минивэнов с водителем на 7 мест для межгородних поездок и трансфера в аэропорт. Фиксированные цены, 21+ регион России.",
   openGraph: {
-    title: "О сервисе ЗаказМинивена.ru — минивэн с водителем по России",
-    description: "ЗаказМинивена.ru — сервис заказа минивэнов с водителем на 7 мест для межгородних поездок и трансфера в аэропорт. Фиксированные цены, 21+ регион России.",
+    title: "О сервисе ЗаказМинивэна.ru — минивэн с водителем по России",
+    description: "ЗаказМинивэна.ru — сервис заказа минивэнов с водителем на 7 мест для межгородних поездок и трансфера в аэропорт. Фиксированные цены, 21+ регион России.",
     url: "https://zakazminivena.ru/about",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -74,7 +74,7 @@ export default function AboutPage() {
   const aboutJsonLd = {
     "@context": "https://schema.org",
     "@type": "TransportationService",
-    "name": "ЗаказМинивена.ru",
+    "name": "ЗаказМинивэна.ru",
     "url": "https://zakazminivena.ru",
     "telephone": "+79185875454",
     "description": "Сервис заказа минивэнов с водителем на 7 мест для межгородних поездок и трансфера в аэропорт по России",
@@ -114,17 +114,17 @@ export default function AboutPage() {
               О сервисе
             </Badge>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              О сервисе ЗаказМинивена.ru
+              О сервисе ЗаказМинивэна.ru
             </h1>
 
             <div className="mt-8 overflow-hidden rounded-2xl">
-              <Image src="/images/services/about.webp" alt="Минивэн ЗаказМинивена.ru с водителем" width={1024} height={576} className="w-full h-auto object-cover" priority />
+              <Image src="/images/services/about.webp" alt="Минивэн ЗаказМинивэна.ru с водителем" width={1024} height={576} className="w-full h-auto object-cover" priority />
             </div>
 
             {/* Description */}
             <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                <strong className="text-foreground">ЗаказМинивена.ru</strong>{" "}
+                <strong className="text-foreground">ЗаказМинивэна.ru</strong>{" "}
                 — это специализированный сервис заказа минивэнов с водителем
                 на 7 мест для межгородних поездок и трансферов в аэропорт по
                 всей России.
@@ -218,7 +218,7 @@ export default function AboutPage() {
                     className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                     asChild
                   >
-                    <a href="https://t.me/zakazminivena">
+                    <a href="https://t.me/ZakazMinivena">
                       <TelegramIcon className="mr-2 h-5 w-5" />
                       Написать в Telegram
                     </a>

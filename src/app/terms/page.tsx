@@ -4,15 +4,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Пользовательское соглашение | ЗаказМинивена.ru",
+  title: "Пользовательское соглашение | ЗаказМинивэна.ru",
   description:
-    "Пользовательское соглашение сайта ЗаказМинивена.ru. Условия использования сервиса заказа минивэнов с водителем.",
+    "Пользовательское соглашение сайта ЗаказМинивэна.ru. Условия использования сервиса заказа минивэнов с водителем.",
   openGraph: {
-    title: "Пользовательское соглашение | ЗаказМинивена.ru",
+    title: "Пользовательское соглашение | ЗаказМинивэна.ru",
     description:
-      "Пользовательское соглашение сайта ЗаказМинивена.ru. Условия использования сервиса.",
+      "Пользовательское соглашение сайта ЗаказМинивэна.ru. Условия использования сервиса.",
     url: "https://zakazminivena.ru/terms",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -132,7 +132,7 @@ export default function TermsPage() {
                   в личных некоммерческих целях при сохранении указания на источник.
                 </p>
                 <p className="mt-3">
-                  3.3. Товарный знак «ЗаказМинивена.ru» и логотип сервиса являются
+                  3.3. Товарный знак «ЗаказМинивэна.ru» и логотип сервиса являются
                   собственностью Администрации сайта.
                 </p>
               </section>
@@ -213,7 +213,7 @@ export default function TermsPage() {
                     <a href="tel:+79185875454" className="text-emerald underline">+7 (918) 587-54-54</a>
                   </p>
                   <p className="mt-2"><strong className="text-foreground">Telegram:</strong>{" "}
-                    <a href="https://t.me/zakazminivena" className="text-emerald underline" target="_blank" rel="noopener noreferrer">@zakazminivena</a>
+                    <a href="https://t.me/ZakazMinivena" className="text-emerald underline" target="_blank" rel="noopener noreferrer">@zakazminivena</a>
                   </p>
                   <p className="mt-2"><strong className="text-foreground">Сайт:</strong>{" "}
                     <a href="https://zakazminivena.ru" className="text-emerald underline">zakazminivena.ru</a>

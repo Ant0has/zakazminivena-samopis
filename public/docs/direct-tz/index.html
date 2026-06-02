@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ТЗ для рекламной кампании Яндекс Директ — ЗаказМинивэна.ru</title>
+<style>
+*{box-sizing:border-box}
+body{font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;margin:0;background:#f7f9fa;color:#1e2a32}
+.wrap{max-width:880px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:30px;margin:0 0 6px;color:#0f9d6c}
+.sub{color:#5a6b76;margin-bottom:28px;font-size:14px}
+.bundle{background:#0f9d6c;color:#fff;display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:600;margin-bottom:28px;box-shadow:0 4px 16px rgba(15,157,108,.25)}
+.bundle:hover{background:#0c7f57}
+h2{margin:24px 0 10px;font-size:18px;color:#1e2a32}
+.section-desc{color:#5a6b76;font-size:14px;margin-bottom:12px}
+.files{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.files li{background:#fff;border:1px solid #e1e8ed;border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:14px;transition:border-color .15s}
+.files li:hover{border-color:#0f9d6c}
+.files a{flex:1;text-decoration:none;color:#1e2a32;font-weight:500}
+.files a:hover{color:#0f9d6c}
+.ext{font-size:11px;text-transform:uppercase;background:#e8f4ee;color:#0f9d6c;padding:3px 8px;border-radius:4px;font-weight:700;letter-spacing:.5px}
+.ext.csv{background:#fdf5e1;color:#a47917}
+.size{color:#8896a0;font-size:13px;min-width:60px;text-align:right}
+.note{margin-top:36px;padding:16px;background:#fff8e1;border-left:4px solid #f5b400;color:#5a4500;font-size:14px;border-radius:0 6px 6px 0}
+.note strong{color:#3a2a00}
+footer{margin-top:48px;color:#8896a0;font-size:13px;text-align:center;border-top:1px solid #e1e8ed;padding-top:20px}
+footer a{color:#0f9d6c}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ТЗ для Яндекс Директа</h1>
+  <p class="sub">ЗаказМинивэна.ru — кампания «минивэн + аэропорт». Обновлено 2026-05-27.</p>
+
+  <a class="bundle" href="direct-tz-bundle.zip" download>📦 Скачать всё одним архивом (.zip)</a>
+
+  <h2>📋 Документация</h2>
+  <p class="section-desc">Стратегия кампании, посадочные, бюджеты, готовые группы объявлений.</p>
+  <ul class="files">
+    <li>
+      <span class="ext">MD</span>
+      <a href="01-landing-pages.md" download>01. Посадочные страницы и приоритеты бюджета</a>
+      <span class="size">9 KB</span>
+    </li>
+    <li>
+      <span class="ext">MD</span>
+      <a href="02-campaign-plan.md" download>02. План рекламной кампании (общий)</a>
+      <span class="size">22 KB</span>
+    </li>
+    <li>
+      <span class="ext">MD</span>
+      <a href="03-overview.md" download>03. Стратегический обзор Direct</a>
+      <span class="size">15 KB</span>
+    </li>
+  </ul>
+
+  <h2>🔑 Семантика и объявления</h2>
+  <p class="section-desc">Готовые CSV для импорта в Яндекс Директ. Открываются в Excel / Google Sheets.</p>
+  <ul class="files">
+    <li>
+      <span class="ext csv">CSV</span>
+      <a href="keywords.csv" download>Ключевые слова — расширенный СЯ</a>
+      <span class="size">125 KB</span>
+    </li>
+    <li>
+      <span class="ext csv">CSV</span>
+      <a href="minus-words.csv" download>Минус-слова (стоп-фразы)</a>
+      <span class="size">5 KB</span>
+    </li>
+    <li>
+      <span class="ext csv">CSV</span>
+      <a href="ads-texts.csv" download>Тексты объявлений (шаблоны)</a>
+      <span class="size">9 KB</span>
+    </li>
+  </ul>
+
+  <h2>📊 Wordstat-аналитика</h2>
+  <p class="section-desc">Реальная частотность минивэн-запросов из Yandex Cloud Search API.</p>
+  <ul class="files">
+    <li>
+      <span class="ext csv">CSV</span>
+      <a href="minivan-frequency.csv" download>Частотность минивэн-фраз (162 ключа)</a>
+      <span class="size">12 KB</span>
+    </li>
+    <li>
+      <span class="ext csv">CSV</span>
+      <a href="minivan-frequency-by-page.csv" download>Топ-фразы по каждой посадочной (90 страниц)</a>
+      <span class="size">7 KB</span>
+    </li>
+  </ul>
+
+  <div class="note">
+    <strong>Что готово на стороне сайта:</strong>
+    14 посадочных HTTP 200, title с минивэн-фразой для P1 (KZN/IKT/SVO/MRV/MRV→Пятигорск),
+    калькулятор DaData+OSRM, 101 отзыв с aggregateRating 4.9, TaxiService schema,
+    компактная форма консультации, чат-виджет в брендовых цветах.
+    Подробности в файле <em>01-landing-pages.md</em>.
+  </div>
+
+  <footer>
+    <p>Документация закрыта от индексации (noindex). Прямые ссылки доступны без авторизации.</p>
+    <p><a href="https://zakazminivena.ru">← Вернуться на сайт</a></p>
+  </footer>
+</div>
+</body>
+</html>

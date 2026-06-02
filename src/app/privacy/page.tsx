@@ -4,15 +4,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Политика конфиденциальности | ЗаказМинивена.ru",
+  title: "Политика конфиденциальности | ЗаказМинивэна.ru",
   description:
-    "Политика конфиденциальности и обработки персональных данных сервиса ЗаказМинивена.ru. Защита данных в соответствии с ФЗ-152.",
+    "Политика конфиденциальности и обработки персональных данных сервиса ЗаказМинивэна.ru. Защита данных в соответствии с ФЗ-152.",
   openGraph: {
-    title: "Политика конфиденциальности | ЗаказМинивена.ru",
+    title: "Политика конфиденциальности | ЗаказМинивэна.ru",
     description:
-      "Политика конфиденциальности и обработки персональных данных сервиса ЗаказМинивена.ru.",
+      "Политика конфиденциальности и обработки персональных данных сервиса ЗаказМинивэна.ru.",
     url: "https://zakazminivena.ru/privacy",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -220,7 +220,7 @@ export default function PrivacyPage() {
                     <a href="tel:+79185875454" className="text-emerald underline">+7 (918) 587-54-54</a>
                   </p>
                   <p className="mt-2"><strong className="text-foreground">Telegram:</strong>{" "}
-                    <a href="https://t.me/zakazminivena" className="text-emerald underline" target="_blank" rel="noopener noreferrer">@zakazminivena</a>
+                    <a href="https://t.me/ZakazMinivena" className="text-emerald underline" target="_blank" rel="noopener noreferrer">@zakazminivena</a>
                   </p>
                   <p className="mt-2"><strong className="text-foreground">Сайт:</strong>{" "}
                     <a href="https://zakazminivena.ru" className="text-emerald underline">zakazminivena.ru</a>

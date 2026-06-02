@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `Трансфер минивэн — аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
       description: getAirportContent(slug)?.metaDescription || `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. +7 (918) 587-54-54`,
       url: `https://zakazminivena.ru/airports/${slug}`,
-      siteName: "ЗаказМинивена.ru",
+      siteName: "ЗаказМинивэна.ru",
       locale: "ru_RU",
       type: "article",
     },
@@ -102,7 +102,7 @@ export default async function AirportPage({ params }: Props) {
   const airportJsonLd = {
     "@context": "https://schema.org",
     "@type": "TaxiService",
-    "name": `Трансфер в аэропорт ${airport.name} — ЗаказМинивена.ru`,
+    "name": `Трансфер в аэропорт ${airport.name} — ЗаказМинивэна.ru`,
     "url": `https://zakazminivena.ru/airports/${slug}`,
     "telephone": "+79185875454",
     "description": `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
@@ -112,13 +112,13 @@ export default async function AirportPage({ params }: Props) {
     },
     "provider": {
       "@type": "Organization",
-      "name": "ЗаказМинивена.ru",
+      "name": "ЗаказМинивэна.ru",
       "url": "https://zakazminivena.ru",
     },
     "serviceType": "Airport Transfer",
     "availableChannel": {
       "@type": "ServiceChannel",
-      "serviceUrl": "https://t.me/zakazminivena",
+      "serviceUrl": "https://t.me/ZakazMinivena",
       "servicePhone": "+79185875454",
     },
   };
@@ -331,7 +331,7 @@ export default async function AirportPage({ params }: Props) {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `Заказать минивэн ${route.from} — ${route.to} | ${price} руб.`,
       description: `Заказать минивэн с водителем ${route.from} — ${route.to}. ${route.km} км, ${route.hours}. Фиксированная цена ${price} руб. за минивэн 7 мест. Звоните: +7 (918) 587-54-54`,
       url: `https://zakazminivena.ru/routes/${slug}`,
-      siteName: "ЗаказМинивена.ru",
+      siteName: "ЗаказМинивэна.ru",
       locale: "ru_RU",
       type: "website",
     },
@@ -172,7 +172,7 @@ export default async function RoutePage({ params }: Props) {
       availability: "https://schema.org/InStock",
       seller: {
         "@type": "Organization",
-        name: "ЗаказМинивена.ru",
+        name: "ЗаказМинивэна.ru",
         telephone: "+79185875454",
       },
     },
@@ -496,7 +496,7 @@ export default async function RoutePage({ params }: Props) {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href={`https://t.me/zakazminivena?text=${encodeURIComponent(`Заявка: ${route.from} → ${route.to}, ${priceFormatted} руб.`)}`}>
+                  <a href={`https://t.me/ZakazMinivena?text=${encodeURIComponent(`Заявка: ${route.from} → ${route.to}, ${priceFormatted} руб.`)}`}>
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Заказать в Telegram
                   </a>

@@ -32,7 +32,7 @@ export async function generateMetadata({
   const c = getB2bCase(slug);
   if (!c) return {};
 
-  const title = `${c.title} — кейс ${c.company} | ЗаказМинивена.ru`;
+  const title = `${c.title} — кейс ${c.company} | ЗаказМинивэна.ru`;
   const description = `${c.challenge.slice(0, 150)}...`;
 
   return {
@@ -42,7 +42,7 @@ export async function generateMetadata({
       title,
       description,
       url: `https://zakazminivena.ru/b2b/cases/${slug}`,
-      siteName: "ЗаказМинивена.ru",
+      siteName: "ЗаказМинивэна.ru",
       locale: "ru_RU",
       type: "article",
       images: [{ url: `https://zakazminivena.ru${c.image}`, width: 1200, height: 630 }],
@@ -78,12 +78,12 @@ export default async function CasePage({
     image: `https://zakazminivena.ru${c.image}`,
     author: {
       "@type": "Organization",
-      name: "ЗаказМинивена.ru",
+      name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
     },
     publisher: {
       "@type": "Organization",
-      name: "ЗаказМинивена.ru",
+      name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
     },
     mainEntityOfPage: `https://zakazminivena.ru/b2b/cases/${slug}`,
@@ -296,7 +296,7 @@ export default async function CasePage({
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

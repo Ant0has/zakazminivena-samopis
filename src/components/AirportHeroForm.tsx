@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,20 +10,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { AddressAutocomplete } from "@/components/AddressAutocomplete";
 import { TelegramIcon, MaxIcon } from "@/components/icons";
 import {
   PlaneIcon,
   PlaneTakeoffIcon,
   CalculatorIcon,
   PhoneIcon,
+  RulerIcon,
+  ClockIcon,
+  LoaderIcon,
 } from "lucide-react";
+import { dadataOsrmService } from "@/lib/dadata-osrm";
+import { CUSTOM_POI } from "@/lib/custom-poi";
+import { calcPrice, formatPrice } from "@/lib/routes-data";
 
 interface AirportHeroFormProps {
   iata: string;
-  /** Полное название аэропорта, для подстановки в заголовки таба. */
   airportShort: string;
-  /** Поле «Куда едем» / «Откуда летите» — предзаполнение. */
   defaultDestination?: string;
+}
+
+interface CalcResult {
+  km: number;
+  minutes: number;
+  price: number;
 }
 
 export function AirportHeroForm({ iata, airportShort, defaultDestination = "" }: AirportHeroFormProps) {
@@ -33,6 +44,46 @@ export function AirportHeroForm({ iata, airportShort, defaultDestination = "" }:
   const [time, setTime] = useState("");
   const [flight, setFlight] = useState("");
   const [pax, setPax] = useState("5");
+  const [calc, setCalc] = useState<CalcResult | null>(null);
+  const [calculating, setCalculating] = useState(false);
+
+  // Координаты выбранного аэропорта (из CUSTOM_POI по iata).
+  const airportPoi = CUSTOM_POI.find(
+    (p) => p.iata?.toLowerCase() === iata.toLowerCase(),
+  );
+
+  // Дебаунс-расчёт: при выборе адреса (из autocomplete) геокодируем и считаем
+  // расстояние. Срабатывает только когда адрес валидный и айропорт известен.
+  useEffect(() => {
+    if (!airportPoi || destination.trim().length < 3) {
+      setCalc(null);
+      return;
+    }
+    const tid = setTimeout(async () => {
+      setCalculating(true);
+      try {
+        const coords = await dadataOsrmService.getCoords(destination);
+        if (!coords) {
+          setCalc(null);
+          return;
+        }
+        const dist = await dadataOsrmService.getDistance(
+          airportPoi.lat,
+          airportPoi.lon,
+          coords.lat,
+          coords.lon,
+        );
+        if (dist) {
+          setCalc({ km: dist.km, minutes: dist.minutes, price: calcPrice(dist.km) });
+        } else {
+          setCalc(null);
+        }
+      } finally {
+        setCalculating(false);
+      }
+    }, 500);
+    return () => clearTimeout(tid);
+  }, [destination, airportPoi]);
 
   function buildMessage(): string {
     const parts: string[] = [];
@@ -46,6 +97,7 @@ export function AirportHeroForm({ iata, airportShort, defaultDestination = "" }:
     if (time) parts.push(time);
     if (flight) parts.push(`рейс ${flight}`);
     parts.push(`${pax} чел.`);
+    if (calc) parts.push(`${calc.km} км, ~${calc.minutes} мин, ${formatPrice(calc.price)} ₽`);
     return parts.join(", ");
   }
 
@@ -54,58 +106,94 @@ export function AirportHeroForm({ iata, airportShort, defaultDestination = "" }:
     const enc = encodeURIComponent(msg);
     let url = "";
     if (channel === "wa") url = `https://wa.me/79185875454?text=${enc}`;
-    if (channel === "tg") url = `https://t.me/zakazminivena?text=${enc}`;
+    if (channel === "tg") url = `https://t.me/ZakazMinivena?text=${enc}`;
     if (channel === "max") url = `https://max.ru/zakazminivena`;
     window.open(url, "_blank");
   }
 
+  const labelCls = "mb-2 block text-sm font-semibold uppercase tracking-wide text-slate-600";
+  const inputCls = "h-12 text-base bg-slate-50";
+
   return (
-    <div className="rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-black/5 sm:p-6">
+    <div className="flex h-full flex-col rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-black/5 sm:p-7 lg:p-8">
       {/* Tabs */}
-      <div className="mb-5 inline-flex w-full rounded-xl bg-slate-100 p-1">
+      <div className="mb-6 inline-flex w-full rounded-xl bg-slate-100 p-1">
         <button
           type="button"
           onClick={() => setDirection("arrival")}
-          className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+          className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2.5 text-base font-medium transition-colors ${
             direction === "arrival"
               ? "bg-white text-slate-900 shadow-sm"
               : "text-slate-500 hover:text-slate-700"
           }`}
         >
-          <PlaneIcon className="h-4 w-4" />
+          <PlaneIcon className="h-5 w-5" />
           Прилетаю в {iata.toUpperCase()}
         </button>
         <button
           type="button"
           onClick={() => setDirection("departure")}
-          className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+          className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2.5 text-base font-medium transition-colors ${
             direction === "departure"
               ? "bg-white text-slate-900 shadow-sm"
               : "text-slate-500 hover:text-slate-700"
           }`}
         >
-          <PlaneTakeoffIcon className="h-4 w-4" />
+          <PlaneTakeoffIcon className="h-5 w-5" />
           Лечу из {iata.toUpperCase()}
         </button>
       </div>
 
-      {/* Куда едем / Откуда едем */}
-      <div className="mb-4">
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500">
+      {/* Плашка-предупреждение при вылете */}
+      {direction === "departure" && (
+        <div className="mb-5 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2.5 text-sm text-amber-900">
+          <strong className="font-semibold">Внимание:</strong> нужно быть в аэропорту за{" "}
+          <strong className="font-semibold">2 часа до вылета</strong>. Учтём время в подаче.
+        </div>
+      )}
+
+      {/* Куда едем / Откуда едем — с DaData подсказками */}
+      <div className="mb-5">
+        <label className={labelCls}>
           {direction === "arrival" ? "Куда едем" : "Откуда едем"}
         </label>
-        <Input
+        <AddressAutocomplete
           value={destination}
-          onChange={(e) => setDestination(e.target.value)}
-          placeholder={direction === "arrival" ? "Центр Москвы" : "Адрес посадки"}
-          className="h-11 bg-slate-50"
+          onChange={setDestination}
+          placeholder={direction === "arrival" ? "Например, Тверская, 5" : "Адрес посадки"}
         />
       </div>
 
+      {/* Карточка расчёта — показывается при успешном расчёте */}
+      {(calculating || calc) && (
+        <div className="mb-5 rounded-lg border border-emerald/30 bg-emerald/5 p-3">
+          {calculating ? (
+            <div className="flex items-center gap-2 text-sm text-emerald">
+              <LoaderIcon className="h-4 w-4 animate-spin" />
+              Считаем стоимость…
+            </div>
+          ) : calc ? (
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm">
+              <span className="inline-flex items-center gap-1.5 text-slate-700">
+                <RulerIcon className="h-4 w-4 text-emerald" />
+                <strong className="font-semibold">{calc.km} км</strong>
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-slate-700">
+                <ClockIcon className="h-4 w-4 text-emerald" />
+                ~{calc.minutes} мин
+              </span>
+              <span className="ml-auto text-lg font-bold text-emerald">
+                {formatPrice(calc.price)} ₽
+              </span>
+            </div>
+          ) : null}
+        </div>
+      )}
+
       {/* Дата + время */}
-      <div className="mb-4 grid grid-cols-2 gap-3">
+      <div className="mb-5 grid grid-cols-2 gap-3">
         <div>
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500">
+          <label className={labelCls}>
             {direction === "arrival" ? "Дата прилёта" : "Дата вылета"}
           </label>
           <Input
@@ -113,42 +201,38 @@ export function AirportHeroForm({ iata, airportShort, defaultDestination = "" }:
             value={date}
             onChange={(e) => setDate(e.target.value)}
             min={new Date().toISOString().split("T")[0]}
-            className="h-11 bg-slate-50"
+            className={inputCls}
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Время
-          </label>
+          <label className={labelCls}>Время</label>
           <Input
             type="time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
-            className="h-11 bg-slate-50"
+            className={inputCls}
           />
         </div>
       </div>
 
-      {/* № рейса */}
-      <div className="mb-4">
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500">
-          № рейса (опц.)
+      {/* № рейса — критичен для arrival, опционален для departure */}
+      <div className="mb-5">
+        <label className={labelCls}>
+          № рейса {direction === "departure" ? "(опц.)" : ""}
         </label>
         <Input
           value={flight}
           onChange={(e) => setFlight(e.target.value)}
           placeholder="SU 1234"
-          className="h-11 bg-slate-50"
+          className={inputCls}
         />
       </div>
 
       {/* Пассажиры */}
-      <div className="mb-5">
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500">
-          Пассажиров
-        </label>
+      <div className="mb-6">
+        <label className={labelCls}>Пассажиров</label>
         <Select value={pax} onValueChange={setPax}>
-          <SelectTrigger className="h-11 w-full bg-slate-50">
+          <SelectTrigger className="h-12 w-full bg-slate-50 text-base">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -160,47 +244,49 @@ export function AirportHeroForm({ iata, airportShort, defaultDestination = "" }:
         </Select>
       </div>
 
-      {/* CTA */}
+      {/* CTA — текст меняется: «Рассчитать» → «Заказать за X ₽» */}
       <Button
         type="button"
         size="lg"
         onClick={() => submit("tg")}
-        className="h-12 w-full bg-emerald text-base font-semibold text-emerald-foreground hover:bg-emerald/90"
+        className="h-14 w-full bg-emerald text-lg font-semibold text-emerald-foreground hover:bg-emerald/90"
       >
-        <CalculatorIcon className="mr-2 h-5 w-5" />
-        Рассчитать стоимость →
+        <CalculatorIcon className="mr-2 h-6 w-6" />
+        {calc ? `Заказать за ${formatPrice(calc.price)} ₽ →` : "Рассчитать стоимость →"}
       </Button>
-      <p className="mt-2 text-center text-xs text-slate-500">
-        Ответ за 5 минут. Без предоплаты — оплата по факту
+      <p className="mt-3 text-center text-sm text-slate-500">
+        {calc
+          ? "Цена фиксированная — за машину, не за пассажира"
+          : "Введите адрес — рассчитаем за 2 секунды"}
       </p>
 
       {/* Мессенджеры */}
-      <div className="mt-4">
-        <div className="mb-2 text-center text-xs font-medium text-slate-500">Или напишите:</div>
+      <div className="mt-auto pt-5">
+        <div className="mb-2 text-center text-sm font-medium text-slate-500">Или напишите:</div>
         <div className="grid grid-cols-3 gap-2">
           <button
             type="button"
             onClick={() => submit("wa")}
-            className="flex h-11 items-center justify-center rounded-lg bg-[#25D366] text-white transition-opacity hover:opacity-90"
+            className="flex h-12 items-center justify-center rounded-lg bg-[#25D366] text-white transition-opacity hover:opacity-90"
             aria-label="WhatsApp"
           >
-            <PhoneIcon className="h-5 w-5" />
+            <PhoneIcon className="h-6 w-6" />
           </button>
           <button
             type="button"
             onClick={() => submit("tg")}
-            className="flex h-11 items-center justify-center rounded-lg bg-[#26A5E4] text-white transition-opacity hover:opacity-90"
+            className="flex h-12 items-center justify-center rounded-lg bg-[#26A5E4] text-white transition-opacity hover:opacity-90"
             aria-label="Telegram"
           >
-            <TelegramIcon className="h-5 w-5" />
+            <TelegramIcon className="h-6 w-6" />
           </button>
           <button
             type="button"
             onClick={() => submit("max")}
-            className="flex h-11 items-center justify-center rounded-lg bg-[#0077FF] text-white transition-opacity hover:opacity-90"
+            className="flex h-12 items-center justify-center rounded-lg bg-[#0077FF] text-white transition-opacity hover:opacity-90"
             aria-label="MAX"
           >
-            <MaxIcon className="h-5 w-5" />
+            <MaxIcon className="h-6 w-6" />
           </button>
         </div>
       </div>

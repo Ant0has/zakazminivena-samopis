@@ -22,14 +22,14 @@ import { TelegramIcon } from "@/components/icons";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
-  title: "Автопарк минивэнов — ЗаказМинивена.ru",
+  title: "Автопарк минивэнов — ЗаказМинивэна.ru",
   description:
     "Наш автопарк: Toyota Alphard, Hyundai Staria, Volkswagen Caravelle. Комфортные минивэны на 7 мест с кондиционером, USB-зарядками и вместительным багажником.",
   openGraph: {
-    title: "Автопарк минивэнов — ЗаказМинивена.ru",
+    title: "Автопарк минивэнов — ЗаказМинивэна.ru",
     description: "Наш автопарк: Toyota Alphard, Hyundai Staria, Volkswagen Caravelle. Комфортные минивэны на 7 мест с кондиционером, USB-зарядками и вместительным багажником.",
     url: "https://zakazminivena.ru/fleet",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -103,7 +103,7 @@ export default function FleetPage() {
 const fleetJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Автопарк минивэнов ЗаказМинивена.ru",
+  "name": "Автопарк минивэнов ЗаказМинивэна.ru",
   "itemListElement": vehicles.map((v, i) => ({
     "@type": "Vehicle",
     "position": i + 1,
@@ -236,7 +236,7 @@ const fleetJsonLd = {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

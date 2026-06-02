@@ -10,15 +10,15 @@ import { ArrowRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Кейсы B2B-клиентов | ЗаказМинивена.ru",
+  title: "Кейсы B2B-клиентов | ЗаказМинивэна.ru",
   description:
     "Реальные кейсы корпоративных клиентов: IT-компании, строительство, фармацевтика, event-индустрия. Узнайте, как минивэн решает бизнес-задачи.",
   openGraph: {
-    title: "Кейсы B2B-клиентов | ЗаказМинивена.ru",
+    title: "Кейсы B2B-клиентов | ЗаказМинивэна.ru",
     description:
       "Реальные кейсы корпоративных клиентов: IT-компании, строительство, фармацевтика, event-индустрия. Узнайте, как минивэн решает бизнес-задачи.",
     url: "https://zakazminivena.ru/b2b/cases",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -43,7 +43,7 @@ export default function B2bCasesPage() {
               "url": "https://zakazminivena.ru/b2b/cases",
               "isPartOf": {
                 "@type": "WebSite",
-                "name": "ЗаказМинивена.ru",
+                "name": "ЗаказМинивэна.ru",
                 "url": "https://zakazminivena.ru"
               }
             }) }}
@@ -142,7 +142,7 @@ export default function B2bCasesPage() {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Обсудить в Telegram
                   </a>

@@ -101,7 +101,7 @@ export function TariffsSection() {
                 size="lg"
                 asChild
               >
-                <a href="https://t.me/zakazminivena">
+                <a href="https://t.me/ZakazMinivena">
                   <TelegramIcon className="mr-2 h-4 w-4" />
                   Заказать
                 </a>

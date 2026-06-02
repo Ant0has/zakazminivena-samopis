@@ -22,15 +22,15 @@ import { ReviewsSection } from "@/components/ReviewsSection";
 import { drivers } from "@/lib/drivers-data";
 
 export const metadata: Metadata = {
-  title: "Наши водители | ЗаказМинивена.ru",
+  title: "Наши водители | ЗаказМинивэна.ru",
   description:
     "Профессиональные водители минивэнов с опытом от 6 лет. Средний рейтинг 4.9, более 20 000 выполненных поездок.",
   openGraph: {
-    title: "Наши водители | ЗаказМинивена.ru",
+    title: "Наши водители | ЗаказМинивэна.ru",
     description:
       "Профессиональные водители минивэнов с опытом от 6 лет. Средний рейтинг 4.9, более 20 000 выполненных поездок.",
     url: "https://zakazminivena.ru/drivers",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -84,7 +84,7 @@ export default function DriversPage() {
   const driversJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "ЗаказМинивена.ru",
+    name: "ЗаказМинивэна.ru",
     url: "https://zakazminivena.ru",
     employee: drivers.map((d) => ({
       "@type": "Person",
@@ -305,7 +305,7 @@ export default function DriversPage() {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

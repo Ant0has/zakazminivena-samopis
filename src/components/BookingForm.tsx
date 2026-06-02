@@ -58,7 +58,7 @@ export function BookingForm({ defaultFrom = "", defaultTo = "" }: BookingFormPro
       phone.trim(),
     ];
     const msg = parts.join(", ");
-    const url = `https://t.me/zakazminivena?text=${encodeURIComponent(msg)}`;
+    const url = `https://t.me/ZakazMinivena?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
   }
 

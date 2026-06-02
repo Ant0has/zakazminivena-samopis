@@ -8,7 +8,7 @@ import { destinationHubs } from "@/lib/destinations-data";
 import { MapPinIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Туристические направления — минивэн по регионам России | ЗаказМинивена.ru",
+  title: "Туристические направления — минивэн по регионам России | ЗаказМинивэна.ru",
   description:
     "Минивэн в туристические регионы: Карелия, КМВ, Алтай, Байкал, Крым, Краснодарское побережье, Калининград, Север. Однодневные и многодневные туры.",
   alternates: { canonical: "https://zakazminivena.ru/destination" },

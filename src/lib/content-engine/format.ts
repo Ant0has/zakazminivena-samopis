@@ -65,7 +65,7 @@ export function pricePerPersonFromKm(km: number, people = 7): string {
   return formatPrice(Math.ceil(calcPrice(km) / people));
 }
 
-export const BRAND = "ЗаказМинивена.ru";
+export const BRAND = "ЗаказМинивэна.ru";
 
 export function formatRubFromInt(n: number): string {
   return n.toLocaleString("ru-RU");

@@ -105,7 +105,7 @@ export function ReviewsSection({ tags, title = "Отзывы наших клие
   const reviewsJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "ЗаказМинивена.ru",
+    "name": "ЗаказМинивэна.ru",
     "review": reviews.map((r) => ({
       "@type": "Review",
       "author": { "@type": "Person", "name": r.name },

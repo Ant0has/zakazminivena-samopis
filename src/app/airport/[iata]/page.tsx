@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { BookingForm } from "@/components/BookingForm";
+import { AirportConsultationForm } from "@/components/AirportConsultationForm";
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -22,6 +22,8 @@ import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
 import { PaymentMethods } from "@/components/PaymentMethods";
 import { RouteFaq } from "@/components/RouteFaq";
 import { RouteFactsLongread } from "@/components/RouteFactsLongread";
+import { ReviewsCarousel } from "@/components/ReviewsCarousel";
+import { getReviewsByIata, allReviews, pickReviews } from "@/lib/reviews-data";
 import { metaAirportHub } from "@/lib/content-engine/meta";
 import { generateAirportHubContent } from "@/lib/content-engine/copy-airport-hub";
 import { iconFor } from "@/lib/content-engine/icon-map";
@@ -86,17 +88,54 @@ export default async function AirportHubPage({ params }: Props) {
       : [];
 
   const trustItems = [
-    { icon: ShieldCheckIcon, title: "Фикс цена за машину" },
-    { icon: UsersIcon, title: "6–8 пассажиров с багажом" },
-    { icon: BabyIcon, title: "Дет.кресла бесплатно" },
-    { icon: ClockIcon, title: "Ожидание 60 мин при задержке" },
-    { icon: CheckIcon, title: "Встреча с табличкой" },
-    { icon: CheckIcon, title: "Безнал и для юрлиц" },
+    { icon: ClockIcon, title: "Подача ко времени по адресу или к прилёту рейса" },
+    { icon: BabyIcon, title: "Детские кресла и бустер по запросу" },
+    { icon: CheckIcon, title: "Назначение водителя за день — при раннем бронировании" },
+    { icon: UsersIcon, title: "6–7 пассажирских мест" },
+    { icon: ShieldCheckIcon, title: "Место под багаж в каждой машине" },
   ];
+
+  // TaxiService schema с aggregateRating и priceRange — для rich snippet в SERP.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    name: `Минивэн в аэропорт ${airport.name}`,
+    description:
+      `Заказ минивэна с водителем в ${airport.nameFull}, ${airport.city}. ` +
+      `Трансфер 6–8 пассажиров от ${formatPrice(minPrice)} ₽ за машину.`,
+    image: `https://zakazminivena.ru/images/heroes/${iata}.webp`,
+    provider: {
+      "@type": "Organization",
+      name: "ЗаказМинивэна.ru",
+      url: "https://zakazminivena.ru",
+      telephone: "+79185875454",
+      email: "mini@zakazminivena.ru",
+      logo: "https://zakazminivena.ru/icon-512.png",
+    },
+    areaServed: { "@type": "City", name: airport.city },
+    priceRange: `от ${formatPrice(minPrice)} ₽`,
+    offers: {
+      "@type": "AggregateOffer",
+      lowPrice: String(minPrice),
+      priceCurrency: "RUB",
+      availability: "https://schema.org/InStock",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "101",
+      bestRating: "5",
+      worstRating: "4",
+    },
+  };
 
   return (
     <div className="relative min-h-screen">
       <Header />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <main className="pt-16">
         <Breadcrumbs
           items={[
@@ -108,11 +147,11 @@ export default async function AirportHubPage({ params }: Props) {
 
         {/* ===== HERO (airport hub) ===== */}
         <section className="relative overflow-hidden">
-          <HeroBackground />
+          <HeroBackground mobilePosition="top" />
           <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20">
             {/* Бейджи-чеклист */}
             <div className="mb-6 flex flex-wrap justify-center gap-2 sm:justify-start">
-              {["Фиксированная цена", "До 8 мест", "Дет.кресло бесплатно", "Без предоплаты"].map((b) => (
+              {["Фиксированная цена", "До 7 пассажиров", "Дет.кресло бесплатно", "Без предоплаты"].map((b) => (
                 <span
                   key={b}
                   className="inline-flex items-center gap-1.5 rounded-full bg-emerald/20 px-3 py-1 text-xs font-medium text-emerald-100 ring-1 ring-emerald-300/30"
@@ -131,30 +170,31 @@ export default async function AirportHubPage({ params }: Props) {
               — встретим с табличкой, ждём при задержке рейса
             </h1>
             <p className="mx-auto mt-4 max-w-3xl text-center text-base text-white/85 sm:text-left sm:text-lg">
-              Комфортная поездка для семьи или компании до 8 пассажиров с багажом. Подача к
-              терминалу, фиксированная цена от {formatPrice(minPrice)} ₽ за машину — без скрытых
-              доплат.
+              Комфортная поездка для семьи или компании до 7 пассажиров с багажом. Подача к
+              терминалу, фиксированная цена от{" "}
+              <strong className="font-bold text-white">{formatPrice(minPrice)} ₽</strong> за трансфер.
             </p>
 
-            {/* Сетка: форма + photo-card */}
-            <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr,1fr]">
+            {/* Сетка: форма слева, справа — фото + фичи под ним. На lg
+                items-stretch + lg:h-full на правой колонке выравнивает низ
+                обоих столбцов; фичи растягиваются (grow) до уровня формы. */}
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
               <AirportHeroForm iata={iata} airportShort={airport.name} />
-              <AirportPhotoCard
-                caption={`Минивэн Mercedes V-class в ${airport.name}`}
-                description={`Премиум-минивэн на стоянке у входа в терминал. Тёплый утренний свет. Водитель встречает пассажиров с табличкой по фамилии.`}
-                alternative={`салон V-class изнутри, в окно — виды на ${airport.city}.`}
-              />
-            </div>
-
-            {/* Сетка фишек */}
-            <div className="mt-8">
-              <AirportFeaturesGrid airportShort={airport.name} />
+              <div className="flex flex-col gap-4">
+                <AirportPhotoCard
+                  imageSrc={heroImage}
+                  imageAlt={`Минивэн в ${airport.name}`}
+                />
+                <div className="grow">
+                  <AirportFeaturesGrid airportShort={airport.name} />
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ===== ЧТО ВКЛЮЧЕНО ===== */}
-        <section className="border-t bg-muted/30 py-16 sm:py-24">
+        <section className="border-t bg-emerald/5 py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -225,8 +265,26 @@ export default async function AirportHubPage({ params }: Props) {
           bg="default"
         />
 
+        {/* ===== ОТЗЫВЫ ===== */}
+        <ReviewsCarousel
+          title={`Отзывы пассажиров — ${airport.name}`}
+          subtitle="Реальные поездки из аэропорта по Москве, Подмосковью и в другие города"
+          reviews={(() => {
+            const byHub = getReviewsByIata(iata);
+            // дополняем общими интерсити-отзывами, если по конкретному IATA меньше 8
+            const extra = byHub.length < 8
+              ? pickReviews(
+                  allReviews.filter((r) => !byHub.includes(r) && (r.tags.includes("intercity") || r.tags.includes("airport"))),
+                  12 - byHub.length,
+                  iata,
+                )
+              : [];
+            return [...byHub, ...extra];
+          })()}
+        />
+
         {/* ===== ТЕРМИНАЛЫ ===== */}
-        <section className="border-t bg-muted/30 py-16 sm:py-24">
+        <section className="border-t bg-emerald/5 py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
               Терминалы {airport.name}
@@ -251,51 +309,18 @@ export default async function AirportHubPage({ params }: Props) {
           </div>
         </section>
 
-        {/* ===== ПАРК ===== */}
-        {fleetForHub.length > 0 && (
-          <section className="py-16 sm:py-24">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="mb-10 text-center">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Какие минивэны подаём в {airport.name}
-                </h2>
-                <p className="mt-3 text-base text-muted-foreground">
-                  От универсальных до премиума — под любой бюджет и сценарий
-                </p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {fleetForHub.map((m) => (
-                  <Link key={m.slug} href={`/fleet/${m.slug}`}>
-                    <Card className="h-full p-5 transition-all hover:border-emerald hover:shadow-md">
-                      <div className="mb-2 text-xs uppercase tracking-wide text-emerald">
-                        {m.tier}
-                      </div>
-                      <div className="text-lg font-semibold">{m.fullName}</div>
-                      <div className="mt-2 text-sm text-muted-foreground">
-                        {m.seats} пассажиров · {m.luggageL} л багажа
-                      </div>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
+        {/* ===== CTA / КОМПАКТНАЯ КОНСУЛЬТАЦИЯ ===== */}
+        <section id="booking" className="border-t bg-emerald/5 py-16 sm:py-20 scroll-mt-20">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-6 text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Заказать минивэн в {airport.name}
+              </h2>
+              <p className="mt-3 text-base text-muted-foreground sm:text-lg">
+                Оставьте имя и телефон — перезвоним в течение 7 минут.
+              </p>
             </div>
-          </section>
-        )}
-
-        {/* ===== CTA / ФОРМА ===== */}
-        <section id="booking" className="border-t bg-muted/30 py-16 sm:py-20 scroll-mt-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Заказать минивэн в {airport.name}
-                </h2>
-                <p className="mt-3 text-base text-muted-foreground sm:text-lg">
-                  Укажите дату, время прилёта и пункт назначения — пришлём фикс цену за 5 минут.
-                </p>
-              </div>
-              <BookingForm defaultTo={airport.name} />
-            </div>
+            <AirportConsultationForm context={`Аэропорт ${airport.name}`} />
           </div>
         </section>
 
@@ -319,7 +344,7 @@ export default async function AirportHubPage({ params }: Props) {
           items={hubContent.faq.length > 0 ? hubContent.faq : [
             {
               q: `Сколько стоит минивэн в аэропорт ${airport.name}?`,
-              a: `Цена зависит от точки подачи. Базовая стоимость — от ${formatPrice(minPrice)} ₽ за машину 6–8 мест. Для конкретной точки укажите её в форме — менеджер пришлёт фикс цену за 5 минут.`,
+              a: `Цена зависит от точки подачи. Базовая стоимость — от ${formatPrice(minPrice)} ₽ за машину 6–8 мест. Для конкретной точки оставьте телефон — перезвоним в течение 7 минут и назовём фикс цену.`,
             },
             {
               q: `Сколько ждёте, если рейс задерживается?`,

@@ -10,7 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { MenuIcon, PhoneIcon } from "lucide-react";
+import { MenuIcon, PhoneIcon, MailIcon, ClockIcon, MoonIcon } from "lucide-react";
 import { TelegramIcon, MaxIcon } from "@/components/icons";
 
 const navLinks = [
@@ -28,34 +28,58 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-3 sm:gap-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald text-emerald-foreground font-bold text-sm">
-            M
-          </div>
-          <span className="hidden text-lg font-semibold tracking-tight sm:inline-block">
-            ЗаказМинивена<span className="text-emerald">.ru</span>
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-2 px-3 sm:gap-3 sm:px-6 lg:px-8 xl:gap-4">
+        {/* Лого + название */}
+        <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="ЗаказМинивэна.ru">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.webp"
+            alt=""
+            width={480}
+            height={414}
+            className="h-10 w-auto shrink-0"
+          />
+          <span className="hidden text-base font-semibold tracking-tight lg:inline-block xl:text-lg">
+            ЗаказМинивэна<span className="text-emerald">.ru</span>
           </span>
         </Link>
 
-        {/* Телефон — на всю свободную ширину */}
+        {/* Телефон */}
         <a
           href="tel:+79185875454"
-          className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-emerald/30 bg-emerald/5 px-3 py-2 text-sm font-semibold text-emerald transition-colors hover:bg-emerald/10 sm:gap-3 sm:text-base"
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-emerald/30 bg-emerald/5 px-2 py-2 text-sm font-semibold text-emerald transition-colors hover:bg-emerald/10 sm:px-3 lg:flex-none lg:px-3"
           aria-label="Позвонить +7 (918) 587-54-54"
         >
-          <PhoneIcon className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" />
+          <PhoneIcon className="h-4 w-4 shrink-0" />
           <span className="truncate">+7 (918) 587-54-54</span>
-          <span className="hidden text-xs font-normal text-emerald/70 sm:inline">
-            08:00 — 22:00
-          </span>
         </a>
 
-        {/* Мессенджеры — иконки */}
+        {/* Почта — десктоп */}
+        <a
+          href="mailto:mini@zakazminivena.ru"
+          className="hidden items-center gap-1.5 rounded-lg border border-emerald/20 bg-emerald/5 px-3 py-2 text-sm font-medium text-emerald transition-colors hover:bg-emerald/10 lg:inline-flex"
+        >
+          <MailIcon className="h-4 w-4 shrink-0" />
+          <span className="hidden xl:inline">mini@zakazminivena.ru</span>
+          <span className="xl:hidden">Почта</span>
+        </a>
+
+        {/* Время работы — десктоп */}
+        <div className="hidden flex-col gap-0.5 text-[11px] leading-tight text-muted-foreground lg:flex">
+          <span className="inline-flex items-center gap-1">
+            <ClockIcon className="h-3 w-3 text-emerald" />
+            Заказы: <strong className="font-semibold text-foreground">08:00 — 22:00</strong>
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <MoonIcon className="h-3 w-3 text-emerald" />
+            Трансферы: <strong className="font-semibold text-foreground">24/7</strong>
+          </span>
+        </div>
+
+        {/* Мессенджеры */}
         <div className="flex shrink-0 items-center gap-1">
           <a
-            href="https://t.me/zakazminivena"
+            href="https://t.me/ZakazMinivena"
             target="_blank"
             rel="noopener noreferrer"
             className="flex h-9 w-9 items-center justify-center rounded-lg text-[#26A5E4] transition-colors hover:bg-[#26A5E4]/10"
@@ -74,7 +98,7 @@ export function Header() {
           </a>
         </div>
 
-        {/* Бургер-меню — видим всегда */}
+        {/* Бургер-меню */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="shrink-0">
@@ -84,7 +108,7 @@ export function Header() {
           <SheetContent side="right" className="w-80 bg-background">
             <SheetHeader>
               <SheetTitle className="text-left">
-                ЗаказМинивена<span className="text-emerald">.ru</span>
+                ЗаказМинивэна<span className="text-emerald">.ru</span>
               </SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-1 px-4">
@@ -107,12 +131,26 @@ export function Header() {
                 <PhoneIcon className="h-5 w-5" />
                 +7 (918) 587-54-54
               </a>
-              <div className="mt-1 px-3 text-xs text-muted-foreground">
-                Ежедневно 08:00 — 22:00
+              <a
+                href="mailto:mini@zakazminivena.ru"
+                className="mt-2 flex items-center gap-3 rounded-lg bg-emerald/5 px-3 py-3 text-sm font-medium text-emerald transition-colors hover:bg-emerald/10"
+              >
+                <MailIcon className="h-4 w-4" />
+                mini@zakazminivena.ru
+              </a>
+              <div className="mt-3 space-y-1.5 px-3 text-xs text-muted-foreground">
+                <div className="flex items-center gap-1.5">
+                  <ClockIcon className="h-3.5 w-3.5 text-emerald" />
+                  Приём заказов: <strong className="font-semibold text-foreground">08:00 — 22:00</strong> ежедневно
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <MoonIcon className="h-3.5 w-3.5 text-emerald" />
+                  Трансферы: <strong className="font-semibold text-foreground">круглосуточно</strong>
+                </div>
               </div>
-              <div className="mt-3 flex gap-2">
+              <div className="mt-4 flex gap-2">
                 <a
-                  href="https://t.me/zakazminivena"
+                  href="https://t.me/ZakazMinivena"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-[#26A5E4]/10 text-sm font-medium text-[#26A5E4] transition-colors hover:bg-[#26A5E4]/20"

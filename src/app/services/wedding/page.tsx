@@ -12,14 +12,14 @@ import { TelegramIcon } from "@/components/icons";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
-  title: "Минивэн на свадьбу — трансфер гостей на минивэне | ЗаказМинивена.ru",
+  title: "Минивэн на свадьбу — трансфер гостей на минивэне | ЗаказМинивэна.ru",
   description:
     "Минивэн на свадьбу для трансфера гостей: 7 мест, кондиционер, большой багажник. Развозка гостей из аэропорта, в ЗАГС, ресторан и обратно. Фиксированная цена. Звоните +7 (918) 587-54-54",
   openGraph: {
-    title: "Минивэн на свадьбу — трансфер гостей на минивэне | ЗаказМинивена.ru",
+    title: "Минивэн на свадьбу — трансфер гостей на минивэне | ЗаказМинивэна.ru",
     description: "Минивэн на свадьбу для трансфера гостей: 7 мест, кондиционер, большой багажник. Развозка гостей из аэропорта, в ЗАГС, ресторан и обратно. Фиксированная цена. Звоните +7 (918) 587-54-54",
     url: "https://zakazminivena.ru/services/wedding",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -53,7 +53,7 @@ export default function WeddingServicePage() {
             "description": "Минивэн на свадьбу для трансфера гостей: 7 мест, кондиционер, большой багажник. Развозка гостей из аэропорта, в ЗАГС, ресторан и обратно.",
             "provider": {
               "@type": "Organization",
-              "name": "ЗаказМинивена.ru",
+              "name": "ЗаказМинивэна.ru",
               "url": "https://zakazminivena.ru"
             },
             "areaServed": "Россия",
@@ -146,7 +146,7 @@ export default function WeddingServicePage() {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

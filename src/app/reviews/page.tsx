@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
-  title: "Отзывы клиентов — минивэн с водителем | ЗаказМинивена.ru",
+  title: "Отзывы клиентов — минивэн с водителем | ЗаказМинивэна.ru",
   description:
     "Реальные отзывы клиентов: аэропортовые трансферы, туристические туры, свадьбы, корпоративные поездки. Маршрут, сценарий, оценка.",
   alternates: { canonical: "https://zakazminivena.ru/reviews" },

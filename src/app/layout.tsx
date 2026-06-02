@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { MobileBottomBar } from "@/components/MobileBottomBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,28 +19,32 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "ЗаказМинивена",
+    title: "ЗаказМинивэна",
   },
   title:
-    "Заказать минивэн с водителем межгород — ЗаказМинивена.ru",
+    "Заказать минивэн с водителем межгород — ЗаказМинивэна.ru",
   description:
     "Минивэн с водителем на 7 мест: межгородние поездки и трансфер в аэропорт по России. Фиксированная цена, детское кресло бесплатно, без предоплаты. Звоните +7 (918) 587-54-54.",
   icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
+    icon: [
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Минивэн с водителем межгород | ЗаказМинивена.ru",
+    title: "Минивэн с водителем межгород | ЗаказМинивэна.ru",
     description:
       "Комфортные поездки на минивэне 7 мест для семьи и компании. Фиксированная цена, детское кресло, встреча с табличкой.",
     url: "https://zakazminivena.ru",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Минивэн с водителем межгород | ЗаказМинивена.ru",
+    title: "Минивэн с водителем межгород | ЗаказМинивэна.ru",
     description: "Комфортные поездки на минивэне 7 мест для семьи и компании. Фиксированная цена, детское кресло, встреча с табличкой.",
   },
   alternates: {
@@ -81,10 +84,22 @@ export default function RootLayout({
         </noscript>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased pb-14 sm:pb-0`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         {children}
-        <MobileBottomBar />
+
+        {/* Чат-виджет ZM (бэк chat.city2city.ru, проект ZAKAZMINIVENA).
+            data-source строго "zakazminivena.ru" — по нему backend определяет project. */}
+        <Script
+          id="zm-chat-widget"
+          src="https://chat.city2city.ru/widget.js"
+          strategy="afterInteractive"
+          data-source="zakazminivena.ru"
+          data-brand="ЗаказМинивэна.ru"
+          data-color="#0f9d6c"
+          data-bg-color="#064e3b"
+          data-tooltip="Закажите минивэн или автобус — напишите нам"
+        />
       </body>
     </html>
   );

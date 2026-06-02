@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Нет подключения — ЗаказМинивена.ru",
+  title: "Нет подключения — ЗаказМинивэна.ru",
 };
 
 export default function OfflinePage() {

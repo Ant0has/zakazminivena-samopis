@@ -7,7 +7,7 @@ import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { PaymentMethods } from "@/components/PaymentMethods";
 
 export const metadata: Metadata = {
-  title: "Способы оплаты минивэна — наличные, карта, безнал | ЗаказМинивена.ru",
+  title: "Способы оплаты минивэна — наличные, карта, безнал | ЗаказМинивэна.ru",
   description:
     "Способы оплаты заказа минивэна: онлайн картой, СБП, наличные, безналичный перевод для юрлиц. Постоплата для B2B клиентов после 3 поездок.",
   alternates: { canonical: "https://zakazminivena.ru/payment" },
@@ -24,14 +24,14 @@ export default function PaymentPage() {
             <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Способы оплаты</h1>
             <p className="text-base text-muted-foreground sm:text-lg">
               Принимаем все основные способы — выбирайте удобный. Для юрлиц — полный пакет
-              документов и постоплата до 14 дней.
+              документов и постоплата в течение 5 рабочих дней.
             </p>
           </div>
         </section>
 
         <PaymentMethods
           title="Способы оплаты"
-          intro="Карта, СБП, наличные водителю, безналичный перевод для юрлиц. После 3 поездок открываем постоплату до 14 дней."
+          intro="Карта, СБП, наличные водителю, безналичный перевод для юрлиц. После 3 поездок открываем постоплату в течение 5 рабочих дней."
         />
 
         <section className="border-y bg-muted/40 py-12 sm:py-16">

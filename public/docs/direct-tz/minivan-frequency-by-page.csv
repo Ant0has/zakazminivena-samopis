@@ -1,0 +1,91 @@
+type,slug,name,top_phrase,top_freq,total_unique
+hub,airport/kzn,Казань (KZN) — Казань,минивэн казань,2201,51
+hub,airport/sip,Симферополь (SIP) — Симферополь,минивэны симферополь,326,17
+hub,airport/ikt,Иркутск (IKT) — Иркутск,минивэны иркутск,323,12
+route,airport/sip/sevastopol,SIP → Севастополь,минивэны севастополь,168,7
+route,airport/aaq/gelendzhik,AAQ → Геленджик,минивэн геленджик,152,6
+hub,airport/mrv,Минеральные Воды (MRV) — Минводы,минивэн минеральные воды,149,5
+hub,airport/aer,Адлер (AER) — Сочи,минивэн адлер,148,5
+route,airport/mrv/pyatigorsk,MRV → Пятигорск,минивэн пятигорск,138,6
+hub,airport/svo,Шереметьево (SVO) — Москва,минивэн в шереметьево,135,15
+route,airport/sip/yalta,SIP → Ялта,минивэн ялта,85,3
+hub,airport/dme,Домодедово (DME) — Москва,минивэн домодедово,81,7
+hub,airport/vko,Внуково (VKO) — Москва,минивэн внуково,68,6
+route,airport/sip/alushta,SIP → Алушта,минивэн алушта,59,4
+route,airport/dme/serpukhov,DME → Серпухов,минивэн серпухов,53,2
+route,airport/sip/yevpatoria,SIP → Евпатория,минивэн евпатория,53,1
+route,airport/kgd/zelenogradsk,KGD → Зеленоградск,минивэн зеленоградск,50,3
+route,airport/mrv/essentuki,MRV → Ессентуки,минивэн ессентуки,49,2
+route,airport/vko/balashikha,VKO → Балашиха,минивэн балашиха,42,2
+route,airport/dme/podolsk,DME → Подольск,минивэн подольск,32,1
+route,airport/vko/odintsovo,VKO → Одинцово,минивэн одинцово,19,1
+route,airport/sip/feodosia,SIP → Феодосия,купить минивэн в феодосии,17,3
+hub,airport/led,Пулково (LED) — СПб,заказать минивэн в пулково,14,1
+hub,airport/svx,Кольцово (SVX) — Екатеринбург,минивэн челябинск кольцово,14,1
+route,airport/kgd/svetlogorsk,KGD → Светлогорск,такси минивэн светлогорск,14,1
+hub,airport/kgd,Храброво (KGD) — Калининград,такси минивэн из зеленоградска до аэропорта храброво,10,1
+hub,airport/zia,Жуковский (ZIA) — Москва,такси минивэн в аэропорт жуковский,6,1
+route,airport/dme/zhukovskiy,DME → Жуковский,такси минивэн в аэропорт жуковский,6,1
+hub,airport/aaq,Витязево (AAQ) — Анапа,—,0,0
+hub,airport/krr,Пашковский (KRR) — Краснодар,—,0,0
+hub,airport/ovb,Толмачёво (OVB) — Новосибирск,—,0,0
+hub,airport/mmk,Мурмаши (MMK) — Мурманск,—,0,0
+route,airport/svo/moscow-center,SVO → центр Москвы,—,0,0
+route,airport/svo/moscow-city,SVO → Москва-Сити,—,0,0
+route,airport/svo/vdnh,SVO → ВДНХ,—,0,0
+route,airport/svo/podolsk,SVO → Подольск,—,0,0
+route,airport/svo/zelenograd,SVO → Зеленоград,—,0,0
+route,airport/svo/tver,SVO → Тверь,—,0,0
+route,airport/led/spb-center,LED → центр СПб,—,0,0
+route,airport/led/sortavala,LED → Сортавала,—,0,0
+route,airport/led/petrozavodsk,LED → Петрозаводск,—,0,0
+route,airport/led/vyborg,LED → Выборг,—,0,0
+route,airport/led/priozersk,LED → Приозерск,—,0,0
+route,airport/led/finlandia-border,LED → финская граница (Торфяновка/Брусничное),—,0,0
+route,airport/aer/sochi-center,AER → центр Сочи,—,0,0
+route,airport/aer/krasnaya-polyana,AER → Красная Поляна,—,0,0
+route,airport/aer/rosa-khutor,AER → Роза Хутор,—,0,0
+route,airport/aer/abkhazia,AER → Абхазия (граница / Гагра),—,0,0
+route,airport/aer/gagra,AER → Гагра,—,0,0
+route,airport/aer/sukhum,AER → Сухум,—,0,0
+route,airport/dme/moscow-center,DME → Центр Москвы,—,0,0
+route,airport/dme/ramenskoe,DME → Раменское,—,0,0
+route,airport/dme/stupino,DME → Ступино,—,0,0
+route,airport/vko/moscow-center,VKO → Центр Москвы,—,0,0
+route,airport/vko/moscow-city,VKO → Москва-Сити,—,0,0
+route,airport/vko/aprelevka,VKO → Апрелевка,—,0,0
+route,airport/vko/vnukovo-derevnya,VKO → Внуково (деревня),—,0,0
+route,airport/zia/moscow-center,ZIA → Центр Москвы,—,0,0
+route,airport/zia/zhukovskiy-city,ZIA → Жуковский (город),—,0,0
+route,airport/zia/ramenskoe,ZIA → Раменское,—,0,0
+route,airport/zia/elektrostal,ZIA → Электросталь,—,0,0
+route,airport/kzn/kazan-center,KZN → Центр Казани,—,0,0
+route,airport/kzn/innopolis,KZN → Иннополис,—,0,0
+route,airport/kzn/zelenodolsk,KZN → Зеленодольск,—,0,0
+route,airport/kzn/bolgar,KZN → Болгар,—,0,0
+route,airport/svx/ekaterinburg-center,SVX → Центр Екатеринбурга,—,0,0
+route,airport/svx/verkhnyaya-pyshma,SVX → Верхняя Пышма,—,0,0
+route,airport/svx/berezovskiy,SVX → Берёзовский,—,0,0
+route,airport/svx/nizhniy-tagil,SVX → Нижний Тагил,—,0,0
+route,airport/ovb/novosibirsk-center,OVB → Центр Новосибирска,—,0,0
+route,airport/ovb/akademgorodok,OVB → Академгородок,—,0,0
+route,airport/ovb/berdsk,OVB → Бердск,—,0,0
+route,airport/ovb/koltsovo,OVB → Кольцово,—,0,0
+route,airport/ikt/irkutsk-center,IKT → Центр Иркутска,—,0,0
+route,airport/ikt/listvyanka,IKT → Листвянка,—,0,0
+route,airport/ikt/shelekhov,IKT → Шелехов,—,0,0
+route,airport/ikt/angarsk,IKT → Ангарск,—,0,0
+route,airport/mmk/murmansk-center,MMK → Центр Мурманска,—,0,0
+route,airport/mmk/teriberka,MMK → Териберка,—,0,0
+route,airport/mmk/kirovsk,MMK → Кировск,—,0,0
+route,airport/mmk/apatity,MMK → Апатиты,—,0,0
+route,airport/mrv/kislovodsk,MRV → Кисловодск,—,0,0
+route,airport/mrv/zheleznovodsk,MRV → Железноводск,—,0,0
+route,airport/sip/sudak,SIP → Судак,—,0,0
+route,airport/kgd/kaliningrad-center,KGD → Центр Калининграда,—,0,0
+route,airport/kgd/yantarniy,KGD → Янтарный,—,0,0
+route,airport/aaq/anapa-center,AAQ → Центр Анапы,—,0,0
+route,airport/aaq/vityazevo,AAQ → Витязево,—,0,0
+route,airport/krr/krasnodar-center,KRR → Центр Краснодара,—,0,0
+route,airport/krr/goryachiy-klyuch,KRR → Горячий Ключ,—,0,0
+route,airport/krr/kropotkin,KRR → Кропоткин,—,0,0

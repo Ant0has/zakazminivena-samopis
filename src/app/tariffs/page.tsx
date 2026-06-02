@@ -19,14 +19,14 @@ import { TelegramIcon } from "@/components/icons";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
-  title: "Тарифы на минивэн с водителем | ЗаказМинивена.ru",
+  title: "Тарифы на минивэн с водителем | ЗаказМинивэна.ru",
   description:
     "Тарифы на минивэн с водителем: Стандарт и Комфорт+. Фиксированная цена на 7 мест. Индивидуальный расчёт, детское кресло бесплатно, без предоплаты.",
   openGraph: {
-    title: "Тарифы на минивэн с водителем | ЗаказМинивена.ru",
+    title: "Тарифы на минивэн с водителем | ЗаказМинивэна.ru",
     description: "Тарифы на минивэн с водителем: Стандарт и Комфорт+. Фиксированная цена на 7 мест. Индивидуальный расчёт, детское кресло бесплатно, без предоплаты.",
     url: "https://zakazminivena.ru/tariffs",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -82,7 +82,7 @@ export default function TariffsPage() {
             "description": "Тарифы на минивэн с водителем: Стандарт и Комфорт+. Фиксированная цена на 7 мест. Индивидуальный расчёт, детское кресло бесплатно, без предоплаты.",
             "provider": {
               "@type": "Organization",
-              "name": "ЗаказМинивена.ru",
+              "name": "ЗаказМинивэна.ru",
               "url": "https://zakazminivena.ru"
             },
             "areaServed": "Россия",
@@ -176,7 +176,7 @@ export default function TariffsPage() {
                     size="lg"
                     asChild
                   >
-                    <a href="https://t.me/zakazminivena">
+                    <a href="https://t.me/ZakazMinivena">
                       <TelegramIcon className="mr-2 h-4 w-4" />
                       Заказать
                     </a>
@@ -287,7 +287,7 @@ export default function TariffsPage() {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

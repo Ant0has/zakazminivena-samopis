@@ -1,22 +1,20 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Users, Briefcase } from "lucide-react";
 import { VehiclePlaceholder } from "@/components/VehiclePlaceholder";
 import { tariffClasses, type TariffClass } from "@/lib/tariff-classes";
 import { formatPrice } from "@/lib/routes-data";
 
-// Карточки классов минивэна — главный конверсионный блок (паттерн 5).
-// Тёмно-синяя карточка с фото машины, иконками 👥/🧳, ценой и жёлтой кнопкой.
+// Карточки классов минивэна с табами багажных сценариев.
 
 interface FleetTariffCardsProps {
   title?: string;
   subtitle?: string;
-  /** Если передан — фильтрует/упорядочивает классы. Иначе показывает все 4. */
   classes?: TariffClass[];
-  /** Префикс ссылки «Заказать». Если есть `#booking` — скроллит к форме на странице. */
   ctaHref?: string;
-  /** Контекстная подпись, например «Подаём в SVO» */
   contextLabel?: string;
-  /** Bg-цвет секции */
   bg?: "default" | "muted";
 }
 
@@ -61,10 +59,11 @@ export function FleetTariffCards({
 }
 
 function TariffCard({ data, ctaHref }: { data: TariffClass; ctaHref: string }) {
+  const [tab, setTab] = useState(0);
+  const opts = data.luggageOptions ?? [];
+
   return (
-    <article
-      className="group relative flex flex-col overflow-hidden rounded-2xl bg-[oklch(0.20_0.04_245)] p-5 text-white shadow-xl ring-1 ring-white/5 transition-transform hover:-translate-y-1 sm:p-6"
-    >
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-[oklch(0.20_0.04_245)] p-5 text-white shadow-xl ring-1 ring-white/5 transition-transform hover:-translate-y-1 sm:p-6">
       {/* Заголовок класса */}
       <div className="text-center">
         <div className="text-xs font-bold uppercase tracking-widest text-white">
@@ -87,7 +86,7 @@ function TariffCard({ data, ctaHref }: { data: TariffClass; ctaHref: string }) {
         </span>
       </div>
 
-      {/* Фото машины — placeholder или реальная картинка */}
+      {/* Фото */}
       <div className="my-5">
         <VehiclePlaceholder
           src={data.image}
@@ -97,12 +96,52 @@ function TariffCard({ data, ctaHref }: { data: TariffClass; ctaHref: string }) {
         />
       </div>
 
-      {/* Цена */}
-      <div className="text-center">
-        <div className="text-3xl font-extrabold tracking-tight">
-          от {formatPrice(data.priceFrom)} ₽
+      {/* Объём багажника */}
+      {data.trunkNote && (
+        <p className="mb-3 text-xs leading-5 text-white/70">{data.trunkNote}</p>
+      )}
+
+      {/* Вместимость багажника + табы сценариев */}
+      {opts.length > 0 && (
+        <div className="mb-4">
+          <div className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-white/70">
+            Вместимость багажника:
+          </div>
+          <div className="mb-2 flex flex-wrap gap-1">
+            {opts.map((o, i) => (
+              <button
+                key={o.label}
+                type="button"
+                onClick={() => setTab(i)}
+                className={`rounded-md px-2.5 py-1 text-[11px] font-medium transition-colors ${
+                  tab === i
+                    ? "bg-emerald text-emerald-foreground"
+                    : "bg-white/5 text-white/60 hover:bg-white/10"
+                }`}
+              >
+                {o.label}
+              </button>
+            ))}
+          </div>
+          <p className="min-h-12 text-xs leading-5 text-white/85">{opts[tab].description}</p>
         </div>
-        <div className="mt-1 text-xs text-white/55">за машину</div>
+      )}
+
+      {/* Цена */}
+      <div className="mt-auto text-center">
+        {data.requestOnly ? (
+          <>
+            <div className="text-2xl font-extrabold tracking-tight">По запросу</div>
+            <div className="mt-1 text-xs text-white/55">подбор под группу</div>
+          </>
+        ) : (
+          <>
+            <div className="text-3xl font-extrabold tracking-tight">
+              от {formatPrice(data.priceFrom)} ₽
+            </div>
+            <div className="mt-1 text-xs text-white/55">за машину</div>
+          </>
+        )}
       </div>
 
       {/* CTA */}
@@ -110,7 +149,7 @@ function TariffCard({ data, ctaHref }: { data: TariffClass; ctaHref: string }) {
         href={ctaHref}
         className="mt-5 inline-flex items-center justify-center rounded-lg bg-amber-400 px-5 py-3 text-sm font-bold uppercase tracking-wide text-slate-900 transition-colors hover:bg-amber-300"
       >
-        Заказать
+        {data.requestOnly ? "Запросить расчёт" : "Заказать"}
       </Link>
     </article>
   );

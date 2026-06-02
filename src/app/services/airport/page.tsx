@@ -12,14 +12,14 @@ import { TelegramIcon } from "@/components/icons";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
 export const metadata: Metadata = {
-  title: "Трансфер в аэропорт на минивэне 7 мест — ЗаказМинивена.ru",
+  title: "Трансфер в аэропорт на минивэне 7 мест — ЗаказМинивэна.ru",
   description:
     "Трансфер в аэропорт на минивэне с водителем для семьи или группы до 7 человек. Встреча с табличкой, отслеживание рейса, детское кресло бесплатно. Фиксированная цена. Звоните +7 (918) 587-54-54",
   openGraph: {
-    title: "Трансфер в аэропорт на минивэне 7 мест — ЗаказМинивена.ru",
+    title: "Трансфер в аэропорт на минивэне 7 мест — ЗаказМинивэна.ru",
     description: "Трансфер в аэропорт на минивэне с водителем для семьи или группы до 7 человек. Встреча с табличкой, отслеживание рейса, детское кресло бесплатно. Фиксированная цена. Звоните +7 (918) 587-54-54",
     url: "https://zakazminivena.ru/services/airport",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -53,7 +53,7 @@ export default function AirportServicePage() {
             "description": "Трансфер в аэропорт на минивэне с водителем для семьи или группы до 7 человек. Встреча с табличкой, отслеживание рейса, детское кресло бесплатно.",
             "provider": {
               "@type": "Organization",
-              "name": "ЗаказМинивена.ru",
+              "name": "ЗаказМинивэна.ru",
               "url": "https://zakazminivena.ru"
             },
             "areaServed": "Россия",
@@ -145,7 +145,7 @@ export default function AirportServicePage() {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

@@ -31,7 +31,7 @@ export async function generateMetadata({
       title: page.title,
       description: page.description,
       url: `https://zakazminivena.ru/compare/${slug}`,
-      siteName: "ЗаказМинивена.ru",
+      siteName: "ЗаказМинивэна.ru",
       locale: "ru_RU",
       type: "article",
     },
@@ -72,12 +72,12 @@ export default async function ComparisonDetailPage({
     image: `https://zakazminivena.ru${page.image}`,
     author: {
       "@type": "Organization",
-      name: "ЗаказМинивена.ru",
+      name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
     },
     publisher: {
       "@type": "Organization",
-      name: "ЗаказМинивена.ru",
+      name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
     },
     mainEntityOfPage: `https://zakazminivena.ru/compare/${page.slug}`,
@@ -253,7 +253,7 @@ export default async function ComparisonDetailPage({
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href="https://t.me/zakazminivena">
+                  <a href="https://t.me/ZakazMinivena">
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Написать в Telegram
                   </a>

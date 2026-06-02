@@ -16,7 +16,7 @@ export function MobileBottomBar() {
         </a>
         <div className="w-px bg-border" />
         <a
-          href="https://t.me/zakazminivena"
+          href="https://t.me/ZakazMinivena"
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-1 items-center justify-center gap-2 bg-[#26A5E4] text-sm font-semibold text-white transition-colors active:bg-[#26A5E4]/90"

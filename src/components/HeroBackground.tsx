@@ -1,24 +1,35 @@
-// Hero-фон: тематическая иллюстрация для десктопа (16:9) и мобайла (9:16) +
-// тёмно-зелёный overlay для контрастного белого текста.
+// Hero-фон: тематическая иллюстрация. Мобильный и десктопный варианты
+// разделяются нативно через <picture> + <source media>, без зависимости от
+// Tailwind hidden/block (исключаем риск каскада / порядка применения).
+
+import Image from "next/image";
 
 interface HeroBackgroundProps {
   /** intensity тёмно-зелёного overlay'я (0..1). По умолчанию 0.7 — текст хорошо читается. */
   overlay?: number;
+  /** Позиция мобильного фона. "top" — виден самолёт и машина сверху иллюстрации
+   *  (для airport-страниц). По умолчанию "center". */
+  mobilePosition?: "top" | "center" | "bottom";
 }
 
-export function HeroBackground({ overlay = 0.7 }: HeroBackgroundProps = {}) {
+export function HeroBackground({ overlay = 0.7, mobilePosition = "center" }: HeroBackgroundProps = {}) {
+  // Для "top" прижимаем картинку к правому верхнему углу — там в композиции
+  // bg-mobile.webp находится самолёт (airport-страницы хотят показать именно его).
+  const mobileObjectPos =
+    mobilePosition === "top" ? "object-right-top" : mobilePosition === "bottom" ? "object-bottom" : "object-center";
   return (
     <>
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-20 hidden sm:block bg-no-repeat bg-cover bg-center
-                   [background-image:url('/images/heroes/bg-desktop.webp')]"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-20 sm:hidden bg-no-repeat bg-cover bg-center
-                   [background-image:url('/images/heroes/bg-mobile.webp')]"
-      />
+      {/* Фоновая картинка. <picture> сам подбирает источник по media-query. */}
+      <picture aria-hidden className="absolute inset-0 -z-20 block">
+        <source media="(min-width: 640px)" srcSet="/images/heroes/bg-desktop.webp" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/heroes/bg-mobile.webp"
+          alt=""
+          className={`h-full w-full object-cover ${mobileObjectPos}`}
+        />
+      </picture>
+
       {/* Тёмно-зелёный overlay для контраста */}
       <div
         aria-hidden
@@ -27,20 +38,11 @@ export function HeroBackground({ overlay = 0.7 }: HeroBackgroundProps = {}) {
           background: `linear-gradient(to bottom right, oklch(0.25 0.07 162 / ${overlay}), oklch(0.18 0.05 162 / ${overlay + 0.1}))`,
         }}
       />
-      {/* Плавный переход к background ниже Hero */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-b from-transparent to-background"
-      />
     </>
   );
 }
 
-// Контейнер для самого фото минивэна.
-// Тематические фото минивэна в контексте локации — object-cover на всю плашку,
-// caption-наложение снизу.
-import Image from "next/image";
-
+// Контейнер для самого фото минивэна (используется на destination-страницах).
 export function HeroVehicleImage({
   src,
   alt,

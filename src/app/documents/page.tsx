@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 import { FileTextIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Документы для отчётности — договор, счёт, акт, ККТ-чек | ЗаказМинивена.ru",
+  title: "Документы для отчётности — договор, счёт, акт, ККТ-чек | ЗаказМинивэна.ru",
   description:
     "Документы при заказе минивэна для юрлиц: договор оферты или индивидуальный, счёт на оплату, акт, ККТ-чек электронный, УПД, путевой лист.",
   alternates: { canonical: "https://zakazminivena.ru/documents" },

@@ -10,18 +10,18 @@ import { allCities, allRoutes } from "@/lib/routes-data";
 import { MapPinIcon, ArrowRightIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Минивэн с водителем — города России | ЗаказМинивена.ru",
+  title: "Минивэн с водителем — города России | ЗаказМинивэна.ru",
   description:
     "Заказать минивэн с водителем в городах России. Межгородние поездки и трансферы в аэропорт на комфортном минивэне 7 мест. Фиксированная цена.",
   alternates: {
     canonical: "https://zakazminivena.ru/cities",
   },
   openGraph: {
-    title: "Минивэн с водителем — города России | ЗаказМинивена.ru",
+    title: "Минивэн с водителем — города России | ЗаказМинивэна.ru",
     description:
       "Заказать минивэн с водителем в городах России. Межгородние поездки и трансферы в аэропорт на комфортном минивэне 7 мест.",
     url: "https://zakazminivena.ru/cities",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -42,7 +42,7 @@ export default function CitiesPage() {
             "url": "https://zakazminivena.ru/cities",
             "isPartOf": {
               "@type": "WebSite",
-              "name": "ЗаказМинивена.ru",
+              "name": "ЗаказМинивэна.ru",
               "url": "https://zakazminivena.ru"
             }
           }) }}

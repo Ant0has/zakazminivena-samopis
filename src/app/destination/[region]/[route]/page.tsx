@@ -97,7 +97,7 @@ export default async function DestinationRoutePage({ params }: Props) {
     description: `Минивэн на 6–8 мест из ${data.fromCity} в ${data.toCity}. Фикс цена от ${price} ₽.`,
     provider: {
       "@type": "Organization",
-      name: "ЗаказМинивена.ru",
+      name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
     },
     offers: {
@@ -383,7 +383,7 @@ export default async function DestinationRoutePage({ params }: Props) {
         {/* ===== ВИДЫ ОПЛАТЫ ===== */}
         <PaymentMethods
           title="Как оплатить поездку"
-          intro="Карта, СБП, наличные водителю или безналичный для юрлиц с полным пакетом документов и постоплатой до 14 дней."
+          intro="Карта, СБП, наличные водителю или безналичный для юрлиц с полным пакетом документов и постоплатой в течение 5 рабочих дней."
         />
 
         <B2bCtaBlock />

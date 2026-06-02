@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { BookingForm } from "@/components/BookingForm";
+import { AirportConsultationForm } from "@/components/AirportConsultationForm";
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -101,17 +101,29 @@ export default async function AirportRoutePage({ params }: Props) {
     "@type": "TaxiService",
     name: `Минивэн ${airport.name} → ${route.destinationName}`,
     description: `Минивэн на 6–8 мест из аэропорта ${airport.nameFull} в ${route.destinationName}. Фикс цена от ${price} ₽ за машину.`,
+    image: `https://zakazminivena.ru/images/heroes/${iata}.webp`,
     provider: {
       "@type": "Organization",
-      name: "ЗаказМинивена.ru",
+      name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
+      telephone: "+79185875454",
+      email: "mini@zakazminivena.ru",
+      logo: "https://zakazminivena.ru/icon-512.png",
     },
     areaServed: [{ "@type": "City", name: airport.city }],
+    priceRange: `от ${price} ₽`,
     offers: {
       "@type": "Offer",
       price: String(calcPrice(route.km)),
       priceCurrency: "RUB",
       availability: "https://schema.org/InStock",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "101",
+      bestRating: "5",
+      worstRating: "4",
     },
   };
 
@@ -143,11 +155,11 @@ export default async function AirportRoutePage({ params }: Props) {
 
         {/* ===== HERO (airport route) ===== */}
         <section className="relative overflow-hidden">
-          <HeroBackground />
+          <HeroBackground mobilePosition="top" />
           <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20">
             {/* Бейджи-чеклист */}
             <div className="mb-6 flex flex-wrap justify-center gap-2 sm:justify-start">
-              {["Фиксированная цена", "До 8 мест", "Дет.кресло бесплатно", "Без предоплаты"].map((b) => (
+              {["Фиксированная цена", "До 7 пассажиров", "Дет.кресло бесплатно", "Без предоплаты"].map((b) => (
                 <span
                   key={b}
                   className="inline-flex items-center gap-1.5 rounded-full bg-emerald/20 px-3 py-1 text-xs font-medium text-emerald-100 ring-1 ring-emerald-300/30"
@@ -170,23 +182,22 @@ export default async function AirportRoutePage({ params }: Props) {
             </p>
             <p className="sr-only">{content.h1}</p>
 
-            {/* Сетка: форма + photo-card */}
-            <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr,1fr]">
+            {/* Сетка: форма слева, справа — фото + фичи; низ выравнен. */}
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
               <AirportHeroForm
                 iata={iata}
                 airportShort={airport.name}
                 defaultDestination={route.destinationName}
               />
-              <AirportPhotoCard
-                caption={`Минивэн Mercedes V-class в ${airport.name}`}
-                description={`Премиум-минивэн встречает гостей у входа в терминал. Точное место подачи водитель сообщает за 30 минут до прибытия рейса.`}
-                alternative={`Mercedes V-class изнутри: кожаный салон, индивидуальные кресла, климат-контроль.`}
-              />
-            </div>
-
-            {/* Сетка фишек */}
-            <div className="mt-8">
-              <AirportFeaturesGrid airportShort={airport.name} />
+              <div className="flex flex-col gap-4">
+                <AirportPhotoCard
+                  imageSrc={heroImage}
+                  imageAlt={`Минивэн ${airport.name} → ${route.destinationName}`}
+                />
+                <div className="grow">
+                  <AirportFeaturesGrid airportShort={airport.name} />
+                </div>
+              </div>
             </div>
 
             {/* Метрики маршрута */}
@@ -207,39 +218,20 @@ export default async function AirportRoutePage({ params }: Props) {
           </div>
         </section>
 
-        {/* ===== CTA / ФОРМА ===== */}
-        <section id="booking" className="border-t bg-muted/30 py-16 sm:py-20 scroll-mt-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Заказать минивэн
-                </h2>
-                <p className="mt-3 text-base text-muted-foreground sm:text-lg">
-                  Заполните форму — менеджер свяжется в течение 5 минут и пришлёт фикс цену с
-                  контактом водителя.
-                </p>
-                <ul className="mt-6 space-y-3 text-sm">
-                  <li className="flex items-center gap-3">
-                    <CheckIcon className="h-5 w-5 text-emerald" />
-                    Подтверждение в течение 5 минут
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <CheckIcon className="h-5 w-5 text-emerald" />
-                    Безналичный расчёт и ККТ-чек электронный
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <CheckIcon className="h-5 w-5 text-emerald" />
-                    Бесплатное ожидание 60 минут при задержке рейса
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <CheckIcon className="h-5 w-5 text-emerald" />
-                    Бесплатные дет.кресла любого типа
-                  </li>
-                </ul>
-              </div>
-              <BookingForm defaultFrom={airport.nameFull} defaultTo={route.destinationName} />
+        {/* ===== CTA / КОМПАКТНАЯ КОНСУЛЬТАЦИЯ ===== */}
+        <section id="booking" className="border-t bg-emerald/5 py-16 sm:py-20 scroll-mt-20">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-6 text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Заказать минивэн
+              </h2>
+              <p className="mt-3 text-base text-muted-foreground sm:text-lg">
+                Оставьте имя и телефон — перезвоним в течение 7 минут.
+              </p>
             </div>
+            <AirportConsultationForm
+              context={`${airport.name} → ${route.destinationName}`}
+            />
           </div>
         </section>
 
@@ -286,7 +278,7 @@ export default async function AirportRoutePage({ params }: Props) {
 
         {/* ===== ДРУГИЕ НАПРАВЛЕНИЯ ===== */}
         {sameHubRoutes.length > 0 && (
-          <section className="border-t bg-muted/30 py-16 sm:py-24">
+          <section className="border-t bg-emerald/5 py-16 sm:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="mb-10 text-center">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -357,7 +349,7 @@ export default async function AirportRoutePage({ params }: Props) {
         {/* ===== ВИДЫ ОПЛАТЫ ===== */}
         <PaymentMethods
           title="Как оплатить заказ"
-          intro="Все основные способы оплаты — наличные, карта, безналичный для юрлиц. После 3 поездок открываем постоплату до 14 дней."
+          intro="Все основные способы оплаты — наличные, карта, безналичный для юрлиц. После 3 поездок открываем постоплату в течение 5 рабочих дней."
         />
 
         <B2bCtaBlock />

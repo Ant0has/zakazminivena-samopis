@@ -8,7 +8,7 @@ import { PhoneIcon, MailIcon, MessageCircleIcon } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Контакты — ЗаказМинивена.ru",
+  title: "Контакты — ЗаказМинивэна.ru",
   description:
     "Контакты: телефон +7 (918) 587-54-54, WhatsApp, Telegram. Диспетчер 24/7. B2B-менеджер 9:00–19:00. Реквизиты ИП Макаренко В.П.",
   alternates: { canonical: "https://zakazminivena.ru/contacts" },
@@ -45,7 +45,7 @@ export default function ContactsPage() {
                   <div className="mt-1 text-xs text-muted-foreground">Ответ за 5 минут</div>
                 </Card>
               </a>
-              <a href="https://t.me/zakazminivena" target="_blank" rel="noreferrer" className="block">
+              <a href="https://t.me/ZakazMinivena" target="_blank" rel="noreferrer" className="block">
                 <Card className="p-5 transition-colors hover:border-emerald">
                   <TelegramIcon className="mb-3 h-6 w-6 text-emerald" />
                   <div className="mb-1 text-sm uppercase text-muted-foreground">Telegram</div>

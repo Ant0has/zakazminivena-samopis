@@ -4,15 +4,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Публичная оферта | ЗаказМинивена.ru",
+  title: "Публичная оферта | ЗаказМинивэна.ru",
   description:
     "Публичная оферта на оказание услуг по перевозке пассажиров минивэном с водителем. ИП Макаренко В.П.",
   openGraph: {
-    title: "Публичная оферта | ЗаказМинивена.ru",
+    title: "Публичная оферта | ЗаказМинивэна.ru",
     description:
       "Публичная оферта на оказание услуг по перевозке пассажиров минивэном с водителем.",
     url: "https://zakazminivena.ru/offer",
-    siteName: "ЗаказМинивена.ru",
+    siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
   },
@@ -233,7 +233,7 @@ export default function OfferPage() {
                     <a href="tel:+79185875454" className="text-emerald underline">+7 (918) 587-54-54</a>
                   </p>
                   <p className="mt-2"><strong className="text-foreground">Telegram:</strong>{" "}
-                    <a href="https://t.me/zakazminivena" className="text-emerald underline" target="_blank" rel="noopener noreferrer">@zakazminivena</a>
+                    <a href="https://t.me/ZakazMinivena" className="text-emerald underline" target="_blank" rel="noopener noreferrer">@zakazminivena</a>
                   </p>
                   <p className="mt-2"><strong className="text-foreground">Сайт:</strong>{" "}
                     <a href="https://zakazminivena.ru" className="text-emerald underline">zakazminivena.ru</a>

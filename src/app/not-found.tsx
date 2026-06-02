@@ -54,7 +54,7 @@ export default function NotFound() {
                 className="bg-[#26A5E4] text-white hover:bg-[#26A5E4]/90"
                 asChild
               >
-                <a href="https://t.me/zakazminivena">
+                <a href="https://t.me/ZakazMinivena">
                   <TelegramIcon className="mr-2 h-4 w-4" />
                   Telegram
                 </a>

@@ -1,23 +1,25 @@
+// Самолётик Telegram (без обводки круга — круглый фон даёт кнопка).
 export function TelegramIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M21.93 4.21 2.6 11.66c-1.32.51-1.31 1.27-.24 1.6l4.95 1.55 11.46-7.23c.54-.33 1.03-.15.63.21l-9.28 8.39h-.01l.01.01-.34 5.1c.5 0 .72-.23 1-.5l2.4-2.34 4.99 3.69c.92.51 1.58.24 1.81-.85L24 5.92c.34-1.36-.51-1.97-1.7-1.71l-.37.02z" />
     </svg>
   );
 }
 
+// MAX — простая буква «M» жирная (круг даёт фон кнопки).
 export function MaxIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <circle cx="12" cy="12" r="12" />
+    <svg className={className} viewBox="0 0 24 24" aria-hidden>
       <text
         x="12"
-        y="16.5"
+        y="18"
         textAnchor="middle"
-        fontSize="13"
-        fontWeight="bold"
-        fontFamily="sans-serif"
-        fill="white"
+        fontSize="18"
+        fontWeight="900"
+        fontFamily="system-ui, -apple-system, sans-serif"
+        fill="currentColor"
+        letterSpacing="-0.5"
       >
         M
       </text>

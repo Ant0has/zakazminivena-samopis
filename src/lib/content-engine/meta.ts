@@ -16,6 +16,8 @@ const SITE = "https://zakazminivena.ru";
 interface MetaCommon {
   canonical: string;
   ogType?: "website" | "article";
+  /** Абсолютный URL изображения для превью в соцсетях (Telegram/VK/WhatsApp/Twitter). */
+  image?: string;
 }
 
 function buildMeta(
@@ -24,7 +26,13 @@ function buildMeta(
   common: MetaCommon
 ): Metadata {
   const t = clampTitle(title, 70);
-  const d = clampDescription(description, 165);
+  const d = clampDescription(description, 155);
+  const imgUrl = common.image
+    ? common.image.startsWith("http")
+      ? common.image
+      : `${SITE}${common.image}`
+    : `${SITE}/logo.webp`;
+
   return {
     title: t,
     description: d,
@@ -36,8 +44,14 @@ function buildMeta(
       siteName: BRAND,
       locale: "ru_RU",
       type: common.ogType ?? "website",
+      images: [{ url: imgUrl, width: 1200, height: 630, alt: t }],
     },
-    twitter: { card: "summary_large_image", title: t, description: d },
+    twitter: {
+      card: "summary_large_image",
+      title: t,
+      description: d,
+      images: [imgUrl],
+    },
   };
 }
 
@@ -67,19 +81,31 @@ export function metaAirportRoute(opts: {
   // Title: цена + маршрут + бренд. До 70 символов после clamp.
   const title = `Минивэн ${airportName} (${iataUpper}) → ${destinationName} от ${price} ₽ | ${BRAND}`;
 
-  // Description: км, время, УТП «фикс цена», 60 мин ожидание.
+  // Description: км, время, УТП «фикс цена», 60 мин ожидание. Уложиться в 155.
   const description =
-    `Заказать минивэн с водителем из аэропорта ${airportNameFull} в ${destinationName}. ` +
-    `${km} км, ${duration}. Фикс цена ${price} ₽ за машину 6–8 мест. ` +
-    `Встреча с табличкой, ожидание при задержке рейса бесплатно. Заказ онлайн.`;
+    `Минивэн из ${airportNameFull} в ${destinationName}. ${km} км, ${duration}. ` +
+    `Фикс цена ${price} ₽. Встреча с табличкой, ожидание при задержке рейса.`;
 
   return buildMeta(title, description, {
     canonical: `${SITE}/airport/${iata}/${slugify(destinationName, city)}`,
+    image: `/images/heroes/${iata}.webp`,
   });
 }
 
 // ============= Хаб аэропорта =============
 // СЯ: "минивэн аэропорт шереметьево", "минивэн в аэропорт домодедово"
+
+/** IATA, для которых «минивэн {город}» / «минивэны {город}» — топ-частотный
+ *  Wordstat-ключ (≥120 запросов/мес). Поднимаем эту фразу в начало title.
+ *  Источник: seo_research/minivan_freq.csv (Yandex Cloud Search API, 2026-05). */
+const IATA_HIGH_FREQ_TITLES: Record<string, (city: string, iataUpper: string, minPrice: number) => string> = {
+  // «минивэн казань» — 2 201/мес (топ-1 минивэн-фразой по всему сайту)
+  kzn: (city, iataUpper, p) => `Минивэн ${city} (${iataUpper}) — заказать в аэропорт от ${formatRub(p)} ₽ | ${BRAND}`,
+  // «минивэны симферополь» — 326/мес (форма с «ы»)
+  sip: (city, iataUpper, p) => `Минивэны ${city} (${iataUpper}) — заказать в аэропорт от ${formatRub(p)} ₽ | ${BRAND}`,
+  // «минивэны иркутск» — 323/мес (форма с «ы»)
+  ikt: (city, iataUpper, p) => `Минивэны ${city} (${iataUpper}) — заказать в аэропорту от ${formatRub(p)} ₽ | ${BRAND}`,
+};
 
 export function metaAirportHub(opts: {
   iata: string;
@@ -91,13 +117,20 @@ export function metaAirportHub(opts: {
   const { iata, airportName, airportNameFull, city, minPrice } = opts;
   const iataUpper = iata.toUpperCase();
 
-  const title = `Минивэн в аэропорт ${airportName} (${iataUpper}) — от ${formatRub(minPrice)} ₽ | ${BRAND}`;
-  const description =
-    `Заказать минивэн с водителем в ${airportNameFull}, ${city}. ` +
-    `Трансфер 6–8 пассажиров от ${formatRub(minPrice)} ₽ за машину. ` +
-    `Встреча с табличкой, бесплатное ожидание при задержке рейса, дет.кресла, безналичный расчёт.`;
+  // Для IATA с топ-частотной «минивэн {город}» используем особый title.
+  const customTitle = IATA_HIGH_FREQ_TITLES[iata];
+  const title = customTitle
+    ? customTitle(city, iataUpper, minPrice)
+    : `Минивэн в аэропорт ${airportName} (${iataUpper}) — от ${formatRub(minPrice)} ₽ | ${BRAND}`;
 
-  return buildMeta(title, description, { canonical: `${SITE}/airport/${iata}` });
+  const description =
+    `Минивэн с водителем в ${airportNameFull}, ${city}. ` +
+    `Трансфер 6–8 пассажиров от ${formatRub(minPrice)} ₽. Встреча с табличкой, ожидание при задержке.`;
+
+  return buildMeta(title, description, {
+    canonical: `${SITE}/airport/${iata}`,
+    image: `/images/heroes/${iata}.webp`,
+  });
 }
 
 // ============= Хаб региона =============
@@ -117,11 +150,13 @@ export function metaDestinationHub(opts: {
 
   const title = `Минивэн в ${acc} из ${hubCity} — от ${formatRub(minPrice)} ₽ | ${BRAND}`;
   const description =
-    `Туристические поездки на минивэне в ${acc}: ${topPointsShort}. ` +
-    `Однодневные и многодневные туры из ${hubCity}. До 8 мест с багажом. ` +
-    `Водитель знает регион. Цена от ${formatRub(minPrice)} ₽ за машину.`;
+    `Минивэн в ${acc}: ${topPointsShort}. Туры из ${hubCity}, до 8 мест. ` +
+    `Цена от ${formatRub(minPrice)} ₽. Водитель знает регион.`;
 
-  return buildMeta(title, description, { canonical: `${SITE}/destination/${regionSlug}` });
+  return buildMeta(title, description, {
+    canonical: `${SITE}/destination/${regionSlug}`,
+    image: `/images/heroes/${regionSlug}.webp`,
+  });
 }
 
 // ============= Маршрут региона =============
@@ -143,13 +178,13 @@ export function metaDestinationRoute(opts: {
 
   const title = `Минивэн ${fromCity} → ${toCity}: ${km} км, от ${price} ₽ | ${BRAND}`;
   const description =
-    `Заказать минивэн с водителем по маршруту ${fromCity} → ${toCity} (${regionName}). ` +
-    `${km} км, ${duration}. Цена от ${price} ₽ за машину 6–8 мест. ` +
-    `Возможны остановки для фото, водитель знает регион.`;
+    `Минивэн ${fromCity} → ${toCity} (${regionName}). ${km} км, ${duration}. ` +
+    `От ${price} ₽ за машину 6–8 мест. Остановки для фото, водитель знает регион.`;
 
   return buildMeta(title, description, {
     canonical: `${SITE}/destination/${regionSlug}/${routeSlug}`,
     ogType: "article",
+    image: `/images/heroes/${regionSlug}.webp`,
   });
 }
 

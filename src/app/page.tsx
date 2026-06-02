@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "TransportationService",
-  name: "ЗаказМинивена.ru",
+  name: "ЗаказМинивэна.ru",
   description:
     "Заказ минивэна с водителем на 7 мест для межгородних поездок и трансфера в аэропорт по России",
   url: "https://zakazminivena.ru",

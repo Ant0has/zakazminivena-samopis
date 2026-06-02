@@ -30,7 +30,7 @@ export function CTASection() {
                     className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                     asChild
                   >
-                    <a href="https://t.me/zakazminivena">
+                    <a href="https://t.me/ZakazMinivena">
                       <TelegramIcon className="mr-2 h-5 w-5" />
                       Написать в Telegram
                     </a>

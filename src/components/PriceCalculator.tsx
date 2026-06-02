@@ -98,13 +98,13 @@ export function PriceCalculator() {
   }, [result]);
 
   const telegramLink = useMemo(() => {
-    if (!from || !to) return "https://t.me/zakazminivena";
+    if (!from || !to) return "https://t.me/ZakazMinivena";
     const parts = [`Заявка: ${from} → ${to}`];
     if (date) parts.push(date);
     parts.push(`${passengers} чел.`);
     if (price) parts.push(`Цена: ${formatPrice(price)} ₽`);
     if (result) parts.push(`${result.km} км · ${durationText}`);
-    return `https://t.me/zakazminivena?text=${encodeURIComponent(parts.join(", "))}`;
+    return `https://t.me/ZakazMinivena?text=${encodeURIComponent(parts.join(", "))}`;
   }, [from, to, date, passengers, price, result, durationText]);
 
   return (

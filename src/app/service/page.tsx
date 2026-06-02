@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { servicesData } from "@/lib/services-data";
 
 export const metadata: Metadata = {
-  title: "Сценарии заказа минивэна — все варианты с водителем | ЗаказМинивена.ru",
+  title: "Сценарии заказа минивэна — все варианты с водителем | ЗаказМинивэна.ru",
   description:
     "Минивэн под любой сценарий: аэропорт, межгород, свадьба, корпоратив, делегации, конференции, экскурсии, почасовая, многодневная, спорткоманды, съёмочные группы.",
   alternates: { canonical: "https://zakazminivena.ru/service" },
