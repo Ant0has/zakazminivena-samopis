@@ -102,6 +102,49 @@ async function sendEmail(payload: OrderPayload): Promise<{ ok: boolean; error?: 
   }
 }
 
+// Создание лида в CRM (раздел «Лиды», проект ZAKAZMINIVENA).
+// По образцу city2city: не блокируем ответ клиенту.
+//   CRM_LEADS_API     — endpoint (https://crm-taxi.ru/api/public/leads)
+//   CRM_LEADS_API_KEY — x-api-key проекта ZAKAZMINIVENA
+async function sendCrmLead(p: OrderPayload): Promise<void> {
+  const api = process.env.CRM_LEADS_API;
+  const key = process.env.CRM_LEADS_API_KEY;
+  if (!api || !key) return; // CRM не сконфигурирован — пропускаем
+
+  const trip = [p.date, p.time].filter(Boolean).join(" ").trim();
+  const comment = [p.comment, p.passengers ? `Пассажиров: ${p.passengers}` : ""]
+    .filter(Boolean)
+    .join(" · ");
+
+  const payload = {
+    source: "website",
+    fromAddress: p.from || "Не указано",
+    toAddress: p.to || "",
+    tripDatetime: trip || undefined,
+    clientPhone: p.phone,
+    clientName: p.name,
+    comment: comment || undefined,
+    landingPage: p.pageUrl,
+    utmSource: p.utm?.utm_source,
+    utmMedium: p.utm?.utm_medium,
+    utmCampaign: p.utm?.utm_campaign,
+    utmContent: p.utm?.utm_content,
+    utmTerm: p.utm?.utm_term,
+    yclid: p.utm?.yclid,
+  };
+
+  try {
+    const res = await fetch(api, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-api-key": key },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) console.error("[ORDER crm error]", res.status, await res.text().catch(() => ""));
+  } catch (err) {
+    console.error("[ORDER crm error]", (err as Error).message);
+  }
+}
+
 export async function POST(req: NextRequest) {
   let body: OrderPayload;
   try {
@@ -120,6 +163,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true }, { status: 200 });
   }
 
-  const result = await sendEmail(body);
+  // Лид в CRM (основной канал) + email (резерв) — параллельно.
+  const [result] = await Promise.all([sendEmail(body), sendCrmLead(body)]);
   return NextResponse.json(result, { status: result.ok ? 200 : 500 });
 }
