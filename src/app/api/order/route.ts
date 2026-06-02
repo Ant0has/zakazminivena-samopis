@@ -153,9 +153,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "Bad JSON" }, { status: 400 });
   }
 
-  // Простая валидация
-  if (!body.name || !body.phone) {
-    return NextResponse.json({ ok: false, error: "name and phone required" }, { status: 400 });
+  // Простая валидация: телефон обязателен, имя — нет (калькуляторы шлют без имени)
+  if (!body.phone) {
+    return NextResponse.json({ ok: false, error: "phone required" }, { status: 400 });
   }
 
   // Honeypot против ботов (доп. поле — должно быть пустым)
