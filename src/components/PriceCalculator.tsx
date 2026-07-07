@@ -34,8 +34,8 @@ interface CalcResult {
   price: number;
 }
 
-export function PriceCalculator() {
-  const [from, setFrom] = useState("");
+export function PriceCalculator({ defaultFrom = "" }: { defaultFrom?: string } = {}) {
+  const [from, setFrom] = useState(defaultFrom);
   const [to, setTo] = useState("");
   const [date, setDate] = useState("");
   const [passengers, setPassengers] = useState(7);

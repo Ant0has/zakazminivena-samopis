@@ -9,7 +9,10 @@ import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { Card } from "@/components/ui/card";
 import { servicesData, getService } from "@/lib/services-data";
 import { fleetBySlug } from "@/lib/fleet-data";
-import { CheckIcon } from "lucide-react";
+import { allRoutes, calcPrice, formatPrice, type RouteData } from "@/lib/routes-data";
+import { PriceCalculator } from "@/components/PriceCalculator";
+import { Badge } from "@/components/ui/badge";
+import { CheckIcon, ArrowRightIcon } from "lucide-react";
 import { metaService } from "@/lib/content-engine/meta";
 
 export function generateStaticParams() {
@@ -39,6 +42,37 @@ export default async function ServicePage({ params }: Props) {
   const related = s.relatedServices
     .map((slug) => servicesData.find((x) => x.slug === slug))
     .filter(Boolean);
+
+  // Для абстрактного сценария «межгород» даём конкретные маршруты —
+  // перехватываем интент «откуда-куда» и поднимаем глубину/конверсию.
+  const FEATURED_INTERCITY = [
+    "moskva-spb",
+    "moskva-nizhniy-novgorod",
+    "moskva-kazan",
+    "kazan-samara",
+    "ekaterinburg-tyumen",
+    "krasnodar-sochi",
+    "rostov-krasnodar",
+    "moskva-voronezh",
+    "ekaterinburg-perm",
+  ];
+  let intercityRoutes: RouteData[] = [];
+  if (scenario === "intercity") {
+    const bySlug = new Map(allRoutes.map((r) => [r.slug, r]));
+    intercityRoutes = FEATURED_INTERCITY.map((sl) => bySlug.get(sl)).filter(
+      (r): r is RouteData => Boolean(r),
+    );
+    if (intercityRoutes.length < 6) {
+      const seen = new Set(intercityRoutes.map((r) => r.slug));
+      for (const r of allRoutes) {
+        if (r.fromSlug !== r.toSlug && !seen.has(r.slug)) {
+          intercityRoutes.push(r);
+          seen.add(r.slug);
+        }
+        if (intercityRoutes.length >= 9) break;
+      }
+    }
+  }
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -86,6 +120,56 @@ export default async function ServicePage({ params }: Props) {
                   </li>
                 ))}
               </ul>
+
+              {intercityRoutes.length > 0 && (
+                <>
+                  <h2 className="mb-3 text-xl font-semibold">
+                    Популярные межгородние маршруты
+                  </h2>
+                  <p className="mb-4 text-sm text-muted-foreground">
+                    Фиксированная цена за минивэн 7 мест. Нет вашего маршрута —
+                    напишите в форме справа, рассчитаем за 5 минут.
+                  </p>
+                  <div className="mb-6 grid gap-3 sm:grid-cols-2">
+                    {intercityRoutes.map((r) => (
+                      <Link key={r.slug} href={`/routes/${r.slug}`}>
+                        <Card className="flex h-full items-center justify-between gap-3 p-4 transition-colors hover:border-emerald">
+                          <div className="min-w-0">
+                            <div className="font-semibold leading-tight">
+                              {r.from} → {r.to}
+                            </div>
+                            <div className="mt-1.5 flex flex-wrap items-center gap-2">
+                              <Badge variant="secondary" className="text-xs">
+                                {r.km} км
+                              </Badge>
+                              <Badge variant="secondary" className="text-xs">
+                                {r.hours}
+                              </Badge>
+                            </div>
+                          </div>
+                          <div className="shrink-0 text-right">
+                            <div className="text-lg font-bold text-emerald">
+                              {formatPrice(calcPrice(r.km))} ₽
+                            </div>
+                            <ArrowRightIcon className="ml-auto h-4 w-4 text-muted-foreground" />
+                          </div>
+                        </Card>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <h2 className="mb-3 text-xl font-semibold">
+                    Рассчитать свой маршрут
+                  </h2>
+                  <p className="mb-4 text-sm text-muted-foreground">
+                    Нет вашего направления в списке? Укажите города — покажем
+                    расстояние, время в пути и фиксированную цену за минивэн.
+                  </p>
+                  <div className="mb-6">
+                    <PriceCalculator />
+                  </div>
+                </>
+              )}
 
               <h2 className="mb-3 text-xl font-semibold">Сценарии использования</h2>
               <div className="mb-6 grid gap-3 sm:grid-cols-2">
