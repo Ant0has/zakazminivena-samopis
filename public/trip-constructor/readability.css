@@ -1,0 +1,9 @@
+/* Readable controls and disclaimers; loaded after the compact layout rules. */
+label,.counter b,.checkline,.options button,.quickstart b{font-size:14px}
+.counter small,.quickstart small,.hint,.model small,.model .model-seats,.modelhint,.selected-car span,.composition span,.diagram-note,.selected-options span,.pricebox span:not(.price-mark),.pricebox small,.price-note,.demo-note,.summary-date,.route-links button,.prototype{font-size:12px;line-height:1.55}
+.summary-top .eyebrow,.live-dot,.subtle,.principles span,footer p{font-size:12px}
+.stepper button{min-width:40px;min-height:44px}
+.seatmap{width:188px}.seat{min-width:41px;min-height:36px;font-size:12px}
+.composition{gap:20px}.principles p{font-size:14px}
+.trip-summary .primary{font-size:14px}.queryregion{display:block;font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px}
+@media(max-width:800px){.routefields input{font-size:16px}.counter small{font-size:12px}.quickstart b{font-size:14px}.composition{gap:30px}.seat{min-height:40px}.trip-summary .primary{font-size:15px}}

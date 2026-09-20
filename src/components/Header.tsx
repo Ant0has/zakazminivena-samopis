@@ -14,6 +14,7 @@ import { MenuIcon, PhoneIcon, MailIcon, ClockIcon, MoonIcon } from "lucide-react
 import { TelegramIcon, MaxIcon } from "@/components/icons";
 
 const navLinks = [
+  { href: "/constructor", label: "Конструктор" },
   { href: "/airport", label: "Аэропорты" },
   { href: "/destination", label: "Направления" },
   { href: "/service", label: "Сценарии" },

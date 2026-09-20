@@ -49,20 +49,13 @@ export function kmPhrase(km: number): string {
 }
 
 /** Цена с разделителями: 3500 → "3 500" */
-export function priceFromKm(km: number): string {
-  return formatPrice(calcPrice(km));
-}
-
-/** Цена туда-обратно за день */
-export function priceRoundTripFromKm(km: number): string {
-  const oneWay = calcPrice(km);
-  const ret = Math.max(4000, Math.ceil((oneWay * 0.8) / 500) * 500);
-  return formatPrice(oneWay + ret);
+export function priceFromKm(km: number, pricingDistanceM?: number): string {
+  return formatPrice(calcPrice(km, pricingDistanceM));
 }
 
 /** Цена за человека при загрузке 7 — для копирайтов "вместо 2 такси" */
-export function pricePerPersonFromKm(km: number, people = 7): string {
-  return formatPrice(Math.ceil(calcPrice(km) / people));
+export function pricePerPersonFromKm(km: number, people = 7, pricingDistanceM?: number): string {
+  return formatPrice(Math.ceil(calcPrice(km, pricingDistanceM) / people));
 }
 
 export const BRAND = "ЗаказМинивэна.ru";
@@ -72,18 +65,13 @@ export function formatRubFromInt(n: number): string {
 }
 export const PHONE = "+7 (918) 587-54-54";
 
-/** Безопасно обрезает заголовок до limit символов на границе слова. */
+/** Shorten optional branding, never truncate a route, price or word. */
 export function clampTitle(s: string, limit = 70): string {
-  if (s.length <= limit) return s;
-  const cut = s.slice(0, limit);
-  const lastSpace = cut.lastIndexOf(" ");
-  return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut).trim() + "…";
+  const text = s.trim();
+  return text.length > limit ? text.replace(/\s*\|\s*ЗаказМинивэна\.ru$/, '') : text;
 }
 
-/** Description: гарантировано 130–160 знаков. */
-export function clampDescription(s: string, limit = 160): string {
-  if (s.length <= limit) return s;
-  const cut = s.slice(0, limit);
-  const lastSpace = cut.lastIndexOf(" ");
-  return (lastSpace > 100 ? cut.slice(0, lastSpace) : cut).trim() + "…";
+/** Search engines choose snippet length; keep our sentences complete. */
+export function clampDescription(s: string, _limit = 160): string {
+  return s.trim();
 }

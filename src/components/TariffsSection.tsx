@@ -1,115 +1,21 @@
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { CheckIcon, UsersIcon, StarIcon } from "lucide-react";
-import { TelegramIcon } from "@/components/icons";
-
-const tariffs = [
-  {
-    name: "Минивэн",
-    subtitle: "Стандарт",
-    seats: "7 мест",
-    description: "Комфортный минивэн для семьи или группы",
-    features: [
-      "Кондиционер",
-      "Большой багажник",
-      "Детское кресло бесплатно",
-      "Бутылки воды",
-      "USB-зарядка",
-      "Встреча с табличкой",
-    ],
-    popular: false,
-  },
-  {
-    name: "Минивэн",
-    subtitle: "Комфорт+",
-    seats: "7 мест VIP",
-    description: "Премиум минивэн для особых поездок",
-    features: [
-      "Всё из Стандарта",
-      "Кожаный салон",
-      "Климат-контроль по зонам",
-      "Wi-Fi в салоне",
-      "Напитки и снеки",
-      "Приоритетная подача",
-    ],
-    popular: true,
-  },
-];
+import Link from 'next/link';
+import { tariff, publicPriceNote } from '@/lib/route-pricing';
 
 export function TariffsSection() {
-  return (
-    <section className="relative py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 text-center sm:mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Тарифы
-          </h2>
-          <p className="mt-3 text-muted-foreground">
-            Выберите уровень комфорта для вашей поездки
-          </p>
-        </div>
-
-        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
-          {tariffs.map((tariff) => (
-            <div
-              key={tariff.subtitle}
-              className={`relative rounded-2xl border p-6 shadow-sm sm:p-8 ${
-                tariff.popular
-                  ? "border-emerald/40 bg-emerald/5"
-                  : "border-border bg-card"
-              }`}
-            >
-              {tariff.popular && (
-                <Badge className="absolute -top-3 left-6 bg-emerald text-emerald-foreground">
-                  <StarIcon className="mr-1 h-3 w-3" />
-                  Популярный
-                </Badge>
-              )}
-              <div className="mb-1 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-                {tariff.name}
-              </div>
-              <h3 className="text-2xl font-bold">{tariff.subtitle}</h3>
-              <div className="mt-2 flex items-center gap-2">
-                <UsersIcon className="h-4 w-4 text-emerald" />
-                <span className="text-sm text-muted-foreground">
-                  {tariff.seats}
-                </span>
-              </div>
-              <p className="mt-3 text-sm text-muted-foreground">
-                {tariff.description}
-              </p>
-
-              <ul className="mt-6 space-y-2.5">
-                {tariff.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-center gap-2 text-sm"
-                  >
-                    <CheckIcon className="h-4 w-4 shrink-0 text-emerald" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Button
-                className={`mt-8 w-full ${
-                  tariff.popular
-                    ? "bg-emerald text-emerald-foreground hover:bg-emerald/90"
-                    : ""
-                }`}
-                variant={tariff.popular ? "default" : "outline"}
-                size="lg"
-                asChild
-              >
-                <a href="https://t.me/ZakazMinivena">
-                  <TelegramIcon className="mr-2 h-4 w-4" />
-                  Заказать
-                </a>
-              </Button>
-            </div>
-          ))}
+  return <section className="py-16 sm:py-24">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      <div className="rounded-3xl border border-emerald/30 bg-emerald/5 p-7 sm:p-12">
+        <p className="text-sm font-semibold uppercase tracking-widest text-emerald">Один понятный тариф</p>
+        <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Минивэн «Комфорт»</h2>
+        <p className="mt-4 text-3xl font-bold">От {tariff.minimum.toLocaleString('ru-RU')} ₽ за автомобиль</p>
+        <p className="mt-4 leading-relaxed text-muted-foreground">До 7 пассажиров, включая детей. Hyundai Starex / H-1, Volkswagen Caravelle и Kia Carnival IV — примеры автомобилей для поездки. Конкретную модель, детские кресла и размещение багажа подтвердим до заказа.</p>
+        <p className="mt-4 leading-relaxed text-muted-foreground">Базовая ставка — {tariff.rate} ₽/км. На коротких маршрутах действует коэффициент. Расчёт по маршруту доступен в конструкторе.</p>
+        <p className="mt-3 text-sm text-muted-foreground">{publicPriceNote()}</p>
+        <div className="mt-7 flex flex-wrap gap-4">
+          <Link className="rounded-xl bg-emerald px-6 py-3 font-semibold text-emerald-foreground" href="/constructor">Собрать поездку →</Link>
+          <Link className="rounded-xl border px-6 py-3 font-semibold" href="/tariffs">Правила расчёта</Link>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>;
 }

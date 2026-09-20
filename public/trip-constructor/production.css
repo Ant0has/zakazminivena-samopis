@@ -1,0 +1,22 @@
+/* Integration only: the approved cabin artwork and controls are unchanged. */
+body { background:#f5f5ef; }
+body.embedded .top,body.embedded footer{display:none}
+body.embedded main{padding-top:20px}
+.tariff-pill{display:inline-flex;border:1px solid #ccd9c0;background:#edf4e7;color:#3b5426;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700}
+.route-calculate{margin-top:14px;width:100%}
+.order-fields{display:grid;gap:12px;margin:20px 0}
+.order-fields label{display:grid;gap:6px;font-size:14px}
+.order-fields input:not([type=checkbox]),.order-fields textarea{width:100%;border:1px solid #ccd1c5;border-radius:12px;padding:12px;background:white;font:inherit;color:#182519}
+.order-fields .consent{display:flex;align-items:flex-start;gap:9px;line-height:1.45}
+.order-fields input[type=checkbox]{width:18px;height:18px;flex:none;margin-top:2px}
+.order-fields [hidden],.order-honeypot{display:none!important}
+#orderStatus{margin:12px 0;line-height:1.5;color:#375326}
+#orderStatus[data-error=true]{color:#9b342e}
+dialog{max-height:90vh;overflow:auto}
+dialog::backdrop{background:rgb(10 20 12 / .5)}
+body.embedded dialog[open]{position:relative;inset:auto;margin:24px auto;max-height:none;width:calc(100% - 24px);max-width:700px;box-shadow:0 20px 70px #152e1622}
+.order-review{border:1px solid #dce2d5;border-radius:12px;padding:14px;margin:16px 0}.order-review summary{cursor:pointer;font-size:14px;font-weight:600}
+[hidden]{display:none!important}
+body[aria-busy=true] main{pointer-events:none;opacity:.75}
+body[aria-busy=true]::before{content:'Загружаем конструктор…';display:block;padding:10px 20px;text-align:center;background:#e8efe0;font-size:14px;color:#345038}
+@media(max-width:600px){body.embedded main{padding-left:10px;padding-right:10px}.tariff-pill{font-size:12px}}

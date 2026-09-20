@@ -33,7 +33,7 @@ export function TariffTable({
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
           <p className="mt-3 text-base text-muted-foreground">
-            Что включено в базовую цену и сколько стоят доп.опции
+            Дополнительные условия не прибавляются автоматически: подтвердим их до заказа
           </p>
         </div>
 
@@ -111,8 +111,8 @@ export function TariffTable({
 export function defaultBaseFare(): TariffRow[] {
   return [
     { label: "Ожидание при подаче 15 минут", value: "Бесплатно", highlight: true },
-    { label: "1 час ожидания", value: "1 000 ₽" },
-    { label: "Остановка в пути более 15 минут", value: "1 000 ₽" },
+    { label: "1 час ожидания", value: "От 1 000 ₽" },
+    { label: "Остановка в пути более 15 минут", value: "От 1 000 ₽" },
     { label: "Ночной тариф (00:00–06:00)", value: "+20%" },
   ];
 }
@@ -121,11 +121,11 @@ export function defaultExtras(): TariffRow[] {
   return [
     { label: "Детское кресло (бустер / автокресло)", value: "Бесплатно" },
     { label: "Встреча с табличкой в аэропорту", value: "Бесплатно" },
-    { label: "Встреча у вагона на ж/д вокзале", value: "800 ₽" },
+    { label: "Встреча у вагона на ж/д вокзале", value: "От 800 ₽" },
     { label: "Помощь с багажом", value: "Бесплатно" },
     { label: "Животное в переноске", value: "Бесплатно" },
-    { label: "Собака до 10 кг", value: "1 000 ₽" },
-    { label: "Собака 10–25 кг", value: "1 500 ₽" },
-    { label: "Дополнительный адрес посадки/высадки", value: "500 ₽" },
+    { label: "Собака до 10 кг", value: "От 1 000 ₽" },
+    { label: "Собака 10–25 кг", value: "От 1 500 ₽" },
+    { label: "Дополнительный адрес посадки/высадки", value: "От 500 ₽" },
   ];
 }

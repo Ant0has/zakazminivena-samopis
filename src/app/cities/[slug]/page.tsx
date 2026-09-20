@@ -1,5 +1,6 @@
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import type { Metadata } from "next";
+import { airportHref } from '@/lib/airport-canonical';
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
@@ -39,6 +40,7 @@ import {
 } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { pricingYear } from '@/lib/route-pricing';
 
 export function generateStaticParams() {
   return allCities.map((city) => ({ slug: city.slug }));
@@ -52,16 +54,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const city = allCities.find((c) => c.slug === slug);
   if (!city) return {};
-
+  const prices = [...allRoutes.filter(r => r.fromSlug === slug), ...allAirports.filter(a => a.citySlug === slug)].map(r => calcPrice(r.km, r.pricingDistanceM));
+  const title = `Минивэн с водителем в ${city.nameIn} — аэропорт и межгород`;
+  const description = `Минивэн в ${city.nameIn}: ${prices.length ? `по маршрутам каталога от ${formatPrice(Math.min(...prices))} ₽ за автомобиль. ` : ''}До 7 пассажиров. Цены ${pricingYear}; адреса, багаж и подачу подтвердим до заказа.`;
   return {
-    title: `Минивэн с водителем в ${city.nameIn} — заказать по фиксированной цене`,
-    description: getCityContent(slug)?.metaDescription || `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена, 7 мест, детское кресло бесплатно. +7 (918) 587-54-54`,
+    title,
+    description,
+    twitter: { card: 'summary_large_image', title, description },
     alternates: {
       canonical: `https://zakazminivena.ru/cities/${slug}`,
     },
     openGraph: {
-      title: `Минивэн с водителем в ${city.nameIn} — заказать по фиксированной цене`,
-      description: `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}. Фиксированная цена.`,
+      title,
+      description,
       url: `https://zakazminivena.ru/cities/${slug}`,
       siteName: "ЗаказМинивэна.ru",
       locale: "ru_RU",
@@ -109,8 +114,8 @@ export default async function CityPage({
 
   // Минимальная цена по доступным маршрутам/аэропортам — для hero выше сгиба
   const priceCandidates = [
-    ...cityRoutes.map((r) => calcPrice(r.km)),
-    ...cityAirports.map((a) => calcPrice(a.km)),
+    ...cityRoutes.map((r) => calcPrice(r.km, r.pricingDistanceM)),
+    ...cityAirports.map((a) => calcPrice(a.km, a.pricingDistanceM)),
   ];
   const minPrice =
     priceCandidates.length > 0 ? Math.min(...priceCandidates) : null;
@@ -146,7 +151,7 @@ export default async function CityPage({
 
   // «Что входит в цену» — блок доверия (как на странице аэропорта)
   const includedItems = [
-    { icon: UsersIcon, title: "Минивэн 6–8 мест — цена за машину" },
+    { icon: UsersIcon, title: "До 7 пассажиров — цена за машину" },
     { icon: BabyIcon, title: "Детское кресло любого типа — бесплатно" },
     { icon: ShieldCheckIcon, title: "Фиксированная цена, без доплат в пути" },
     { icon: CreditCardIcon, title: "Без предоплаты — оплата по факту" },
@@ -165,7 +170,7 @@ export default async function CityPage({
     longreadSections.push({
       icon: MapPinIcon,
       title: `Поездки из ${city.name}`,
-      paragraph: `${city.description}. Возим по городу, области и в другие регионы — фиксированная цена за машину 6–8 мест, без предоплаты.`,
+      paragraph: `${city.description}. Минивэн «Комфорт» до 7 пассажиров для поездок по городу, области и межгороду. Адреса, багаж и итоговую цену согласуем до заказа.`,
     });
   }
   longreadSections.push(
@@ -191,7 +196,7 @@ export default async function CityPage({
     {
       q: `Сколько стоит минивэн в ${city.nameIn}?`,
       a: minPrice
-        ? `Цена зависит от маршрута. Базовая стоимость — от ${formatPrice(minPrice)} ₽ за машину 6–8 мест. Напишите точку подачи и направление — назовём фиксированную цену за 5 минут.`
+        ? `По маршрутам каталога — от ${formatPrice(minPrice)} ₽ за минивэн до 7 пассажиров. Укажите точку подачи и направление — рассчитаем вашу поездку и согласуем итоговую цену.`
         : `Цена зависит от маршрута и километража. Напишите, откуда и куда едете, — назовём фиксированную цену за 5 минут, без скрытых доплат.`,
     },
     {
@@ -390,7 +395,7 @@ export default async function CityPage({
             </h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {cityRoutes.map((route) => {
-                const price = calcPrice(route.km);
+                const price = calcPrice(route.km, route.pricingDistanceM);
                 return (
                   <Link key={route.slug} href={`/routes/${route.slug}`}>
                     <Card className="h-full transition-shadow hover:shadow-md hover:border-emerald/40">
@@ -431,11 +436,11 @@ export default async function CityPage({
             </h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {cityAirports.map((airport) => {
-                const price = calcPrice(airport.km);
+                const price = calcPrice(airport.km, airport.pricingDistanceM);
                 return (
                   <Link
                     key={airport.slug}
-                    href={`/airports/${airport.slug}`}
+                    href={airportHref(airport.slug)}
                   >
                     <Card className="h-full transition-shadow hover:shadow-md hover:border-emerald/40">
                       <CardContent className="flex items-center gap-4 p-4">
@@ -491,7 +496,7 @@ export default async function CityPage({
         {/* ===== ТАРИФНЫЕ КАРТОЧКИ ===== */}
         <FleetTariffCards
           title={`Минивэны, которые подаём в ${city.nameIn}`}
-          subtitle="Выберите класс — цена за машину, не за пассажира"
+          subtitle="Тариф «Комфорт» — цена за весь минивэн, не за пассажира"
           contextLabel={city.name}
           bg="default"
         />

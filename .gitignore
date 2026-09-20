@@ -44,3 +44,17 @@ generate-images.mjs
 generate-qwen.mjs
 generate-routes.mjs
 regenerate.mjs
+
+# Local verification output; keep verification code and application assets in Git.
+/*-smoke-*.json
+/smoke-*.json
+/workspace-http-*.json
+/test-results/
+
+# Private operational stores must never be published, even if placed in the repo.
+/.zm-short-route-prices/
+/access.json
+/drafts.json
+/tools/intel/snapshots/
+/tools/intel/state/
+/tools/intel/reports/

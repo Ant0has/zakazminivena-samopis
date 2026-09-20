@@ -1,0 +1,39 @@
+{
+  "group": "competitors",
+  "userAgent": "ZM-Intel/0.1 (+https://zakazminivena.ru/)",
+  "timeoutMs": 15000,
+  "sources": [
+    {
+      "name": "MiniVan.Taxi — airport transfer",
+      "url": "https://minivan.taxi/services/airport-transfer/",
+      "severity": "P2"
+    },
+    {
+      "name": "Taxi2000 — minivan",
+      "url": "https://www.taxi2000.ru/miniven.php",
+      "severity": "P2"
+    },
+    {
+      "name": "Такси Межгород",
+      "url": "https://taximezhgor.ru/",
+      "severity": "P2"
+    },
+    {
+      "name": "Aza Transfer Kazan",
+      "url": "https://aza-transferkazan.ru/",
+      "severity": "P2"
+    },
+    {
+      "name": "PiterBusLine — minivan",
+      "url": "https://piterbusline.ru/minivan",
+      "severity": "P2"
+    },
+    {
+      "name": "Light Tour КМВ — transfer",
+      "url": "https://light-tour.su/services/transfer/",
+      "severity": "P2",
+      "enabled": false,
+      "disabledReason": "DNS не разрешается с temp-server; проверять внешней точкой"
+    }
+  ]
+}

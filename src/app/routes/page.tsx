@@ -223,7 +223,7 @@ export default function RoutesListPage() {
                   </h2>
                   <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                     {group.routes.map((route) => {
-                      const price = calcPrice(route.km);
+                      const price = calcPrice(route.km, route.pricingDistanceM);
 
                       return (
                         <Link

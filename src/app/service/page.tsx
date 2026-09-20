@@ -31,6 +31,7 @@ export default function ServiceIndexPage() {
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[['luggage', 'Минивэн с большим багажом', 'Чемоданы, коляска и коробки — проверяем компоновку салона.'], ['ski-transfer', 'С лыжами и сноубордами', 'Длина чехлов, пассажиры и маршруты до зимних курортов.']].map(([slug, title, text]) => <Link key={slug} href={`/service/${slug}`}><Card className="h-full border-emerald/30 bg-emerald/5 p-5"><h2 className="mb-2 text-lg font-semibold">{title}</h2><p className="text-sm text-muted-foreground">{text}</p></Card></Link>)}
               {servicesData.map((s) => (
                 <Link key={s.slug} href={`/service/${s.slug}`}>
                   <Card className="h-full p-5 transition-colors hover:border-emerald">

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="referrer" content="no-referrer">
+  <title>Короткие маршруты · Рабочая таблица ZM</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/work/short-routes?asset=style&amp;v=1">
+  <script src="/work/short-routes?asset=app&amp;v=1" defer></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/" aria-label="ZM — на главную">ZM<span>рабочая территория</span></a><span class="private">Доступ по ссылке · не для поиска</span></header>
+<main>
+  <section class="intro"><div><p class="eyebrow">МИНИВЭНЫ / КОМФОРТ</p><h1>Короткие маршруты<span>Небольшая поездка.<br>Точная цена.</span></h1><p class="lead">Проставьте стоимость за весь минивэн в одну сторону.<br>До 7 пассажиров, включая детей. Только тариф «Комфорт».</p></div><div class="intro-note"><span class="note-label">РАБОЧАЯ ВЕРСИЯ</span><p>Вы знаете маршрут.<br>Здесь фиксируем цену.</p><small>Сохранённые значения видны всем, у кого есть ссылка. На сайте для клиентов цены пока не меняются.</small></div></section>
+  <section id="access" class="access"><h2>Откройте ссылку от Антона</h2><p>Для редактирования нужна полная ссылка с ключом доступа. Если ключ передан отдельно, вставьте его ниже.</p><form id="access-form"><label for="access-key">Ключ доступа</label><div class="access-line"><input id="access-key" type="password" autocomplete="off" spellcheck="false" required><button type="submit">Открыть таблицу</button></div></form></section>
+  <p id="message" role="status" aria-live="polite"></p>
+  <section id="workspace" hidden>
+    <div class="stats"><div><strong id="total">—</strong><span>направлений до 60 км</span></div><div><strong id="filled">—</strong><span>цен сохранено</span></div><div><strong id="remaining">—</strong><span>осталось согласовать</span></div><div class="progress-stat"><label for="progress">Заполнение таблицы</label><progress id="progress" max="69" value="0"></progress><span id="saved-time">Пока без изменений</span></div></div>
+    <div class="toolbar"><label class="search-label" for="search">Поиск по маршруту<input id="search" type="search" placeholder="Город, аэропорт, направление…"></label><label for="filter">Показать<select id="filter"><option value="all">Все направления</option><option value="empty">Без цены сотрудника</option><option value="filled">С ценой сотрудника</option><option value="changed">Несохранённые изменения</option></select></label><button id="export" class="secondary">Скачать CSV</button><button id="share" class="secondary">Скопировать ссылку</button></div>
+    <div class="table-note"><span id="visible-count"></span><span>«Расчёт сайта» — ориентир, не согласованная цена. Расстояния требуют проверки по адресам.</span></div>
+    <div class="table-wrap"><table><caption class="sr-only">Цены на короткие маршруты — рабочие предложения, без публикации для клиентов</caption><thead><tr><th scope="col">Направление</th><th scope="col">Расстояние</th><th scope="col">Расчёт сайта</th><th scope="col">Ваша цена, ₽<small>за весь минивэн</small></th><th scope="col">Комментарий<small>условия, ожидание, багаж</small></th><th scope="col">Состояние</th></tr></thead><tbody id="rows"></tbody></table><p id="empty" hidden>По этому запросу ничего не найдено.</p></div>
+    <p class="footnote">Одинаковое направление на нескольких страницах объединено в одну строку. Обратные направления рассматриваются отдельно. Для аэропортов уточняйте терминал и адрес подачи. Пустая цена означает «ещё не согласовано».</p>
+    <div class="savebar"><div><strong id="save-summary">Все изменения сохранены</strong><span>Рабочие цены не публикуются автоматически.</span></div><div class="save-actions"><button id="reload" class="secondary">Обновить</button><button id="save" disabled>Сохранить изменения <span id="save-count"></span></button></div></div>
+  </section>
+  <noscript>Для редактирования таблицы включите JavaScript. Страница закрыта от индексации.</noscript>
+</main>
+</body></html>

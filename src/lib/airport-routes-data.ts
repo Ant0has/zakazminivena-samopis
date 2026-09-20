@@ -1,7 +1,11 @@
+import { publishedRoutePricing } from './route-pricing';
 // Маршруты /airport/{iata}/{destination}/ — новая иерархия из §1 исследования
 // Цена считается calcPrice(km) из routes-data.ts
 
 export interface AirportRouteData {
+  pricingDistanceM?: number;
+  rawDistanceM?: number | null;
+  distanceStatus?: string;
   iata: string;
   destinationSlug: string;
   destinationName: string;
@@ -129,7 +133,7 @@ export const airportRoutes: AirportRouteData[] = [
     hours: "4–5 ч",
     direction: "both",
     uniqueIntro:
-      "Пулково → Сортавала на минивэне — туристический маршрут в Карелию. Удобно для группы 6–8 человек, прилетающей в Питер и сразу едущей на отдых. Без заезда в город, по Приморскому шоссе или через Приозерск.",
+      "Пулково → Сортавала на минивэне — туристический маршрут в Карелию. Удобно для группы 6–7 человек, прилетающей в Питер и сразу едущей на отдых. Без заезда в город, по Приморскому шоссе или через Приозерск.",
     uniqueRouteDesc:
       "Из Пулково на КАД → Приморское шоссе → Приозерск → Сортавала. Возможны остановки: Линдуловская роща, Кирха в Лумиваара. Санитарная остановка в районе Приозерска.",
     relatedSameHub: ["spb-center", "petrozavodsk", "priozersk"],
@@ -217,7 +221,7 @@ export const airportRoutes: AirportRouteData[] = [
     hours: "1–1.5 ч",
     direction: "both",
     uniqueIntro:
-      "Минивэн Адлер → Красная Поляна — горнолыжный трансфер зимой и горный курорт летом. До 8 человек с лыжами или сноубордами. Багажные системы внутри салона + место для крупного багажа в багажнике.",
+      "Минивэн Адлер → Красная Поляна — горнолыжный трансфер зимой и поездка в горы летом. Количество пассажиров, длину лыжных чехлов и остальной багаж согласуем по компоновке конкретного автомобиля.",
     uniqueRouteDesc:
       "Из аэропорта по А-149 «Сочи – Красная Поляна» — новая трасса с тоннелями. Дорога живописная, идёт вдоль реки Мзымта. Зимой — водитель с зимней резиной и опытом горного вождения.",
     relatedSameHub: ["sochi-center", "rosa-khutor", "abkhazia"],
@@ -231,7 +235,7 @@ export const airportRoutes: AirportRouteData[] = [
     hours: "1–1.5 ч",
     direction: "both",
     uniqueIntro:
-      "Адлер → Роза Хутор на минивэне — прямой горнолыжный трансфер к самому крупному курорту. Подача к подъёмникам или к отелям в Эсто-Садке. До 8 пассажиров с лыжами/сноубордами.",
+      "Адлер → Роза Хутор на минивэне — прямой горнолыжный трансфер к самому крупному курорту. Подача к подъёмникам или к отелям в Эсто-Садке. Число пассажиров зависит от количества и длины чехлов с лыжами или сноубордами; компоновку подтвердим заранее.",
     uniqueRouteDesc:
       "А-149 → Эсто-Садок → Роза Хутор. Дорога — современный 2-полосный серпантин, в пиковые часы возможны заторы у развязок.",
     relatedSameHub: ["sochi-center", "krasnaya-polyana"],
@@ -1110,3 +1114,6 @@ export const airportRoutesByHub: Record<string, AirportRouteData[]> = airportRou
   },
   {} as Record<string, AirportRouteData[]>
 );
+
+// Shared directed registry: pages, cards, metadata and constructor use the same values.
+for (const r of airportRoutes) Object.assign(r, publishedRoutePricing('/airport/' + r.iata + '/' + r.destinationSlug, r.km));

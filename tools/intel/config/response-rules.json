@@ -1,0 +1,40 @@
+{
+  "rules": [
+    {
+      "id": "site-down",
+      "severity": "P0",
+      "condition": "two_consecutive_health_failures",
+      "actions": ["telegram_alert", "open_incident", "proposal_for_manual_confirmation"]
+    },
+    {
+      "id": "tls-expiry",
+      "severity": "P0",
+      "condition": "tls_days_remaining_below_14",
+      "actions": ["telegram_alert", "open_incident"]
+    },
+    {
+      "id": "route-disruption",
+      "severity": "P0",
+      "condition": "official_source_confirms_airport_or_road_closure_for_active_route",
+      "actions": ["telegram_alert", "proposal_for_manual_confirmation", "prepare_verified_customer_notice"]
+    },
+    {
+      "id": "paid-anomaly",
+      "severity": "P1",
+      "condition": "spend_above_two_target_cpl_without_qualified_lead",
+      "actions": ["telegram_alert", "proposal_for_manual_confirmation", "review_search_terms", "review_landing_page"]
+    },
+    {
+      "id": "seo-drop",
+      "severity": "P1",
+      "condition": "commercial_url_drops_more_than_five_positions_week_over_week",
+      "actions": ["verify_indexing", "compare_serp_and_competitors", "open_content_review"]
+    },
+    {
+      "id": "market-change",
+      "severity": "P2",
+      "condition": "competitor_offer_or_relevant_official_page_changes",
+      "actions": ["add_to_weekly_brief"]
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+import registry from './route-registry.json';
+const originalKm: Record<string,number> = {"adler-roza-khutor":45,"sochi-krasnaya-polyana":70,"simferopol-yalta":82,"simferopol-alushta":60,"simferopol-evpatoriya":65,"simferopol-feodosiya":115,"simferopol-sudak":100,"simferopol-sevastopol":80,"krasnodar-sochi":320,"krasnodar-adler":350,"krasnodar-simferopol":440,"krasnodar-anapa":165,"krasnodar-gelendzhik":200,"krasnodar-novorossiysk":165,"krasnodar-yalta":500,"rostov-krasnodar":275,"rostov-sochi":550,"rostov-adler":570,"rostov-anapa":430,"moskva-sochi":1650,"mineralnye-vody-dombay":200,"mineralnye-vody-kislovodsk":60,"mineralnye-vody-pyatigorsk":25,"mineralnye-vody-nalchik":80,"kazan-samara":375,"samara-kazan":365,"ekaterinburg-chelyabinsk":210,"chelyabinsk-ekaterinburg":210,"ekaterinburg-tyumen":330,"tyumen-ekaterinburg":330,"ekaterinburg-perm":360,"ekaterinburg-kurgan":365,"kazan-nizhniy-novgorod":420,"nizhniy-novgorod-kazan":390,"kazan-ekaterinburg":865,"moskva-spb":700,"spb-moskva":705,"moskva-nizhniy-novgorod":460,"nizhniy-novgorod-moskva":440,"moskva-voronezh":515,"voronezh-moskva":515,"moskva-kazan":805,"kazan-moskva":810,"moskva-yaroslavl":265,"yaroslavl-moskva":265,"moskva-suzdal":230,"moskva-vladimir":185,"moskva-tver":165,"moskva-tula":185,"moskva-ryazan":200,"moskva-kaluga":220,"moskva-kostroma":350,"spb-velikiy-novgorod":195,"spb-pskov":295,"spb-petrozavodsk":430,"voronezh-lipetsk":125,"voronezh-belgorod":255,"voronezh-kursk":225,"voronezh-tambov":220,"novosibirsk-barnaul":240,"novosibirsk-tomsk":260,"novosibirsk-kemerovo":260,"novosibirsk-omsk":650,"volgograd-rostov":490,"volgograd-saratov":375,"volgograd-astrakhan":430,"volgograd-elista":295};
 // Уникальный контент для маршрутных страниц
 // Данные сгруппированы по географическим регионам
 
@@ -677,7 +679,7 @@ function getRouteCategory(fromSlug: string, toSlug: string): string {
  * Возвращает уникальный контент для маршрута.
  * Если для маршрута нет индивидуальных данных, генерирует по категории.
  */
-export function getRouteContent(slug: string, fromSlug: string, toSlug: string): RouteContent {
+function getRouteContentSource(slug: string, fromSlug: string, toSlug: string): RouteContent {
   // Сначала ищем индивидуальный контент
   if (routeContentData[slug]) {
     return routeContentData[slug];
@@ -774,5 +776,12 @@ export function getRouteMetaDescription(
   const content = getRouteContent(slug, fromSlug, toSlug);
   const roadShort = content.roadInfo.split(".")[0]; // Первое предложение
 
-  return `Минивэн ${from} — ${to}: ${km} км, ${hours}. ${roadShort}. Фиксированная цена ${priceFormatted} руб. за 7 мест. Детское кресло бесплатно, встреча с табличкой. +7 (918) 587-54-54`;
+  return `Минивэн ${from} — ${to}: ${km} км, ${hours}. ${roadShort}. Цена от ${priceFormatted} руб. за 7 мест. Детское кресло бесплатно, встреча с табличкой. +7 (918) 587-54-54`;
+}
+
+export function getRouteContent(slug:string,fromSlug:string,toSlug:string):RouteContent {
+ const original=getRouteContentSource(slug,fromSlug,toSlug);const row=registry.byPath[('/routes/'+slug) as keyof typeof registry.byPath];
+ if(!row||!originalKm[slug])return original;
+ const old=originalKm[slug];const re=new RegExp('(?<![0-9])'+old+'\\s*км','g');
+ return {...original,description:original.description.map(p=>p.replace(re,'около '+row.km+' км'))};
 }

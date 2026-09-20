@@ -1,0 +1,6196 @@
+{
+  "revision": "2026-09-17",
+  "records": [
+    {
+      "id": "/routes/adler-roza-khutor",
+      "pairKey": "адлер|роза хутор",
+      "kind": "main",
+      "from": "Адлер",
+      "to": "Роза Хутор",
+      "slug": "adler-roza-khutor",
+      "hours": "1 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/adler-roza-khutor"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/sochi-krasnaya-polyana",
+      "pairKey": "сочи|красная поляна",
+      "kind": "main",
+      "from": "Сочи",
+      "to": "Красная Поляна",
+      "slug": "sochi-krasnaya-polyana",
+      "hours": "1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 70000,
+      "km": 70,
+      "price": 6500,
+      "coefficient": 1.5,
+      "calculatedPrice": 6500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/sochi-krasnaya-polyana"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/simferopol-yalta",
+      "pairKey": "симферополь|ялта",
+      "kind": "main",
+      "from": "Симферополь",
+      "to": "Ялта",
+      "slug": "simferopol-yalta",
+      "hours": "1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 82000,
+      "km": 90,
+      "price": 8500,
+      "coefficient": 1.5,
+      "calculatedPrice": 8500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/simferopol-yalta",
+        "/destination/crimea/simferopol-yalta"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Дубли унифицированы по основному маршруту; прежние значения: /routes/simferopol-yalta=82, /destination/crimea/simferopol-yalta=85"
+      ]
+    },
+    {
+      "id": "/routes/simferopol-alushta",
+      "pairKey": "симферополь|алушта",
+      "kind": "main",
+      "from": "Симферополь",
+      "to": "Алушта",
+      "slug": "simferopol-alushta",
+      "hours": "1 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "km": 60,
+      "price": 5500,
+      "coefficient": 1.5,
+      "calculatedPrice": 5500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/simferopol-alushta",
+        "/destination/crimea/simferopol-alushta"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Дубли унифицированы по основному маршруту; прежние значения: /routes/simferopol-alushta=60, /destination/crimea/simferopol-alushta=50"
+      ]
+    },
+    {
+      "id": "/routes/simferopol-evpatoriya",
+      "pairKey": "симферополь|евпатория",
+      "kind": "main",
+      "from": "Симферополь",
+      "to": "Евпатория",
+      "slug": "simferopol-evpatoriya",
+      "hours": "1 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 65000,
+      "km": 70,
+      "price": 6500,
+      "coefficient": 1.5,
+      "calculatedPrice": 6500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/simferopol-evpatoriya",
+        "/destination/crimea/simferopol-evpatoriya"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/simferopol-feodosiya",
+      "pairKey": "симферополь|феодосия",
+      "kind": "main",
+      "from": "Симферополь",
+      "to": "Феодосия",
+      "slug": "simferopol-feodosiya",
+      "hours": "2 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 115000,
+      "km": 120,
+      "price": 9000,
+      "coefficient": 1.2,
+      "calculatedPrice": 9000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/simferopol-feodosiya",
+        "/destination/crimea/simferopol-feodosiya"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/simferopol-sudak",
+      "pairKey": "симферополь|судак",
+      "kind": "main",
+      "from": "Симферополь",
+      "to": "Судак",
+      "slug": "simferopol-sudak",
+      "hours": "1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 100000,
+      "km": 100,
+      "price": 7500,
+      "coefficient": 1.2,
+      "calculatedPrice": 7500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/simferopol-sudak",
+        "/destination/crimea/simferopol-sudak"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/simferopol-sevastopol",
+      "pairKey": "симферополь|севастополь",
+      "kind": "main",
+      "from": "Симферополь",
+      "to": "Севастополь",
+      "slug": "simferopol-sevastopol",
+      "hours": "1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 80000,
+      "km": 80,
+      "price": 7500,
+      "coefficient": 1.5,
+      "calculatedPrice": 7500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/simferopol-sevastopol",
+        "/destination/crimea/simferopol-sevastopol"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/krasnodar-sochi",
+      "pairKey": "краснодар|сочи",
+      "kind": "main",
+      "from": "Краснодар",
+      "to": "Сочи",
+      "slug": "krasnodar-sochi",
+      "hours": "5 ч",
+      "rawDistanceM": 291530.7,
+      "pricingDistanceM": 291530.7,
+      "km": 300,
+      "price": 18000,
+      "coefficient": 1,
+      "calculatedPrice": 18000,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/krasnodar-sochi.html",
+      "calculatedAt": "2026-09-05T12:39:47.081955+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/krasnodar-sochi"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/krasnodar-adler",
+      "pairKey": "краснодар|адлер",
+      "kind": "main",
+      "from": "Краснодар",
+      "to": "Адлер",
+      "slug": "krasnodar-adler",
+      "hours": "5.5 ч",
+      "rawDistanceM": 319136.1,
+      "pricingDistanceM": 319136.1,
+      "km": 320,
+      "price": 18500,
+      "coefficient": 1,
+      "calculatedPrice": 19500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/krasnodar-adler.html",
+      "calculatedAt": "2026-09-05T08:13:13.355989+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/krasnodar-adler"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/krasnodar-simferopol",
+      "pairKey": "краснодар|симферополь",
+      "kind": "main",
+      "from": "Краснодар",
+      "to": "Симферополь",
+      "slug": "krasnodar-simferopol",
+      "hours": "6.5 ч",
+      "rawDistanceM": 437359.4,
+      "pricingDistanceM": 437359.4,
+      "km": 440,
+      "price": 25500,
+      "coefficient": 1,
+      "calculatedPrice": 26500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/krasnodar-simferopol.html",
+      "calculatedAt": "2026-09-10T15:27:33.562047+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/krasnodar-simferopol"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/krasnodar-anapa",
+      "pairKey": "краснодар|анапа",
+      "kind": "main",
+      "from": "Краснодар",
+      "to": "Анапа",
+      "slug": "krasnodar-anapa",
+      "hours": "2.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 165000,
+      "km": 170,
+      "price": 11500,
+      "coefficient": 1.1,
+      "calculatedPrice": 11500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/krasnodar-anapa",
+        "/destination/krasnodar-coast/krasnodar-anapa"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/krasnodar-gelendzhik",
+      "pairKey": "краснодар|геленджик",
+      "kind": "main",
+      "from": "Краснодар",
+      "to": "Геленджик",
+      "slug": "krasnodar-gelendzhik",
+      "hours": "3 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "km": 200,
+      "price": 12000,
+      "coefficient": 1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/krasnodar-gelendzhik",
+        "/destination/krasnodar-coast/krasnodar-gelendzhik"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/krasnodar-novorossiysk",
+      "pairKey": "краснодар|новороссийск",
+      "kind": "main",
+      "from": "Краснодар",
+      "to": "Новороссийск",
+      "slug": "krasnodar-novorossiysk",
+      "hours": "2.5 ч",
+      "rawDistanceM": 149647.6,
+      "pricingDistanceM": 149647.6,
+      "km": 150,
+      "price": 11000,
+      "coefficient": 1.2,
+      "calculatedPrice": 11000,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/krasnodar-novorossijsk.html",
+      "calculatedAt": "2026-09-05T13:10:17.470777+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/krasnodar-novorossiysk",
+        "/destination/krasnodar-coast/krasnodar-novorossiysk"
+      ],
+      "notes": [
+        "Дубли унифицированы по основному маршруту; прежние значения: /routes/krasnodar-novorossiysk=165, /destination/krasnodar-coast/krasnodar-novorossiysk=150",
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/krasnodar-yalta",
+      "pairKey": "краснодар|ялта",
+      "kind": "main",
+      "from": "Краснодар",
+      "to": "Ялта",
+      "slug": "krasnodar-yalta",
+      "hours": "7.5 ч",
+      "rawDistanceM": 500684.1,
+      "pricingDistanceM": 500684.1,
+      "km": 510,
+      "price": 30000,
+      "coefficient": 1,
+      "calculatedPrice": 31000,
+      "discount": 1000,
+      "distanceStatus": "recalculated-2026-09-17",
+      "sourceUrl": null,
+      "calculatedAt": "2026-09-17",
+      "direction": "forward",
+      "pages": [
+        "/routes/krasnodar-yalta"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/rostov-krasnodar",
+      "pairKey": "ростов на дону|краснодар",
+      "kind": "main",
+      "from": "Ростов",
+      "to": "Краснодар",
+      "slug": "rostov-krasnodar",
+      "hours": "4 ч",
+      "rawDistanceM": 271739.1,
+      "pricingDistanceM": 271739.1,
+      "km": 280,
+      "price": 17000,
+      "coefficient": 1,
+      "calculatedPrice": 17000,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/rostov-krasnodar.html",
+      "calculatedAt": "2026-09-04T13:52:28.627191+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/rostov-krasnodar"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/rostov-sochi",
+      "pairKey": "ростов на дону|сочи",
+      "kind": "main",
+      "from": "Ростов",
+      "to": "Сочи",
+      "slug": "rostov-sochi",
+      "hours": "8 ч",
+      "rawDistanceM": 550515.6,
+      "pricingDistanceM": 550515.6,
+      "km": 560,
+      "price": 33000,
+      "coefficient": 1,
+      "calculatedPrice": 34000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/rostov-sochi.html",
+      "calculatedAt": "2026-09-03T06:29:43.692271+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/rostov-sochi"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/rostov-adler",
+      "pairKey": "ростов на дону|адлер",
+      "kind": "main",
+      "from": "Ростов",
+      "to": "Адлер",
+      "slug": "rostov-adler",
+      "hours": "8 ч",
+      "rawDistanceM": 578121,
+      "pricingDistanceM": 578121,
+      "km": 580,
+      "price": 34000,
+      "coefficient": 1,
+      "calculatedPrice": 35000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/rostov-adler.html",
+      "calculatedAt": "2026-09-02T19:43:35.144268+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/rostov-adler"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/rostov-anapa",
+      "pairKey": "ростов на дону|анапа",
+      "kind": "main",
+      "from": "Ростов",
+      "to": "Анапа",
+      "slug": "rostov-anapa",
+      "hours": "6 ч",
+      "rawDistanceM": 428827.1,
+      "pricingDistanceM": 428827.1,
+      "km": 430,
+      "price": 25000,
+      "coefficient": 1,
+      "calculatedPrice": 26000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/rostov-anapa.html",
+      "calculatedAt": "2026-09-04T22:20:05.332761+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/rostov-anapa"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/moskva-sochi",
+      "pairKey": "москва|сочи",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Сочи",
+      "slug": "moskva-sochi",
+      "hours": "20 ч",
+      "rawDistanceM": 1621825.2,
+      "pricingDistanceM": 1621825.2,
+      "km": 1630,
+      "price": 97000,
+      "coefficient": 1,
+      "calculatedPrice": 98000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-sochi.html",
+      "calculatedAt": "2026-09-02T14:21:31.185412+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-sochi"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/mineralnye-vody-dombay",
+      "pairKey": "минеральные воды|домбай",
+      "kind": "main",
+      "from": "Минеральные Воды",
+      "to": "Домбай",
+      "slug": "mineralnye-vody-dombay",
+      "hours": "3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "km": 200,
+      "price": 12000,
+      "coefficient": 1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/mineralnye-vody-dombay",
+        "/destination/kmv/mineralnye-vody-dombay"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Дубли унифицированы по основному маршруту; прежние значения: /routes/mineralnye-vody-dombay=200, /destination/kmv/mineralnye-vody-dombay=220"
+      ]
+    },
+    {
+      "id": "/routes/mineralnye-vody-kislovodsk",
+      "pairKey": "минеральные воды|кисловодск",
+      "kind": "main",
+      "from": "Минеральные Воды",
+      "to": "Кисловодск",
+      "slug": "mineralnye-vody-kislovodsk",
+      "hours": "1 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "km": 60,
+      "price": 5500,
+      "coefficient": 1.5,
+      "calculatedPrice": 5500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/mineralnye-vody-kislovodsk",
+        "/destination/kmv/mineralnye-vody-kislovodsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/mineralnye-vody-pyatigorsk",
+      "pairKey": "минеральные воды|пятигорск",
+      "kind": "main",
+      "from": "Минеральные Воды",
+      "to": "Пятигорск",
+      "slug": "mineralnye-vody-pyatigorsk",
+      "hours": "0.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/mineralnye-vody-pyatigorsk",
+        "/destination/kmv/mineralnye-vody-pyatigorsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/mineralnye-vody-nalchik",
+      "pairKey": "минеральные воды|нальчик",
+      "kind": "main",
+      "from": "Минеральные Воды",
+      "to": "Нальчик",
+      "slug": "mineralnye-vody-nalchik",
+      "hours": "1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 80000,
+      "km": 80,
+      "price": 7500,
+      "coefficient": 1.5,
+      "calculatedPrice": 7500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/mineralnye-vody-nalchik"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/kazan-samara",
+      "pairKey": "казань|самара",
+      "kind": "main",
+      "from": "Казань",
+      "to": "Самара",
+      "slug": "kazan-samara",
+      "hours": "5.5 ч",
+      "rawDistanceM": 357718.8,
+      "pricingDistanceM": 357718.8,
+      "km": 360,
+      "price": 21000,
+      "coefficient": 1,
+      "calculatedPrice": 22000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/kazan-samara.html",
+      "calculatedAt": "2026-09-03T02:05:10.332455+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/kazan-samara"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/samara-kazan",
+      "pairKey": "самара|казань",
+      "kind": "main",
+      "from": "Самара",
+      "to": "Казань",
+      "slug": "samara-kazan",
+      "hours": "5 ч",
+      "rawDistanceM": 361545,
+      "pricingDistanceM": 361545,
+      "km": 370,
+      "price": 21500,
+      "coefficient": 1,
+      "calculatedPrice": 22500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/samara-kazan.html",
+      "calculatedAt": "2026-09-03T01:26:39.804669+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/samara-kazan"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/ekaterinburg-chelyabinsk",
+      "pairKey": "екатеринбург|челябинск",
+      "kind": "main",
+      "from": "Екатеринбург",
+      "to": "Челябинск",
+      "slug": "ekaterinburg-chelyabinsk",
+      "hours": "3 ч",
+      "rawDistanceM": 210666.3,
+      "pricingDistanceM": 210666.3,
+      "km": 220,
+      "price": 13500,
+      "coefficient": 1,
+      "calculatedPrice": 13500,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/ekaterinburg-chelyabinsk-2.html",
+      "calculatedAt": "2026-09-04T22:17:35.298729+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/ekaterinburg-chelyabinsk"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/chelyabinsk-ekaterinburg",
+      "pairKey": "челябинск|екатеринбург",
+      "kind": "main",
+      "from": "Челябинск",
+      "to": "Екатеринбург",
+      "slug": "chelyabinsk-ekaterinburg",
+      "hours": "3 ч",
+      "rawDistanceM": 211979.3,
+      "pricingDistanceM": 211979.3,
+      "km": 220,
+      "price": 13500,
+      "coefficient": 1,
+      "calculatedPrice": 13500,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/chelyabinsk-ekaterinburg.html",
+      "calculatedAt": "2026-09-02T23:13:38.102368+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/chelyabinsk-ekaterinburg"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/ekaterinburg-tyumen",
+      "pairKey": "екатеринбург|тюмень",
+      "kind": "main",
+      "from": "Екатеринбург",
+      "to": "Тюмень",
+      "slug": "ekaterinburg-tyumen",
+      "hours": "4.5 ч",
+      "rawDistanceM": 329728.4,
+      "pricingDistanceM": 329728.4,
+      "km": 330,
+      "price": 19000,
+      "coefficient": 1,
+      "calculatedPrice": 20000,
+      "discount": 1000,
+      "distanceStatus": "recalculated-2026-09-17",
+      "sourceUrl": "https://city2city.ru/ekaterinburg-tyumen.html",
+      "calculatedAt": "2026-09-03T01:00:09.460414+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/ekaterinburg-tyumen"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/tyumen-ekaterinburg",
+      "pairKey": "тюмень|екатеринбург",
+      "kind": "main",
+      "from": "Тюмень",
+      "to": "Екатеринбург",
+      "slug": "tyumen-ekaterinburg",
+      "hours": "4.5 ч",
+      "rawDistanceM": 329358.1,
+      "pricingDistanceM": 329358.1,
+      "km": 330,
+      "price": 19000,
+      "coefficient": 1,
+      "calculatedPrice": 20000,
+      "discount": 1000,
+      "distanceStatus": "recalculated-2026-09-17",
+      "sourceUrl": null,
+      "calculatedAt": "2026-09-17",
+      "direction": "forward",
+      "pages": [
+        "/routes/tyumen-ekaterinburg"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/ekaterinburg-perm",
+      "pairKey": "екатеринбург|пермь",
+      "kind": "main",
+      "from": "Екатеринбург",
+      "to": "Пермь",
+      "slug": "ekaterinburg-perm",
+      "hours": "5 ч",
+      "rawDistanceM": 362232.8,
+      "pricingDistanceM": 362232.8,
+      "km": 370,
+      "price": 21500,
+      "coefficient": 1,
+      "calculatedPrice": 22500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/ekaterinburg-perm.html",
+      "calculatedAt": "2026-09-05T00:53:07.422078+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/ekaterinburg-perm"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/ekaterinburg-kurgan",
+      "pairKey": "екатеринбург|курган",
+      "kind": "main",
+      "from": "Екатеринбург",
+      "to": "Курган",
+      "slug": "ekaterinburg-kurgan",
+      "hours": "5 ч",
+      "rawDistanceM": 369803,
+      "pricingDistanceM": 369803,
+      "km": 370,
+      "price": 21500,
+      "coefficient": 1,
+      "calculatedPrice": 22500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/ekaterinburg-kurgan.html",
+      "calculatedAt": "2026-09-04T17:59:32.289921+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/ekaterinburg-kurgan"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/kazan-nizhniy-novgorod",
+      "pairKey": "казань|нижний новгород",
+      "kind": "main",
+      "from": "Казань",
+      "to": "Нижний Новгород",
+      "slug": "kazan-nizhniy-novgorod",
+      "hours": "6 ч",
+      "rawDistanceM": 394551.7,
+      "pricingDistanceM": 394551.7,
+      "km": 400,
+      "price": 23000,
+      "coefficient": 1,
+      "calculatedPrice": 24000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/kazan-nizhniy_novgorod.html",
+      "calculatedAt": "2026-09-05T11:02:45.707971+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/kazan-nizhniy-novgorod"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/nizhniy-novgorod-kazan",
+      "pairKey": "нижний новгород|казань",
+      "kind": "main",
+      "from": "Нижний Новгород",
+      "to": "Казань",
+      "slug": "nizhniy-novgorod-kazan",
+      "hours": "5.5 ч",
+      "rawDistanceM": 394358.1,
+      "pricingDistanceM": 394358.1,
+      "km": 400,
+      "price": 23000,
+      "coefficient": 1,
+      "calculatedPrice": 24000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/nizhnij-novgorod-kazan.html",
+      "calculatedAt": "2026-09-05T03:59:09.948275+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/nizhniy-novgorod-kazan"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/kazan-ekaterinburg",
+      "pairKey": "казань|екатеринбург",
+      "kind": "main",
+      "from": "Казань",
+      "to": "Екатеринбург",
+      "slug": "kazan-ekaterinburg",
+      "hours": "12.5 ч",
+      "rawDistanceM": 864926.6,
+      "pricingDistanceM": 864926.6,
+      "km": 870,
+      "price": 51500,
+      "coefficient": 1,
+      "calculatedPrice": 52500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/kazan-ekaterinburg.html",
+      "calculatedAt": "2026-09-03T01:51:10.258087+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/kazan-ekaterinburg"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-spb",
+      "pairKey": "москва|санкт петербург",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Санкт-Петербург",
+      "slug": "moskva-spb",
+      "hours": "10 ч",
+      "rawDistanceM": 706925.2,
+      "pricingDistanceM": 706925.2,
+      "km": 710,
+      "price": 42000,
+      "coefficient": 1,
+      "calculatedPrice": 43000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-piter.html",
+      "calculatedAt": "2026-09-02T14:21:01.116736+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-spb"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/spb-moskva",
+      "pairKey": "санкт петербург|москва",
+      "kind": "main",
+      "from": "Санкт-Петербург",
+      "to": "Москва",
+      "slug": "spb-moskva",
+      "hours": "10 ч",
+      "rawDistanceM": 710742.2,
+      "pricingDistanceM": 710742.2,
+      "km": 720,
+      "price": 42500,
+      "coefficient": 1,
+      "calculatedPrice": 43500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/sankt-peterburg-moskva.html",
+      "calculatedAt": "2026-09-05T07:14:42.550096+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/spb-moskva"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-nizhniy-novgorod",
+      "pairKey": "москва|нижний новгород",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Нижний Новгород",
+      "slug": "moskva-nizhniy-novgorod",
+      "hours": "6.5 ч",
+      "rawDistanceM": 437280.8,
+      "pricingDistanceM": 437280.8,
+      "km": 440,
+      "price": 25500,
+      "coefficient": 1,
+      "calculatedPrice": 26500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-nigniy_novgorod.html",
+      "calculatedAt": "2026-09-05T10:02:44.940062+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-nizhniy-novgorod"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/nizhniy-novgorod-moskva",
+      "pairKey": "нижний новгород|москва",
+      "kind": "main",
+      "from": "Нижний Новгород",
+      "to": "Москва",
+      "slug": "nizhniy-novgorod-moskva",
+      "hours": "6.5 ч",
+      "rawDistanceM": 435511.5,
+      "pricingDistanceM": 435511.5,
+      "km": 440,
+      "price": 25500,
+      "coefficient": 1,
+      "calculatedPrice": 26500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/nizhnij-novgorod-moskva.html",
+      "calculatedAt": "2026-09-04T16:10:00.289823+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/nizhniy-novgorod-moskva"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-voronezh",
+      "pairKey": "москва|воронеж",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Воронеж",
+      "slug": "moskva-voronezh",
+      "hours": "7.5 ч",
+      "rawDistanceM": 512955.5,
+      "pricingDistanceM": 512955.5,
+      "km": 520,
+      "price": 30500,
+      "coefficient": 1,
+      "calculatedPrice": 31500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-voronezh.html",
+      "calculatedAt": "2026-09-04T19:07:02.983993+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-voronezh"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/voronezh-moskva",
+      "pairKey": "воронеж|москва",
+      "kind": "main",
+      "from": "Воронеж",
+      "to": "Москва",
+      "slug": "voronezh-moskva",
+      "hours": "7.5 ч",
+      "rawDistanceM": 518164.2,
+      "pricingDistanceM": 518164.2,
+      "km": 520,
+      "price": 30500,
+      "coefficient": 1,
+      "calculatedPrice": 31500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/voronezh-moskva.html",
+      "calculatedAt": "2026-09-04T20:59:04.531869+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/voronezh-moskva"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-kazan",
+      "pairKey": "москва|казань",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Казань",
+      "slug": "moskva-kazan",
+      "hours": "11.5 ч",
+      "rawDistanceM": 836161.1,
+      "pricingDistanceM": 836161.1,
+      "km": 840,
+      "price": 49500,
+      "coefficient": 1,
+      "calculatedPrice": 50500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-kazan.html",
+      "calculatedAt": "2026-09-02T14:22:00.953720+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-kazan"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/kazan-moskva",
+      "pairKey": "казань|москва",
+      "kind": "main",
+      "from": "Казань",
+      "to": "Москва",
+      "slug": "kazan-moskva",
+      "hours": "11.5 ч",
+      "rawDistanceM": 835224,
+      "pricingDistanceM": 835224,
+      "km": 840,
+      "price": 49500,
+      "coefficient": 1,
+      "calculatedPrice": 50500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/kazan-moskva.html",
+      "calculatedAt": "2026-09-04T19:50:03.350512+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/kazan-moskva"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-yaroslavl",
+      "pairKey": "москва|ярославль",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Ярославль",
+      "slug": "moskva-yaroslavl",
+      "hours": "4 ч",
+      "rawDistanceM": 267549.1,
+      "pricingDistanceM": 267549.1,
+      "km": 270,
+      "price": 16500,
+      "coefficient": 1,
+      "calculatedPrice": 16500,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-yaroslavl.html",
+      "calculatedAt": "2026-09-04T14:46:29.446259+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-yaroslavl"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/yaroslavl-moskva",
+      "pairKey": "ярославль|москва",
+      "kind": "main",
+      "from": "Ярославль",
+      "to": "Москва",
+      "slug": "yaroslavl-moskva",
+      "hours": "4 ч",
+      "rawDistanceM": 269094.9,
+      "pricingDistanceM": 269094.9,
+      "km": 270,
+      "price": 16500,
+      "coefficient": 1,
+      "calculatedPrice": 16500,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/yaroslavl-moskva.html",
+      "calculatedAt": "2026-09-04T23:33:06.354715+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/yaroslavl-moskva"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-suzdal",
+      "pairKey": "москва|суздаль",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Суздаль",
+      "slug": "moskva-suzdal",
+      "hours": "3.5 ч",
+      "rawDistanceM": 236461.7,
+      "pricingDistanceM": 236461.7,
+      "km": 240,
+      "price": 14500,
+      "coefficient": 1,
+      "calculatedPrice": 14500,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-suzdal.html",
+      "calculatedAt": "2026-09-04T19:06:02.788814+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-suzdal"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-vladimir",
+      "pairKey": "москва|владимир",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Владимир",
+      "slug": "moskva-vladimir",
+      "hours": "2.5 ч",
+      "rawDistanceM": 199236.7,
+      "pricingDistanceM": 199236.7,
+      "km": 200,
+      "price": 13500,
+      "coefficient": 1.1,
+      "calculatedPrice": 13500,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-vladimir.html",
+      "calculatedAt": "2026-09-10T15:02:33.337958+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-vladimir"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-tver",
+      "pairKey": "москва|тверь",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Тверь",
+      "slug": "moskva-tver",
+      "hours": "2.5 ч",
+      "rawDistanceM": 185720,
+      "pricingDistanceM": 185720,
+      "km": 190,
+      "price": 13000,
+      "coefficient": 1.1,
+      "calculatedPrice": 13000,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-tver.html",
+      "calculatedAt": "2026-09-05T09:18:14.288503+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-tver"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-tula",
+      "pairKey": "москва|тула",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Тула",
+      "slug": "moskva-tula",
+      "hours": "2.5 ч",
+      "rawDistanceM": 182974.9,
+      "pricingDistanceM": 182974.9,
+      "km": 190,
+      "price": 13000,
+      "coefficient": 1.1,
+      "calculatedPrice": 13000,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-tula.html",
+      "calculatedAt": "2026-09-05T07:46:42.949852+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-tula"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-ryazan",
+      "pairKey": "москва|рязань",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Рязань",
+      "slug": "moskva-ryazan",
+      "hours": "3 ч",
+      "rawDistanceM": 198215.6,
+      "pricingDistanceM": 198215.6,
+      "km": 200,
+      "price": 13500,
+      "coefficient": 1.1,
+      "calculatedPrice": 13500,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-ryazan.html",
+      "calculatedAt": "2026-09-04T13:17:58.519316+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-ryazan"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-kaluga",
+      "pairKey": "москва|калуга",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Калуга",
+      "slug": "moskva-kaluga",
+      "hours": "3 ч",
+      "rawDistanceM": 180927.8,
+      "pricingDistanceM": 180927.8,
+      "km": 190,
+      "price": 13000,
+      "coefficient": 1.1,
+      "calculatedPrice": 13000,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-kaluga.html",
+      "calculatedAt": "2026-09-10T14:50:33.413329+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-kaluga"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/moskva-kostroma",
+      "pairKey": "москва|кострома",
+      "kind": "main",
+      "from": "Москва",
+      "to": "Кострома",
+      "slug": "moskva-kostroma",
+      "hours": "5 ч",
+      "rawDistanceM": 337543.9,
+      "pricingDistanceM": 337543.9,
+      "km": 340,
+      "price": 19500,
+      "coefficient": 1,
+      "calculatedPrice": 20500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/moskva-kostroma.html",
+      "calculatedAt": "2026-09-03T02:37:41.136397+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/moskva-kostroma"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW;PARSE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/spb-velikiy-novgorod",
+      "pairKey": "санкт петербург|великий новгород",
+      "kind": "main",
+      "from": "Санкт-Петербург",
+      "to": "Великий Новгород",
+      "slug": "spb-velikiy-novgorod",
+      "hours": "3 ч",
+      "rawDistanceM": 194266.2,
+      "pricingDistanceM": 194266.2,
+      "km": 200,
+      "price": 13500,
+      "coefficient": 1.1,
+      "calculatedPrice": 13500,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/sankt-peterburg-velikij-novgorod.html",
+      "calculatedAt": "2026-09-03T09:00:14.816673+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/spb-velikiy-novgorod"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/spb-pskov",
+      "pairKey": "санкт петербург|псков",
+      "kind": "main",
+      "from": "Санкт-Петербург",
+      "to": "Псков",
+      "slug": "spb-pskov",
+      "hours": "4 ч",
+      "rawDistanceM": 296024.4,
+      "pricingDistanceM": 296024.4,
+      "km": 300,
+      "price": 18000,
+      "coefficient": 1,
+      "calculatedPrice": 18000,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/sankt-peterburg-pskov.html",
+      "calculatedAt": "2026-09-05T03:18:09.372101+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/spb-pskov"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/spb-petrozavodsk",
+      "pairKey": "санкт петербург|петрозаводск",
+      "kind": "main",
+      "from": "Санкт-Петербург",
+      "to": "Петрозаводск",
+      "slug": "spb-petrozavodsk",
+      "hours": "6 ч",
+      "rawDistanceM": 421956,
+      "pricingDistanceM": 421956,
+      "km": 430,
+      "price": 25000,
+      "coefficient": 1,
+      "calculatedPrice": 26000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/sankt-peterburg-petrozavodsk.html",
+      "calculatedAt": "2026-09-04T17:18:31.278438+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/spb-petrozavodsk",
+        "/destination/karelia/spb-petrozavodsk"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/voronezh-lipetsk",
+      "pairKey": "воронеж|липецк",
+      "kind": "main",
+      "from": "Воронеж",
+      "to": "Липецк",
+      "slug": "voronezh-lipetsk",
+      "hours": "2 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 125000,
+      "km": 130,
+      "price": 9500,
+      "coefficient": 1.2,
+      "calculatedPrice": 9500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/voronezh-lipetsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/voronezh-belgorod",
+      "pairKey": "воронеж|белгород",
+      "kind": "main",
+      "from": "Воронеж",
+      "to": "Белгород",
+      "slug": "voronezh-belgorod",
+      "hours": "3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 255000,
+      "km": 260,
+      "price": 16000,
+      "coefficient": 1,
+      "calculatedPrice": 16000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/voronezh-belgorod"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/voronezh-kursk",
+      "pairKey": "воронеж|курск",
+      "kind": "main",
+      "from": "Воронеж",
+      "to": "Курск",
+      "slug": "voronezh-kursk",
+      "hours": "3 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 225000,
+      "km": 230,
+      "price": 14000,
+      "coefficient": 1,
+      "calculatedPrice": 14000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/voronezh-kursk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/voronezh-tambov",
+      "pairKey": "воронеж|тамбов",
+      "kind": "main",
+      "from": "Воронеж",
+      "to": "Тамбов",
+      "slug": "voronezh-tambov",
+      "hours": "3 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 220000,
+      "km": 220,
+      "price": 13500,
+      "coefficient": 1,
+      "calculatedPrice": 13500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/voronezh-tambov"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/novosibirsk-barnaul",
+      "pairKey": "новосибирск|барнаул",
+      "kind": "main",
+      "from": "Новосибирск",
+      "to": "Барнаул",
+      "slug": "novosibirsk-barnaul",
+      "hours": "3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 240000,
+      "km": 240,
+      "price": 14500,
+      "coefficient": 1,
+      "calculatedPrice": 14500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/novosibirsk-barnaul"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/novosibirsk-tomsk",
+      "pairKey": "новосибирск|томск",
+      "kind": "main",
+      "from": "Новосибирск",
+      "to": "Томск",
+      "slug": "novosibirsk-tomsk",
+      "hours": "3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 260000,
+      "km": 260,
+      "price": 16000,
+      "coefficient": 1,
+      "calculatedPrice": 16000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/novosibirsk-tomsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/novosibirsk-kemerovo",
+      "pairKey": "новосибирск|кемерово",
+      "kind": "main",
+      "from": "Новосибирск",
+      "to": "Кемерово",
+      "slug": "novosibirsk-kemerovo",
+      "hours": "3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 260000,
+      "km": 260,
+      "price": 16000,
+      "coefficient": 1,
+      "calculatedPrice": 16000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/routes/novosibirsk-kemerovo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/routes/novosibirsk-omsk",
+      "pairKey": "новосибирск|омск",
+      "kind": "main",
+      "from": "Новосибирск",
+      "to": "Омск",
+      "slug": "novosibirsk-omsk",
+      "hours": "9 ч",
+      "rawDistanceM": 645435.8,
+      "pricingDistanceM": 645435.8,
+      "km": 650,
+      "price": 38000,
+      "coefficient": 1,
+      "calculatedPrice": 39000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/novosibirsk-omsk.html",
+      "calculatedAt": "2026-09-03T00:41:39.155323+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/novosibirsk-omsk"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/volgograd-rostov",
+      "pairKey": "волгоград|ростов на дону",
+      "kind": "main",
+      "from": "Волгоград",
+      "to": "Ростов-на-Дону",
+      "slug": "volgograd-rostov",
+      "hours": "7 ч",
+      "rawDistanceM": 472419.7,
+      "pricingDistanceM": 472419.7,
+      "km": 480,
+      "price": 28000,
+      "coefficient": 1,
+      "calculatedPrice": 29000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/volgograd-rostov-na-donu.html",
+      "calculatedAt": "2026-09-02T20:03:35.480145+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/volgograd-rostov"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/volgograd-saratov",
+      "pairKey": "волгоград|саратов",
+      "kind": "main",
+      "from": "Волгоград",
+      "to": "Саратов",
+      "slug": "volgograd-saratov",
+      "hours": "5.5 ч",
+      "rawDistanceM": 372459.9,
+      "pricingDistanceM": 372459.9,
+      "km": 380,
+      "price": 22000,
+      "coefficient": 1,
+      "calculatedPrice": 23000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/volgograd-saratov.html",
+      "calculatedAt": "2026-09-02T19:23:34.905542+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/volgograd-saratov"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/routes/volgograd-astrakhan",
+      "pairKey": "волгоград|астрахань",
+      "kind": "main",
+      "from": "Волгоград",
+      "to": "Астрахань",
+      "slug": "volgograd-astrakhan",
+      "hours": "6 ч",
+      "rawDistanceM": 430255.9,
+      "pricingDistanceM": 430255.9,
+      "km": 440,
+      "price": 25500,
+      "coefficient": 1,
+      "calculatedPrice": 26500,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/volgograd-astraxan.html",
+      "calculatedAt": "2026-09-05T09:33:14.501429+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/volgograd-astrakhan"
+      ],
+      "notes": [
+        "Исходные флаги C2C сохранены: PLACE_REVIEW; географическая идентичность проверена, доступность дороги не подтверждалась"
+      ]
+    },
+    {
+      "id": "/routes/volgograd-elista",
+      "pairKey": "волгоград|элиста",
+      "kind": "main",
+      "from": "Волгоград",
+      "to": "Элиста",
+      "slug": "volgograd-elista",
+      "hours": "4 ч",
+      "rawDistanceM": 291632.6,
+      "pricingDistanceM": 291632.6,
+      "km": 300,
+      "price": 18000,
+      "coefficient": 1,
+      "calculatedPrice": 18000,
+      "discount": 0,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/volgograd-elista.html",
+      "calculatedAt": "2026-09-05T05:49:11.607815+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/volgograd-elista"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/destination/karelia/spb-sortavala",
+      "pairKey": "санкт петербург|сортавала",
+      "kind": "destination",
+      "from": "СПб",
+      "to": "Сортавала",
+      "slug": "spb-sortavala",
+      "hours": "4 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 300000,
+      "km": 300,
+      "price": 18000,
+      "coefficient": 1,
+      "calculatedPrice": 18000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/karelia/spb-sortavala"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/karelia/spb-ruskeala",
+      "pairKey": "санкт петербург|рускеала",
+      "kind": "destination",
+      "from": "СПб",
+      "to": "Рускеала",
+      "slug": "spb-ruskeala",
+      "hours": "5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 380000,
+      "km": 380,
+      "price": 22000,
+      "coefficient": 1,
+      "calculatedPrice": 23000,
+      "discount": 1000,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/karelia/spb-ruskeala"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/karelia/spb-kizhi",
+      "pairKey": "санкт петербург|кижи (через петрозаводск)",
+      "kind": "destination",
+      "from": "СПб",
+      "to": "Кижи (через Петрозаводск)",
+      "slug": "spb-kizhi",
+      "hours": "6 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 450000,
+      "km": 450,
+      "price": 26000,
+      "coefficient": 1,
+      "calculatedPrice": 27000,
+      "discount": 1000,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/karelia/spb-kizhi"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/karelia/spb-valaam",
+      "pairKey": "санкт петербург|валаам (через сортавалу)",
+      "kind": "destination",
+      "from": "СПб",
+      "to": "Валаам (через Сортавалу)",
+      "slug": "spb-valaam",
+      "hours": "5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 320000,
+      "km": 320,
+      "price": 18500,
+      "coefficient": 1,
+      "calculatedPrice": 19500,
+      "discount": 1000,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/karelia/spb-valaam"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/karelia/spb-priozersk",
+      "pairKey": "санкт петербург|приозерск",
+      "kind": "destination",
+      "from": "СПб",
+      "to": "Приозерск",
+      "slug": "spb-priozersk",
+      "hours": "2 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 145000,
+      "km": 150,
+      "price": 11000,
+      "coefficient": 1.2,
+      "calculatedPrice": 11000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/karelia/spb-priozersk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/kmv/mineralnye-vody-essentuki",
+      "pairKey": "минеральные воды|ессентуки",
+      "kind": "destination",
+      "from": "Минеральные Воды",
+      "to": "Ессентуки",
+      "slug": "mineralnye-vody-essentuki",
+      "hours": "45 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/kmv/mineralnye-vody-essentuki"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/kmv/mineralnye-vody-zheleznovodsk",
+      "pairKey": "минеральные воды|железноводск",
+      "kind": "destination",
+      "from": "Минеральные Воды",
+      "to": "Железноводск",
+      "slug": "mineralnye-vody-zheleznovodsk",
+      "hours": "40 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/kmv/mineralnye-vody-zheleznovodsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/kmv/mineralnye-vody-arkhyz",
+      "pairKey": "минеральные воды|архыз",
+      "kind": "destination",
+      "from": "Минеральные Воды",
+      "to": "Архыз",
+      "slug": "mineralnye-vody-arkhyz",
+      "hours": "3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "km": 200,
+      "price": 12000,
+      "coefficient": 1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/kmv/mineralnye-vody-arkhyz"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/kmv/mineralnye-vody-elbrus",
+      "pairKey": "минеральные воды|приэльбрусье",
+      "kind": "destination",
+      "from": "Минеральные Воды",
+      "to": "Приэльбрусье",
+      "slug": "mineralnye-vody-elbrus",
+      "hours": "3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "km": 200,
+      "price": 12000,
+      "coefficient": 1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/kmv/mineralnye-vody-elbrus"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/altai/barnaul-chemal",
+      "pairKey": "барнаул|чемал",
+      "kind": "destination",
+      "from": "Барнаул",
+      "to": "Чемал",
+      "slug": "barnaul-chemal",
+      "hours": "5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 380000,
+      "km": 380,
+      "price": 22000,
+      "coefficient": 1,
+      "calculatedPrice": 23000,
+      "discount": 1000,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/altai/barnaul-chemal"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/altai/barnaul-manzherok",
+      "pairKey": "барнаул|манжерок",
+      "kind": "destination",
+      "from": "Барнаул",
+      "to": "Манжерок",
+      "slug": "barnaul-manzherok",
+      "hours": "4 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 320000,
+      "km": 320,
+      "price": 18500,
+      "coefficient": 1,
+      "calculatedPrice": 19500,
+      "discount": 1000,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/altai/barnaul-manzherok"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/altai/barnaul-belukha",
+      "pairKey": "барнаул|тюнгур (подъезд к белухе)",
+      "kind": "destination",
+      "from": "Барнаул",
+      "to": "Тюнгур (подъезд к Белухе)",
+      "slug": "barnaul-belukha",
+      "hours": "11 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 750000,
+      "km": 750,
+      "price": 44000,
+      "coefficient": 1,
+      "calculatedPrice": 45000,
+      "discount": 1000,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/altai/barnaul-belukha"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/altai/barnaul-chulyshman",
+      "pairKey": "барнаул|долина чулышмана",
+      "kind": "destination",
+      "from": "Барнаул",
+      "to": "Долина Чулышмана",
+      "slug": "barnaul-chulyshman",
+      "hours": "10 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 700000,
+      "km": 700,
+      "price": 41000,
+      "coefficient": 1,
+      "calculatedPrice": 42000,
+      "discount": 1000,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/altai/barnaul-chulyshman"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/altai/novosibirsk-gorno-altaysk",
+      "pairKey": "новосибирск|горно алтайск",
+      "kind": "destination",
+      "from": "Новосибирск",
+      "to": "Горно-Алтайск",
+      "slug": "novosibirsk-gorno-altaysk",
+      "hours": "6 ч",
+      "rawDistanceM": 447843.4,
+      "pricingDistanceM": 447843.4,
+      "km": 450,
+      "price": 26000,
+      "coefficient": 1,
+      "calculatedPrice": 27000,
+      "discount": 1000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed",
+      "sourceUrl": "https://city2city.ru/novosibirsk-gorno-altaysk.html",
+      "calculatedAt": "2026-09-04T23:24:36.251097+00:00",
+      "direction": "forward",
+      "pages": [
+        "/destination/altai/novosibirsk-gorno-altaysk"
+      ],
+      "notes": []
+    },
+    {
+      "id": "/destination/baikal/irkutsk-listvyanka",
+      "pairKey": "иркутск|листвянка",
+      "kind": "destination",
+      "from": "Иркутск",
+      "to": "Листвянка",
+      "slug": "irkutsk-listvyanka",
+      "hours": "1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 70000,
+      "km": 70,
+      "price": 6500,
+      "coefficient": 1.5,
+      "calculatedPrice": 6500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/baikal/irkutsk-listvyanka"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/baikal/irkutsk-olkhon",
+      "pairKey": "иркутск|ольхон",
+      "kind": "destination",
+      "from": "Иркутск",
+      "to": "Ольхон",
+      "slug": "irkutsk-olkhon",
+      "hours": "5–6 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 300000,
+      "km": 300,
+      "price": 18000,
+      "coefficient": 1,
+      "calculatedPrice": 18000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/baikal/irkutsk-olkhon"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/baikal/irkutsk-baikal-mrs",
+      "pairKey": "иркутск|малое море (мрс)",
+      "kind": "destination",
+      "from": "Иркутск",
+      "to": "Малое Море (МРС)",
+      "slug": "irkutsk-baikal-mrs",
+      "hours": "4 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 240000,
+      "km": 240,
+      "price": 14500,
+      "coefficient": 1,
+      "calculatedPrice": 14500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/baikal/irkutsk-baikal-mrs"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/baikal/irkutsk-arshan",
+      "pairKey": "иркутск|аршан",
+      "kind": "destination",
+      "from": "Иркутск",
+      "to": "Аршан",
+      "slug": "irkutsk-arshan",
+      "hours": "3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "km": 200,
+      "price": 12000,
+      "coefficient": 1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/baikal/irkutsk-arshan"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/krasnodar-coast/krasnodar-temryuk",
+      "pairKey": "краснодар|темрюк / тамань",
+      "kind": "destination",
+      "from": "Краснодар",
+      "to": "Темрюк / Тамань",
+      "slug": "krasnodar-temryuk",
+      "hours": "2 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 130000,
+      "km": 130,
+      "price": 9500,
+      "coefficient": 1.2,
+      "calculatedPrice": 9500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/krasnodar-coast/krasnodar-temryuk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/kaliningrad/kaliningrad-zelenogradsk",
+      "pairKey": "калининград|зеленоградск",
+      "kind": "destination",
+      "from": "Калининград",
+      "to": "Зеленоградск",
+      "slug": "kaliningrad-zelenogradsk",
+      "hours": "45 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/kaliningrad/kaliningrad-zelenogradsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/kaliningrad/kaliningrad-svetlogorsk",
+      "pairKey": "калининград|светлогорск",
+      "kind": "destination",
+      "from": "Калининград",
+      "to": "Светлогорск",
+      "slug": "kaliningrad-svetlogorsk",
+      "hours": "1 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/kaliningrad/kaliningrad-svetlogorsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/kaliningrad/kaliningrad-curonian-spit",
+      "pairKey": "калининград|куршская коса",
+      "kind": "destination",
+      "from": "Калининград",
+      "to": "Куршская коса",
+      "slug": "kaliningrad-curonian-spit",
+      "hours": "1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/kaliningrad/kaliningrad-curonian-spit"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/kaliningrad/kaliningrad-yantarny",
+      "pairKey": "калининград|янтарный",
+      "kind": "destination",
+      "from": "Калининград",
+      "to": "Янтарный",
+      "slug": "kaliningrad-yantarny",
+      "hours": "1 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/kaliningrad/kaliningrad-yantarny"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/north/murmansk-teriberka",
+      "pairKey": "мурманск|териберка",
+      "kind": "destination",
+      "from": "Мурманск",
+      "to": "Териберка",
+      "slug": "murmansk-teriberka",
+      "hours": "2.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 120000,
+      "km": 120,
+      "price": 9000,
+      "coefficient": 1.2,
+      "calculatedPrice": 9000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/north/murmansk-teriberka"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/north/murmansk-khibiny",
+      "pairKey": "мурманск|хибины (кировск)",
+      "kind": "destination",
+      "from": "Мурманск",
+      "to": "Хибины (Кировск)",
+      "slug": "murmansk-khibiny",
+      "hours": "3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 240000,
+      "km": 240,
+      "price": 14500,
+      "coefficient": 1,
+      "calculatedPrice": 14500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/north/murmansk-khibiny"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/north/murmansk-kirovsk",
+      "pairKey": "мурманск|кировск",
+      "kind": "destination",
+      "from": "Мурманск",
+      "to": "Кировск",
+      "slug": "murmansk-kirovsk",
+      "hours": "3 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 220000,
+      "km": 220,
+      "price": 13500,
+      "coefficient": 1,
+      "calculatedPrice": 13500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/north/murmansk-kirovsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/destination/north/aurora-borealis",
+      "pairKey": "мурманск|охота за северным сиянием",
+      "kind": "destination",
+      "from": "Мурманск",
+      "to": "Охота за северным сиянием",
+      "slug": "aurora-borealis",
+      "hours": "1 ночь",
+      "rawDistanceM": null,
+      "pricingDistanceM": 120000,
+      "km": 120,
+      "price": 9000,
+      "coefficient": 1.2,
+      "calculatedPrice": 9000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "forward",
+      "pages": [
+        "/destination/north/aurora-borealis"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт"
+      ]
+    },
+    {
+      "id": "/airport/svo/moscow-center",
+      "pairKey": "аэропорт шереметьево|москва",
+      "kind": "airport",
+      "from": "Аэропорт Шереметьево",
+      "to": "центр Москвы",
+      "slug": "svo-moscow-center",
+      "hours": "45–75 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svo/moscow-center",
+        "/airports/sheremetyevo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/svo/moscow-city",
+      "pairKey": "аэропорт шереметьево|москва сити",
+      "kind": "airport",
+      "from": "Аэропорт Шереметьево",
+      "to": "Москва-Сити",
+      "slug": "svo-moscow-city",
+      "hours": "50–80 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 38000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svo/moscow-city"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/svo/vdnh",
+      "pairKey": "аэропорт шереметьево|вднх",
+      "kind": "airport",
+      "from": "Аэропорт Шереметьево",
+      "to": "ВДНХ",
+      "slug": "svo-vdnh",
+      "hours": "30–55 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svo/vdnh"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/svo/podolsk",
+      "pairKey": "аэропорт шереметьево|подольск",
+      "kind": "airport",
+      "from": "Аэропорт Шереметьево",
+      "to": "Подольск",
+      "slug": "svo-podolsk",
+      "hours": "1.5–2 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 70000,
+      "km": 70,
+      "price": 6500,
+      "coefficient": 1.5,
+      "calculatedPrice": 6500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svo/podolsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/svo/zelenograd",
+      "pairKey": "аэропорт шереметьево|зеленоград",
+      "kind": "airport",
+      "from": "Аэропорт Шереметьево",
+      "to": "Зеленоград",
+      "slug": "svo-zelenograd",
+      "hours": "30–50 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 22000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svo/zelenograd"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/svo/tver",
+      "pairKey": "аэропорт шереметьево|тверь",
+      "kind": "airport",
+      "from": "Аэропорт Шереметьево",
+      "to": "Тверь",
+      "slug": "svo-tver",
+      "hours": "2.5–3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 170000,
+      "km": 170,
+      "price": 11500,
+      "coefficient": 1.1,
+      "calculatedPrice": 11500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svo/tver"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/led/spb-center",
+      "pairKey": "аэропорт пулково|санкт петербург",
+      "kind": "airport",
+      "from": "Аэропорт Пулково",
+      "to": "центр СПб",
+      "slug": "led-spb-center",
+      "hours": "30–50 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/led/spb-center",
+        "/airports/pulkovo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/led/sortavala",
+      "pairKey": "аэропорт пулково|сортавала",
+      "kind": "airport",
+      "from": "Аэропорт Пулково",
+      "to": "Сортавала",
+      "slug": "led-sortavala",
+      "hours": "4–5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 320000,
+      "km": 320,
+      "price": 18500,
+      "coefficient": 1,
+      "calculatedPrice": 19500,
+      "discount": 1000,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/led/sortavala"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/led/petrozavodsk",
+      "pairKey": "аэропорт пулково|петрозаводск",
+      "kind": "airport",
+      "from": "Аэропорт Пулково",
+      "to": "Петрозаводск",
+      "slug": "led-petrozavodsk",
+      "hours": "5.5–6 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 440000,
+      "km": 440,
+      "price": 25500,
+      "coefficient": 1,
+      "calculatedPrice": 26500,
+      "discount": 1000,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/led/petrozavodsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/led/vyborg",
+      "pairKey": "аэропорт пулково|выборг",
+      "kind": "airport",
+      "from": "Аэропорт Пулково",
+      "to": "Выборг",
+      "slug": "led-vyborg",
+      "hours": "2–2.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 145000,
+      "km": 150,
+      "price": 11000,
+      "coefficient": 1.2,
+      "calculatedPrice": 11000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/led/vyborg"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/led/priozersk",
+      "pairKey": "аэропорт пулково|приозерск",
+      "kind": "airport",
+      "from": "Аэропорт Пулково",
+      "to": "Приозерск",
+      "slug": "led-priozersk",
+      "hours": "2.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 165000,
+      "km": 170,
+      "price": 11500,
+      "coefficient": 1.1,
+      "calculatedPrice": 11500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/led/priozersk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/led/finlandia-border",
+      "pairKey": "аэропорт пулково|финская граница (торфяновка/брусничное)",
+      "kind": "airport",
+      "from": "Аэропорт Пулково",
+      "to": "финская граница (Торфяновка/Брусничное)",
+      "slug": "led-finlandia-border",
+      "hours": "3–4 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "km": 200,
+      "price": 12000,
+      "coefficient": 1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/led/finlandia-border"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/aer/sochi-center",
+      "pairKey": "аэропорт сочи (адлер)|сочи",
+      "kind": "airport",
+      "from": "Аэропорт Сочи (Адлер)",
+      "to": "центр Сочи",
+      "slug": "aer-sochi-center",
+      "hours": "30–60 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/aer/sochi-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/aer/krasnaya-polyana",
+      "pairKey": "аэропорт сочи (адлер)|красная поляна",
+      "kind": "airport",
+      "from": "Аэропорт Сочи (Адлер)",
+      "to": "Красная Поляна",
+      "slug": "aer-krasnaya-polyana",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/aer/krasnaya-polyana"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/aer/rosa-khutor",
+      "pairKey": "аэропорт сочи (адлер)|роза хутор",
+      "kind": "airport",
+      "from": "Аэропорт Сочи (Адлер)",
+      "to": "Роза Хутор",
+      "slug": "aer-rosa-khutor",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "km": 60,
+      "price": 5500,
+      "coefficient": 1.5,
+      "calculatedPrice": 5500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/aer/rosa-khutor"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/aer/abkhazia",
+      "pairKey": "аэропорт сочи (адлер)|абхазия (граница / гагра)",
+      "kind": "airport",
+      "from": "Аэропорт Сочи (Адлер)",
+      "to": "Абхазия (граница / Гагра)",
+      "slug": "aer-abkhazia",
+      "hours": "1.5–3 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "km": 60,
+      "price": 5500,
+      "coefficient": 1.5,
+      "calculatedPrice": 5500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/aer/abkhazia"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/aer/gagra",
+      "pairKey": "аэропорт сочи (адлер)|гагра",
+      "kind": "airport",
+      "from": "Аэропорт Сочи (Адлер)",
+      "to": "Гагра",
+      "slug": "aer-gagra",
+      "hours": "2–3 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 80000,
+      "km": 80,
+      "price": 7500,
+      "coefficient": 1.5,
+      "calculatedPrice": 7500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/aer/gagra"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/aer/sukhum",
+      "pairKey": "аэропорт сочи (адлер)|сухум",
+      "kind": "airport",
+      "from": "Аэропорт Сочи (Адлер)",
+      "to": "Сухум",
+      "slug": "aer-sukhum",
+      "hours": "3.5–5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 145000,
+      "km": 150,
+      "price": 11000,
+      "coefficient": 1.2,
+      "calculatedPrice": 11000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/aer/sukhum"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/dme/moscow-center",
+      "pairKey": "аэропорт домодедово|москва",
+      "kind": "airport",
+      "from": "Аэропорт Домодедово",
+      "to": "Центр Москвы",
+      "slug": "dme-moscow-center",
+      "hours": "55–90 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/dme/moscow-center",
+        "/airports/domodedovo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/dme/podolsk",
+      "pairKey": "аэропорт домодедово|подольск",
+      "kind": "airport",
+      "from": "Аэропорт Домодедово",
+      "to": "Подольск",
+      "slug": "dme-podolsk",
+      "hours": "30–55 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/dme/podolsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/dme/ramenskoe",
+      "pairKey": "аэропорт домодедово|раменское",
+      "kind": "airport",
+      "from": "Аэропорт Домодедово",
+      "to": "Раменское",
+      "slug": "dme-ramenskoe",
+      "hours": "45–70 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/dme/ramenskoe"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/dme/zhukovskiy",
+      "pairKey": "аэропорт домодедово|жуковский",
+      "kind": "airport",
+      "from": "Аэропорт Домодедово",
+      "to": "Жуковский",
+      "slug": "dme-zhukovskiy",
+      "hours": "50–80 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/dme/zhukovskiy"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/dme/stupino",
+      "pairKey": "аэропорт домодедово|ступино",
+      "kind": "airport",
+      "from": "Аэропорт Домодедово",
+      "to": "Ступино",
+      "slug": "dme-stupino",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/dme/stupino"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/dme/serpukhov",
+      "pairKey": "аэропорт домодедово|серпухов",
+      "kind": "airport",
+      "from": "Аэропорт Домодедово",
+      "to": "Серпухов",
+      "slug": "dme-serpukhov",
+      "hours": "1.5–2 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 75000,
+      "km": 80,
+      "price": 7500,
+      "coefficient": 1.5,
+      "calculatedPrice": 7500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/dme/serpukhov"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/vko/moscow-center",
+      "pairKey": "аэропорт внуково|москва",
+      "kind": "airport",
+      "from": "Аэропорт Внуково",
+      "to": "Центр Москвы",
+      "slug": "vko-moscow-center",
+      "hours": "40–70 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/vko/moscow-center",
+        "/airports/vnukovo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/vko/moscow-city",
+      "pairKey": "аэропорт внуково|москва сити",
+      "kind": "airport",
+      "from": "Аэропорт Внуково",
+      "to": "Москва-Сити",
+      "slug": "vko-moscow-city",
+      "hours": "40–65 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 32000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/vko/moscow-city"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/vko/odintsovo",
+      "pairKey": "аэропорт внуково|одинцово",
+      "kind": "airport",
+      "from": "Аэропорт Внуково",
+      "to": "Одинцово",
+      "slug": "vko-odintsovo",
+      "hours": "30–55 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/vko/odintsovo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/vko/aprelevka",
+      "pairKey": "аэропорт внуково|апрелевка",
+      "kind": "airport",
+      "from": "Аэропорт Внуково",
+      "to": "Апрелевка",
+      "slug": "vko-aprelevka",
+      "hours": "25–40 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 18000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/vko/aprelevka"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/vko/balashikha",
+      "pairKey": "аэропорт внуково|балашиха",
+      "kind": "airport",
+      "from": "Аэропорт Внуково",
+      "to": "Балашиха",
+      "slug": "vko-balashikha",
+      "hours": "1.5–2 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "km": 60,
+      "price": 5500,
+      "coefficient": 1.5,
+      "calculatedPrice": 5500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/vko/balashikha"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/vko/vnukovo-derevnya",
+      "pairKey": "аэропорт внуково|внуково (деревня)",
+      "kind": "airport",
+      "from": "Аэропорт Внуково",
+      "to": "Внуково (деревня)",
+      "slug": "vko-vnukovo-derevnya",
+      "hours": "10–15 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 5000,
+      "km": 10,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/vko/vnukovo-derevnya"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/zia/moscow-center",
+      "pairKey": "аэропорт жуковский|москва",
+      "kind": "airport",
+      "from": "Аэропорт Жуковский",
+      "to": "Центр Москвы",
+      "slug": "zia-moscow-center",
+      "hours": "1.5–2.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 65000,
+      "km": 70,
+      "price": 6500,
+      "coefficient": 1.5,
+      "calculatedPrice": 6500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/zia/moscow-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/zia/zhukovskiy-city",
+      "pairKey": "аэропорт жуковский|жуковский (город)",
+      "kind": "airport",
+      "from": "Аэропорт Жуковский",
+      "to": "Жуковский (город)",
+      "slug": "zia-zhukovskiy-city",
+      "hours": "10–15 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 6000,
+      "km": 10,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/zia/zhukovskiy-city"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/zia/ramenskoe",
+      "pairKey": "аэропорт жуковский|раменское",
+      "kind": "airport",
+      "from": "Аэропорт Жуковский",
+      "to": "Раменское",
+      "slug": "zia-ramenskoe",
+      "hours": "15–25 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 12000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/zia/ramenskoe"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/zia/elektrostal",
+      "pairKey": "аэропорт жуковский|электросталь",
+      "kind": "airport",
+      "from": "Аэропорт Жуковский",
+      "to": "Электросталь",
+      "slug": "zia-elektrostal",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/zia/elektrostal"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/kzn/kazan-center",
+      "pairKey": "аэропорт казань|казань",
+      "kind": "airport",
+      "from": "Аэропорт Казань",
+      "to": "Центр Казани",
+      "slug": "kzn-kazan-center",
+      "hours": "30–50 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/kzn/kazan-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/kzn/innopolis",
+      "pairKey": "аэропорт казань|иннополис",
+      "kind": "airport",
+      "from": "Аэропорт Казань",
+      "to": "Иннополис",
+      "slug": "kzn-innopolis",
+      "hours": "40–60 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/kzn/innopolis"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/kzn/zelenodolsk",
+      "pairKey": "аэропорт казань|зеленодольск",
+      "kind": "airport",
+      "from": "Аэропорт Казань",
+      "to": "Зеленодольск",
+      "slug": "kzn-zelenodolsk",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "km": 60,
+      "price": 5500,
+      "coefficient": 1.5,
+      "calculatedPrice": 5500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/kzn/zelenodolsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/kzn/bolgar",
+      "pairKey": "аэропорт казань|болгар",
+      "kind": "airport",
+      "from": "Аэропорт Казань",
+      "to": "Болгар",
+      "slug": "kzn-bolgar",
+      "hours": "2.5–3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 180000,
+      "km": 180,
+      "price": 12000,
+      "coefficient": 1.1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/kzn/bolgar"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/svx/ekaterinburg-center",
+      "pairKey": "аэропорт екатеринбург (кольцово)|екатеринбург",
+      "kind": "airport",
+      "from": "Аэропорт Екатеринбург (Кольцово)",
+      "to": "Центр Екатеринбурга",
+      "slug": "svx-ekaterinburg-center",
+      "hours": "25–45 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 17000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svx/ekaterinburg-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/svx/verkhnyaya-pyshma",
+      "pairKey": "аэропорт екатеринбург (кольцово)|верхняя пышма",
+      "kind": "airport",
+      "from": "Аэропорт Екатеринбург (Кольцово)",
+      "to": "Верхняя Пышма",
+      "slug": "svx-verkhnyaya-pyshma",
+      "hours": "45–70 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svx/verkhnyaya-pyshma"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/svx/berezovskiy",
+      "pairKey": "аэропорт екатеринбург (кольцово)|березовский",
+      "kind": "airport",
+      "from": "Аэропорт Екатеринбург (Кольцово)",
+      "to": "Берёзовский",
+      "slug": "svx-berezovskiy",
+      "hours": "40–60 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svx/berezovskiy"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/svx/nizhniy-tagil",
+      "pairKey": "аэропорт екатеринбург (кольцово)|нижний тагил",
+      "kind": "airport",
+      "from": "Аэропорт Екатеринбург (Кольцово)",
+      "to": "Нижний Тагил",
+      "slug": "svx-nizhniy-tagil",
+      "hours": "2.5–3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 150000,
+      "km": 150,
+      "price": 10000,
+      "coefficient": 1.1,
+      "calculatedPrice": 10000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/svx/nizhniy-tagil"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/ovb/novosibirsk-center",
+      "pairKey": "аэропорт новосибирск (толмачево)|новосибирск",
+      "kind": "airport",
+      "from": "Аэропорт Новосибирск (Толмачёво)",
+      "to": "Центр Новосибирска",
+      "slug": "ovb-novosibirsk-center",
+      "hours": "30–55 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/ovb/novosibirsk-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/ovb/akademgorodok",
+      "pairKey": "аэропорт новосибирск (толмачево)|академгородок",
+      "kind": "airport",
+      "from": "Аэропорт Новосибирск (Толмачёво)",
+      "to": "Академгородок",
+      "slug": "ovb-akademgorodok",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/ovb/akademgorodok"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/ovb/berdsk",
+      "pairKey": "аэропорт новосибирск (толмачево)|бердск",
+      "kind": "airport",
+      "from": "Аэропорт Новосибирск (Толмачёво)",
+      "to": "Бердск",
+      "slug": "ovb-berdsk",
+      "hours": "45–70 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/ovb/berdsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/ovb/koltsovo",
+      "pairKey": "аэропорт новосибирск (толмачево)|кольцово",
+      "kind": "airport",
+      "from": "Аэропорт Новосибирск (Толмачёво)",
+      "to": "Кольцово",
+      "slug": "ovb-koltsovo",
+      "hours": "45–70 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/ovb/koltsovo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/ikt/irkutsk-center",
+      "pairKey": "аэропорт иркутск|центр иркутска",
+      "kind": "airport",
+      "from": "Аэропорт Иркутск",
+      "to": "Центр Иркутска",
+      "slug": "ikt-irkutsk-center",
+      "hours": "20–35 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 12000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/ikt/irkutsk-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/ikt/listvyanka",
+      "pairKey": "аэропорт иркутск|листвянка",
+      "kind": "airport",
+      "from": "Аэропорт Иркутск",
+      "to": "Листвянка",
+      "slug": "ikt-listvyanka",
+      "hours": "1.5–2 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 70000,
+      "km": 70,
+      "price": 6500,
+      "coefficient": 1.5,
+      "calculatedPrice": 6500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/ikt/listvyanka"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/ikt/shelekhov",
+      "pairKey": "аэропорт иркутск|шелехов",
+      "kind": "airport",
+      "from": "Аэропорт Иркутск",
+      "to": "Шелехов",
+      "slug": "ikt-shelekhov",
+      "hours": "50–80 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/ikt/shelekhov"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/ikt/angarsk",
+      "pairKey": "аэропорт иркутск|ангарск",
+      "kind": "airport",
+      "from": "Аэропорт Иркутск",
+      "to": "Ангарск",
+      "slug": "ikt-angarsk",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/ikt/angarsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/mmk/murmansk-center",
+      "pairKey": "аэропорт мурманск|центр мурманска",
+      "kind": "airport",
+      "from": "Аэропорт Мурманск",
+      "to": "Центр Мурманска",
+      "slug": "mmk-murmansk-center",
+      "hours": "35–55 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/mmk/murmansk-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/mmk/teriberka",
+      "pairKey": "аэропорт мурманск|териберка",
+      "kind": "airport",
+      "from": "Аэропорт Мурманск",
+      "to": "Териберка",
+      "slug": "mmk-teriberka",
+      "hours": "3–4.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 150000,
+      "km": 150,
+      "price": 10000,
+      "coefficient": 1.1,
+      "calculatedPrice": 10000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/mmk/teriberka"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/mmk/kirovsk",
+      "pairKey": "аэропорт мурманск|кировск",
+      "kind": "airport",
+      "from": "Аэропорт Мурманск",
+      "to": "Кировск",
+      "slug": "mmk-kirovsk",
+      "hours": "3–4 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "km": 200,
+      "price": 12000,
+      "coefficient": 1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/mmk/kirovsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/mmk/apatity",
+      "pairKey": "аэропорт мурманск|апатиты",
+      "kind": "airport",
+      "from": "Аэропорт Мурманск",
+      "to": "Апатиты",
+      "slug": "mmk-apatity",
+      "hours": "3–3.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 180000,
+      "km": 180,
+      "price": 12000,
+      "coefficient": 1.1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/mmk/apatity"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/mrv/kislovodsk",
+      "pairKey": "аэропорт минеральные воды|кисловодск",
+      "kind": "airport",
+      "from": "Аэропорт Минеральные Воды",
+      "to": "Кисловодск",
+      "slug": "mrv-kislovodsk",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "km": 60,
+      "price": 5500,
+      "coefficient": 1.5,
+      "calculatedPrice": 5500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/mrv/kislovodsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/mrv/pyatigorsk",
+      "pairKey": "аэропорт минеральные воды|пятигорск",
+      "kind": "airport",
+      "from": "Аэропорт Минеральные Воды",
+      "to": "Пятигорск",
+      "slug": "mrv-pyatigorsk",
+      "hours": "30–50 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/mrv/pyatigorsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/mrv/essentuki",
+      "pairKey": "аэропорт минеральные воды|ессентуки",
+      "kind": "airport",
+      "from": "Аэропорт Минеральные Воды",
+      "to": "Ессентуки",
+      "slug": "mrv-essentuki",
+      "hours": "20–35 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/mrv/essentuki"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/mrv/zheleznovodsk",
+      "pairKey": "аэропорт минеральные воды|железноводск",
+      "kind": "airport",
+      "from": "Аэропорт Минеральные Воды",
+      "to": "Железноводск",
+      "slug": "mrv-zheleznovodsk",
+      "hours": "25–40 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/mrv/zheleznovodsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/sip/yalta",
+      "pairKey": "аэропорт симферополь|ялта",
+      "kind": "airport",
+      "from": "Аэропорт Симферополь",
+      "to": "Ялта",
+      "slug": "sip-yalta",
+      "hours": "1.5–2 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 85000,
+      "km": 90,
+      "price": 8500,
+      "coefficient": 1.5,
+      "calculatedPrice": 8500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/sip/yalta"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/sip/sevastopol",
+      "pairKey": "аэропорт симферополь|севастополь",
+      "kind": "airport",
+      "from": "Аэропорт Симферополь",
+      "to": "Севастополь",
+      "slug": "sip-sevastopol",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 80000,
+      "km": 80,
+      "price": 7500,
+      "coefficient": 1.5,
+      "calculatedPrice": 7500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/sip/sevastopol"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/sip/alushta",
+      "pairKey": "аэропорт симферополь|алушта",
+      "kind": "airport",
+      "from": "Аэропорт Симферополь",
+      "to": "Алушта",
+      "slug": "sip-alushta",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/sip/alushta"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/sip/feodosia",
+      "pairKey": "аэропорт симферополь|феодосия",
+      "kind": "airport",
+      "from": "Аэропорт Симферополь",
+      "to": "Феодосия",
+      "slug": "sip-feodosia",
+      "hours": "2–2.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 115000,
+      "km": 120,
+      "price": 9000,
+      "coefficient": 1.2,
+      "calculatedPrice": 9000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/sip/feodosia"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/sip/sudak",
+      "pairKey": "аэропорт симферополь|судак",
+      "kind": "airport",
+      "from": "Аэропорт Симферополь",
+      "to": "Судак",
+      "slug": "sip-sudak",
+      "hours": "2–2.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 105000,
+      "km": 110,
+      "price": 8000,
+      "coefficient": 1.2,
+      "calculatedPrice": 8000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/sip/sudak"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/sip/yevpatoria",
+      "pairKey": "аэропорт симферополь|евпатория",
+      "kind": "airport",
+      "from": "Аэропорт Симферополь",
+      "to": "Евпатория",
+      "slug": "sip-yevpatoria",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 65000,
+      "km": 70,
+      "price": 6500,
+      "coefficient": 1.5,
+      "calculatedPrice": 6500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/sip/yevpatoria"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/kgd/kaliningrad-center",
+      "pairKey": "аэропорт калининград|центр калининграда",
+      "kind": "airport",
+      "from": "Аэропорт Калининград",
+      "to": "Центр Калининграда",
+      "slug": "kgd-kaliningrad-center",
+      "hours": "30–50 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/kgd/kaliningrad-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/kgd/svetlogorsk",
+      "pairKey": "аэропорт калининград|светлогорск",
+      "kind": "airport",
+      "from": "Аэропорт Калининград",
+      "to": "Светлогорск",
+      "slug": "kgd-svetlogorsk",
+      "hours": "45–70 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/kgd/svetlogorsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/kgd/zelenogradsk",
+      "pairKey": "аэропорт калининград|зеленоградск",
+      "kind": "airport",
+      "from": "Аэропорт Калининград",
+      "to": "Зеленоградск",
+      "slug": "kgd-zelenogradsk",
+      "hours": "30–55 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/kgd/zelenogradsk"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/kgd/yantarniy",
+      "pairKey": "аэропорт калининград|янтарный",
+      "kind": "airport",
+      "from": "Аэропорт Калининград",
+      "to": "Янтарный",
+      "slug": "kgd-yantarniy",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "km": 60,
+      "price": 5500,
+      "coefficient": 1.5,
+      "calculatedPrice": 5500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/kgd/yantarniy"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/aaq/anapa-center",
+      "pairKey": "аэропорт анапа|центр анапы",
+      "kind": "airport",
+      "from": "Аэропорт Анапа",
+      "to": "Центр Анапы",
+      "slug": "aaq-anapa-center",
+      "hours": "20–35 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/aaq/anapa-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/aaq/gelendzhik",
+      "pairKey": "аэропорт анапа|геленджик",
+      "kind": "airport",
+      "from": "Аэропорт Анапа",
+      "to": "Геленджик",
+      "slug": "aaq-gelendzhik",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "km": 50,
+      "price": 4500,
+      "coefficient": 1.5,
+      "calculatedPrice": 4500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/aaq/gelendzhik"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/aaq/vityazevo",
+      "pairKey": "аэропорт анапа|витязево",
+      "kind": "airport",
+      "from": "Аэропорт Анапа",
+      "to": "Витязево",
+      "slug": "aaq-vityazevo",
+      "hours": "15–20 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 10000,
+      "km": 10,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/aaq/vityazevo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/krr/krasnodar-center",
+      "pairKey": "аэропорт краснодар|краснодар",
+      "kind": "airport",
+      "from": "Аэропорт Краснодар",
+      "to": "Центр Краснодара",
+      "slug": "krr-krasnodar-center",
+      "hours": "20–40 мин",
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/krr/krasnodar-center"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/krr/goryachiy-klyuch",
+      "pairKey": "аэропорт краснодар|горячий ключ",
+      "kind": "airport",
+      "from": "Аэропорт Краснодар",
+      "to": "Горячий Ключ",
+      "slug": "krr-goryachiy-klyuch",
+      "hours": "1–1.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "km": 60,
+      "price": 5500,
+      "coefficient": 1.5,
+      "calculatedPrice": 5500,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/krr/goryachiy-klyuch"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airport/krr/kropotkin",
+      "pairKey": "аэропорт краснодар|кропоткин",
+      "kind": "airport",
+      "from": "Аэропорт Краснодар",
+      "to": "Кропоткин",
+      "slug": "krr-kropotkin",
+      "hours": "2–2.5 ч",
+      "rawDistanceM": null,
+      "pricingDistanceM": 145000,
+      "km": 150,
+      "price": 11000,
+      "coefficient": 1.2,
+      "calculatedPrice": 11000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airport/krr/kropotkin"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airports/koltsovo",
+      "pairKey": "аэропорт кольцово|екатеринбург",
+      "kind": "legacy-airport",
+      "from": "Аэропорт Кольцово",
+      "to": "Екатеринбург",
+      "slug": "koltsovo",
+      "hours": "по дорожной обстановке",
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airports/koltsovo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airports/kurumoch",
+      "pairKey": "аэропорт курумоч|самара",
+      "kind": "legacy-airport",
+      "from": "Аэропорт Курумоч",
+      "to": "Самара",
+      "slug": "kurumoch",
+      "hours": "по дорожной обстановке",
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airports/kurumoch"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airports/adler-airport",
+      "pairKey": "аэропорт адлер|сочи",
+      "kind": "legacy-airport",
+      "from": "Аэропорт Адлер",
+      "to": "Сочи",
+      "slug": "adler-airport",
+      "hours": "по дорожной обстановке",
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airports/adler-airport"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airports/pashkovskiy",
+      "pairKey": "аэропорт пашковский|краснодар",
+      "kind": "legacy-airport",
+      "from": "Аэропорт Пашковский",
+      "to": "Краснодар",
+      "slug": "pashkovskiy",
+      "hours": "по дорожной обстановке",
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airports/pashkovskiy"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airports/platov",
+      "pairKey": "аэропорт платов|ростов на дону",
+      "kind": "legacy-airport",
+      "from": "Аэропорт Платов",
+      "to": "Ростов-на-Дону",
+      "slug": "platov",
+      "hours": "по дорожной обстановке",
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "km": 40,
+      "price": 4000,
+      "coefficient": 1.5,
+      "calculatedPrice": 4000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airports/platov"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airports/tolmachyovo",
+      "pairKey": "аэропорт толмачево|новосибирск",
+      "kind": "legacy-airport",
+      "from": "Аэропорт Толмачёво",
+      "to": "Новосибирск",
+      "slug": "tolmachyovo",
+      "hours": "по дорожной обстановке",
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "km": 30,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airports/tolmachyovo"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airports/simferopol-airport",
+      "pairKey": "аэропорт симферополь|симферополь",
+      "kind": "legacy-airport",
+      "from": "Аэропорт Симферополь",
+      "to": "Симферополь",
+      "slug": "simferopol-airport",
+      "hours": "по дорожной обстановке",
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "km": 20,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airports/simferopol-airport"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    },
+    {
+      "id": "/airports/mineralnye-vody-airport",
+      "pairKey": "аэропорт минеральные воды|минеральные воды",
+      "kind": "legacy-airport",
+      "from": "Аэропорт Минеральные Воды",
+      "to": "Минеральные Воды",
+      "slug": "mineralnye-vody-airport",
+      "hours": "по дорожной обстановке",
+      "rawDistanceM": null,
+      "pricingDistanceM": 10000,
+      "km": 10,
+      "price": 3000,
+      "coefficient": 1.5,
+      "calculatedPrice": 3000,
+      "discount": 0,
+      "distanceStatus": "legacy-estimate-needs-road-check",
+      "sourceUrl": null,
+      "calculatedAt": null,
+      "direction": "both",
+      "pages": [
+        "/airports/mineralnye-vody-airport"
+      ],
+      "notes": [
+        "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
+        "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
+      ]
+    }
+  ],
+  "byPath": {
+    "/routes/adler-roza-khutor": {
+      "routeId": "/routes/adler-roza-khutor",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/sochi-krasnaya-polyana": {
+      "routeId": "/routes/sochi-krasnaya-polyana",
+      "km": 70,
+      "rawDistanceM": null,
+      "pricingDistanceM": 70000,
+      "price": 6500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/simferopol-yalta": {
+      "routeId": "/routes/simferopol-yalta",
+      "km": 90,
+      "rawDistanceM": null,
+      "pricingDistanceM": 82000,
+      "price": 8500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/crimea/simferopol-yalta": {
+      "routeId": "/routes/simferopol-yalta",
+      "km": 90,
+      "rawDistanceM": null,
+      "pricingDistanceM": 82000,
+      "price": 8500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/simferopol-alushta": {
+      "routeId": "/routes/simferopol-alushta",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/crimea/simferopol-alushta": {
+      "routeId": "/routes/simferopol-alushta",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/simferopol-evpatoriya": {
+      "routeId": "/routes/simferopol-evpatoriya",
+      "km": 70,
+      "rawDistanceM": null,
+      "pricingDistanceM": 65000,
+      "price": 6500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/crimea/simferopol-evpatoriya": {
+      "routeId": "/routes/simferopol-evpatoriya",
+      "km": 70,
+      "rawDistanceM": null,
+      "pricingDistanceM": 65000,
+      "price": 6500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/simferopol-feodosiya": {
+      "routeId": "/routes/simferopol-feodosiya",
+      "km": 120,
+      "rawDistanceM": null,
+      "pricingDistanceM": 115000,
+      "price": 9000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/crimea/simferopol-feodosiya": {
+      "routeId": "/routes/simferopol-feodosiya",
+      "km": 120,
+      "rawDistanceM": null,
+      "pricingDistanceM": 115000,
+      "price": 9000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/simferopol-sudak": {
+      "routeId": "/routes/simferopol-sudak",
+      "km": 100,
+      "rawDistanceM": null,
+      "pricingDistanceM": 100000,
+      "price": 7500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/crimea/simferopol-sudak": {
+      "routeId": "/routes/simferopol-sudak",
+      "km": 100,
+      "rawDistanceM": null,
+      "pricingDistanceM": 100000,
+      "price": 7500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/simferopol-sevastopol": {
+      "routeId": "/routes/simferopol-sevastopol",
+      "km": 80,
+      "rawDistanceM": null,
+      "pricingDistanceM": 80000,
+      "price": 7500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/crimea/simferopol-sevastopol": {
+      "routeId": "/routes/simferopol-sevastopol",
+      "km": 80,
+      "rawDistanceM": null,
+      "pricingDistanceM": 80000,
+      "price": 7500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/krasnodar-sochi": {
+      "routeId": "/routes/krasnodar-sochi",
+      "km": 300,
+      "rawDistanceM": 291530.7,
+      "pricingDistanceM": 291530.7,
+      "price": 18000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/krasnodar-adler": {
+      "routeId": "/routes/krasnodar-adler",
+      "km": 320,
+      "rawDistanceM": 319136.1,
+      "pricingDistanceM": 319136.1,
+      "price": 18500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/krasnodar-simferopol": {
+      "routeId": "/routes/krasnodar-simferopol",
+      "km": 440,
+      "rawDistanceM": 437359.4,
+      "pricingDistanceM": 437359.4,
+      "price": 25500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/krasnodar-anapa": {
+      "routeId": "/routes/krasnodar-anapa",
+      "km": 170,
+      "rawDistanceM": null,
+      "pricingDistanceM": 165000,
+      "price": 11500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/krasnodar-coast/krasnodar-anapa": {
+      "routeId": "/routes/krasnodar-anapa",
+      "km": 170,
+      "rawDistanceM": null,
+      "pricingDistanceM": 165000,
+      "price": 11500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/krasnodar-gelendzhik": {
+      "routeId": "/routes/krasnodar-gelendzhik",
+      "km": 200,
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/krasnodar-coast/krasnodar-gelendzhik": {
+      "routeId": "/routes/krasnodar-gelendzhik",
+      "km": 200,
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/krasnodar-novorossiysk": {
+      "routeId": "/routes/krasnodar-novorossiysk",
+      "km": 150,
+      "rawDistanceM": 149647.6,
+      "pricingDistanceM": 149647.6,
+      "price": 11000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/destination/krasnodar-coast/krasnodar-novorossiysk": {
+      "routeId": "/routes/krasnodar-novorossiysk",
+      "km": 150,
+      "rawDistanceM": 149647.6,
+      "pricingDistanceM": 149647.6,
+      "price": 11000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/krasnodar-yalta": {
+      "routeId": "/routes/krasnodar-yalta",
+      "km": 510,
+      "rawDistanceM": 500684.1,
+      "pricingDistanceM": 500684.1,
+      "price": 30000,
+      "distanceStatus": "recalculated-2026-09-17"
+    },
+    "/routes/rostov-krasnodar": {
+      "routeId": "/routes/rostov-krasnodar",
+      "km": 280,
+      "rawDistanceM": 271739.1,
+      "pricingDistanceM": 271739.1,
+      "price": 17000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/rostov-sochi": {
+      "routeId": "/routes/rostov-sochi",
+      "km": 560,
+      "rawDistanceM": 550515.6,
+      "pricingDistanceM": 550515.6,
+      "price": 33000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/rostov-adler": {
+      "routeId": "/routes/rostov-adler",
+      "km": 580,
+      "rawDistanceM": 578121,
+      "pricingDistanceM": 578121,
+      "price": 34000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/rostov-anapa": {
+      "routeId": "/routes/rostov-anapa",
+      "km": 430,
+      "rawDistanceM": 428827.1,
+      "pricingDistanceM": 428827.1,
+      "price": 25000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-sochi": {
+      "routeId": "/routes/moskva-sochi",
+      "km": 1630,
+      "rawDistanceM": 1621825.2,
+      "pricingDistanceM": 1621825.2,
+      "price": 97000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/mineralnye-vody-dombay": {
+      "routeId": "/routes/mineralnye-vody-dombay",
+      "km": 200,
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kmv/mineralnye-vody-dombay": {
+      "routeId": "/routes/mineralnye-vody-dombay",
+      "km": 200,
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/mineralnye-vody-kislovodsk": {
+      "routeId": "/routes/mineralnye-vody-kislovodsk",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kmv/mineralnye-vody-kislovodsk": {
+      "routeId": "/routes/mineralnye-vody-kislovodsk",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/mineralnye-vody-pyatigorsk": {
+      "routeId": "/routes/mineralnye-vody-pyatigorsk",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kmv/mineralnye-vody-pyatigorsk": {
+      "routeId": "/routes/mineralnye-vody-pyatigorsk",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/mineralnye-vody-nalchik": {
+      "routeId": "/routes/mineralnye-vody-nalchik",
+      "km": 80,
+      "rawDistanceM": null,
+      "pricingDistanceM": 80000,
+      "price": 7500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/kazan-samara": {
+      "routeId": "/routes/kazan-samara",
+      "km": 360,
+      "rawDistanceM": 357718.8,
+      "pricingDistanceM": 357718.8,
+      "price": 21000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/samara-kazan": {
+      "routeId": "/routes/samara-kazan",
+      "km": 370,
+      "rawDistanceM": 361545,
+      "pricingDistanceM": 361545,
+      "price": 21500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/ekaterinburg-chelyabinsk": {
+      "routeId": "/routes/ekaterinburg-chelyabinsk",
+      "km": 220,
+      "rawDistanceM": 210666.3,
+      "pricingDistanceM": 210666.3,
+      "price": 13500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/chelyabinsk-ekaterinburg": {
+      "routeId": "/routes/chelyabinsk-ekaterinburg",
+      "km": 220,
+      "rawDistanceM": 211979.3,
+      "pricingDistanceM": 211979.3,
+      "price": 13500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/ekaterinburg-tyumen": {
+      "routeId": "/routes/ekaterinburg-tyumen",
+      "km": 330,
+      "rawDistanceM": 329728.4,
+      "pricingDistanceM": 329728.4,
+      "price": 19000,
+      "distanceStatus": "recalculated-2026-09-17"
+    },
+    "/routes/tyumen-ekaterinburg": {
+      "routeId": "/routes/tyumen-ekaterinburg",
+      "km": 330,
+      "rawDistanceM": 329358.1,
+      "pricingDistanceM": 329358.1,
+      "price": 19000,
+      "distanceStatus": "recalculated-2026-09-17"
+    },
+    "/routes/ekaterinburg-perm": {
+      "routeId": "/routes/ekaterinburg-perm",
+      "km": 370,
+      "rawDistanceM": 362232.8,
+      "pricingDistanceM": 362232.8,
+      "price": 21500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/ekaterinburg-kurgan": {
+      "routeId": "/routes/ekaterinburg-kurgan",
+      "km": 370,
+      "rawDistanceM": 369803,
+      "pricingDistanceM": 369803,
+      "price": 21500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/kazan-nizhniy-novgorod": {
+      "routeId": "/routes/kazan-nizhniy-novgorod",
+      "km": 400,
+      "rawDistanceM": 394551.7,
+      "pricingDistanceM": 394551.7,
+      "price": 23000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/nizhniy-novgorod-kazan": {
+      "routeId": "/routes/nizhniy-novgorod-kazan",
+      "km": 400,
+      "rawDistanceM": 394358.1,
+      "pricingDistanceM": 394358.1,
+      "price": 23000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/kazan-ekaterinburg": {
+      "routeId": "/routes/kazan-ekaterinburg",
+      "km": 870,
+      "rawDistanceM": 864926.6,
+      "pricingDistanceM": 864926.6,
+      "price": 51500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-spb": {
+      "routeId": "/routes/moskva-spb",
+      "km": 710,
+      "rawDistanceM": 706925.2,
+      "pricingDistanceM": 706925.2,
+      "price": 42000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/spb-moskva": {
+      "routeId": "/routes/spb-moskva",
+      "km": 720,
+      "rawDistanceM": 710742.2,
+      "pricingDistanceM": 710742.2,
+      "price": 42500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-nizhniy-novgorod": {
+      "routeId": "/routes/moskva-nizhniy-novgorod",
+      "km": 440,
+      "rawDistanceM": 437280.8,
+      "pricingDistanceM": 437280.8,
+      "price": 25500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/nizhniy-novgorod-moskva": {
+      "routeId": "/routes/nizhniy-novgorod-moskva",
+      "km": 440,
+      "rawDistanceM": 435511.5,
+      "pricingDistanceM": 435511.5,
+      "price": 25500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-voronezh": {
+      "routeId": "/routes/moskva-voronezh",
+      "km": 520,
+      "rawDistanceM": 512955.5,
+      "pricingDistanceM": 512955.5,
+      "price": 30500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/voronezh-moskva": {
+      "routeId": "/routes/voronezh-moskva",
+      "km": 520,
+      "rawDistanceM": 518164.2,
+      "pricingDistanceM": 518164.2,
+      "price": 30500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-kazan": {
+      "routeId": "/routes/moskva-kazan",
+      "km": 840,
+      "rawDistanceM": 836161.1,
+      "pricingDistanceM": 836161.1,
+      "price": 49500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/kazan-moskva": {
+      "routeId": "/routes/kazan-moskva",
+      "km": 840,
+      "rawDistanceM": 835224,
+      "pricingDistanceM": 835224,
+      "price": 49500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-yaroslavl": {
+      "routeId": "/routes/moskva-yaroslavl",
+      "km": 270,
+      "rawDistanceM": 267549.1,
+      "pricingDistanceM": 267549.1,
+      "price": 16500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/yaroslavl-moskva": {
+      "routeId": "/routes/yaroslavl-moskva",
+      "km": 270,
+      "rawDistanceM": 269094.9,
+      "pricingDistanceM": 269094.9,
+      "price": 16500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-suzdal": {
+      "routeId": "/routes/moskva-suzdal",
+      "km": 240,
+      "rawDistanceM": 236461.7,
+      "pricingDistanceM": 236461.7,
+      "price": 14500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-vladimir": {
+      "routeId": "/routes/moskva-vladimir",
+      "km": 200,
+      "rawDistanceM": 199236.7,
+      "pricingDistanceM": 199236.7,
+      "price": 13500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-tver": {
+      "routeId": "/routes/moskva-tver",
+      "km": 190,
+      "rawDistanceM": 185720,
+      "pricingDistanceM": 185720,
+      "price": 13000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-tula": {
+      "routeId": "/routes/moskva-tula",
+      "km": 190,
+      "rawDistanceM": 182974.9,
+      "pricingDistanceM": 182974.9,
+      "price": 13000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-ryazan": {
+      "routeId": "/routes/moskva-ryazan",
+      "km": 200,
+      "rawDistanceM": 198215.6,
+      "pricingDistanceM": 198215.6,
+      "price": 13500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-kaluga": {
+      "routeId": "/routes/moskva-kaluga",
+      "km": 190,
+      "rawDistanceM": 180927.8,
+      "pricingDistanceM": 180927.8,
+      "price": 13000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/moskva-kostroma": {
+      "routeId": "/routes/moskva-kostroma",
+      "km": 340,
+      "rawDistanceM": 337543.9,
+      "pricingDistanceM": 337543.9,
+      "price": 19500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/spb-velikiy-novgorod": {
+      "routeId": "/routes/spb-velikiy-novgorod",
+      "km": 200,
+      "rawDistanceM": 194266.2,
+      "pricingDistanceM": 194266.2,
+      "price": 13500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/spb-pskov": {
+      "routeId": "/routes/spb-pskov",
+      "km": 300,
+      "rawDistanceM": 296024.4,
+      "pricingDistanceM": 296024.4,
+      "price": 18000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/spb-petrozavodsk": {
+      "routeId": "/routes/spb-petrozavodsk",
+      "km": 430,
+      "rawDistanceM": 421956,
+      "pricingDistanceM": 421956,
+      "price": 25000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/destination/karelia/spb-petrozavodsk": {
+      "routeId": "/routes/spb-petrozavodsk",
+      "km": 430,
+      "rawDistanceM": 421956,
+      "pricingDistanceM": 421956,
+      "price": 25000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/voronezh-lipetsk": {
+      "routeId": "/routes/voronezh-lipetsk",
+      "km": 130,
+      "rawDistanceM": null,
+      "pricingDistanceM": 125000,
+      "price": 9500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/voronezh-belgorod": {
+      "routeId": "/routes/voronezh-belgorod",
+      "km": 260,
+      "rawDistanceM": null,
+      "pricingDistanceM": 255000,
+      "price": 16000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/voronezh-kursk": {
+      "routeId": "/routes/voronezh-kursk",
+      "km": 230,
+      "rawDistanceM": null,
+      "pricingDistanceM": 225000,
+      "price": 14000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/voronezh-tambov": {
+      "routeId": "/routes/voronezh-tambov",
+      "km": 220,
+      "rawDistanceM": null,
+      "pricingDistanceM": 220000,
+      "price": 13500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/novosibirsk-barnaul": {
+      "routeId": "/routes/novosibirsk-barnaul",
+      "km": 240,
+      "rawDistanceM": null,
+      "pricingDistanceM": 240000,
+      "price": 14500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/novosibirsk-tomsk": {
+      "routeId": "/routes/novosibirsk-tomsk",
+      "km": 260,
+      "rawDistanceM": null,
+      "pricingDistanceM": 260000,
+      "price": 16000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/novosibirsk-kemerovo": {
+      "routeId": "/routes/novosibirsk-kemerovo",
+      "km": 260,
+      "rawDistanceM": null,
+      "pricingDistanceM": 260000,
+      "price": 16000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/routes/novosibirsk-omsk": {
+      "routeId": "/routes/novosibirsk-omsk",
+      "km": 650,
+      "rawDistanceM": 645435.8,
+      "pricingDistanceM": 645435.8,
+      "price": 38000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/volgograd-rostov": {
+      "routeId": "/routes/volgograd-rostov",
+      "km": 480,
+      "rawDistanceM": 472419.7,
+      "pricingDistanceM": 472419.7,
+      "price": 28000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/volgograd-saratov": {
+      "routeId": "/routes/volgograd-saratov",
+      "km": 380,
+      "rawDistanceM": 372459.9,
+      "pricingDistanceM": 372459.9,
+      "price": 22000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/volgograd-astrakhan": {
+      "routeId": "/routes/volgograd-astrakhan",
+      "km": 440,
+      "rawDistanceM": 430255.9,
+      "pricingDistanceM": 430255.9,
+      "price": 25500,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/routes/volgograd-elista": {
+      "routeId": "/routes/volgograd-elista",
+      "km": 300,
+      "rawDistanceM": 291632.6,
+      "pricingDistanceM": 291632.6,
+      "price": 18000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/destination/karelia/spb-sortavala": {
+      "routeId": "/destination/karelia/spb-sortavala",
+      "km": 300,
+      "rawDistanceM": null,
+      "pricingDistanceM": 300000,
+      "price": 18000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/karelia/spb-ruskeala": {
+      "routeId": "/destination/karelia/spb-ruskeala",
+      "km": 380,
+      "rawDistanceM": null,
+      "pricingDistanceM": 380000,
+      "price": 22000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/karelia/spb-kizhi": {
+      "routeId": "/destination/karelia/spb-kizhi",
+      "km": 450,
+      "rawDistanceM": null,
+      "pricingDistanceM": 450000,
+      "price": 26000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/karelia/spb-valaam": {
+      "routeId": "/destination/karelia/spb-valaam",
+      "km": 320,
+      "rawDistanceM": null,
+      "pricingDistanceM": 320000,
+      "price": 18500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/karelia/spb-priozersk": {
+      "routeId": "/destination/karelia/spb-priozersk",
+      "km": 150,
+      "rawDistanceM": null,
+      "pricingDistanceM": 145000,
+      "price": 11000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kmv/mineralnye-vody-essentuki": {
+      "routeId": "/destination/kmv/mineralnye-vody-essentuki",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kmv/mineralnye-vody-zheleznovodsk": {
+      "routeId": "/destination/kmv/mineralnye-vody-zheleznovodsk",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kmv/mineralnye-vody-arkhyz": {
+      "routeId": "/destination/kmv/mineralnye-vody-arkhyz",
+      "km": 200,
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kmv/mineralnye-vody-elbrus": {
+      "routeId": "/destination/kmv/mineralnye-vody-elbrus",
+      "km": 200,
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/altai/barnaul-chemal": {
+      "routeId": "/destination/altai/barnaul-chemal",
+      "km": 380,
+      "rawDistanceM": null,
+      "pricingDistanceM": 380000,
+      "price": 22000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/altai/barnaul-manzherok": {
+      "routeId": "/destination/altai/barnaul-manzherok",
+      "km": 320,
+      "rawDistanceM": null,
+      "pricingDistanceM": 320000,
+      "price": 18500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/altai/barnaul-belukha": {
+      "routeId": "/destination/altai/barnaul-belukha",
+      "km": 750,
+      "rawDistanceM": null,
+      "pricingDistanceM": 750000,
+      "price": 44000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/altai/barnaul-chulyshman": {
+      "routeId": "/destination/altai/barnaul-chulyshman",
+      "km": 700,
+      "rawDistanceM": null,
+      "pricingDistanceM": 700000,
+      "price": 41000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/altai/novosibirsk-gorno-altaysk": {
+      "routeId": "/destination/altai/novosibirsk-gorno-altaysk",
+      "km": 450,
+      "rawDistanceM": 447843.4,
+      "pricingDistanceM": 447843.4,
+      "price": 26000,
+      "distanceStatus": "c2c-cache-endpoints-reviewed"
+    },
+    "/destination/baikal/irkutsk-listvyanka": {
+      "routeId": "/destination/baikal/irkutsk-listvyanka",
+      "km": 70,
+      "rawDistanceM": null,
+      "pricingDistanceM": 70000,
+      "price": 6500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/baikal/irkutsk-olkhon": {
+      "routeId": "/destination/baikal/irkutsk-olkhon",
+      "km": 300,
+      "rawDistanceM": null,
+      "pricingDistanceM": 300000,
+      "price": 18000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/baikal/irkutsk-baikal-mrs": {
+      "routeId": "/destination/baikal/irkutsk-baikal-mrs",
+      "km": 240,
+      "rawDistanceM": null,
+      "pricingDistanceM": 240000,
+      "price": 14500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/baikal/irkutsk-arshan": {
+      "routeId": "/destination/baikal/irkutsk-arshan",
+      "km": 200,
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/krasnodar-coast/krasnodar-temryuk": {
+      "routeId": "/destination/krasnodar-coast/krasnodar-temryuk",
+      "km": 130,
+      "rawDistanceM": null,
+      "pricingDistanceM": 130000,
+      "price": 9500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kaliningrad/kaliningrad-zelenogradsk": {
+      "routeId": "/destination/kaliningrad/kaliningrad-zelenogradsk",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kaliningrad/kaliningrad-svetlogorsk": {
+      "routeId": "/destination/kaliningrad/kaliningrad-svetlogorsk",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kaliningrad/kaliningrad-curonian-spit": {
+      "routeId": "/destination/kaliningrad/kaliningrad-curonian-spit",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/kaliningrad/kaliningrad-yantarny": {
+      "routeId": "/destination/kaliningrad/kaliningrad-yantarny",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/north/murmansk-teriberka": {
+      "routeId": "/destination/north/murmansk-teriberka",
+      "km": 120,
+      "rawDistanceM": null,
+      "pricingDistanceM": 120000,
+      "price": 9000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/north/murmansk-khibiny": {
+      "routeId": "/destination/north/murmansk-khibiny",
+      "km": 240,
+      "rawDistanceM": null,
+      "pricingDistanceM": 240000,
+      "price": 14500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/north/murmansk-kirovsk": {
+      "routeId": "/destination/north/murmansk-kirovsk",
+      "km": 220,
+      "rawDistanceM": null,
+      "pricingDistanceM": 220000,
+      "price": 13500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/destination/north/aurora-borealis": {
+      "routeId": "/destination/north/aurora-borealis",
+      "km": 120,
+      "rawDistanceM": null,
+      "pricingDistanceM": 120000,
+      "price": 9000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svo/moscow-center": {
+      "routeId": "/airport/svo/moscow-center",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/sheremetyevo": {
+      "routeId": "/airport/svo/moscow-center",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svo/moscow-city": {
+      "routeId": "/airport/svo/moscow-city",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 38000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svo/vdnh": {
+      "routeId": "/airport/svo/vdnh",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svo/podolsk": {
+      "routeId": "/airport/svo/podolsk",
+      "km": 70,
+      "rawDistanceM": null,
+      "pricingDistanceM": 70000,
+      "price": 6500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svo/zelenograd": {
+      "routeId": "/airport/svo/zelenograd",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 22000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svo/tver": {
+      "routeId": "/airport/svo/tver",
+      "km": 170,
+      "rawDistanceM": null,
+      "pricingDistanceM": 170000,
+      "price": 11500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/led/spb-center": {
+      "routeId": "/airport/led/spb-center",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/pulkovo": {
+      "routeId": "/airport/led/spb-center",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/led/sortavala": {
+      "routeId": "/airport/led/sortavala",
+      "km": 320,
+      "rawDistanceM": null,
+      "pricingDistanceM": 320000,
+      "price": 18500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/led/petrozavodsk": {
+      "routeId": "/airport/led/petrozavodsk",
+      "km": 440,
+      "rawDistanceM": null,
+      "pricingDistanceM": 440000,
+      "price": 25500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/led/vyborg": {
+      "routeId": "/airport/led/vyborg",
+      "km": 150,
+      "rawDistanceM": null,
+      "pricingDistanceM": 145000,
+      "price": 11000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/led/priozersk": {
+      "routeId": "/airport/led/priozersk",
+      "km": 170,
+      "rawDistanceM": null,
+      "pricingDistanceM": 165000,
+      "price": 11500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/led/finlandia-border": {
+      "routeId": "/airport/led/finlandia-border",
+      "km": 200,
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/aer/sochi-center": {
+      "routeId": "/airport/aer/sochi-center",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/aer/krasnaya-polyana": {
+      "routeId": "/airport/aer/krasnaya-polyana",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/aer/rosa-khutor": {
+      "routeId": "/airport/aer/rosa-khutor",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/aer/abkhazia": {
+      "routeId": "/airport/aer/abkhazia",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/aer/gagra": {
+      "routeId": "/airport/aer/gagra",
+      "km": 80,
+      "rawDistanceM": null,
+      "pricingDistanceM": 80000,
+      "price": 7500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/aer/sukhum": {
+      "routeId": "/airport/aer/sukhum",
+      "km": 150,
+      "rawDistanceM": null,
+      "pricingDistanceM": 145000,
+      "price": 11000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/dme/moscow-center": {
+      "routeId": "/airport/dme/moscow-center",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/domodedovo": {
+      "routeId": "/airport/dme/moscow-center",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/dme/podolsk": {
+      "routeId": "/airport/dme/podolsk",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/dme/ramenskoe": {
+      "routeId": "/airport/dme/ramenskoe",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/dme/zhukovskiy": {
+      "routeId": "/airport/dme/zhukovskiy",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/dme/stupino": {
+      "routeId": "/airport/dme/stupino",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/dme/serpukhov": {
+      "routeId": "/airport/dme/serpukhov",
+      "km": 80,
+      "rawDistanceM": null,
+      "pricingDistanceM": 75000,
+      "price": 7500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/vko/moscow-center": {
+      "routeId": "/airport/vko/moscow-center",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/vnukovo": {
+      "routeId": "/airport/vko/moscow-center",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/vko/moscow-city": {
+      "routeId": "/airport/vko/moscow-city",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 32000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/vko/odintsovo": {
+      "routeId": "/airport/vko/odintsovo",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/vko/aprelevka": {
+      "routeId": "/airport/vko/aprelevka",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 18000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/vko/balashikha": {
+      "routeId": "/airport/vko/balashikha",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/vko/vnukovo-derevnya": {
+      "routeId": "/airport/vko/vnukovo-derevnya",
+      "km": 10,
+      "rawDistanceM": null,
+      "pricingDistanceM": 5000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/zia/moscow-center": {
+      "routeId": "/airport/zia/moscow-center",
+      "km": 70,
+      "rawDistanceM": null,
+      "pricingDistanceM": 65000,
+      "price": 6500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/zia/zhukovskiy-city": {
+      "routeId": "/airport/zia/zhukovskiy-city",
+      "km": 10,
+      "rawDistanceM": null,
+      "pricingDistanceM": 6000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/zia/ramenskoe": {
+      "routeId": "/airport/zia/ramenskoe",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 12000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/zia/elektrostal": {
+      "routeId": "/airport/zia/elektrostal",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 45000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/kzn/kazan-center": {
+      "routeId": "/airport/kzn/kazan-center",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/kzn/innopolis": {
+      "routeId": "/airport/kzn/innopolis",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/kzn/zelenodolsk": {
+      "routeId": "/airport/kzn/zelenodolsk",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/kzn/bolgar": {
+      "routeId": "/airport/kzn/bolgar",
+      "km": 180,
+      "rawDistanceM": null,
+      "pricingDistanceM": 180000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svx/ekaterinburg-center": {
+      "routeId": "/airport/svx/ekaterinburg-center",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 17000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svx/verkhnyaya-pyshma": {
+      "routeId": "/airport/svx/verkhnyaya-pyshma",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svx/berezovskiy": {
+      "routeId": "/airport/svx/berezovskiy",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/svx/nizhniy-tagil": {
+      "routeId": "/airport/svx/nizhniy-tagil",
+      "km": 150,
+      "rawDistanceM": null,
+      "pricingDistanceM": 150000,
+      "price": 10000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/ovb/novosibirsk-center": {
+      "routeId": "/airport/ovb/novosibirsk-center",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/ovb/akademgorodok": {
+      "routeId": "/airport/ovb/akademgorodok",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/ovb/berdsk": {
+      "routeId": "/airport/ovb/berdsk",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/ovb/koltsovo": {
+      "routeId": "/airport/ovb/koltsovo",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 35000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/ikt/irkutsk-center": {
+      "routeId": "/airport/ikt/irkutsk-center",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 12000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/ikt/listvyanka": {
+      "routeId": "/airport/ikt/listvyanka",
+      "km": 70,
+      "rawDistanceM": null,
+      "pricingDistanceM": 70000,
+      "price": 6500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/ikt/shelekhov": {
+      "routeId": "/airport/ikt/shelekhov",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/ikt/angarsk": {
+      "routeId": "/airport/ikt/angarsk",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/mmk/murmansk-center": {
+      "routeId": "/airport/mmk/murmansk-center",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/mmk/teriberka": {
+      "routeId": "/airport/mmk/teriberka",
+      "km": 150,
+      "rawDistanceM": null,
+      "pricingDistanceM": 150000,
+      "price": 10000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/mmk/kirovsk": {
+      "routeId": "/airport/mmk/kirovsk",
+      "km": 200,
+      "rawDistanceM": null,
+      "pricingDistanceM": 200000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/mmk/apatity": {
+      "routeId": "/airport/mmk/apatity",
+      "km": 180,
+      "rawDistanceM": null,
+      "pricingDistanceM": 180000,
+      "price": 12000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/mrv/kislovodsk": {
+      "routeId": "/airport/mrv/kislovodsk",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/mrv/pyatigorsk": {
+      "routeId": "/airport/mrv/pyatigorsk",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/mrv/essentuki": {
+      "routeId": "/airport/mrv/essentuki",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/mrv/zheleznovodsk": {
+      "routeId": "/airport/mrv/zheleznovodsk",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/sip/yalta": {
+      "routeId": "/airport/sip/yalta",
+      "km": 90,
+      "rawDistanceM": null,
+      "pricingDistanceM": 85000,
+      "price": 8500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/sip/sevastopol": {
+      "routeId": "/airport/sip/sevastopol",
+      "km": 80,
+      "rawDistanceM": null,
+      "pricingDistanceM": 80000,
+      "price": 7500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/sip/alushta": {
+      "routeId": "/airport/sip/alushta",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/sip/feodosia": {
+      "routeId": "/airport/sip/feodosia",
+      "km": 120,
+      "rawDistanceM": null,
+      "pricingDistanceM": 115000,
+      "price": 9000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/sip/sudak": {
+      "routeId": "/airport/sip/sudak",
+      "km": 110,
+      "rawDistanceM": null,
+      "pricingDistanceM": 105000,
+      "price": 8000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/sip/yevpatoria": {
+      "routeId": "/airport/sip/yevpatoria",
+      "km": 70,
+      "rawDistanceM": null,
+      "pricingDistanceM": 65000,
+      "price": 6500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/kgd/kaliningrad-center": {
+      "routeId": "/airport/kgd/kaliningrad-center",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/kgd/svetlogorsk": {
+      "routeId": "/airport/kgd/svetlogorsk",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/kgd/zelenogradsk": {
+      "routeId": "/airport/kgd/zelenogradsk",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/kgd/yantarniy": {
+      "routeId": "/airport/kgd/yantarniy",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 55000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/aaq/anapa-center": {
+      "routeId": "/airport/aaq/anapa-center",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/aaq/gelendzhik": {
+      "routeId": "/airport/aaq/gelendzhik",
+      "km": 50,
+      "rawDistanceM": null,
+      "pricingDistanceM": 50000,
+      "price": 4500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/aaq/vityazevo": {
+      "routeId": "/airport/aaq/vityazevo",
+      "km": 10,
+      "rawDistanceM": null,
+      "pricingDistanceM": 10000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/krr/krasnodar-center": {
+      "routeId": "/airport/krr/krasnodar-center",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/krr/goryachiy-klyuch": {
+      "routeId": "/airport/krr/goryachiy-klyuch",
+      "km": 60,
+      "rawDistanceM": null,
+      "pricingDistanceM": 60000,
+      "price": 5500,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/krr/kropotkin": {
+      "routeId": "/airport/krr/kropotkin",
+      "km": 150,
+      "rawDistanceM": null,
+      "pricingDistanceM": 145000,
+      "price": 11000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/koltsovo": {
+      "routeId": "/airports/koltsovo",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 20000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/kurumoch": {
+      "routeId": "/airports/kurumoch",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/adler-airport": {
+      "routeId": "/airports/adler-airport",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 30000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/pashkovskiy": {
+      "routeId": "/airports/pashkovskiy",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/platov": {
+      "routeId": "/airports/platov",
+      "km": 40,
+      "rawDistanceM": null,
+      "pricingDistanceM": 40000,
+      "price": 4000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/tolmachyovo": {
+      "routeId": "/airports/tolmachyovo",
+      "km": 30,
+      "rawDistanceM": null,
+      "pricingDistanceM": 25000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/simferopol-airport": {
+      "routeId": "/airports/simferopol-airport",
+      "km": 20,
+      "rawDistanceM": null,
+      "pricingDistanceM": 15000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airports/mineralnye-vody-airport": {
+      "routeId": "/airports/mineralnye-vody-airport",
+      "km": 10,
+      "rawDistanceM": null,
+      "pricingDistanceM": 10000,
+      "price": 3000,
+      "distanceStatus": "legacy-estimate-needs-road-check"
+    }
+  }
+}

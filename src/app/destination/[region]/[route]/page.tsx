@@ -1,3 +1,7 @@
+import { TripConstructor } from '@/components/TripConstructor';
+import { JourneyHero } from '@/components/JourneyHero';
+import { getJourneyIllustration } from '@/lib/journey-illustrations';
+import { routeMetadata, routeOffer } from '@/lib/route-seo';
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroBackground, HeroVehicleImage } from "@/components/HeroBackground";
@@ -45,24 +49,8 @@ export function generateStaticParams() {
 
 type Props = { params: Promise<{ region: string; route: string }> };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { region, route } = await params;
-  const data = getDestinationRoute(region, route);
-  const hub = getDestinationHub(region);
-  if (!data || !hub) return {};
-  const meta = metaDestinationRoute({
-    regionSlug: region,
-    routeSlug: route,
-    regionName: hub.regionName,
-    fromCity: data.fromCity,
-    toCity: data.toCity,
-    km: data.km,
-    hours: data.hours,
-  });
-  return {
-    ...meta,
-    alternates: { canonical: `https://zakazminivena.ru/destination/${region}/${route}` },
-  };
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {region,route}=await params;const data=getDestinationRoute(region,route);if(!data)return {};return routeMetadata({from:data.fromCity,to:data.toCity,km:data.km,pricingDistanceM:data.pricingDistanceM,path:'/destination/'+region+'/'+route});
 }
 
 export default async function DestinationRoutePage({ params }: Props) {
@@ -70,11 +58,12 @@ export default async function DestinationRoutePage({ params }: Props) {
   const data = getDestinationRoute(region, route);
   const hub = getDestinationHub(region);
   if (!data || !hub) notFound();
-  const price = formatPrice(calcPrice(data.km));
+  const price = formatPrice(calcPrice(data.km, data.pricingDistanceM));
   const relatedRoutes = getDestinationRoutesByRegion(region)
     .filter((r) => r.routeSlug !== route)
     .slice(0, 6);
   const heroImage = getDestinationRouteHeroImage(region);
+  const illustration = getJourneyIllustration('/destination/' + region + '/' + route);
 
   // Уникальные тексты от content-engine.
   const content = generateDestinationRouteContent({
@@ -82,6 +71,7 @@ export default async function DestinationRoutePage({ params }: Props) {
     fromCity: data.fromCity,
     toCity: data.toCity,
     km: data.km,
+    pricingDistanceM: data.pricingDistanceM,
     hours: data.hours,
     uniqueIntro: data.uniqueIntro,
     uniqueRouteDesc: data.uniqueRouteDesc,
@@ -94,18 +84,13 @@ export default async function DestinationRoutePage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "TaxiService",
     name: `Минивэн ${data.fromCity} → ${data.toCity}`,
-    description: `Минивэн на 6–8 мест из ${data.fromCity} в ${data.toCity}. Фикс цена от ${price} ₽.`,
+    description: `Минивэн на до 7 мест из ${data.fromCity} в ${data.toCity}. Цена от ${price} ₽.`,
     provider: {
       "@type": "Organization",
       name: "ЗаказМинивэна.ru",
       url: "https://zakazminivena.ru",
     },
-    offers: {
-      "@type": "Offer",
-      price: String(calcPrice(data.km)),
-      priceCurrency: "RUB",
-      availability: "https://schema.org/InStock",
-    },
+    offers: routeOffer(calcPrice(data.km,data.pricingDistanceM)),
   };
 
   return (
@@ -126,7 +111,7 @@ export default async function DestinationRoutePage({ params }: Props) {
         />
 
         {/* ===== HERO ===== */}
-        <section className="relative overflow-hidden">
+        {illustration ? <JourneyHero image={illustration} title={'Минивэн ' + data.fromCity + ' → ' + data.toCity} description="Новые места приятнее открывать вместе. Семейная поездка или путешествие своей компанией — подберём места для людей и вещей." price={price} distance={data.km} duration={data.hours} eyebrow={hub.regionName + ' — время для впечатлений'} /> : <section data-route-hero className="relative overflow-hidden">
           <HeroBackground />
           <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
@@ -183,7 +168,7 @@ export default async function DestinationRoutePage({ params }: Props) {
                 </div>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <a href="#booking" className="rounded-lg bg-emerald px-6 py-3 text-sm font-medium text-emerald-foreground hover:bg-emerald/90">
+                  <a href="#trip-constructor" className="rounded-lg bg-emerald px-6 py-3 text-sm font-medium text-emerald-foreground hover:bg-emerald/90">
                     Узнать точную цену
                   </a>
                   <a href="https://wa.me/79185875454" className="rounded-lg border bg-background/70 backdrop-blur px-6 py-3 text-sm font-medium hover:border-emerald hover:text-emerald">
@@ -193,7 +178,9 @@ export default async function DestinationRoutePage({ params }: Props) {
               </div>
             </div>
           </div>
-        </section>
+        </section>}
+
+        <TripConstructor routePath={'/destination/'+region+'/'+route} />
 
         {/* ===== CTA / ФОРМА ===== */}
         <section id="booking" className="border-t bg-muted/30 py-16 sm:py-20 scroll-mt-20">
@@ -231,13 +218,6 @@ export default async function DestinationRoutePage({ params }: Props) {
           </div>
         </section>
 
-        {/* ===== ТАРИФНЫЕ КАРТОЧКИ ===== */}
-        <FleetTariffCards
-          title="Какой минивэн подаём"
-          subtitle={`Выберите класс для поездки ${data.fromCity} → ${data.toCity}`}
-          contextLabel={hub.regionName}
-        />
-
         {/* ===== ЛОНГРИД «ВСЁ, ЧТО НУЖНО ЗНАТЬ» ===== */}
         <RouteFactsLongread
           title={`Всё, что нужно знать о поездке ${data.fromCity} → ${data.toCity}`}
@@ -259,12 +239,12 @@ export default async function DestinationRoutePage({ params }: Props) {
 
         {/* ===== ТАРИФНАЯ ТАБЛИЦА ===== */}
         <TariffTable
-          modelName="Минивэн 7–8 мест"
+          modelName="Минивэн до 7 мест"
           title="Цена и дополнительные услуги"
           baseFare={[
             { label: "В одну сторону", value: `от ${price} ₽`, highlight: true },
             { label: "Туда-обратно за день", value: "по согласованию" },
-            { label: "С ночёвкой водителя (за машину + сутки)", value: `от ${formatPrice(calcPrice(data.km) + 8000)} ₽` },
+            { label: "С ночёвкой водителя (за машину + сутки)", value: `от ${formatPrice(calcPrice(data.km, data.pricingDistanceM) + 8000)} ₽` },
             ...defaultBaseFare(),
           ]}
           extras={defaultExtras()}
@@ -341,7 +321,7 @@ export default async function DestinationRoutePage({ params }: Props) {
                         {r.km} км · {r.hours}
                       </div>
                       <div className="mt-3 text-base font-bold">
-                        от {formatPrice(calcPrice(r.km))} ₽
+                        от {formatPrice(calcPrice(r.km, r.pricingDistanceM))} ₽
                       </div>
                     </Card>
                   </Link>

@@ -1,7 +1,7 @@
 // Генератор уникального контента для туристического маршрута /destination/{region}/{route}/.
 // Цель: 4-5к символов уникального текста.
 
-import { durationPhrase, kmPhrase, priceFromKm, priceRoundTripFromKm } from "./format";
+import { durationPhrase, kmPhrase, priceFromKm, } from "./format";
 import { calcPrice, formatPrice } from "@/lib/routes-data";
 
 export interface DestinationRouteSection {
@@ -25,6 +25,7 @@ interface Input {
   fromCity: string;
   toCity: string;
   km: number;
+  pricingDistanceM?: number;
   hours: string;
   uniqueIntro?: string;
   uniqueRouteDesc?: string;
@@ -34,23 +35,22 @@ interface Input {
 }
 
 export function generateDestinationRouteContent(opts: Input): DestinationRouteContent {
-  const price = priceFromKm(opts.km);
-  const priceRT = priceRoundTripFromKm(opts.km);
-  const price2Day = formatPrice(calcPrice(opts.km) + 8000);
+  const price = priceFromKm(opts.km, opts.pricingDistanceM);
+  const price2Day = formatPrice(calcPrice(opts.km, opts.pricingDistanceM) + 8000);
   const duration = durationPhrase(opts.hours);
   const isLong = opts.km > 200;
 
   const h1 = `Минивэн ${opts.fromCity} → ${opts.toCity} — от ${price} ₽ за машину`;
 
   const heroSubtitle =
-    `Туристическая поездка ${kmPhrase(opts.km)} за ${duration}. Минивэн до 8 пассажиров с ` +
+    `Туристическая поездка ${kmPhrase(opts.km)} за ${duration}. Минивэн до 7 пассажиров с ` +
     `багажом. Водитель знает регион, остановки для фото бесплатно, гибкий маршрут.`;
 
   // ─────── INTRO (3 параграфа) ───────
   const baseIntro =
     `Поездка ${opts.fromCity} → ${opts.toCity} на минивэне с водителем — оптимальный формат ` +
-    `для семьи, друзей или туристической группы из 4–8 человек. Заказ оформляется за ` +
-    `фиксированную цену ${price} ₽ за всю машину, без сюрпризов в итоговой стоимости. ` +
+    `для семьи, друзей или туристической группы из 4–7 человек. Заказ оформляется за ` +
+    `предварительную цену от ${price} ₽ за всю машину, без сюрпризов в итоговой стоимости. ` +
     `Водитель знает дорогу в ${opts.regionName}, расскажет по пути о ключевых ` +
     `достопримечательностях и подскажет, где лучше остановиться для фото, где попить кофе ` +
     `и какие сезонные особенности маршрута стоит учесть. ` +
@@ -93,7 +93,7 @@ export function generateDestinationRouteContent(opts: Input): DestinationRouteCo
     `вы хотите забрать друзей по дороге — добавьте дополнительный адрес посадки за 500 ₽. ` +
     `На длинных участках водитель подберёт ритм с учётом маленьких детей или пассажиров ` +
     `с укачиванием. Климат-контроль в салоне настраивается зонами, USB-розетки на каждом ` +
-    `пассажирском ряду, в багажнике место для 6–8 чемоданов или 8–10 рюкзаков туриста.`;
+    `пассажирском ряду, в багажнике место для до 7 чемоданов или 8–10 рюкзаков туриста.`;
 
   const routeDescription = opts.uniqueRouteDesc
     ? `${opts.uniqueRouteDesc}\n\n${baseRouteDesc}\n\n${routeDescB}`
@@ -114,7 +114,7 @@ export function generateDestinationRouteContent(opts: Input): DestinationRouteCo
     body:
       `На туристическую поездку ${opts.fromCity} → ${opts.toCity} мы предлагаем выбор из ` +
       `четырёх классов: универсальный VW Caravelle на 5–6 пассажиров — самый бюджетный, ` +
-      `комфорт-класс VW Multivan или Hyundai Staria на 7–8 пассажиров с раздвижными ` +
+      `комфорт-класс VW Multivan или Hyundai Staria до 7 пассажиров с раздвижными ` +
       `дверями и большим багажником, бизнес-класс Mercedes V-Class или Toyota Alphard ` +
       `с кожаным салоном для VIP-туров, и большой класс Mercedes Vito или Toyota Hiace ` +
       `для группы 8 человек с туристическим инвентарём. Все минивэны 2019–2023 года, ` +
@@ -168,7 +168,7 @@ export function generateDestinationRouteContent(opts: Input): DestinationRouteCo
     title: "Что включено в стоимость и что оплачивается отдельно",
     iconKey: "sparkles",
     body:
-      `Включено в фикс цену ${price} ₽: подача в любую точку ${opts.fromCity}, бензин по ` +
+      `Включено в фикс цену от ${price} ₽: подача в любую точку ${opts.fromCity}, бензин по ` +
       `маршруту до ${opts.toCity} (${kmPhrase(opts.km)}), детское кресло любого типа, ` +
       `помощь с багажом, 1–2 санитарные остановки, остановки для фото до 30 минут на каждой, ` +
       `работа водителя за все ${duration} в пути, электронный ККТ-чек на email. ` +
@@ -201,7 +201,7 @@ export function generateDestinationRouteContent(opts: Input): DestinationRouteCo
     {
       q: `Сколько стоит минивэн ${opts.fromCity} → ${opts.toCity}?`,
       a:
-        `Фикс цена от ${price} ₽ за машину 6–8 мест. Не зависит от количества пассажиров. ` +
+        `Фикс цена от ${price} ₽ за машину до 7 мест. Не зависит от количества пассажиров. ` +
         `Поездка туда-обратно за день — по согласованию с менеджером, зависит от времени ` +
         `ожидания на месте. С ночёвкой водителя в ${opts.toCity} — от ${price2Day} ₽ ` +
         `(плюс гостиница для водителя по факту, обычно 1 500–3 000 ₽/сутки).`,
@@ -278,7 +278,7 @@ export function generateDestinationRouteContent(opts: Input): DestinationRouteCo
     intro,
     routeDescription,
     callout,
-    sections,
-    faq,
+    sections: sections.map(s => /какой минивэн|класс/i.test(s.title) ? {...s,body: "Для этой поездки рассчитывается тариф «Комфорт»: Hyundai Starex / H-1, Volkswagen Caravelle или Kia Carnival IV. До 7 пассажиров; конкретную машину, детские кресла и размещение багажа согласуем до заказа."} : s),
+    faq: faq.map(f => /сколько стоит|стоимость|цена/i.test(f.q) ? {...f,a: `От ${price} ₽ за весь минивэн «Комфорт» в одну сторону. Расстояние — около ${opts.km} км. Адреса, дату, платные участки и дополнительные условия подтверждаем до заказа. Обратную поездку считаем отдельно.`} : /какой минивэн|класс/i.test(f.q) ? {...f,a:"Сейчас рассчитываем только минивэн «Комфорт», до 7 пассажиров. Starex / H-1, Caravelle, Carnival IV — примеры моделей; наличие и конкретный салон подтвердим."} : f),
   };
 }

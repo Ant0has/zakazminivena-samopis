@@ -2,13 +2,14 @@
 // Учитывает: цену по km, время, расстояние, ключевые СЯ-фразы, длину для SERP.
 
 import type { Metadata } from "next";
+import { pricingYear } from '@/lib/route-pricing';
+import { destinationPhrase, originPhrase } from './place-forms';
 import {
   BRAND,
   clampDescription,
   clampTitle,
   durationPhrase,
   priceFromKm,
-  priceRoundTripFromKm,
 } from "./format";
 
 const SITE = "https://zakazminivena.ru";
@@ -70,11 +71,12 @@ export function metaAirportRoute(opts: {
   airportNameFull: string;
   destinationName: string;
   km: number;
+  pricingDistanceM?: number;
   hours: string;
   city: string;
 }): Metadata {
   const { iata, airportName, airportNameFull, destinationName, km, hours, city } = opts;
-  const price = priceFromKm(km);
+  const price = priceFromKm(km, opts.pricingDistanceM);
   const duration = durationPhrase(hours);
   const iataUpper = iata.toUpperCase();
 
@@ -123,9 +125,7 @@ export function metaAirportHub(opts: {
     ? customTitle(city, iataUpper, minPrice)
     : `Минивэн в аэропорт ${airportName} (${iataUpper}) — от ${formatRub(minPrice)} ₽ | ${BRAND}`;
 
-  const description =
-    `Минивэн с водителем в ${airportNameFull}, ${city}. ` +
-    `Трансфер 6–8 пассажиров от ${formatRub(minPrice)} ₽. Встреча с табличкой, ожидание при задержке.`;
+  const description = `Минивэн: ${airportNameFull}, ${city}. От ${formatRub(minPrice)} ₽ за автомобиль, до 7 пассажиров. Цены ${pricingYear} года. Адреса, багаж и условия встречи согласуем до заказа.`;
 
   return buildMeta(title, description, {
     canonical: `${SITE}/airport/${iata}`,
@@ -146,12 +146,9 @@ export function metaDestinationHub(opts: {
   minPrice: number;
 }): Metadata {
   const { regionSlug, regionName, hubCity, topPointsShort, minPrice } = opts;
-  const acc = opts.regionNameAcc ?? regionName;
-
-  const title = `Минивэн в ${acc} из ${hubCity} — от ${formatRub(minPrice)} ₽ | ${BRAND}`;
-  const description =
-    `Минивэн в ${acc}: ${topPointsShort}. Туры из ${hubCity}, до 8 мест. ` +
-    `Цена от ${formatRub(minPrice)} ₽. Водитель знает регион.`;
+  const direction = destinationPhrase(regionSlug, regionName);
+  const title = `Минивэн ${direction} ${originPhrase(hubCity)} — от ${formatRub(minPrice)} ₽`;
+  const description = `Минивэн ${direction}: ${topPointsShort}. От ${formatRub(minPrice)} ₽ за автомобиль, до 7 пассажиров. Цены ${pricingYear}; маршрут и багаж согласуем.`;
 
   return buildMeta(title, description, {
     canonical: `${SITE}/destination/${regionSlug}`,
@@ -169,17 +166,17 @@ export function metaDestinationRoute(opts: {
   fromCity: string;
   toCity: string;
   km: number;
+  pricingDistanceM?: number;
   hours: string;
 }): Metadata {
   const { regionSlug, routeSlug, regionName, fromCity, toCity, km, hours } = opts;
-  const price = priceFromKm(km);
-  const priceRT = priceRoundTripFromKm(km);
+  const price = priceFromKm(km, opts.pricingDistanceM);
   const duration = durationPhrase(hours);
 
   const title = `Минивэн ${fromCity} → ${toCity}: ${km} км, от ${price} ₽ | ${BRAND}`;
   const description =
     `Минивэн ${fromCity} → ${toCity} (${regionName}). ${km} км, ${duration}. ` +
-    `От ${price} ₽ за машину 6–8 мест. Остановки для фото, водитель знает регион.`;
+    `От ${price} ₽ за машину до 7 мест. Остановки для фото, водитель знает регион.`;
 
   return buildMeta(title, description, {
     canonical: `${SITE}/destination/${regionSlug}/${routeSlug}`,
@@ -196,13 +193,10 @@ export function metaService(opts: {
   primaryCity?: string;
   minPrice?: number;
 }): Metadata {
-  const { slug, scenarioGenitive, primaryCity = "Москве", minPrice = 4000 } = opts;
-
-  const title = `Минивэн на ${scenarioGenitive} — заказать с водителем в ${primaryCity} | ${BRAND}`;
-  const description =
-    `Минивэн на ${scenarioGenitive} в ${primaryCity}: 6–8 пассажирских мест, ` +
-    `безналичный расчёт, документы для отчётности, дет.кресла бесплатно. ` +
-    `Фикс цена от ${formatRub(minPrice)} ₽ за машину. Заказ онлайн.`;
+  const { slug, scenarioGenitive, primaryCity } = opts;
+  const location = primaryCity ? ` в ${primaryCity}` : '';
+  const title = `Минивэн: ${scenarioGenitive} — с водителем${location}`;
+  const description = `Минивэн с водителем: ${scenarioGenitive}${location}. До 7 пассажиров. Укажите маршрут, дату и багаж: наличие машины и итоговую цену подтвердим до заказа.`;
 
   return buildMeta(title, description, { canonical: `${SITE}/service/${slug}` });
 }
@@ -230,7 +224,7 @@ export function metaFleetModel(opts: {
     primaryCities = "Москве и СПб",
   } = opts;
 
-  const title = `${fullName} с водителем — от ${formatRub(minPrice)} ₽ | ${BRAND}`;
+  const title = `Минивэн ${fullName} с водителем — от ${formatRub(minPrice)} ₽`;
   const description =
     `Заказать ${fullName} с водителем в ${primaryCities}. ${tier} минивэн на ${seats} ` +
     `пассажиров, ${luggageL} л багажа. Аэропорт, межгород, почасовая аренда от ` +
@@ -256,7 +250,7 @@ export function metaCityHub(opts: {
   const description =
     `Заказать минивэн с водителем в ${cityName}: ${apPart}межгородские поездки, ` +
     `по городу, почасовая аренда, свадьбы, корпоратив. ` +
-    `Фикс цена за машину 6–8 мест. Документы для юрлиц.`;
+    `Фикс цена за машину до 7 мест. Документы для юрлиц.`;
 
   return buildMeta(title, description, { canonical: `${SITE}/cities/${citySlug}` });
 }

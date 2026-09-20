@@ -12,8 +12,16 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
 import type { Metadata } from "next";
+import { pricingYear, tariff } from '@/lib/route-pricing';
+import { routeOffer } from '@/lib/route-seo';
+
+const title = 'Минивэн с водителем — межгород и аэропорт от 3 000 ₽';
+const description = `Минивэн «Комфорт» до 7 пассажиров: межгород и аэропорт от 3 000 ₽ за автомобиль. Цены ${pricingYear}. Выберите детей и багаж в конструкторе, условия подтвердим до заказа.`;
 
 export const metadata: Metadata = {
+  title, description,
+  openGraph: { title, description, url: 'https://zakazminivena.ru', type: 'website', images: [{ url: 'https://zakazminivena.ru/images/heroes/family-journey-20260919.webp', width: 1536, height: 1024 }] },
+  twitter: { card: 'summary_large_image', title, description, images: ['https://zakazminivena.ru/images/heroes/family-journey-20260919.webp'] },
   alternates: {
     canonical: "https://zakazminivena.ru",
   },
@@ -39,13 +47,7 @@ const jsonLd = {
     "Групповой трансфер",
     "Детские перевозки",
   ],
-  offers: {
-    "@type": "Offer",
-    priceCurrency: "RUB",
-    price: "Индивидуальный расчёт",
-    
-    description: "Минивэн с водителем, 7 мест, фиксированная цена",
-  },
+  offers: routeOffer(tariff.minimum),
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.9",

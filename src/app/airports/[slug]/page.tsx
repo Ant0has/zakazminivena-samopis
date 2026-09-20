@@ -1,3 +1,5 @@
+import { TripConstructor } from '@/components/TripConstructor';
+import { routeMetadata, routeOffer } from '@/lib/route-seo';
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -16,7 +18,7 @@ import {
   ClockIcon,
 } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
-import { allAirports, allRoutes, type AirportData } from "@/lib/routes-data";
+import { allAirports, allRoutes, calcPrice, formatPrice, type AirportData } from "@/lib/routes-data";
 import { getAirportContent } from "@/lib/airport-content";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
@@ -32,28 +34,9 @@ function getAirport(slug: string): AirportData | undefined {
   return allAirports.find((a) => a.slug === slug);
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const airport = getAirport(slug);
-  if (!airport) return {};
-
-  return {
-    title: `Трансфер минивэн — аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
-    description: getAirportContent(slug)?.metaDescription || `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. +7 (918) 587-54-54`,
-    openGraph: {
-      title: `Трансфер минивэн — аэропорт ${airport.name} (${airport.code}), ${airport.city}`,
-      description: getAirportContent(slug)?.metaDescription || `Трансфер на минивэне 7 мест в аэропорт ${airport.name} (${airport.code}), ${airport.city}. Фиксированная цена, встреча с табличкой, детское кресло бесплатно. +7 (918) 587-54-54`,
-      url: `https://zakazminivena.ru/airports/${slug}`,
-      siteName: "ЗаказМинивэна.ru",
-      locale: "ru_RU",
-      type: "article",
-    },
-    alternates: {
-      canonical: `https://zakazminivena.ru/airports/${slug}`,
-    },
-  };
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {slug}=await params;const airport=getAirport(slug);if(!airport)return {};return routeMetadata({from:'Аэропорт '+airport.name,to:airport.city,km:airport.km,pricingDistanceM:airport.pricingDistanceM,path:'/airports/'+slug});
 }
-
 
 function getAirportTags(citySlug: string): string[] {
   const tags: string[] = ["airport"];
@@ -116,6 +99,7 @@ export default async function AirportPage({ params }: Props) {
       "url": "https://zakazminivena.ru",
     },
     "serviceType": "Airport Transfer",
+    "offers": routeOffer(calcPrice(airport.km,airport.pricingDistanceM)),
     "availableChannel": {
       "@type": "ServiceChannel",
       "serviceUrl": "https://t.me/ZakazMinivena",
@@ -131,7 +115,7 @@ export default async function AirportPage({ params }: Props) {
       />
       <Header />
       <main className="pt-16">
-        <section className="py-16 sm:py-24">
+        <section data-route-hero className="py-10 sm:py-16">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={[
               { label: "Главная", href: "/" },
@@ -167,7 +151,7 @@ export default async function AirportPage({ params }: Props) {
                 </div>
                 <div className="flex items-center gap-2 font-semibold">
                   <ClockIcon className="h-4 w-4 text-emerald" />
-                  {airport.km} км
+                  ≈ {airport.km} км · От {formatPrice(calcPrice(airport.km,airport.pricingDistanceM))} ₽
                 </div>
               </div>
               <div className="rounded-xl border border-border bg-card p-5">
@@ -181,6 +165,11 @@ export default async function AirportPage({ params }: Props) {
               </div>
             </div>
 
+          </div>
+        </section>
+        <TripConstructor routePath={'/airports/'+slug} />
+        <section className="pb-16 sm:pb-24">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             {/* Description */}
             <div className="mt-10 space-y-4 text-muted-foreground">
               {airportContent ? (

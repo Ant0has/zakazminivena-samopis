@@ -1,0 +1,51 @@
+{
+  "group": "sources",
+  "userAgent": "ZM-Intel/0.1 (+https://zakazminivena.ru/)",
+  "timeoutMs": 15000,
+  "sources": [
+    {
+      "name": "МЧС России",
+      "url": "https://mchs.gov.ru/",
+      "severity": "P1",
+      "terms": ["экстренное предупреждение", "опасные погодные явления", "гололед", "сильный снег", "паводок", "закрытие дороги"]
+    },
+    {
+      "name": "МЧС Москва — экстренные предупреждения",
+      "url": "https://moscow.mchs.gov.ru/deyatelnost/press-centr/operativnaya-informaciya/shtormovye-i-ekstrennye-preduprezhdeniya",
+      "severity": "P1",
+      "terms": ["экстренное предупреждение", "неблагоприятное", "штормовое", "гололедица", "снегопад"]
+    },
+    {
+      "name": "Росгидромет — информационные ресурсы",
+      "url": "https://www.meteorf.gov.ru/product/info/",
+      "severity": "P2",
+      "terms": ["предупреждение", "опасные явления", "пожароопасность", "прогноз"]
+    },
+    {
+      "name": "Автодор — ситуация на дорогах",
+      "url": "https://www.russianhighways.ru/",
+      "severity": "P1",
+      "terms": ["ситуация на дорогах", "ограничение движения", "движение перекрыто", "ремонт", "М-4", "М-11", "М-12"]
+    },
+    {
+      "name": "Росавиация — официальный канал",
+      "url": "https://t.me/s/favt_info",
+      "severity": "P1",
+      "terms": ["временные ограничения", "аэропорт", "задержки рейсов", "прием и выпуск"]
+    },
+    {
+      "name": "Минтранс России",
+      "url": "https://mintrans.gov.ru/press-center/",
+      "severity": "P2",
+      "terms": ["автомобильные перевозки", "пассажирские перевозки", "транспортная безопасность", "такси", "авиационный транспорт"]
+    },
+    {
+      "name": "Официальное опубликование правовых актов",
+      "url": "https://publication.pravo.gov.ru/documents/daily",
+      "enabled": false,
+      "severity": "P2",
+      "disabledReason": "Домен недоступен по HTTPS с temp-server; проверять внешним web-монитором.",
+      "terms": ["Министерство транспорта", "автомобильный транспорт", "перевозка пассажиров", "такси"]
+    }
+  ]
+}

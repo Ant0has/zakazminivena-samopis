@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { AttributionCapture } from '@/components/AttributionCapture';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +14,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = { themeColor: "#10b981" };
+
 export const metadata: Metadata = {
   manifest: "/manifest.json",
-  themeColor: "#10b981",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -86,6 +88,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
+        <AttributionCapture />
         {children}
 
         {/* Чат-виджет ZM (бэк chat.city2city.ru, проект ZAKAZMINIVENA).
@@ -98,7 +101,7 @@ export default function RootLayout({
           data-brand="ЗаказМинивэна.ru"
           data-color="#0f9d6c"
           data-bg-color="#064e3b"
-          data-tooltip="Закажите минивэн или автобус — напишите нам"
+          data-tooltip="Спланируем вашу поездку на минивэне — напишите нам"
         />
       </body>
     </html>

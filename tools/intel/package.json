@@ -1,0 +1,12 @@
+{
+  "name": "zakazminivena-intel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "health": "node scripts/health-check.mjs",
+    "watch:sources": "node scripts/watch-pages.mjs sources",
+    "watch:competitors": "node scripts/watch-pages.mjs competitors",
+    "check": "node --check scripts/health-check.mjs && node --check scripts/watch-pages.mjs"
+  }
+}

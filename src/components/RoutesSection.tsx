@@ -71,7 +71,7 @@ export function RoutesSection() {
               </div>
               <div className="text-right">
                 <div className="text-lg font-bold tabular-nums">
-                  {formatPrice(calcPrice(route.km))}
+                  {formatPrice(calcPrice(route.km, route.pricingDistanceM))}
                   <span className="ml-1 text-xs font-normal text-muted-foreground">
                     руб.
                   </span>

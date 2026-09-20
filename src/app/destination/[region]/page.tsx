@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const hub = getDestinationHub(region);
   if (!hub) return {};
   const routes = getDestinationRoutesByRegion(region);
-  const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
+  const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km, r.pricingDistanceM))) : 4000;
   const meta = metaDestinationHub({
     regionSlug: region,
     regionName: hub.regionName,
@@ -62,7 +62,7 @@ export default async function DestinationHubPage({ params }: Props) {
   const hub = getDestinationHub(region);
   if (!hub) notFound();
   const routes = getDestinationRoutesByRegion(region);
-  const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
+  const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km, r.pricingDistanceM))) : 4000;
   const fleet = hub.fleetModels.map((s) => fleetBySlug[s]).filter(Boolean);
   const heroImage = getDestinationHubHeroImage(region);
   const hubContent = generateDestinationHubContent({
@@ -162,7 +162,7 @@ export default async function DestinationHubPage({ params }: Props) {
                 { icon: CompassIcon, title: "Водитель знает регион", desc: "Рассказы и рекомендации в дороге" },
                 { icon: CameraIcon, title: "Остановки для фото", desc: "Без дополнительной оплаты" },
                 { icon: MapPinIcon, title: "Гибкий маршрут", desc: "Меняйте по ходу поездки" },
-                { icon: CheckIcon, title: "До 8 пассажиров", desc: "С местом под рюкзаки и багаж" },
+                { icon: CheckIcon, title: "До 7 пассажиров", desc: "С местом под рюкзаки и багаж" },
               ].map((a) => (
                 <Card key={a.title} className="p-6">
                   <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald/10 text-emerald">
@@ -184,7 +184,7 @@ export default async function DestinationHubPage({ params }: Props) {
                 Популярные маршруты в {hub.regionName}
               </h2>
               <p className="mt-3 text-base text-muted-foreground">
-                Цена за машину 6–8 мест. Можно менять маршрут в дороге.
+                Цена за машину 6–7 мест. Можно менять маршрут в дороге.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -201,7 +201,7 @@ export default async function DestinationHubPage({ params }: Props) {
                       {r.km} км · {r.hours}
                     </div>
                     <div className="mt-3 text-base font-bold">
-                      от {formatPrice(calcPrice(r.km))} ₽
+                      от {formatPrice(calcPrice(r.km, r.pricingDistanceM))} ₽
                     </div>
                   </Card>
                 </Link>
@@ -316,7 +316,7 @@ export default async function DestinationHubPage({ params }: Props) {
         {/* ===== ТАРИФНЫЕ КАРТОЧКИ ===== */}
         <FleetTariffCards
           title={`Минивэны для поездок в ${hub.regionNameAcc}`}
-          subtitle="Выберите класс. Цена за машину, не за пассажира."
+          subtitle="Тариф «Комфорт» — цена за весь минивэн, не за пассажира"
           contextLabel={hub.regionName}
           bg="default"
         />
@@ -358,7 +358,7 @@ export default async function DestinationHubPage({ params }: Props) {
           items={hubContent.faq.length > 0 ? hubContent.faq : [
             {
               q: `Сколько стоит минивэн в ${hub.regionNameAcc}?`,
-              a: `Базовая цена за машину 6–8 мест — от ${formatPrice(minPrice)} ₽. Конкретные маршруты — в карточках выше. Точная цена за вашу поездку — через форму или WhatsApp за 5 минут.`,
+              a: `Базовая цена за машину 6–7 мест — от ${formatPrice(minPrice)} ₽. Конкретные маршруты — в карточках выше. Точная цена за вашу поездку — через форму или WhatsApp за 5 минут.`,
             },
             {
               q: `Что особенного в поездках по ${hub.regionNameAcc}?`,

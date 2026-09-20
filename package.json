@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/build-constructor.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test tests/*-integration.test.mjs && node tests/test-foundation.cjs && node tests/verify-order-api.mjs && node tests/test-short-workspace.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

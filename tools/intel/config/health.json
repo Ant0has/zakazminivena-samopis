@@ -1,0 +1,38 @@
+{
+  "tlsHost": "zakazminivena.ru",
+  "tlsWarnDays": 21,
+  "targets": [
+    {
+      "name": "home",
+      "url": "https://zakazminivena.ru/",
+      "expectedStatus": 200,
+      "contains": "ЗаказМинивэна"
+    },
+    {
+      "name": "commercial-entry",
+      "url": "https://zakazminivena.ru/yandex-taxi-minivan",
+      "expectedStatus": 200,
+      "contains": "минивэн"
+    },
+    {
+      "name": "application-health",
+      "url": "https://zakazminivena.ru/api/healthz",
+      "expectedStatus": 200,
+      "contains": "\"ok\":true",
+      "enabled": false,
+      "enableAfter": "P0 site deployment"
+    },
+    {
+      "name": "sitemap",
+      "url": "https://zakazminivena.ru/sitemap.xml",
+      "expectedStatus": 200,
+      "contains": "<urlset"
+    },
+    {
+      "name": "www-canonicalization",
+      "url": "https://www.zakazminivena.ru/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://zakazminivena.ru/"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 // Единая отправка заявки с сайта на сервер (/api/order → email + CRM «Лиды»).
-// Автоматически добавляет URL страницы и UTM/yclid из адресной строки.
+// Сохраняет источник между переходами; успех требует подтверждения API.
+import { leadTracking } from './lead-attribution';
 
 export interface LeadInput {
   from?: string;
@@ -12,33 +13,32 @@ export interface LeadInput {
   comment?: string;
 }
 
-const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "yclid"];
-
-function collectUtm(): Record<string, string> {
-  const utm: Record<string, string> = {};
-  if (typeof window === "undefined") return utm;
-  const params = new URLSearchParams(window.location.search);
-  for (const k of UTM_KEYS) {
-    const v = params.get(k);
-    if (v) utm[k] = v;
-  }
-  return utm;
-}
+const pending = new Map<string, Promise<boolean>>();
 
 /** Отправляет заявку на /api/order (email + CRM). Возвращает true при успехе. */
 export async function submitLead(input: LeadInput): Promise<boolean> {
-  try {
+  const signature=JSON.stringify(input);
+  const existing=pending.get(signature); if(existing) return existing;
+  const task=(async()=>{try {
+    const tracking=await leadTracking();
     const res = await fetch("/api/order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         ...input,
-        pageUrl: typeof window !== "undefined" ? window.location.href : undefined,
-        utm: collectUtm(),
+        ...tracking,
       }),
+      signal: AbortSignal.timeout(20_000),
     });
-    return res.ok;
+    const result=await res.json();
+    if (res.ok && result.ok === true) {
+      try { const ym=(window as Window & {ym?: (...args: unknown[])=>void}).ym; if(ym) ym(79701640,'reachGoal','site_lead_success'); } catch {}
+      return true;
+    }
+    return false;
   } catch {
     return false;
-  }
+  }})();
+  pending.set(signature,task);
+  try{return await task;}finally{pending.delete(signature);}
 }

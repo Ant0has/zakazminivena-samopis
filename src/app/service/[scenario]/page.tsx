@@ -149,7 +149,7 @@ export default async function ServicePage({ params }: Props) {
                           </div>
                           <div className="shrink-0 text-right">
                             <div className="text-lg font-bold text-emerald">
-                              {formatPrice(calcPrice(r.km))} ₽
+                              {formatPrice(calcPrice(r.km, r.pricingDistanceM))} ₽
                             </div>
                             <ArrowRightIcon className="ml-auto h-4 w-4 text-muted-foreground" />
                           </div>

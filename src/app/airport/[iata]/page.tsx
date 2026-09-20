@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { JourneyHero } from '@/components/JourneyHero';
+import { getJourneyIllustration, journeySocialImage } from '@/lib/journey-illustrations';
 import Link from "next/link";
 import { HeroBackground } from "@/components/HeroBackground";
 import { AirportHeroForm } from "@/components/AirportHeroForm";
@@ -6,6 +8,7 @@ import { AirportPhotoCard } from "@/components/AirportPhotoCard";
 import { AirportFeaturesGrid } from "@/components/AirportFeaturesGrid";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
+import { TripConstructor } from '@/components/TripConstructor';
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { AirportConsultationForm } from "@/components/AirportConsultationForm";
@@ -48,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const airport = getIataAirport(iata);
   if (!airport) return {};
   const routes = getAirportRoutesByIata(iata);
-  const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
+  const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km, r.pricingDistanceM))) : 4000;
   const meta = metaAirportHub({
     iata,
     airportName: airport.name,
@@ -56,7 +59,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     city: airport.city,
     minPrice,
   });
-  return { ...meta, alternates: { canonical: `https://zakazminivena.ru/airport/${iata}` } };
+  const image = journeySocialImage('/airport/' + iata);
+  return { ...meta, ...(image ? { openGraph: { ...meta.openGraph, images: [image] }, twitter: { ...meta.twitter, card: 'summary_large_image' as const, images: [image.url] } } : {}), alternates: { canonical: `https://zakazminivena.ru/airport/${iata}` } };
 }
 
 export default async function AirportHubPage({ params }: Props) {
@@ -64,9 +68,11 @@ export default async function AirportHubPage({ params }: Props) {
   const airport = getIataAirport(iata);
   if (!airport) notFound();
   const routes = getAirportRoutesByIata(iata);
-  const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km))) : 4000;
+  const constructorRoute = routes.find((route) => route.destinationSlug.endsWith('-center'));
+  const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km, r.pricingDistanceM))) : 4000;
   const fleetForHub = airport.fleet.map((s) => fleetBySlug[s]).filter(Boolean);
   const heroImage = getAirportHubHeroImage(iata);
+  const illustration = getJourneyIllustration('/airport/' + iata);
   const hubContent = generateAirportHubContent({
     iata,
     airportName: airport.name,
@@ -102,7 +108,7 @@ export default async function AirportHubPage({ params }: Props) {
     name: `Минивэн в аэропорт ${airport.name}`,
     description:
       `Заказ минивэна с водителем в ${airport.nameFull}, ${airport.city}. ` +
-      `Трансфер 6–8 пассажиров от ${formatPrice(minPrice)} ₽ за машину.`,
+      `Трансфер 6–7 пассажиров от ${formatPrice(minPrice)} ₽ за машину.`,
     image: `https://zakazminivena.ru/images/heroes/${iata}.webp`,
     provider: {
       "@type": "Organization",
@@ -146,7 +152,7 @@ export default async function AirportHubPage({ params }: Props) {
         />
 
         {/* ===== HERO (airport hub) ===== */}
-        <section className="relative overflow-hidden">
+        {illustration ? <JourneyHero image={illustration} title={'Минивэн в аэропорт ' + airport.name + ' (' + iata.toUpperCase() + ')'} description="Начните или завершите путешествие спокойно. Встреча по рейсу, семья и чемоданы в одной машине — выберите вашу поездку в конструкторе ниже." price={formatPrice(minPrice)} eyebrow="Путешествие начинается с заботы" /> : <section data-route-hero className="relative overflow-hidden">
           <HeroBackground mobilePosition="top" />
           <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20">
             {/* Бейджи-чеклист */}
@@ -179,7 +185,7 @@ export default async function AirportHubPage({ params }: Props) {
                 items-stretch + lg:h-full на правой колонке выравнивает низ
                 обоих столбцов; фичи растягиваются (grow) до уровня формы. */}
             <div className="mt-8 grid gap-6 lg:grid-cols-2">
-              <AirportHeroForm iata={iata} airportShort={airport.name} />
+              <AirportHeroForm iata={iata} airportShort={airport.name} defaultDestination={constructorRoute?.destinationName} />
               <div className="flex flex-col gap-4">
                 <AirportPhotoCard
                   imageSrc={heroImage}
@@ -191,7 +197,16 @@ export default async function AirportHubPage({ params }: Props) {
               </div>
             </div>
           </div>
-        </section>
+        </section>}
+
+        <TripConstructor
+          routePath={constructorRoute ? `/airport/${iata}/${constructorRoute.destinationSlug}` : ''}
+          defaultFrom={'Аэропорт ' + airport.name}
+          defaultTo={constructorRoute?.destinationName || ''}
+          contextNote={constructorRoute
+            ? `Для начала выбран маршрут: ${airport.name} → ${constructorRoute.destinationName}. В конструкторе можно изменить адреса и направление поездки.`
+            : `Аэропорт ${airport.name} уже выбран. Укажите, куда поедете, — или поменяйте точки местами для поездки в аэропорт.`}
+        />
 
         {/* ===== ЧТО ВКЛЮЧЕНО ===== */}
         <section className="border-t bg-emerald/5 py-16 sm:py-24">
@@ -225,7 +240,7 @@ export default async function AirportHubPage({ params }: Props) {
                 Направления из {airport.name}
               </h2>
               <p className="mt-3 text-base text-muted-foreground">
-                Цена за машину 6–8 мест, не за пассажира
+                Цена за машину 6–7 мест, не за пассажира
               </p>
             </div>
             {routes.length === 0 ? (
@@ -247,7 +262,7 @@ export default async function AirportHubPage({ params }: Props) {
                         {r.km} км · {r.hours}
                       </div>
                       <div className="mt-3 text-base font-bold">
-                        от {formatPrice(calcPrice(r.km))} ₽
+                        от {formatPrice(calcPrice(r.km, r.pricingDistanceM))} ₽
                       </div>
                     </Card>
                   </Link>
@@ -259,8 +274,10 @@ export default async function AirportHubPage({ params }: Props) {
 
         {/* ===== ТАРИФНЫЕ КАРТОЧКИ ===== */}
         <FleetTariffCards
+          ctaHref="#trip-constructor"
+          constructorHref="#trip-constructor"
           title={`Минивэны, которые подаём в ${airport.name}`}
-          subtitle="Выберите класс — цена за машину, не за пассажира"
+          subtitle="Тариф «Комфорт» — цена за весь минивэн, не за пассажира"
           contextLabel={`Аэропорт ${iata.toUpperCase()}`}
           bg="default"
         />
@@ -344,7 +361,7 @@ export default async function AirportHubPage({ params }: Props) {
           items={hubContent.faq.length > 0 ? hubContent.faq : [
             {
               q: `Сколько стоит минивэн в аэропорт ${airport.name}?`,
-              a: `Цена зависит от точки подачи. Базовая стоимость — от ${formatPrice(minPrice)} ₽ за машину 6–8 мест. Для конкретной точки оставьте телефон — перезвоним в течение 7 минут и назовём фикс цену.`,
+              a: `Цена зависит от точки подачи. Базовая стоимость — от ${formatPrice(minPrice)} ₽ за машину 6–7 мест. Для конкретной точки оставьте телефон — перезвоним в течение 7 минут и назовём фикс цену.`,
             },
             {
               q: `Сколько ждёте, если рейс задерживается?`,

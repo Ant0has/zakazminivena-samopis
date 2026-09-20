@@ -1,4 +1,8 @@
+import { publishedRoutePricing, priceForDistance } from './route-pricing';
 export interface RouteData {
+  pricingDistanceM?: number;
+  rawDistanceM?: number | null;
+  distanceStatus?: string;
   from: string;
   to: string;
   slug: string;
@@ -9,27 +13,18 @@ export interface RouteData {
 }
 
 // Цена = Math.ceil((km * 60) / 500) * 500
-export function calcPrice(km: number): number {
-  return Math.max(4000, Math.ceil((km * 60) / 500) * 500);
+export function calcPrice(km: number, pricingDistanceM?: number): number {
+  return priceForDistance(km, pricingDistanceM);
 }
 
 export function formatPrice(price: number): string {
   return price.toLocaleString("ru-RU");
 }
 
-export function calcReturnPrice(km: number): number {
-  const oneWay = calcPrice(km);
-  const returnTrip = Math.ceil((oneWay * 0.8) / 500) * 500;
-  return Math.max(4000, returnTrip);
-}
+// Обратный маршрут рассчитывается отдельно: автоматической скидки на возврат нет.
 
-export function calcRoundTripTotal(km: number): number {
-  return calcPrice(km) + calcReturnPrice(km);
-}
-
-
-export function pricePerPerson(km: number, people: number = 7): string {
-  return Math.ceil(calcPrice(km) / people).toLocaleString("ru-RU");
+export function pricePerPerson(km: number, people: number = 7, pricingDistanceM?: number): string {
+  return Math.ceil(calcPrice(km, pricingDistanceM) / people).toLocaleString("ru-RU");
 }
 
 // Все маршруты — данные из базы city2city.ru
@@ -149,6 +144,9 @@ export const allCities: CityData[] = [
 
 // Аэропорты
 export interface AirportData {
+  pricingDistanceM?: number;
+  rawDistanceM?: number | null;
+  distanceStatus?: string;
   name: string;
   code: string;
   slug: string;
@@ -171,3 +169,7 @@ export const allAirports: AirportData[] = [
   { name: "Симферополь", code: "SIP", slug: "simferopol-airport", city: "Симферополь", citySlug: "simferopol", km: 15 },
   { name: "Минеральные Воды", code: "MRV", slug: "mineralnye-vody-airport", city: "Минеральные Воды", citySlug: "mineralnye-vody", km: 10 },
 ];
+
+// Shared directed registry: pages, cards, metadata and constructor use the same values.
+for (const r of allRoutes) Object.assign(r, publishedRoutePricing('/routes/' + r.slug, r.km));
+for (const r of allAirports) Object.assign(r, publishedRoutePricing('/airports/' + r.slug, r.km));

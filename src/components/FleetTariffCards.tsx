@@ -14,15 +14,17 @@ interface FleetTariffCardsProps {
   subtitle?: string;
   classes?: TariffClass[];
   ctaHref?: string;
+  constructorHref?: string;
   contextLabel?: string;
   bg?: "default" | "muted";
 }
 
 export function FleetTariffCards({
   title = "Какой минивэн подаём",
-  subtitle = "Выберите класс — цена за машину, не за пассажира",
-  classes = tariffClasses,
-  ctaHref = "#booking",
+  subtitle = "Сейчас рассчитываем тариф «Комфорт» — цена за весь минивэн",
+  classes = tariffClasses.filter(c => c.slug === 'comfort').map(c => ({ ...c, priceFrom: 3000, modelExamples: ['Hyundai Starex / H-1', 'Volkswagen Caravelle', 'Kia Carnival IV'], trunkNote: 'До 7 пассажиров. Конкретный автомобиль, детские кресла и размещение багажа подтвердим до заказа.', luggageOptions: [] })),
+  ctaHref = "/constructor",
+  constructorHref = "/constructor",
   contextLabel,
   bg = "muted",
 }: FleetTariffCardsProps) {
@@ -39,7 +41,7 @@ export function FleetTariffCards({
           <p className="mt-3 text-base text-muted-foreground">{subtitle}</p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-lg gap-5">
           {classes.map((c) => (
             <TariffCard key={c.slug} data={c} ctaHref={ctaHref} />
           ))}
@@ -47,10 +49,10 @@ export function FleetTariffCards({
 
         <div className="mt-8 text-center">
           <Link
-            href="/fleet"
+            href={constructorHref}
             className="inline-flex items-center gap-2 rounded-lg border border-emerald/30 bg-emerald/5 px-5 py-3 text-sm font-medium text-emerald transition-colors hover:bg-emerald/10"
           >
-            Запросить другой класс или маршрут →
+            Подобрать пассажиров и багаж →
           </Link>
         </div>
       </div>

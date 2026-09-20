@@ -1,3 +1,4 @@
+import { allAirports } from './routes-data';
 // Уникальный контент для страниц аэропортов
 
 export interface AirportContent {
@@ -160,5 +161,12 @@ const airportContentData: Record<string, AirportContent> = {
  * Возвращает уникальный контент для страницы аэропорта
  */
 export function getAirportContent(slug: string): AirportContent | null {
-  return airportContentData[slug] || null;
+  const content = airportContentData[slug];
+  const airport = allAirports.find(a => a.slug === slug);
+  if (!content || !airport) return content || null;
+  const oldDistances: Record<string, number> = { sheremetyevo: 35, domodedovo: 45, pashkovskiy: 15, tolmachyovo: 25, 'simferopol-airport': 15 };
+  const old = oldDistances[slug];
+  if (!old || old === airport.km) return content;
+  const update = (text: string) => text.replace(new RegExp('(?<![0-9])' + old + '\\s*км', 'g'), 'около ' + airport.km + ' км');
+  return { ...content, paragraphs: content.paragraphs.map(update), distanceInfo: update(content.distanceInfo) };
 }

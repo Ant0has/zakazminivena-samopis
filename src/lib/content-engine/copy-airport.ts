@@ -12,7 +12,6 @@ import {
   kmPhrase,
   priceFromKm,
   pricePerPersonFromKm,
-  priceRoundTripFromKm,
 } from "./format";
 import { calcPrice } from "@/lib/routes-data";
 
@@ -48,16 +47,16 @@ interface Input {
   destinationName: string;
   destinationCity: string;
   km: number;
+  pricingDistanceM?: number;
   hours: string;
   uniqueIntro?: string;
   uniqueRouteDesc?: string;
 }
 
 export function generateAirportRouteContent(opts: Input): AirportRouteContent {
-  const price = priceFromKm(opts.km);
-  const priceRT = priceRoundTripFromKm(opts.km);
-  const pricePer = pricePerPersonFromKm(opts.km, 7);
-  const priceTwoTaxiTax = calcPrice(opts.km) * 2;
+  const price = priceFromKm(opts.km, opts.pricingDistanceM);
+  const pricePer = pricePerPersonFromKm(opts.km, 7, opts.pricingDistanceM);
+  const priceTwoTaxiTax = calcPrice(opts.km, opts.pricingDistanceM) * 2;
   const duration = durationPhrase(opts.hours);
   const iataUpper = opts.iata.toUpperCase();
   const isLong = opts.km > 100;
@@ -74,8 +73,8 @@ export function generateAirportRouteContent(opts: Input): AirportRouteContent {
     `Минивэн ${opts.airportName} (${iataUpper}) — ${opts.destinationName} — самый удобный ` +
     `способ перевезти семью или группу коллег от терминала до пункта назначения. ` +
     `Расстояние ${kmPhrase(opts.km)}, время в пути ${duration} в зависимости от пробок и ` +
-    `времени суток. Это бюджетный трансфер для тех, кто прилетает группой 4–8 человек: ` +
-    `цена ${price} ₽ за весь минивэн — около ${pricePer} ₽ на пассажира при полной загрузке, ` +
+    `времени суток. Это бюджетный трансфер для тех, кто прилетает группой 4–7 человек: ` +
+    `цена от ${price} ₽ за весь минивэн — около от ${pricePer} ₽ на пассажира при полной загрузке, ` +
     `что значительно выгоднее двух отдельных машин такси (которые на этом маршруте обойдутся ` +
     `в районе ${formatPriceShort(priceTwoTaxiTax)} ₽ суммарно).`;
 
@@ -141,7 +140,7 @@ export function generateAirportRouteContent(opts: Input): AirportRouteContent {
       `Под трансфер ${iataUpper} — ${opts.destinationName} мы подаём один из четырёх классов: ` +
       `универсальный (VW Caravelle, Hyundai H-1) — самый бюджетный вариант на 6 пассажиров; ` +
       `комфорт (VW Multivan, Hyundai Staria) — с раздвижными дверями и просторным салоном ` +
-      `на 7–8 пассажиров; бизнес (Mercedes-Benz V-Class, Toyota Alphard) — премиум-минивэн с ` +
+      `до 7 пассажиров; бизнес (Mercedes-Benz V-Class, Toyota Alphard) — премиум-минивэн с ` +
       `кожаным салоном и индивидуальными креслами; большой (Mercedes Vito, Toyota Hiace) — ` +
       `для группы 8 человек с большим багажом, спортивным инвентарём или съёмочной техникой. ` +
       `Класс минивэна выбирайте в форме заказа — все 4 варианта подаются в ${opts.airportName} ` +
@@ -168,7 +167,7 @@ export function generateAirportRouteContent(opts: Input): AirportRouteContent {
     title: "Что включено в цену и что оплачивается отдельно",
     iconKey: "sparkles",
     body:
-      `В фиксированную стоимость ${price} ₽ за машину входит: подача минивэна к выбранному ` +
+      `В предварительную стоимость от ${price} ₽ за машину входит: подача минивэна к выбранному ` +
       `терминалу, ожидание 60 минут при задержке рейса, бензин по всему маршруту до ` +
       `${opts.destinationName} (${kmPhrase(opts.km)}), детское кресло любого типа, табличка с ` +
       `фамилией, помощь с погрузкой багажа, электронный кассовый чек по 54-ФЗ. ` +
@@ -186,7 +185,7 @@ export function generateAirportRouteContent(opts: Input): AirportRouteContent {
       `Семьи с детьми — детское кресло любого типа бесплатно, в салоне просторно для коляски ` +
       `и большого количества чемоданов. Бизнес-делегации и группы коллег — заключаем договор ` +
       `с компанией, выставляем счёт, акт, ККТ-чек, для постоянных клиентов открываем ` +
-      `постоплату в течение 5 рабочих дней. Туристические группы 6–8 человек — минивэн обходится дешевле ` +
+      `постоплату в течение 5 рабочих дней. Туристические группы до 7 человек — минивэн обходится дешевле ` +
       `двух такси и удобнее, чем общественный транспорт с пересадками. Корпоративные клиенты ` +
       `— регулярная развозка сотрудников из ${opts.airportName} по адресам с фиксированным ` +
       `маршрутом и помесячным отчётом. Гости, прилетающие на свадьбу или мероприятие — ` +
@@ -203,7 +202,7 @@ export function generateAirportRouteContent(opts: Input): AirportRouteContent {
       `точно соответствует заявленному классу — VW Multivan, Hyundai Staria, Mercedes V-Class ` +
       `или Toyota Alphard. Главное отличие — фиксированная цена за машину: вы знаете ` +
       `стоимость поездки ${opts.airportName} → ${opts.destinationName} ещё до того, как ` +
-      `сесть в минивэн (${price} ₽), и она не меняется ни от пробок, ни от длины маршрута. ` +
+      `сесть в минивэн (от ${price} ₽), и она не меняется ни от пробок, ни от длины маршрута. ` +
       `Второе отличие — документы для отчётности: договор, счёт, акт, УПД, ККТ-чек. ` +
       `Яндекс Go не оформляет такие документы, поэтому корпоративные клиенты теряют ` +
       `возможность списать поездку на расходы компании.`,
@@ -243,7 +242,7 @@ export function generateAirportRouteContent(opts: Input): AirportRouteContent {
     {
       q: `Сколько стоит минивэн из ${opts.airportName} в ${opts.destinationName}?`,
       a:
-        `Фиксированная цена — от ${price} ₽ за машину 6–8 пассажиров. Не зависит от ` +
+        `Цена — от ${price} ₽ за машину до 7 пассажиров. Не зависит от ` +
         `количества пассажиров, пробок и времени в пути. Поездка туда-обратно за день ` +
         `обсуждается с менеджером и зависит от времени ожидания. Если планируется ` +
         `ночёвка водителя в ${opts.destinationName}, добавляется суточная ставка от ` +
@@ -261,7 +260,7 @@ export function generateAirportRouteContent(opts: Input): AirportRouteContent {
       q: "Что если самолёт задерживается?",
       a:
         `Бесплатное ожидание 60 минут от факта приземления — это уже включено в стоимость ` +
-        `${price} ₽. Если задержка дольше, тариф 500 ₽/час, что в 2–3 раза дешевле обычного ` +
+        `от ${price} ₽. Если задержка дольше, тариф 500 ₽/час, что в 2–3 раза дешевле обычного ` +
         `такси. Главное — мы отсчитываем время от реального приземления, а не от расписания, ` +
         `поэтому многочасовые задержки рейса не превратятся в дополнительные платежи.`,
     },
@@ -315,8 +314,8 @@ export function generateAirportRouteContent(opts: Input): AirportRouteContent {
     routeDescription,
     tipForTravel,
     longreadCallout,
-    sections,
-    faq,
+    sections: sections.map(s => /Яндекс|Uber/i.test(s.title) ? {...s,body:`Заказать поездку можно заранее: выберите пассажиров и багаж в конструкторе. Предварительная цена — от ${price} ₽ за автомобиль «Комфорт», около ${opts.km} км. Итоговую цену и конкретную машину подтвердим до заказа. При необходимости согласуем документы для отчётности.`} : /какой минивэн|класс/i.test(s.title) ? {...s,body: "Для этой поездки рассчитывается тариф «Комфорт»: Hyundai Starex / H-1, Volkswagen Caravelle или Kia Carnival IV. До 7 пассажиров; конкретную машину, детские кресла и размещение багажа согласуем до заказа."} : s),
+    faq: faq.map(f => /сколько стоит|стоимость|цена/i.test(f.q) ? {...f,a: `От ${price} ₽ за весь минивэн «Комфорт» в одну сторону. Расстояние — около ${opts.km} км. Адреса, дату, платные участки и дополнительные условия подтверждаем до заказа. Обратную поездку считаем отдельно.`} : /какой минивэн|класс/i.test(f.q) ? {...f,a:"Сейчас рассчитываем только минивэн «Комфорт», до 7 пассажиров. Starex / H-1, Caravelle, Carnival IV — примеры моделей; наличие и конкретный салон подтвердим."} : f),
   };
 }
 
@@ -324,8 +323,8 @@ export function airportRouteBadges(_iata: string): string[] {
   return ["Фикс цена", "Встреча с табличкой", "60 мин ожидания", "Дет.кресла"];
 }
 
-export function airportRouteCardSubtitle(opts: { km: number; hours: string }): string {
-  return `${opts.km} км · ${durationPhrase(opts.hours)} · от ${priceFromKm(opts.km)} ₽`;
+export function airportRouteCardSubtitle(opts: { km: number; pricingDistanceM?: number; hours: string }): string {
+  return `${opts.km} км · ${durationPhrase(opts.hours)} · от ${priceFromKm(opts.km, opts.pricingDistanceM)} ₽`;
 }
 
 function formatPriceShort(n: number): string {

@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { PlaneIcon, MapPinIcon } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
 import { allAirports } from "@/lib/routes-data";
+import { airportHref } from '@/lib/airport-canonical';
 
 export const metadata: Metadata = {
   title: "Трансфер минивэн в аэропорт — ЗаказМинивэна.ru",
@@ -71,7 +72,7 @@ export default function AirportsPage() {
               {allAirports.map((airport) => (
                 <Link
                   key={airport.slug}
-                  href={`/airports/${airport.slug}`}
+                  href={airportHref(airport.slug)}
                   className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-colors hover:border-emerald/40 hover:bg-emerald/5"
                 >
                   <div className="mb-3 flex items-center justify-between">

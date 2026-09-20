@@ -1,0 +1,6 @@
+state/*.json
+snapshots/**/*.json
+reports/*.md
+!state/.gitkeep
+!snapshots/.gitkeep
+!reports/.gitkeep

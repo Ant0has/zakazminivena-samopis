@@ -234,7 +234,7 @@ export default async function CasePage({
                       <div className="mt-4 space-y-3">
                         {caseRoutes.map((route) => {
                           if (!route) return null;
-                          const price = calcPrice(route.km);
+                          const price = calcPrice(route.km, route.pricingDistanceM);
                           return (
                             <Link
                               key={route.slug}

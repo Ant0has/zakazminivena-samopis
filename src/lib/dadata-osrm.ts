@@ -160,7 +160,7 @@ class DadataOsrmService {
       if (data.routes?.length > 0) {
         const r = data.routes[0];
         return {
-          km: Math.round(r.distance / 1000),
+          km: r.distance / 1000,
           minutes: Math.round(r.duration / 60),
         };
       }

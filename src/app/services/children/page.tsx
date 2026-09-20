@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
-import { Badge } from "@/components/ui/badge";
-import { CheckIcon, BabyIcon, PhoneIcon } from "lucide-react";
+import { CheckIcon, PhoneIcon } from "lucide-react";
 import { TelegramIcon } from "@/components/icons";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { JourneyHero } from "@/components/JourneyHero";
+import { TripConstructor } from "@/components/TripConstructor";
+import { getJourneyIllustration, journeySocialImage } from "@/lib/journey-illustrations";
 
 export const metadata: Metadata = {
   title:
@@ -23,7 +23,9 @@ export const metadata: Metadata = {
     siteName: "ЗаказМинивэна.ru",
     locale: "ru_RU",
     type: "website",
+    images: [journeySocialImage('/services/children')!],
   },
+  twitter: { card: 'summary_large_image', images: [journeySocialImage('/services/children')!] },
   alternates: {
     canonical: "https://zakazminivena.ru/services/children",
   },
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
 
 export default function ChildrenServicePage() {
   const advantages = [
-    "Детское автокресло бесплатно (0-12 лет)",
-    "Бустер для детей старше 7 лет",
+    "Подбор кресла по возрасту, росту и весу ребёнка",
+    "Количество и тип кресел согласуем заранее",
     "Плавная и аккуратная манера вождения",
     "Кондиционер с индивидуальной настройкой",
     "Бутылки воды в салоне",
@@ -61,26 +63,18 @@ export default function ChildrenServicePage() {
             "serviceType": "Транспортные услуги"
           }) }}
         />
-        <section className="py-16 sm:py-24">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
             <Breadcrumbs items={[
               { label: "Главная", href: "/" },
               { label: "Услуги", href: "/services/airport" },
               { label: "Детские перевозки" },
             ]} />
 
-            <Badge className="mb-4 bg-emerald/10 text-emerald hover:bg-emerald/10">
-              <BabyIcon className="mr-1 h-3 w-3" />
-              Услуга
-            </Badge>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              Детские перевозки на минивэне — с детским креслом
-            </h1>
-
-            <div className="mt-8 overflow-hidden rounded-2xl">
-              <Image src="/images/services/children.webp" alt="Детские перевозки на минивэне с автокреслом" width={1024} height={576} className="w-full h-auto object-cover" priority />
-            </div>
-
+          </div>
+        <JourneyHero image={getJourneyIllustration('/services/children')} title="Семейная поездка на минивэне — с детским креслом" description="Мама, папа, дети и любимые вещи — едем вместе. Заранее подберём детские кресла и обсудим место для коляски, чемоданов и остановки в дороге." eyebrow="Большая поездка для маленьких пассажиров" />
+        <TripConstructor scenario="family" emptyRoute contextNote="Для примера выбрана семья: двое взрослых, двое детей и коляска. Укажите маршрут и измените состав поездки под себя." />
+        <section className="py-12 sm:py-16">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             {/* Content */}
             <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed">
               <p>
@@ -90,10 +84,10 @@ export default function ChildrenServicePage() {
                 бесплатное детское автокресло нужной возрастной группы.
               </p>
               <p>
-                Мы предоставляем детские автокресла для детей от 0 до 12 лет и
-                бустеры для детей старше 7 лет — абсолютно бесплатно. Достаточно
-                указать возраст и вес ребёнка при заказе, и мы подготовим
-                подходящее кресло заранее.
+                Укажите возраст, рост и вес каждого ребёнка при заказе.
+                Подтвердим подходящие кресла и их размещение в конкретном
+                автомобиле. Коляску посчитаем отдельно как часть багажа;
+                пришлите её размеры в сложенном виде.
               </p>
               <p>
                 Наши водители привыкли к поездкам с маленькими пассажирами: они
@@ -102,10 +96,10 @@ export default function ChildrenServicePage() {
                 настройкой температуры и бутылки с водой.
               </p>
               <p>
-                Минивэн — единственный формат такси, где вся семья из 5-7 человек
-                с детьми и багажом поместится в одном автомобиле. Не нужно
-                разделять семью по разным машинам и переживать, что кресло не
-                поместится в обычный седан.
+                Минивэн помогает семье ехать вместе. Дети входят в общее число
+                пассажиров; водитель — отдельно. Максимум этого конструктора —
+                7 пассажиров, а при большом багаже мест может потребоваться меньше.
+                Перед заказом согласуем и кресла, и вещи.
               </p>
             </div>
 

@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/docs/"],
+        disallow: ["/api/", "/docs/", "/work/"],
       },
       // Block aggressive SEO crawlers
       {
@@ -36,11 +36,13 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: "ChatGPT-User",
-        disallow: "/",
+        allow: "/",
+        disallow: ["/api/", "/docs/", "/work/"],
       },
       {
         userAgent: "OAI-SearchBot",
-        disallow: "/",
+        allow: "/",
+        disallow: ["/api/", "/docs/", "/work/"],
       },
       {
         userAgent: "Amazonbot",

@@ -1,3 +1,7 @@
+import { TripConstructor } from '@/components/TripConstructor';
+import { JourneyHero } from '@/components/JourneyHero';
+import { getJourneyIllustration } from '@/lib/journey-illustrations';
+import { routeMetadata, routeOffer } from '@/lib/route-seo';
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroBackground } from "@/components/HeroBackground";
@@ -50,25 +54,8 @@ export function generateStaticParams() {
 
 type Props = { params: Promise<{ iata: string; destination: string }> };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { iata, destination } = await params;
-  const airport = getIataAirport(iata);
-  const route = getAirportRoute(iata, destination);
-  if (!airport || !route) return {};
-  // Уникальные мета через content-engine: учитывают цену, км, время и точное название аэропорта.
-  const meta = metaAirportRoute({
-    iata,
-    airportName: airport.name,
-    airportNameFull: airport.nameFull,
-    destinationName: route.destinationName,
-    km: route.km,
-    hours: route.hours,
-    city: airport.city,
-  });
-  return {
-    ...meta,
-    alternates: { canonical: `https://zakazminivena.ru/airport/${iata}/${destination}` },
-  };
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {iata,destination}=await params;const airport=getIataAirport(iata),route=getAirportRoute(iata,destination);if(!airport||!route)return {};return routeMetadata({from:'Аэропорт '+airport.name,to:route.destinationName,km:route.km,pricingDistanceM:route.pricingDistanceM,path:'/airport/'+iata+'/'+destination});
 }
 
 export default async function AirportRoutePage({ params }: Props) {
@@ -77,11 +64,12 @@ export default async function AirportRoutePage({ params }: Props) {
   const route = getAirportRoute(iata, destination);
   if (!airport || !route) notFound();
 
-  const price = formatPrice(calcPrice(route.km));
+  const price = formatPrice(calcPrice(route.km, route.pricingDistanceM));
   const sameHubRoutes = getAirportRoutesByIata(iata)
     .filter((r) => r.destinationSlug !== destination)
     .slice(0, 6);
   const heroImage = getAirportRouteHeroImage(iata);
+  const illustration = getJourneyIllustration('/airport/' + iata + '/' + destination);
 
   // Уникальные тексты от content-engine с подстановкой данных маршрута.
   const content = generateAirportRouteContent({
@@ -91,6 +79,7 @@ export default async function AirportRoutePage({ params }: Props) {
     destinationName: route.destinationName,
     destinationCity: airport.city,
     km: route.km,
+    pricingDistanceM: route.pricingDistanceM,
     hours: route.hours,
     uniqueIntro: route.uniqueIntro,
     uniqueRouteDesc: route.uniqueRouteDesc,
@@ -100,7 +89,7 @@ export default async function AirportRoutePage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "TaxiService",
     name: `Минивэн ${airport.name} → ${route.destinationName}`,
-    description: `Минивэн на 6–8 мест из аэропорта ${airport.nameFull} в ${route.destinationName}. Фикс цена от ${price} ₽ за машину.`,
+    description: `Минивэн на до 7 мест из аэропорта ${airport.nameFull} в ${route.destinationName}. Цена от ${price} ₽ за машину.`,
     image: `https://zakazminivena.ru/images/heroes/${iata}.webp`,
     provider: {
       "@type": "Organization",
@@ -112,24 +101,12 @@ export default async function AirportRoutePage({ params }: Props) {
     },
     areaServed: [{ "@type": "City", name: airport.city }],
     priceRange: `от ${price} ₽`,
-    offers: {
-      "@type": "Offer",
-      price: String(calcPrice(route.km)),
-      priceCurrency: "RUB",
-      availability: "https://schema.org/InStock",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "101",
-      bestRating: "5",
-      worstRating: "4",
-    },
+    offers: routeOffer(calcPrice(route.km,route.pricingDistanceM)),
   };
 
   const advantages = [
     { icon: ShieldCheckIcon, title: "Фикс цена", desc: "Цена за машину, не зависит от пробок" },
-    { icon: UsersIcon, title: "До 8 пассажиров", desc: "Просторный салон с местом для багажа" },
+    { icon: UsersIcon, title: "До 7 пассажиров", desc: "Просторный салон с местом для багажа" },
     { icon: BabyIcon, title: "Дет.кресла бесплатно", desc: "Бустер, 9–18 кг, 18–36 кг" },
     { icon: ClockIcon, title: "Ожидание 60 мин", desc: "Бесплатно при задержке рейса" },
     { icon: WalletIcon, title: "Безнал и онлайн", desc: "Карта, СБП, по реквизитам для юрлиц" },
@@ -154,7 +131,7 @@ export default async function AirportRoutePage({ params }: Props) {
         />
 
         {/* ===== HERO (airport route) ===== */}
-        <section className="relative overflow-hidden">
+        {illustration ? <JourneyHero image={illustration} title={'Минивэн ' + airport.name + ' → ' + route.destinationName} description="После прилёта — сразу к вашему адресу. Встретим вашу компанию, поможем с багажом и заранее согласуем детали поездки." price={price} distance={route.km} duration={route.hours} eyebrow="От самолёта — к вашей поездке" /> : <section data-route-hero className="relative overflow-hidden">
           <HeroBackground mobilePosition="top" />
           <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20">
             {/* Бейджи-чеклист */}
@@ -216,7 +193,9 @@ export default async function AirportRoutePage({ params }: Props) {
               </span>
             </div>
           </div>
-        </section>
+        </section>}
+
+        <TripConstructor routePath={'/airport/'+iata+'/'+destination} />
 
         {/* ===== CTA / КОМПАКТНАЯ КОНСУЛЬТАЦИЯ ===== */}
         <section id="booking" className="border-t bg-emerald/5 py-16 sm:py-20 scroll-mt-20">
@@ -234,13 +213,6 @@ export default async function AirportRoutePage({ params }: Props) {
             />
           </div>
         </section>
-
-        {/* ===== ТАРИФНЫЕ КАРТОЧКИ ===== */}
-        <FleetTariffCards
-          title="Какой минивэн подаём"
-          subtitle={`Выберите класс для маршрута ${airport.name} → ${route.destinationName}`}
-          contextLabel={`Аэропорт ${airport.name}`}
-        />
 
         {/* ===== ЛОНГРИД «ВСЁ, ЧТО НУЖНО ЗНАТЬ» ===== */}
         <RouteFactsLongread
@@ -263,7 +235,7 @@ export default async function AirportRoutePage({ params }: Props) {
 
         {/* ===== ТАРИФНАЯ ТАБЛИЦА ===== */}
         <TariffTable
-          modelName="Минивэн 7–8 мест"
+          modelName="Минивэн до 7 мест"
           title="Тариф и дополнительные услуги"
           baseFare={[
             { label: "В одну сторону", value: `от ${price} ₽`, highlight: true },
@@ -300,7 +272,7 @@ export default async function AirportRoutePage({ params }: Props) {
                         {r.km} км · {r.hours}
                       </div>
                       <div className="mt-3 text-base font-bold">
-                        от {formatPrice(calcPrice(r.km))} ₽
+                        от {formatPrice(calcPrice(r.km, r.pricingDistanceM))} ₽
                       </div>
                     </Card>
                   </Link>

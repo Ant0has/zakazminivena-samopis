@@ -8,12 +8,12 @@ import { PlaneIcon, MapPinIcon } from "lucide-react";
 import { iataAirports } from "@/lib/iata-airports";
 
 export const metadata: Metadata = {
-  title: "Минивэн в аэропорт — 14 хабов России | ЗаказМинивэна.ru",
+  title: `Минивэн в аэропорт — ${iataAirports.length} аэропортов в каталоге`,
   description:
-    "Минивэн в аэропорты России: SVO, VKO, DME, LED, AER, MRV и другие. 14 хабов с подробным прайсом и маршрутами. Фикс цена, встреча с табличкой.",
+    "Минивэн в аэропорты России: SVO, VKO, DME, LED, AER, MRV и другие. Аэропорты с подробным расчётом и маршрутами. Фикс цена, встреча с табличкой.",
   alternates: { canonical: "https://zakazminivena.ru/airport" },
   openGraph: {
-    title: "Минивэн в аэропорт — 14 хабов России",
+    title: `Минивэн в аэропорт — ${iataAirports.length} аэропортов в каталоге`,
     description: "Минивэн в аэропорты России: SVO, VKO, DME, LED, AER, MRV и другие. Фикс цена, встреча с табличкой.",
     url: "https://zakazminivena.ru/airport",
     siteName: "ЗаказМинивэна.ru",
@@ -32,10 +32,10 @@ export default function AirportIndexPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 max-w-3xl">
               <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                Минивэн в аэропорт — 14 хабов России
+                Минивэн в аэропорт — {iataAirports.length} аэропортов в каталоге
               </h1>
               <p className="text-base text-muted-foreground sm:text-lg">
-                Аэропортовые трансферы на минивэне 6–8 мест по фикс цене. Встреча с табличкой,
+                Аэропортовые трансферы на минивэне 6–7 мест по фикс цене. Встреча с табличкой,
                 бесплатное ожидание при задержке рейса, дет.кресла. Выберите аэропорт — увидите
                 все направления и цены.
               </p>

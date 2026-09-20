@@ -299,7 +299,7 @@ export default async function B2bPillarPage({
                 <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {routes.map((route) => {
                     if (!route) return null;
-                    const price = calcPrice(route.km);
+                    const price = calcPrice(route.km, route.pricingDistanceM);
                     return (
                       <Link
                         key={route.slug}

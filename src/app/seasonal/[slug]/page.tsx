@@ -205,7 +205,7 @@ export default async function SeasonalSlugPage({ params }: PageProps) {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {routes.map((route) => {
                     if (!route) return null;
-                    const price = calcPrice(route.km);
+                    const price = calcPrice(route.km, route.pricingDistanceM);
                     return (
                       <Link
                         key={route.slug}

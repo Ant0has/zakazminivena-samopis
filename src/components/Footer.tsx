@@ -25,6 +25,11 @@ const serviceLinks = [
   { href: "/services/group-transfer", label: "Групповой трансфер" },
   { href: "/services/airport", label: "Трансфер в аэропорт" },
   { href: "/services/children", label: "Детские перевозки" },
+  { href: "/service/luggage", label: "С большим багажом" },
+  { href: "/service/ski-transfer", label: "С лыжами и сноубордами" },
+  { href: "/minivan-5-mest", label: "На 5 человек" },
+  { href: "/minivan-6-mest", label: "На 6 человек" },
+  { href: "/minivan-7-mest", label: "На 7 человек" },
   { href: "/services/wedding", label: "Минивэн на свадьбу" },
   { href: "/yandex-taxi-minivan", label: "Минивэн vs Яндекс Такси" },
 ];

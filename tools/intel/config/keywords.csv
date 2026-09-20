@@ -1,0 +1,21 @@
+cluster,query,region,priority,landing
+general,заказать минивэн с водителем,Россия,P1,/
+general,минивэн межгород,Россия,P1,/routes
+general,такси минивэн межгород,Россия,P1,/routes
+airport,трансфер в аэропорт минивэн,Россия,P1,/airport
+airport,минивэн внуково,Москва,P1,/airport/vko
+airport,трансфер внуково минивэн,Москва,P1,/airport/vko
+airport,минивэн шереметьево,Москва,P1,/airport/svo
+airport,минивэн домодедово,Москва,P1,/airport/dme
+airport,трансфер калининград зеленоградск,Калининград,P1,/airport/kgd/zelenogradsk
+airport,трансфер аэропорт мурманск,Мурманск,P1,/airport/mmk
+routes,минивэн москва сочи,Москва,P1,/routes/moskva-sochi
+routes,минивэн казань самара,Казань,P1,/routes/kazan-samara
+routes,минивэн воронеж москва,Воронеж,P1,/routes/voronezh-moskva
+comparison,яндекс такси минивэн,Россия,P1,/yandex-taxi-minivan
+group,минивэн для группы,Россия,P2,/service/group-transfer
+group,заказать минивэн 7 мест,Россия,P2,/minivan-7-mest
+family,минивэн с детским креслом,Россия,P2,/services/children
+wedding,минивэн на свадьбу,Россия,P2,/service/wedding
+b2b,корпоративный трансфер минивэн,Россия,P2,/b2b/corporate-transport
+b2b,трансфер сотрудников минивэн,Россия,P2,/b2b

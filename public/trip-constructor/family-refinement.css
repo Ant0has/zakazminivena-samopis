@@ -1,0 +1,33 @@
+/* Family figures are generated cutouts; CSS only places and clips local assets. */
+.studio-body-mask{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.row-options{margin:14px 25px 3px}.row-options>p{font-size:13px;font-weight:600;color:#516b5b;margin:0 0 9px}
+.row-examples{display:flex;gap:7px}.row-examples button{flex:1;min-width:0;text-align:left;background:#f5f8f4;border:1px solid #e0e7dc;color:#31543f;padding:10px 11px;border-radius:10px}
+.row-examples b{display:block;font-size:13px;font-weight:600}.row-examples small{display:block;margin-top:5px;font-size:12px;line-height:1.45;color:#718171}
+.row-examples button[aria-pressed=true]{background:#e6f0e5;border-color:#7eaa8a}.row-examples button:hover{border-color:#8fb397}
+.cargo-scenarios{grid-template-columns:repeat(6,minmax(0,1fr))}.cargo-scenarios button{min-height:83px}
+.heading .quickstart{display:none}
+.cast-caption{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;color:#657d6c;font-size:12px}
+.cast-caption span{padding:5px 9px;border:1px solid #dce5d9;border-radius:7px;background:#fff}
+.packing-result>p.packing-footnote{max-width:510px}
+.cabin-view{overflow:hidden}.cabin-view.is-closeup .studio-frame{transform:scale(1.26) translateX(-6%);transform-origin:70% 0}
+.cabin-view .studio-frame{transition:transform .22s ease}.cabin-model{display:flex;gap:8px;align-items:center}
+.cabin-model>label,.cabin-model>select{display:none}.cabin-zoom{font-size:13px;border:1px solid #ceded2;padding:10px 13px;background:#f2f7ef;border-radius:10px;color:#2d5940;white-space:nowrap}
+.cabin-zoom[aria-pressed=true]{background:#28573f;color:#fff;border-color:#28573f}
+/* Informational fleet: no selection controls, active state or pointer cursor. */
+.fleet-intro{margin-top:-8px;font-size:14px;line-height:1.65}
+.fleet-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+.fleet-card{min-width:0;border:1px solid #e0e7df;border-radius:14px;overflow:hidden;background:#fafcf9}
+.fleet-photo{aspect-ratio:16/10;display:flex;align-items:center;background:#f0f3ed;overflow:hidden}
+.fleet-photo img{display:block;width:100%;height:100%;object-fit:contain}
+.fleet-caption{padding:15px 14px 18px}.fleet-caption p{font-size:14px;color:#65766b;margin:0 0 5px}
+.fleet-caption h3{font-size:18px;font-weight:600;letter-spacing:-.3px;line-height:1.3;margin:0;overflow-wrap:anywhere}
+.fleet-note{font-size:14px;line-height:1.65;color:#647568;margin:18px 0 0}
+.image-rights-link{display:inline-block;margin-top:7px;color:#647268;font-size:12px;text-underline-offset:3px}
+.image-rights{max-width:860px}.image-rights h1{font-size:32px;letter-spacing:-.7px}.image-rights p{font-size:16px;line-height:1.7}.image-rights a{color:#24653c;overflow-wrap:anywhere}.image-rights h2{font-size:22px;margin-top:0}
+.trip-vehicle{border:1px solid #486052;border-radius:14px;padding:17px;background:#ffffff06}
+.trip-vehicle strong{font-size:16px;font-weight:600}.trip-vehicle p{font-size:14px;line-height:1.6;color:#bfcec4;margin:8px 0 0}
+@media(max-width:1000px){.fleet-grid{grid-template-columns:1fr;gap:10px}.fleet-card{display:grid;grid-template-columns:minmax(0,42%) minmax(0,1fr);align-items:center}.fleet-caption{padding:15px}.fleet-photo{aspect-ratio:16/10}.fleet-caption h3{font-size:18px}}
+@media(max-width:420px){.fleet-caption{padding:12px}.fleet-caption h3{font-size:16px}.fleet-caption p{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.cabin-view .studio-frame{transition:none}}
+@media(max-width:1000px){.cargo-scenarios{display:flex;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x proximity}.cargo-scenarios button{flex:0 0 170px;scroll-snap-align:start}.row-options{margin:12px 17px 3px}}
+@media(max-width:760px){.cabin-stage{width:100%;align-self:stretch;min-width:0}.row-options{margin:12px 12px 3px;min-width:0}.row-examples{overflow-x:auto;max-width:100%;padding-bottom:5px;scroll-snap-type:x proximity}.row-examples button{flex:0 0 172px;scroll-snap-align:start}.cargo-scenarios button{flex-basis:160px}.row-options>p{font-size:14px}.fold-modes{grid-template-columns:repeat(2,minmax(0,1fr))}.fold-modes small{font-size:12px}.fold-modes b{font-size:13px}.cast-caption{font-size:12px}}

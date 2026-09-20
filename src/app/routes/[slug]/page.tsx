@@ -1,3 +1,7 @@
+import { TripConstructor } from '@/components/TripConstructor';
+import { JourneyHero } from '@/components/JourneyHero';
+import { getJourneyIllustration } from '@/lib/journey-illustrations';
+import { routeMetadata, routeOffer } from '@/lib/route-seo';
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -47,33 +51,13 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const route = allRoutes.find((r) => r.slug === slug);
-  if (!route) return {};
-
-  const price = formatPrice(calcPrice(route.km));
-
-  return {
-    title: `Заказать минивэн ${route.from} — ${route.to}: цена ${price} руб., ${route.km} км`,
-    description: getRouteMetaDescription(slug, route.fromSlug, route.toSlug, route.from, route.to, route.km, route.hours, price),
-    alternates: {
-      canonical: `https://zakazminivena.ru/routes/${slug}`,
-    },
-    openGraph: {
-      title: `Заказать минивэн ${route.from} — ${route.to} | ${price} руб.`,
-      description: `Заказать минивэн с водителем ${route.from} — ${route.to}. ${route.km} км, ${route.hours}. Фиксированная цена ${price} руб. за минивэн 7 мест. Звоните: +7 (918) 587-54-54`,
-      url: `https://zakazminivena.ru/routes/${slug}`,
-      siteName: "ЗаказМинивэна.ru",
-      locale: "ru_RU",
-      type: "website",
-    },
-  };
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {slug}=await params;const route=allRoutes.find(r=>r.slug===slug);if(!route)return {};return routeMetadata({from:route.from,to:route.to,km:route.km,pricingDistanceM:route.pricingDistanceM,path:'/routes/'+slug});
 }
 
 function getRouteDescription(route: RouteData, priceFormatted: string, perPerson: string): string[] {
   const content = getRouteContent(route.slug, route.fromSlug, route.toSlug);
-  const priceParagraph = `Стоимость поездки на минивэне ${route.from} — ${route.to} — ${priceFormatted} рублей за весь автомобиль. При полной загрузке 7 пассажиров это всего ${perPerson} рублей на человека — значительно дешевле, чем заказывать два обычных такси. Цена фиксируется при заказе и не меняется: никаких наценок за время суток, праздники или пробки. В стоимость включены детское кресло, встреча с табличкой, кондиционер и бутылки воды.`;
+  const priceParagraph = `Стоимость поездки на минивэне ${route.from} — ${route.to} — от ${priceFormatted} рублей за весь автомобиль. При полной загрузке 7 пассажиров это от ${perPerson} рублей на человека — значительно дешевле, чем заказывать два обычных такси. Это предварительная цена «от»: адреса, дату и дополнительные условия согласуем до заказа. В стоимость включены детское кресло, встреча с табличкой, кондиционер и бутылки воды.`;
 
   // Insert price paragraph after first content paragraph
   const result = [content.description[0], priceParagraph, ...content.description.slice(1)];
@@ -151,10 +135,11 @@ export default async function RoutePage({ params }: Props) {
     notFound();
   }
 
-  const price = calcPrice(route.km);
+  const price = calcPrice(route.km, route.pricingDistanceM);
   const priceFormatted = formatPrice(price);
-  const perPerson = pricePerPerson(route.km);
+  const perPerson = pricePerPerson(route.km, 7, route.pricingDistanceM);
   const reviewTags = getRouteTags(route.fromSlug, route.toSlug);
+  const illustration = getJourneyIllustration('/routes/' + slug);
 
   // Taxi comparison: 2 taxis at ~70 rub/km each
   const taxiPrice = Math.ceil((route.km * 70 * 2) / 500) * 500;
@@ -165,17 +150,7 @@ export default async function RoutePage({ params }: Props) {
     "@type": "Product",
     name: `Минивэн ${route.from} — ${route.to}`,
     description: `Трансфер на минивэне ${route.from} — ${route.to}, ${route.km} км, ${route.hours}`,
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "RUB",
-      price: price.toString(),
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "Organization",
-        name: "ЗаказМинивэна.ru",
-        telephone: "+79185875454",
-      },
-    },
+    offers: routeOffer(price),
   };
 
   return (
@@ -195,7 +170,7 @@ export default async function RoutePage({ params }: Props) {
               "name": `Сколько стоит минивэн ${route.from} — ${route.to}?`,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": `Стоимость поездки на минивэне ${route.from} — ${route.to} составляет ${priceFormatted} рублей за весь автомобиль на 7 мест. Цена фиксированная и не меняется. При полной загрузке это ${perPerson} рублей на человека.`
+                "text": `Стоимость поездки на минивэне ${route.from} — ${route.to} составляет от ${priceFormatted} рублей за весь автомобиль на 7 мест. Итоговая цена подтверждается до заказа. При полной загрузке это от ${perPerson} рублей на человека.`
               }
             },
             {
@@ -229,7 +204,10 @@ export default async function RoutePage({ params }: Props) {
 
       <main className="pt-16">
         {/* Hero */}
-        <section className="py-10 sm:py-16">
+        {illustration ? <>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><Breadcrumbs items={[{ label: 'Главная', href: '/' }, { label: 'Маршруты', href: '/routes' }, { label: route.from + ' — ' + route.to }]} /></div>
+          <JourneyHero image={illustration} title={'Минивэн ' + route.from + ' — ' + route.to} description="В дорогу всей семьёй или своей компанией. Подберём минивэн под пассажиров, детей и ваш багаж — без пересадок и разделения на несколько машин." price={priceFormatted} distance={route.km} duration={route.hours} eyebrow="Ваша компания. Ваша дорога." />
+        </> : <section data-route-hero className="py-10 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={[
               { label: "Главная", href: "/" },
@@ -247,8 +225,9 @@ export default async function RoutePage({ params }: Props) {
               <Image src={getRouteImage(route.fromSlug, route.toSlug)} alt={`Минивэн ${route.from} — ${route.to}`} width={1024} height={576} className="w-full h-auto object-cover" />
             </div>
           </div>
-        </section>
+        </section>}
 
+        <TripConstructor routePath={'/routes/'+slug} />
         {/* Price + Route info */}
         <section className="pb-12 sm:pb-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -259,7 +238,7 @@ export default async function RoutePage({ params }: Props) {
                   Стоимость поездки
                 </div>
                 <div className="mt-4 text-5xl font-bold tracking-tight sm:text-6xl">
-                  {priceFormatted}
+                  от {priceFormatted}
                 </div>
                 <div className="mt-1 text-xl text-muted-foreground">
                   руб. за минивэн
@@ -268,7 +247,7 @@ export default async function RoutePage({ params }: Props) {
                   variant="secondary"
                   className="mt-4 bg-emerald/10 text-emerald hover:bg-emerald/15"
                 >
-                  {perPerson} руб/чел при 7 пассажирах
+                  от {perPerson} руб/чел при 7 пассажирах
                 </Badge>
               </Card>
 
@@ -396,11 +375,11 @@ export default async function RoutePage({ params }: Props) {
                   1 минивэн — 7 мест
                 </div>
                 <div className="mb-2 text-4xl font-bold text-foreground sm:text-5xl">
-                  {priceFormatted}{" "}
+                  от {priceFormatted}{" "}
                   <span className="text-2xl text-emerald">руб.</span>
                 </div>
                 <p className="mb-6 text-sm text-emerald">
-                  {perPerson} руб/чел при 7 пассажирах
+                  от {perPerson} руб/чел при 7 пассажирах
                 </p>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-center gap-2">
@@ -450,7 +429,7 @@ export default async function RoutePage({ params }: Props) {
               <div className="rounded-xl border border-border bg-card p-6">
                 <h3 className="font-semibold">Сколько стоит минивэн {route.from} — {route.to}?</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  Стоимость поездки на минивэне {route.from} — {route.to} составляет {priceFormatted} рублей за весь автомобиль на 7 мест. Цена фиксированная и не меняется. При полной загрузке это {perPerson} рублей на человека.
+                  Стоимость поездки на минивэне {route.from} — {route.to} составляет от {priceFormatted} рублей за весь автомобиль на 7 мест. Итоговая цена подтверждается до заказа. При полной загрузке это {perPerson} рублей на человека.
                 </p>
               </div>
               <div className="rounded-xl border border-border bg-card p-6">
@@ -484,9 +463,9 @@ export default async function RoutePage({ params }: Props) {
               </h2>
               <p className="mt-3 text-muted-foreground">
                 Напишите нам в мессенджер или позвоните — ответим за 5 минут.
-                Цена фиксированная:{" "}
+                Предварительная стоимость:{" "}
                 <span className="font-semibold text-foreground">
-                  {priceFormatted} руб.
+                  от {priceFormatted} руб.
                 </span>
               </p>
 
@@ -496,7 +475,7 @@ export default async function RoutePage({ params }: Props) {
                   className="h-14 bg-[#26A5E4] text-base font-semibold text-white hover:bg-[#26A5E4]/90"
                   asChild
                 >
-                  <a href={`https://t.me/ZakazMinivena?text=${encodeURIComponent(`Заявка: ${route.from} → ${route.to}, ${priceFormatted} руб.`)}`}>
+                  <a href={`https://t.me/ZakazMinivena?text=${encodeURIComponent(`Заявка: ${route.from} → ${route.to}, от ${priceFormatted} руб.`)}`}>
                     <TelegramIcon className="mr-2 h-5 w-5" />
                     Заказать в Telegram
                   </a>
