@@ -6,6 +6,16 @@ const illustration = (id: string, alt: string): JourneyIllustration => ({
 
 // Explicit URL assignments: do not silently reuse a different destination's image.
 export const journeyIllustrations: Record<string, JourneyIllustration> = {
+  '/airport/led': illustration('led', 'Пара путешественников в плащах встречает водителя у минивэна в Пулково'),
+  '/airport/aer': illustration('aer', 'Родители и девочка с летним багажом у минивэна среди южной зелени'),
+  '/airport/mrv': illustration('mrv', 'Водитель помогает старшей паре с чемоданами перед поездкой из Минеральных Вод'),
+  '/airport/kgd': illustration('kgd', 'Семья с мальчиком и дорожными чемоданами готовится к поездке из Храброво'),
+  '/airport/kzn': illustration('kzn', 'Семья с дочерью и водитель у минивэна перед поездкой из аэропорта Казани'),
+  '/airport/svx': illustration('svx', 'Небольшая компания с багажом встречается у минивэна в Кольцово'),
+  '/airport/ovb': illustration('ovb', 'Родители со школьником и крупным багажом рядом с минивэном в Толмачёво'),
+  '/airport/ikt': illustration('ikt', 'Путешественники с рюкзаками и фотосумкой готовятся к поездке из аэропорта Иркутска'),
+  '/airport/mmk': illustration('mmk', 'Друзья в тёплых куртках с зимними сумками у минивэна в Мурманске'),
+  '/airport/zia': illustration('zia', 'Родители с ребёнком и чемоданами у минивэна в Жуковском'),
   '/service/luggage': illustration('luggage', 'Семья из четырёх человек собирает чемоданы, коробки и коляску в минивэн'),
   '/service/ski-transfer': illustration('ski-transfer', 'Компания у минивэна с чехлами для лыж и сноуборда на зимнем курорте'),
   '/airport/vko': illustration('vko', 'Семья с детьми и чемоданами у минивэна перед поездкой из аэропорта'),

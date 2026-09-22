@@ -109,7 +109,7 @@ export default async function AirportHubPage({ params }: Props) {
     description:
       `Заказ минивэна с водителем в ${airport.nameFull}, ${airport.city}. ` +
       `Трансфер 6–7 пассажиров от ${formatPrice(minPrice)} ₽ за машину.`,
-    image: `https://zakazminivena.ru/images/heroes/${iata}.webp`,
+    image: 'https://zakazminivena.ru' + (illustration?.src ?? `/images/heroes/${iata}.webp`),
     provider: {
       "@type": "Organization",
       name: "ЗаказМинивэна.ru",
