@@ -150,6 +150,7 @@ export default async function RoutePage({ params }: Props) {
     "@type": "Product",
     name: `Минивэн ${route.from} — ${route.to}`,
     description: `Трансфер на минивэне ${route.from} — ${route.to}, ${route.km} км, ${route.hours}`,
+    ...(illustration ? { image: 'https://zakazminivena.ru' + illustration.src } : {}),
     offers: routeOffer(price),
   };
 

@@ -6,6 +6,16 @@ const illustration = (id: string, alt: string): JourneyIllustration => ({
 
 // Explicit URL assignments: do not silently reuse a different destination's image.
 export const journeyIllustrations: Record<string, JourneyIllustration> = {
+  '/routes/ekaterinburg-perm': illustration('ekaterinburg-perm', 'Пара путешественников и водитель у минивэна на фоне Камы в Перми'),
+  '/routes/ekaterinburg-kurgan': illustration('ekaterinburg-kurgan', 'Мама с дочерью и бабушка с багажом после поездки на минивэне в Курган'),
+  '/routes/kazan-nizhniy-novgorod': illustration('kazan-nizhniy-novgorod', 'Семья с двумя детьми у минивэна на фоне речной панорамы Нижнего Новгорода'),
+  '/routes/rostov-krasnodar': illustration('rostov-krasnodar', 'Семья с коляской и чемоданами у минивэна рядом с зелёным городским парком Краснодара'),
+  '/routes/spb-velikiy-novgorod': illustration('spb-velikiy-novgorod', 'Семья с мальчиком у минивэна перед прогулкой по Великому Новгороду'),
+  '/routes/spb-pskov': illustration('spb-pskov', 'Друзья с дорожными сумками у минивэна на фоне речного пейзажа Пскова'),
+  '/routes/novosibirsk-tomsk': illustration('novosibirsk-tomsk', 'Путешественники с чемоданами у минивэна на тихой улице с деревянными домами Томска'),
+  '/routes/novosibirsk-barnaul': illustration('novosibirsk-barnaul', 'Родители с мальчиком и багажом рядом с минивэном после поездки в Барнаул'),
+  '/routes/volgograd-saratov': illustration('volgograd-saratov', 'Старшая пара с внучкой и водитель у минивэна на фоне Волги в Саратове'),
+  '/routes/volgograd-elista': illustration('volgograd-elista', 'Компания путешественников у минивэна на фоне степного неба и буддийской архитектуры Элисты'),
   '/airport/led': illustration('led', 'Пара путешественников в плащах встречает водителя у минивэна в Пулково'),
   '/airport/aer': illustration('aer', 'Родители и девочка с летним багажом у минивэна среди южной зелени'),
   '/airport/mrv': illustration('mrv', 'Водитель помогает старшей паре с чемоданами перед поездкой из Минеральных Вод'),

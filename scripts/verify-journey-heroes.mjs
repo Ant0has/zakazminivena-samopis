@@ -40,9 +40,10 @@ for(const [url,image] of Object.entries(images)){
  if(canonical!=='https://zakazminivena.ru'+url)failures.push({url,test:'canonical'});
  const hero=html.match(/<section\b[^>]*data-journey-hero[^>]*>[\s\S]*?<\/section>/);
  if(!hero||!hero[0].includes('href="#trip-constructor"'))failures.push({url,test:'constructor anchor'});
- if(/^\/airport\/[a-z]{3}$/.test(url)){
+ if(/^\/airport\/[a-z]{3}$/.test(url)||url.startsWith('/routes/')){
   const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
-  if(!schemas.some(s=>s['@type']==='TaxiService'&&s.image===expected))failures.push({url,test:'schema image'});
+  const type=url.startsWith('/routes/')?'Product':'TaxiService';
+  if(!schemas.some(s=>s['@type']===type&&s.image===expected))failures.push({url,test:'schema image',type});
  }
  const asset=await get(image.src);
  if(asset.status!==200||!asset.headers['content-type']?.includes('image/webp'))failures.push({url,test:'image asset'});
