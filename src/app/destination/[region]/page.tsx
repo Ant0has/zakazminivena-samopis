@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { HeroBackground, HeroVehicleImage } from "@/components/HeroBackground";
+import { HeroVehicleImage } from "@/components/HeroBackground";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -17,12 +17,14 @@ import {
 import { fleetBySlug } from "@/lib/fleet-data";
 import { calcPrice, formatPrice } from "@/lib/routes-data";
 import { getDestinationHubHeroImage } from "@/lib/hero-images";
+import { getJourneyIllustration, journeySocialImage } from "@/lib/journey-illustrations";
 import { FleetTariffCards } from "@/components/FleetTariffCards";
 import { HowItWorks3Steps } from "@/components/HowItWorks3Steps";
 import { PaymentMethods } from "@/components/PaymentMethods";
 import { RouteFaq } from "@/components/RouteFaq";
 import { RouteFactsLongread } from "@/components/RouteFactsLongread";
 import { metaDestinationHub } from "@/lib/content-engine/meta";
+import { destinationPhrase, originPhrase } from "@/lib/content-engine/place-forms";
 import { generateDestinationHubContent } from "@/lib/content-engine/copy-destination-hub";
 import { iconFor } from "@/lib/content-engine/icon-map";
 import {
@@ -54,7 +56,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     topPointsShort: hub.topPointsShort,
     minPrice,
   });
-  return { ...meta, alternates: { canonical: `https://zakazminivena.ru/destination/${region}` } };
+  const socialImage = journeySocialImage(`/destination/${region}`);
+  return {
+    ...meta,
+    alternates: { canonical: `https://zakazminivena.ru/destination/${region}` },
+    openGraph: { ...meta.openGraph, ...(socialImage ? { images: [socialImage] } : {}) },
+    twitter: { ...meta.twitter, ...(socialImage ? { images: [socialImage.url] } : {}) },
+  };
 }
 
 export default async function DestinationHubPage({ params }: Props) {
@@ -64,7 +72,8 @@ export default async function DestinationHubPage({ params }: Props) {
   const routes = getDestinationRoutesByRegion(region);
   const minPrice = routes.length > 0 ? Math.min(...routes.map((r) => calcPrice(r.km, r.pricingDistanceM))) : 4000;
   const fleet = hub.fleetModels.map((s) => fleetBySlug[s]).filter(Boolean);
-  const heroImage = getDestinationHubHeroImage(region);
+  const illustration = getJourneyIllustration(`/destination/${region}`);
+  const heroImage = illustration?.src ?? getDestinationHubHeroImage(region);
   const hubContent = generateDestinationHubContent({
     regionSlug: region,
     regionName: hub.regionName,
@@ -96,8 +105,10 @@ export default async function DestinationHubPage({ params }: Props) {
         />
 
         {/* ===== HERO ===== */}
-        <section className="relative overflow-hidden">
-          <HeroBackground />
+        <section
+          className="relative overflow-hidden"
+          style={{ background: "radial-gradient(circle at 75% 20%, #327b62 0%, #153a30 48%, #102a25 100%)" }}
+        >
           <div className="relative mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
               <div className="order-1 lg:order-1">
@@ -110,7 +121,7 @@ export default async function DestinationHubPage({ params }: Props) {
                   </Badge>
                 </div>
                 <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
-                  Минивэн в {hub.regionName} из {hub.hubCity}{" "}
+                  Минивэн {destinationPhrase(region, hub.regionName)} {originPhrase(hub.hubCity)}{" "}
                   <span className="text-amber-300">от {formatPrice(minPrice)} ₽</span>
                 </h1>
               </div>
@@ -118,7 +129,7 @@ export default async function DestinationHubPage({ params }: Props) {
               <div className="order-2 lg:order-2 lg:row-span-2">
                 <HeroVehicleImage
                   src={heroImage}
-                  alt={`Минивэн в ${hub.regionName}`}
+                  alt={illustration?.alt ?? `Минивэн в ${hub.regionName}`}
                   captionLabel="Регион"
                   captionValue={hub.regionName}
                   priority

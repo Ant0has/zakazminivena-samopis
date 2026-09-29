@@ -165,7 +165,58 @@ export const journeyIllustrations: Record<string, JourneyIllustration> = {
   '/cities/simferopol': illustration('city-simferopol', 'Путешественники у минивэна на фоне зелёного Симферополя и предгорий'),
   '/cities/yaroslavl': illustration('city-yaroslavl', 'Семья у минивэна на Стрелке Волги и Которосли в Ярославле'),
   '/cities/mineralnye-vody': illustration('city-mineralnye-vody', 'Путешественники у минивэна на фоне предгорий Минеральных Вод'),
+  "/destination/karelia": illustration("dest-karelia", "Путешественники с багажом у минивэна на фоне карельских озёр"),
+  "/destination/kmv": illustration("dest-kmv", "Путешественники с багажом у минивэна на фоне Кавказских Минеральных Вод"),
+  "/destination/altai": illustration("dest-altai", "Путешественники с багажом у минивэна на фоне алтайских гор"),
+  "/destination/baikal": illustration("dest-baikal", "Путешественники с багажом у минивэна на фоне Байкала"),
+  "/destination/crimea": illustration("dest-crimea", "Путешественники с багажом у минивэна на фоне крымского побережья"),
+  "/destination/krasnodar-coast": illustration("dest-krasnodar-coast", "Путешественники с багажом у минивэна на фоне Черноморского побережья"),
+  "/destination/kaliningrad": illustration("dest-kaliningrad", "Путешественники с багажом у минивэна на фоне Балтийского побережья"),
+  "/destination/north": illustration("dest-north", "Путешественники с багажом у минивэна на фоне Кольского полуострова"),
+  "/destination/karelia/spb-sortavala": illustration("dest-karelia-spb-sortavala", "Путешественники с багажом у минивэна, направление СПб — Сортавала"),
+  "/destination/karelia/spb-priozersk": illustration("dest-karelia-spb-priozersk", "Путешественники с багажом у минивэна, направление СПб — Приозерск"),
+  "/destination/kmv/mineralnye-vody-essentuki": illustration("dest-kmv-mineralnye-vody-essentuki", "Путешественники с багажом у минивэна, направление Минеральные Воды — Ессентуки"),
+  "/destination/kmv/mineralnye-vody-zheleznovodsk": illustration("dest-kmv-mineralnye-vody-zheleznovodsk", "Путешественники с багажом у минивэна, направление Минеральные Воды — Железноводск"),
+  "/destination/kmv/mineralnye-vody-arkhyz": illustration("dest-kmv-mineralnye-vody-arkhyz", "Путешественники с багажом у минивэна, направление Минеральные Воды — Архыз"),
+  "/destination/kmv/mineralnye-vody-elbrus": illustration("dest-kmv-mineralnye-vody-elbrus", "Путешественники с багажом у минивэна, направление Минеральные Воды — Приэльбрусье"),
+  "/destination/altai/barnaul-chemal": illustration("dest-altai-barnaul-chemal", "Путешественники с багажом у минивэна, направление Барнаул — Чемал"),
+  "/destination/altai/barnaul-manzherok": illustration("dest-altai-barnaul-manzherok", "Путешественники с багажом у минивэна, направление Барнаул — Манжерок"),
+  "/destination/altai/novosibirsk-gorno-altaysk": illustration("dest-altai-novosibirsk-gorno-altaysk", "Путешественники с багажом у минивэна, направление Новосибирск — Горно-Алтайск"),
+  "/destination/baikal/irkutsk-baikal-mrs": illustration("dest-baikal-irkutsk-baikal-mrs", "Путешественники с багажом у минивэна, направление Иркутск — Малое Море (МРС)"),
+  "/destination/baikal/irkutsk-arshan": illustration("dest-baikal-irkutsk-arshan", "Путешественники с багажом у минивэна, направление Иркутск — Аршан"),
+  "/destination/krasnodar-coast/krasnodar-temryuk": illustration("dest-krasnodar-coast-krasnodar-temryuk", "Путешественники с багажом у минивэна, направление Краснодар — Темрюк / Тамань"),
+  "/destination/kaliningrad/kaliningrad-zelenogradsk": illustration("dest-kaliningrad-kaliningrad-zelenogradsk", "Путешественники с багажом у минивэна, направление Калининград — Зеленоградск"),
+  "/destination/kaliningrad/kaliningrad-svetlogorsk": illustration("dest-kaliningrad-kaliningrad-svetlogorsk", "Путешественники с багажом у минивэна, направление Калининград — Светлогорск"),
+  "/destination/kaliningrad/kaliningrad-curonian-spit": illustration("dest-kaliningrad-kaliningrad-curonian-spit", "Путешественники с багажом у минивэна, направление Калининград — Куршская коса"),
+  "/destination/kaliningrad/kaliningrad-yantarny": illustration("dest-kaliningrad-kaliningrad-yantarny", "Путешественники с багажом у минивэна, направление Калининград — Янтарный"),
+  "/destination/north/murmansk-teriberka": illustration("dest-north-murmansk-teriberka", "Путешественники с багажом у минивэна, направление Мурманск — Териберка"),
+  "/destination/north/murmansk-khibiny": illustration("dest-north-murmansk-khibiny", "Путешественники с багажом у минивэна, направление Мурманск — Хибины (Кировск)"),
+  "/destination/north/murmansk-kirovsk": illustration("dest-north-murmansk-kirovsk", "Путешественники с багажом у минивэна, направление Мурманск — Кировск"),
+  "/destination/north/aurora-borealis": illustration("dest-north-aurora-borealis", "Путешественники с багажом у минивэна, направление Мурманск — Охота за северным сиянием"),
 };
+
+// These destination pages describe the exact same road trip as their /routes/
+// counterparts. Reuse only that trip's art; its Russian alt text remains relevant.
+const sameRoadTrip: Record<string, string> = {
+  "/destination/karelia/spb-petrozavodsk": "/routes/spb-petrozavodsk",
+  "/destination/kmv/mineralnye-vody-kislovodsk": "/routes/mineralnye-vody-kislovodsk",
+  "/destination/kmv/mineralnye-vody-pyatigorsk": "/routes/mineralnye-vody-pyatigorsk",
+  "/destination/kmv/mineralnye-vody-dombay": "/routes/mineralnye-vody-dombay",
+  "/destination/crimea/simferopol-yalta": "/routes/simferopol-yalta",
+  "/destination/crimea/simferopol-alushta": "/routes/simferopol-alushta",
+  "/destination/crimea/simferopol-sevastopol": "/routes/simferopol-sevastopol",
+  "/destination/crimea/simferopol-feodosiya": "/routes/simferopol-feodosiya",
+  "/destination/crimea/simferopol-sudak": "/routes/simferopol-sudak",
+  "/destination/crimea/simferopol-evpatoriya": "/routes/simferopol-evpatoriya",
+  "/destination/krasnodar-coast/krasnodar-anapa": "/routes/krasnodar-anapa",
+  "/destination/krasnodar-coast/krasnodar-gelendzhik": "/routes/krasnodar-gelendzhik",
+  "/destination/krasnodar-coast/krasnodar-novorossiysk": "/routes/krasnodar-novorossiysk",
+};
+for (const [destination, route] of Object.entries(sameRoadTrip)) {
+  const image = journeyIllustrations[route];
+  if (!image) throw new Error(`Missing shared road-trip illustration: ${route}`);
+  journeyIllustrations[destination] = image;
+}
 
 export function getJourneyIllustration(path: string) { return journeyIllustrations[path]; }
 export function journeySocialImage(path: string) {

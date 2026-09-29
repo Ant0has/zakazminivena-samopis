@@ -9,9 +9,10 @@ const source=fs.readFileSync(new URL('src/lib/journey-illustrations.ts',root),'u
 const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const sandbox={exports:{}};vm.runInNewContext(code,sandbox);
 const {journeyIllustrations,getJourneyIllustration,journeySocialImage}=sandbox.exports;
-test('All 159 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
-  assert.equal(Object.keys(journeyIllustrations).length,159);
-  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,159);
+test('All 200 hero mappings have local optimized WebP files and meaningful alt text',()=>{
+  assert.equal(Object.keys(journeyIllustrations).length,200);
+  // 13 tourist pages share the exact physical route and its existing illustration.
+  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,187);
   for(const [route,image] of Object.entries(journeyIllustrations)){
     assert.ok(route.startsWith('/'));
     assert.match(image.alt,/рисованная иллюстрация/);
@@ -23,6 +24,30 @@ test('All 159 explicit hero mappings have distinct local WebP files and meaningf
     assert.ok(bytes.length<600000,'Oversized hero: '+route);
     assert.equal(journeySocialImage(route).url,'https://zakazminivena.ru'+image.src);
   }
+});
+test('Tourist collection maps 28 new scenes and reuses only 13 identical road trips',()=>{
+  const manifest=JSON.parse(fs.readFileSync(new URL('docs/illustrations/destination-2026-09-29.json',root),'utf8'));
+  const hubPage=fs.readFileSync(new URL('src/app/destination/[region]/page.tsx',root),'utf8');
+  const routePage=fs.readFileSync(new URL('src/app/destination/[region]/[route]/page.tsx',root),'utf8');
+  assert.equal(manifest.scenes.length,28);
+  assert.equal(manifest.reusedRoutes.length,13);
+  assert.equal(new Set(manifest.scenes.map(s=>s.path)).size,28);
+  assert.equal(Object.keys(journeyIllustrations).filter(path=>path.startsWith('/destination/')).length,43);
+  for(const scene of manifest.scenes){
+    assert.equal(getJourneyIllustration(scene.path)?.src,scene.src);
+    assert.equal(scene.src,'/images/journeys/'+scene.id+'-v1.webp');
+    assert.match(scene.source,/^dest-.+-source-v1\.png$/);
+  }
+  for(const pair of manifest.reusedRoutes){
+    assert.equal(getJourneyIllustration(pair.path)?.src,getJourneyIllustration(pair.from)?.src);
+    assert.ok(pair.path.startsWith('/destination/'));
+    assert.ok(pair.from.startsWith('/routes/'));
+  }
+  assert.match(hubPage,/const socialImage = journeySocialImage/);
+  assert.match(hubPage,/const heroImage = illustration\?\.src \?\? getDestinationHubHeroImage/);
+  assert.match(hubPage,/Минивэн \{destinationPhrase\(region, hub\.regionName\)\} \{originPhrase\(hub\.hubCity\)\}/);
+  assert.doesNotMatch(hubPage,/<HeroBackground\s*\/>/);
+  assert.match(routePage,/image: 'https:\/\/zakazminivena\.ru' \+ illustration\.src/);
 });
 test('18 city pages use their own illustrated hero, social preview and TaxiService image',()=>{
   const manifest=JSON.parse(fs.readFileSync(new URL('docs/illustrations/cities-2026-09-29.json',root),'utf8'));

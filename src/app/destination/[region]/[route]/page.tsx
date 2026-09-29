@@ -85,6 +85,7 @@ export default async function DestinationRoutePage({ params }: Props) {
     "@type": "TaxiService",
     name: `Минивэн ${data.fromCity} → ${data.toCity}`,
     description: `Минивэн на до 7 мест из ${data.fromCity} в ${data.toCity}. Цена от ${price} ₽.`,
+    ...(illustration ? { image: 'https://zakazminivena.ru' + illustration.src } : {}),
     provider: {
       "@type": "Organization",
       name: "ЗаказМинивэна.ru",

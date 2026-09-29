@@ -1,0 +1,340 @@
+{
+  "date": "2026-09-29",
+  "purpose": "Destination hub and route editorial illustrations; visuals do not confirm route pricing or availability.",
+  "scenes": [
+    {
+      "path": "/destination/karelia",
+      "title": "Минивэн в Карелию из СПб — от 11 000 ₽ | ЗаказМинивэна.ru",
+      "scene": "Большая региональная открытка «Карелия»: сосны, гранитный берег и северное озеро; семья выходит из минивэна у гостевого дома, ребёнок рассматривает бумажную карту. Это настроение направления, не точный вид из окна на всём маршруте.",
+      "id": "dest-karelia",
+      "src": "/images/journeys/dest-karelia-v1.webp",
+      "source": "dest-karelia-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kmv",
+      "title": "Минивэн в Кавказские Минеральные Воды из Минеральные Воды — от 3 000…",
+      "scene": "Большая региональная открытка «Кавказские Минеральные Воды»: тенистый курортный бульвар и горы вдали; старшая пара и взрослые дети приехали к санаторию. Это настроение направления, не точный вид из окна на всём маршруте.",
+      "id": "dest-kmv",
+      "src": "/images/journeys/dest-kmv-v1.webp",
+      "source": "dest-kmv-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/altai",
+      "title": "Минивэн в Алтай из Барнаул — от 18 500 ₽ | ЗаказМинивэна.ru",
+      "scene": "Большая региональная открытка «Алтай»: Катунь, хвойные склоны и просторная долина; друзья с рюкзаками рядом с минивэном на разрешённой смотровой площадке. Это настроение направления, не точный вид из окна на всём маршруте.",
+      "id": "dest-altai",
+      "src": "/images/journeys/dest-altai-v1.webp",
+      "source": "dest-altai-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/baikal",
+      "title": "Минивэн в Байкал из Иркутск — от 6 500 ₽ | ЗаказМинивэна.ru",
+      "scene": "Большая региональная открытка «Байкал»: широкая синяя вода, скалистый берег и прозрачный воздух; семья любуется озером с оборудованной площадки. Это настроение направления, не точный вид из окна на всём маршруте.",
+      "id": "dest-baikal",
+      "src": "/images/journeys/dest-baikal-v1.webp",
+      "source": "dest-baikal-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/crimea",
+      "title": "Минивэн в Крым из Симферополь — от 5 500 ₽ | ЗаказМинивэна.ru",
+      "scene": "Большая региональная открытка «Крым»: море, кипарисы и мягкие горные склоны; семья с летним багажом возле минивэна у гостиницы. Это настроение направления, не точный вид из окна на всём маршруте.",
+      "id": "dest-crimea",
+      "src": "/images/journeys/dest-crimea-v1.webp",
+      "source": "dest-crimea-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/krasnodar-coast",
+      "title": "Минивэн в Краснодарское побережье из Краснодар — от 9 500 ₽ |…",
+      "scene": "Большая региональная открытка «Краснодарское побережье»: прибрежная дорога, южная зелень и море; друзья выгружают отпускные чемоданы у гостевого дома. Это настроение направления, не точный вид из окна на всём маршруте.",
+      "id": "dest-krasnodar-coast",
+      "src": "/images/journeys/dest-krasnodar-coast-v1.webp",
+      "source": "dest-krasnodar-coast-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kaliningrad",
+      "title": "Минивэн в Калининградскую область из Калининград — от 4 000 ₽ |…",
+      "scene": "Большая региональная открытка «Калининградская область»: балтийские дюны, сосны и курортные фасады в трёх отдельных пейзажных виньетках; минивэн объединяет маршрут. Это настроение направления, не точный вид из окна на всём маршруте.",
+      "id": "dest-kaliningrad",
+      "src": "/images/journeys/dest-kaliningrad-v1.webp",
+      "source": "dest-kaliningrad-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/north",
+      "title": "Минивэн в Север из Мурманск — от 9 000 ₽ | ЗаказМинивэна.ru",
+      "scene": "Большая региональная открытка «Север»: тундровая дорога, сопки и холодное море; путешественники в тёплой одежде с термосом у припаркованного минивэна. Это настроение направления, не точный вид из окна на всём маршруте.",
+      "id": "dest-north",
+      "src": "/images/journeys/dest-north-v1.webp",
+      "source": "dest-north-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/karelia/spb-sortavala",
+      "title": "Минивэн СПб — Сортавала: от 18 000 ₽, ≈ 300 км",
+      "scene": "Путешествие «СПб → Сортавала»: северные городские фасады, пристань и спокойная вода Ладоги. Светлый минивэн у начала прогулки или у согласованного места высадки; две взрослые пары с дорожными сумками; одна из женщин показывает спутникам бумажную карту. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-karelia-spb-sortavala",
+      "src": "/images/journeys/dest-karelia-spb-sortavala-v1.webp",
+      "source": "dest-karelia-spb-sortavala-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/karelia/spb-priozersk",
+      "title": "Минивэн СПб — Приозерск: от 11 000 ₽, ≈ 150 км",
+      "scene": "Путешествие «СПб → Приозерск»: северная зелень, вода и каменные стены крепости Корела в отдалении. Светлый минивэн у начала прогулки или у согласованного места высадки; две взрослые пары с дорожными сумками; одна из женщин показывает спутникам бумажную карту. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-karelia-spb-priozersk",
+      "src": "/images/journeys/dest-karelia-spb-priozersk-v1.webp",
+      "source": "dest-karelia-spb-priozersk-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kmv/mineralnye-vody-essentuki",
+      "title": "Минивэн Минеральные Воды — Ессентуки: от 4 500 ₽, ≈ 50 км",
+      "scene": "Путешествие «Минеральные Воды → Ессентуки»: тенистая курортная аллея, павильон минеральной воды и санаторный подъезд. Светлый минивэн у начала прогулки или у согласованного места высадки; две взрослые пары с дорожными сумками; одна из женщин показывает спутникам бумажную карту. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-kmv-mineralnye-vody-essentuki",
+      "src": "/images/journeys/dest-kmv-mineralnye-vody-essentuki-v1.webp",
+      "source": "dest-kmv-mineralnye-vody-essentuki-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kmv/mineralnye-vody-zheleznovodsk",
+      "title": "Минивэн Минеральные Воды — Железноводск: от 3 000 ₽, ≈ 30 км",
+      "scene": "Путешествие «Минеральные Воды → Железноводск»: зелёные склоны горы Железной и изящная курортная архитектура. Светлый минивэн у начала прогулки или у согласованного места высадки; две взрослые пары с дорожными сумками; одна из женщин показывает спутникам бумажную карту. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-kmv-mineralnye-vody-zheleznovodsk",
+      "src": "/images/journeys/dest-kmv-mineralnye-vody-zheleznovodsk-v1.webp",
+      "source": "dest-kmv-mineralnye-vody-zheleznovodsk-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kmv/mineralnye-vody-arkhyz",
+      "title": "Минивэн Минеральные Воды — Архыз: от 12 000 ₽, ≈ 200 км",
+      "scene": "Путешествие «Минеральные Воды → Архыз»: широкая горная долина, сосны и современная нижняя станция курорта вдали. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-kmv-mineralnye-vody-arkhyz",
+      "src": "/images/journeys/dest-kmv-mineralnye-vody-arkhyz-v1.webp",
+      "source": "dest-kmv-mineralnye-vody-arkhyz-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kmv/mineralnye-vody-elbrus",
+      "title": "Минивэн Минеральные Воды — Приэльбрусье: от 12 000 ₽, ≈ 200 км",
+      "scene": "Путешествие «Минеральные Воды → Приэльбрусье»: снежный двуглавый силуэт Эльбруса вдали, горная дорога и безопасная площадка остановки. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-kmv-mineralnye-vody-elbrus",
+      "src": "/images/journeys/dest-kmv-mineralnye-vody-elbrus-v1.webp",
+      "source": "dest-kmv-mineralnye-vody-elbrus-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/altai/barnaul-chemal",
+      "title": "Минивэн Барнаул — Чемал: от 22 000 ₽, ≈ 380 км",
+      "scene": "Путешествие «Барнаул → Чемал»: Катунь, сосновые склоны и дорога через зелёную алтайскую долину. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-altai-barnaul-chemal",
+      "src": "/images/journeys/dest-altai-barnaul-chemal-v1.webp",
+      "source": "dest-altai-barnaul-chemal-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/altai/barnaul-manzherok",
+      "title": "Минивэн Барнаул — Манжерок: от 18 500 ₽, ≈ 320 км",
+      "scene": "Путешествие «Барнаул → Манжерок»: алтайские склоны, сосны и курортная долина с подъездом к гостинице. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-altai-barnaul-manzherok",
+      "src": "/images/journeys/dest-altai-barnaul-manzherok-v1.webp",
+      "source": "dest-altai-barnaul-manzherok-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/altai/novosibirsk-gorno-altaysk",
+      "title": "Минивэн Новосибирск — Горно-Алтайск: от 26 000 ₽, ≈ 450 км",
+      "scene": "Путешествие «Новосибирск → Горно-Алтайск»: зелёные горы вокруг города, спокойная улица и начало дороги в Алтай. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-altai-novosibirsk-gorno-altaysk",
+      "src": "/images/journeys/dest-altai-novosibirsk-gorno-altaysk-v1.webp",
+      "source": "dest-altai-novosibirsk-gorno-altaysk-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/baikal/irkutsk-baikal-mrs",
+      "title": "Минивэн Иркутск — Малое Море (МРС): от 14 500 ₽, ≈ 240 км",
+      "scene": "Путешествие «Иркутск → Малое Море (МРС)»: сухие охристые холмы, синие бухты Малого Моря и небольшой гостевой дом. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-baikal-irkutsk-baikal-mrs",
+      "src": "/images/journeys/dest-baikal-irkutsk-baikal-mrs-v1.webp",
+      "source": "dest-baikal-irkutsk-baikal-mrs-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/baikal/irkutsk-arshan",
+      "title": "Минивэн Иркутск — Аршан: от 12 000 ₽, ≈ 200 км",
+      "scene": "Путешествие «Иркутск → Аршан»: лесная долина у Саян, горный ручей и курортный посёлок. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-baikal-irkutsk-arshan",
+      "src": "/images/journeys/dest-baikal-irkutsk-arshan-v1.webp",
+      "source": "dest-baikal-irkutsk-arshan-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/krasnodar-coast/krasnodar-temryuk",
+      "title": "Минивэн Краснодар — Темрюк / Тамань: от 9 500 ₽, ≈ 130 км",
+      "scene": "Путешествие «Краснодар → Темрюк / Тамань»: виноградники, невысокие дома и просторный прибрежный пейзаж Тамани. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-krasnodar-coast-krasnodar-temryuk",
+      "src": "/images/journeys/dest-krasnodar-coast-krasnodar-temryuk-v1.webp",
+      "source": "dest-krasnodar-coast-krasnodar-temryuk-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kaliningrad/kaliningrad-zelenogradsk",
+      "title": "Минивэн Калининград — Зеленоградск: от 4 000 ₽, ≈ 40 км",
+      "scene": "Путешествие «Калининград → Зеленоградск»: Балтийское море, светлая набережная и небольшие европейские по характеру фасады. Светлый минивэн у начала прогулки или у согласованного места высадки; две взрослые пары с дорожными сумками; одна из женщин показывает спутникам бумажную карту. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-kaliningrad-kaliningrad-zelenogradsk",
+      "src": "/images/journeys/dest-kaliningrad-kaliningrad-zelenogradsk-v1.webp",
+      "source": "dest-kaliningrad-kaliningrad-zelenogradsk-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kaliningrad/kaliningrad-svetlogorsk",
+      "title": "Минивэн Калининград — Светлогорск: от 4 500 ₽, ≈ 50 км",
+      "scene": "Путешествие «Калининград → Светлогорск»: сосны на высоком морском берегу, променад и светлая курортная застройка. Светлый минивэн у начала прогулки или у согласованного места высадки; две взрослые пары с дорожными сумками; одна из женщин показывает спутникам бумажную карту. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-kaliningrad-kaliningrad-svetlogorsk",
+      "src": "/images/journeys/dest-kaliningrad-kaliningrad-svetlogorsk-v1.webp",
+      "source": "dest-kaliningrad-kaliningrad-svetlogorsk-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kaliningrad/kaliningrad-curonian-spit",
+      "title": "Минивэн Калининград — Куршская коса: от 4 500 ₽, ≈ 50 км",
+      "scene": "Путешествие «Калининград → Куршская коса»: дорога в сосновом лесу и песчаные дюны отдельным дальним планом; машина только на разрешённой парковке. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-kaliningrad-kaliningrad-curonian-spit",
+      "src": "/images/journeys/dest-kaliningrad-kaliningrad-curonian-spit-v1.webp",
+      "source": "dest-kaliningrad-kaliningrad-curonian-spit-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/kaliningrad/kaliningrad-yantarny",
+      "title": "Минивэн Калининград — Янтарный: от 4 500 ₽, ≈ 50 км",
+      "scene": "Путешествие «Калининград → Янтарный»: широкий светлый пляж, деревянный настил и мягкий янтарный закат. Светлый минивэн у начала прогулки или у согласованного места высадки; две взрослые пары с дорожными сумками; одна из женщин показывает спутникам бумажную карту. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-kaliningrad-kaliningrad-yantarny",
+      "src": "/images/journeys/dest-kaliningrad-kaliningrad-yantarny-v1.webp",
+      "source": "dest-kaliningrad-kaliningrad-yantarny-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/north/murmansk-teriberka",
+      "title": "Минивэн Мурманск — Териберка: от 9 000 ₽, ≈ 120 км",
+      "scene": "Путешествие «Мурманск → Териберка»: каменистый берег Баренцева моря, тундровые холмы и маленькие прибрежные дома. Светлый минивэн у начала прогулки или у согласованного места высадки; две взрослые пары с дорожными сумками; одна из женщин показывает спутникам бумажную карту. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-north-murmansk-teriberka",
+      "src": "/images/journeys/dest-north-murmansk-teriberka-v1.webp",
+      "source": "dest-north-murmansk-teriberka-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/north/murmansk-khibiny",
+      "title": "Минивэн Мурманск — Хибины (Кировск): от 14 500 ₽, ≈ 240 км",
+      "scene": "Путешествие «Мурманск → Хибины (Кировск)»: широкая панорама Хибин, горные склоны и подъезд к базе отдыха в долине. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-north-murmansk-khibiny",
+      "src": "/images/journeys/dest-north-murmansk-khibiny-v1.webp",
+      "source": "dest-north-murmansk-khibiny-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/north/murmansk-kirovsk",
+      "title": "Минивэн Мурманск — Кировск: от 13 500 ₽, ≈ 220 км",
+      "scene": "Путешествие «Мурманск → Кировск»: город у подножия Хибин, заснеженные склоны и вход в гостиницу. Светлый минивэн у начала прогулки или у согласованного места высадки; две взрослые пары с дорожными сумками; одна из женщин показывает спутникам бумажную карту. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-north-murmansk-kirovsk",
+      "src": "/images/journeys/dest-north-murmansk-kirovsk-v1.webp",
+      "source": "dest-north-murmansk-kirovsk-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "/destination/north/aurora-borealis",
+      "title": "Минивэн Мурманск — Охота за северным сиянием: от 9 000 ₽, ≈ 120 км",
+      "scene": "Путешествие «Мурманск → Охота за северным сиянием»: безопасная площадка у северной дороги, тёмные сопки и мягкие зелёные ленты сияния как художественный образ, не обещание явления. Светлый минивэн у начала прогулки или у согласованного места высадки; мама, папа и двое детей с двумя чемоданами; водитель отдельно помогает открыть багажник. Акцент на впечатлении от места, а не на скорости трансфера. Для островов автомобиль показывается только на корректном наземном участке.",
+      "id": "dest-north-aurora-borealis",
+      "src": "/images/journeys/dest-north-aurora-borealis-v1.webp",
+      "source": "dest-north-aurora-borealis-source-v1.png",
+      "width": 1536,
+      "height": 1024
+    }
+  ],
+  "reusedRoutes": [
+    {
+      "path": "/destination/karelia/spb-petrozavodsk",
+      "from": "/routes/spb-petrozavodsk"
+    },
+    {
+      "path": "/destination/kmv/mineralnye-vody-kislovodsk",
+      "from": "/routes/mineralnye-vody-kislovodsk"
+    },
+    {
+      "path": "/destination/kmv/mineralnye-vody-pyatigorsk",
+      "from": "/routes/mineralnye-vody-pyatigorsk"
+    },
+    {
+      "path": "/destination/kmv/mineralnye-vody-dombay",
+      "from": "/routes/mineralnye-vody-dombay"
+    },
+    {
+      "path": "/destination/crimea/simferopol-yalta",
+      "from": "/routes/simferopol-yalta"
+    },
+    {
+      "path": "/destination/crimea/simferopol-alushta",
+      "from": "/routes/simferopol-alushta"
+    },
+    {
+      "path": "/destination/crimea/simferopol-sevastopol",
+      "from": "/routes/simferopol-sevastopol"
+    },
+    {
+      "path": "/destination/crimea/simferopol-feodosiya",
+      "from": "/routes/simferopol-feodosiya"
+    },
+    {
+      "path": "/destination/crimea/simferopol-sudak",
+      "from": "/routes/simferopol-sudak"
+    },
+    {
+      "path": "/destination/crimea/simferopol-evpatoriya",
+      "from": "/routes/simferopol-evpatoriya"
+    },
+    {
+      "path": "/destination/krasnodar-coast/krasnodar-anapa",
+      "from": "/routes/krasnodar-anapa"
+    },
+    {
+      "path": "/destination/krasnodar-coast/krasnodar-gelendzhik",
+      "from": "/routes/krasnodar-gelendzhik"
+    },
+    {
+      "path": "/destination/krasnodar-coast/krasnodar-novorossiysk",
+      "from": "/routes/krasnodar-novorossiysk"
+    }
+  ]
+}

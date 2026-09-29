@@ -22,6 +22,9 @@ const get=p=>new Promise((resolve,reject)=>{
 for(let attempt=0;attempt<40;attempt++){try{if((await get('/')).status===200)break;}catch{}await new Promise(r=>setTimeout(r,250));}
 for(const [url,image] of Object.entries(images)){
  const r=await get(url), html=r.text;
+ const cityPage=url.startsWith('/cities/');
+ const destinationHub=/^\/destination\/[^/]+$/.test(url);
+ const destinationRoute=/^\/destination\/[^/]+\/[^/]+$/.test(url);
  const title=html.match(/<title>(.*?)<\/title>/s)?.[1]||'';
  const tags=[...html.matchAll(/<meta\b[^>]*>/g)].map(m=>Object.fromEntries([...m[0].matchAll(/([\w:-]+)="([^"]*)"/g)].map(a=>[a[1],decode(a[2])])));
  const meta=name=>tags.find(t=>(t.name||t.property)===name)?.content||'';
@@ -29,21 +32,20 @@ for(const [url,image] of Object.entries(images)){
  const canonical=html.match(/<link rel="canonical" href="([^"]*)"/)?.[1]||'';
  const facts={title,description:meta('description'),canonical,constructor:frames[0]||''};
  pages[url]=facts;
- if(r.status!==200||!title||!facts.description||frames.length!==1)failures.push({url,test:'page/metadata/constructor',status:r.status});
+ if(r.status!==200||!title||!facts.description||frames.length!==(destinationHub?0:1))failures.push({url,test:'page/metadata/constructor',status:r.status});
  if(previous&&JSON.stringify(previous[url])!==JSON.stringify(facts))failures.push({url,test:'text/price/route changed',before:previous[url],after:facts});
  if(capture)continue;
  const expected='https://zakazminivena.ru'+image.src;
  if((html.match(/<h1[\s>]/g)||[]).length!==1)failures.push({url,test:'one H1'});
- const cityPage=url.startsWith('/cities/');
- if(!cityPage&&!html.includes('data-journey-hero'))failures.push({url,test:'illustrated hero'});
+ if(!cityPage&&!destinationHub&&!html.includes('data-journey-hero'))failures.push({url,test:'illustrated hero'});
  if(!html.includes(encodeURIComponent(image.src)))failures.push({url,test:'responsive hero image'});
  if(meta('og:image')!==expected||meta('twitter:image')!==expected)failures.push({url,test:'social image'});
  if(canonical!=='https://zakazminivena.ru'+url)failures.push({url,test:'canonical'});
- if(!cityPage){
+ if(!cityPage&&!destinationHub){
   const hero=html.match(/<section\b[^>]*data-journey-hero[^>]*>[\s\S]*?<\/section>/);
   if(!hero||!hero[0].includes('href="#trip-constructor"'))failures.push({url,test:'constructor anchor'});
- }else if(!html.includes('id="trip-constructor"'))failures.push({url,test:'city constructor'});
- if(/^\/airport\/[a-z]{3}(?:\/[^/]+)?$/.test(url)||url.startsWith('/routes/')||cityPage){
+ }else if(cityPage&&!html.includes('id="trip-constructor"'))failures.push({url,test:'city constructor'});
+ if(/^\/airport\/[a-z]{3}(?:\/[^/]+)?$/.test(url)||url.startsWith('/routes/')||cityPage||destinationRoute){
   const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
   const type=url.startsWith('/routes/')?'Product':'TaxiService';
   if(!schemas.some(s=>s['@type']===type&&s.image===expected))failures.push({url,test:'schema image',type});
