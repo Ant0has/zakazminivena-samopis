@@ -90,7 +90,9 @@ export default async function AirportRoutePage({ params }: Props) {
     "@type": "TaxiService",
     name: `Минивэн ${airport.name} → ${route.destinationName}`,
     description: `Минивэн на до 7 мест из аэропорта ${airport.nameFull} в ${route.destinationName}. Цена от ${price} ₽ за машину.`,
-    image: `https://zakazminivena.ru/images/heroes/${iata}.webp`,
+    image: illustration
+      ? `https://zakazminivena.ru${illustration.src}`
+      : `https://zakazminivena.ru/images/heroes/${iata}.webp`,
     provider: {
       "@type": "Organization",
       name: "ЗаказМинивэна.ru",

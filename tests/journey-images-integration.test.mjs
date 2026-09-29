@@ -9,9 +9,9 @@ const source=fs.readFileSync(new URL('src/lib/journey-illustrations.ts',root),'u
 const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const sandbox={exports:{}};vm.runInNewContext(code,sandbox);
 const {journeyIllustrations,getJourneyIllustration,journeySocialImage}=sandbox.exports;
-test('All 84 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
-  assert.equal(Object.keys(journeyIllustrations).length,84);
-  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,84);
+test('All 141 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
+  assert.equal(Object.keys(journeyIllustrations).length,141);
+  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,141);
   for(const [route,image] of Object.entries(journeyIllustrations)){
     assert.ok(route.startsWith('/'));
     assert.match(image.alt,/рисованная иллюстрация/);
@@ -73,6 +73,22 @@ test('Only the 13 reviewed airport hubs receive illustrations; no generic airpor
   for(const iata of airports)assert.ok(getJourneyIllustration('/airport/'+iata));
   for(const iata of ['aaq','krr','sip','nonexistent'])assert.equal(getJourneyIllustration('/airport/'+iata),undefined);
   assert.equal(journeySocialImage('/unknown'),undefined);
+});
+test('57 airport-to-city pages receive their own image and structured data uses the same image',()=>{
+  const manifest=JSON.parse(fs.readFileSync(new URL('docs/illustrations/airport-city-prompts-2026-09-29.json',root),'utf8'));
+  const pages=fs.readFileSync(new URL('src/app/airport/[iata]/[destination]/page.tsx',root),'utf8');
+  assert.equal(manifest.scenes.length,57);
+  assert.equal(new Set(manifest.scenes.map(scene=>scene.path)).size,57);
+  assert.equal(new Set(manifest.scenes.map(scene=>scene.src)).size,57);
+  for(const scene of manifest.scenes){
+    assert.equal(getJourneyIllustration(scene.path)?.src,scene.src);
+    assert.ok(scene.path.startsWith('/airport/'));
+    assert.match(scene.title,/^Минивэн /);
+    assert.match(scene.source,/^airport-.+-source-v[12]\.png$/);
+  }
+  assert.equal(Object.keys(journeyIllustrations).filter(path=>/^\/airport\/[^/]+\/[^/]+$/.test(path)).length,58);
+  assert.match(pages,/image: illustration\s*\? `https:\/\/zakazminivena\.ru\$\{illustration\.src\}`/);
+  assert.match(pages,/getJourneyIllustration\('\/airport\/' \+ iata \+ '\/' \+ destination\)/);
 });
 test('Airport JSON-LD uses the selected hero, without changing prices or constructor settings',()=>{
   const page=fs.readFileSync(new URL('src/app/airport/[iata]/page.tsx',root),'utf8');
