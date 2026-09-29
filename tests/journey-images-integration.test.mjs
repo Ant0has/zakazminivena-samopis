@@ -9,9 +9,9 @@ const source=fs.readFileSync(new URL('src/lib/journey-illustrations.ts',root),'u
 const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const sandbox={exports:{}};vm.runInNewContext(code,sandbox);
 const {journeyIllustrations,getJourneyIllustration,journeySocialImage}=sandbox.exports;
-test('All 56 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
-  assert.equal(Object.keys(journeyIllustrations).length,56);
-  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,56);
+test('All 84 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
+  assert.equal(Object.keys(journeyIllustrations).length,84);
+  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,84);
   for(const [route,image] of Object.entries(journeyIllustrations)){
     assert.ok(route.startsWith('/'));
     assert.match(image.alt,/рисованная иллюстрация/);
@@ -23,6 +23,27 @@ test('All 56 explicit hero mappings have distinct local WebP files and meaningfu
     assert.ok(bytes.length<600000,'Oversized hero: '+route);
     assert.equal(journeySocialImage(route).url,'https://zakazminivena.ru'+image.src);
   }
+});
+test('The 11 new long-route scenes use existing reviewed City2City distances',()=>{
+  const registry=JSON.parse(fs.readFileSync(new URL('src/lib/route-registry.json',root),'utf8'));
+  const ids='rostov-sochi rostov-adler moskva-sochi kazan-ekaterinburg moskva-spb spb-moskva moskva-voronezh voronezh-moskva moskva-kazan kazan-moskva novosibirsk-omsk'.split(' ');
+  for(const id of ids){
+    const path='/routes/'+id;
+    assert.equal(registry.byPath[path]?.distanceStatus,'c2c-cache-endpoints-reviewed');
+    assert.equal(getJourneyIllustration(path).src,'/images/journeys/'+id+'-v1.webp');
+  }
+});
+test('17 regional scenes do not upgrade legacy distance status or silently include unapproved routes',()=>{
+  const registry=JSON.parse(fs.readFileSync(new URL('src/lib/route-registry.json',root),'utf8'));
+  const ids='adler-roza-khutor sochi-krasnaya-polyana simferopol-yalta simferopol-alushta simferopol-evpatoriya simferopol-feodosiya simferopol-sudak simferopol-sevastopol krasnodar-anapa krasnodar-gelendzhik mineralnye-vody-dombay mineralnye-vody-kislovodsk mineralnye-vody-pyatigorsk mineralnye-vody-nalchik voronezh-lipetsk voronezh-tambov novosibirsk-kemerovo'.split(' ');
+  for(const id of ids){
+    const path='/routes/'+id;
+    assert.equal(registry.byPath[path]?.distanceStatus,'legacy-estimate-needs-road-check');
+    assert.equal(getJourneyIllustration(path).src,'/images/journeys/'+id+'-v1.webp');
+  }
+  assert.equal(Object.keys(journeyIllustrations).filter(path=>path.startsWith('/routes/')).length,65);
+  const missing=Object.keys(registry.byPath).filter(path=>path.startsWith('/routes/')&&!getJourneyIllustration(path)).sort();
+  assert.deepEqual(missing,['/routes/voronezh-belgorod','/routes/voronezh-kursk']);
 });
 test('Priority route batch maps eleven reviewed-distance pages without new route records',()=>{
   const registry=JSON.parse(fs.readFileSync(new URL('src/lib/route-registry.json',root),'utf8'));
