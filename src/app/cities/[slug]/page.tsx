@@ -19,6 +19,7 @@ import {
   type CityData,
 } from "@/lib/routes-data";
 import { getRouteImage } from "@/lib/route-images";
+import { getJourneyIllustration, journeySocialImage } from "@/lib/journey-illustrations";
 import { getCityContent } from "@/lib/city-content";
 import { servicesData } from "@/lib/services-data";
 import { PriceCalculator } from "@/components/PriceCalculator";
@@ -57,10 +58,11 @@ export async function generateMetadata({
   const prices = [...allRoutes.filter(r => r.fromSlug === slug), ...allAirports.filter(a => a.citySlug === slug)].map(r => calcPrice(r.km, r.pricingDistanceM));
   const title = `Минивэн с водителем в ${city.nameIn} — аэропорт и межгород`;
   const description = `Минивэн в ${city.nameIn}: ${prices.length ? `по маршрутам каталога от ${formatPrice(Math.min(...prices))} ₽ за автомобиль. ` : ''}До 7 пассажиров. Цены ${pricingYear}; адреса, багаж и подачу подтвердим до заказа.`;
+  const socialImage = journeySocialImage(`/cities/${slug}`);
   return {
     title,
     description,
-    twitter: { card: 'summary_large_image', title, description },
+    twitter: { card: 'summary_large_image', title, description, ...(socialImage ? { images: [socialImage.url] } : {}) },
     alternates: {
       canonical: `https://zakazminivena.ru/cities/${slug}`,
     },
@@ -71,6 +73,7 @@ export async function generateMetadata({
       siteName: "ЗаказМинивэна.ru",
       locale: "ru_RU",
       type: "website",
+      ...(socialImage ? { images: [socialImage] } : {}),
     },
   };
 }
@@ -111,6 +114,7 @@ export default async function CityPage({
   const cityAirports = allAirports.filter((a) => a.citySlug === city.slug);
   const reviewTags = getCityTags(city.slug);
   const cityContent = getCityContent(city.slug);
+  const cityIllustration = getJourneyIllustration(`/cities/${slug}`);
 
   // Минимальная цена по доступным маршрутам/аэропортам — для hero выше сгиба
   const priceCandidates = [
@@ -225,6 +229,7 @@ export default async function CityPage({
     "url": `https://zakazminivena.ru/cities/${slug}`,
     "telephone": "+79185875454",
     "description": `Заказать минивэн с водителем в ${city.nameIn}. ${city.description}`,
+    ...(cityIllustration ? { "image": `https://zakazminivena.ru${cityIllustration.src}` } : {}),
     "areaServed": {
       "@type": "City",
       "name": city.name,
@@ -317,8 +322,8 @@ export default async function CityPage({
                 </p>
               </div>
               <HeroVehicleImage
-                src={getRouteImage(city.slug, city.slug)}
-                alt={`Минивэн с водителем в ${city.nameIn}`}
+                src={cityIllustration?.src ?? getRouteImage(city.slug, city.slug)}
+                alt={cityIllustration?.alt ?? `Минивэн с водителем в ${city.nameIn}`}
                 captionLabel="Минивэн 7 мест с водителем"
                 captionValue={minPrice ? `от ${formatPrice(minPrice)} ₽` : city.name}
                 priority

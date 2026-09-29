@@ -9,9 +9,9 @@ const source=fs.readFileSync(new URL('src/lib/journey-illustrations.ts',root),'u
 const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const sandbox={exports:{}};vm.runInNewContext(code,sandbox);
 const {journeyIllustrations,getJourneyIllustration,journeySocialImage}=sandbox.exports;
-test('All 141 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
-  assert.equal(Object.keys(journeyIllustrations).length,141);
-  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,141);
+test('All 159 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
+  assert.equal(Object.keys(journeyIllustrations).length,159);
+  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,159);
   for(const [route,image] of Object.entries(journeyIllustrations)){
     assert.ok(route.startsWith('/'));
     assert.match(image.alt,/рисованная иллюстрация/);
@@ -23,6 +23,22 @@ test('All 141 explicit hero mappings have distinct local WebP files and meaningf
     assert.ok(bytes.length<600000,'Oversized hero: '+route);
     assert.equal(journeySocialImage(route).url,'https://zakazminivena.ru'+image.src);
   }
+});
+test('18 city pages use their own illustrated hero, social preview and TaxiService image',()=>{
+  const manifest=JSON.parse(fs.readFileSync(new URL('docs/illustrations/cities-2026-09-29.json',root),'utf8'));
+  const page=fs.readFileSync(new URL('src/app/cities/[slug]/page.tsx',root),'utf8');
+  assert.equal(manifest.scenes.length,18);
+  assert.equal(new Set(manifest.scenes.map(scene=>scene.path)).size,18);
+  assert.equal(Object.keys(journeyIllustrations).filter(path=>path.startsWith('/cities/')).length,18);
+  for(const scene of manifest.scenes){
+    assert.equal(getJourneyIllustration(scene.path)?.src,scene.src);
+    assert.match(scene.title,/^Минивэн с водителем в /);
+    assert.match(scene.source,/^city-.+-source-v1\.png$/);
+  }
+  assert.match(page,/const cityIllustration = getJourneyIllustration\(`\/cities\/\$\{slug\}`\)/);
+  assert.match(page,/src=\{cityIllustration\?\.src \?\? getRouteImage/);
+  assert.match(page,/socialImage \? \{ images: \[socialImage\] \}/);
+  assert.match(page,/"image": `https:\/\/zakazminivena\.ru\$\{cityIllustration\.src\}`/);
 });
 test('The 11 new long-route scenes use existing reviewed City2City distances',()=>{
   const registry=JSON.parse(fs.readFileSync(new URL('src/lib/route-registry.json',root),'utf8'));

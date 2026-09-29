@@ -34,13 +34,16 @@ for(const [url,image] of Object.entries(images)){
  if(capture)continue;
  const expected='https://zakazminivena.ru'+image.src;
  if((html.match(/<h1[\s>]/g)||[]).length!==1)failures.push({url,test:'one H1'});
- if(!html.includes('data-journey-hero'))failures.push({url,test:'illustrated hero'});
+ const cityPage=url.startsWith('/cities/');
+ if(!cityPage&&!html.includes('data-journey-hero'))failures.push({url,test:'illustrated hero'});
  if(!html.includes(encodeURIComponent(image.src)))failures.push({url,test:'responsive hero image'});
  if(meta('og:image')!==expected||meta('twitter:image')!==expected)failures.push({url,test:'social image'});
  if(canonical!=='https://zakazminivena.ru'+url)failures.push({url,test:'canonical'});
- const hero=html.match(/<section\b[^>]*data-journey-hero[^>]*>[\s\S]*?<\/section>/);
- if(!hero||!hero[0].includes('href="#trip-constructor"'))failures.push({url,test:'constructor anchor'});
- if(/^\/airport\/[a-z]{3}(?:\/[^/]+)?$/.test(url)||url.startsWith('/routes/')){
+ if(!cityPage){
+  const hero=html.match(/<section\b[^>]*data-journey-hero[^>]*>[\s\S]*?<\/section>/);
+  if(!hero||!hero[0].includes('href="#trip-constructor"'))failures.push({url,test:'constructor anchor'});
+ }else if(!html.includes('id="trip-constructor"'))failures.push({url,test:'city constructor'});
+ if(/^\/airport\/[a-z]{3}(?:\/[^/]+)?$/.test(url)||url.startsWith('/routes/')||cityPage){
   const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
   const type=url.startsWith('/routes/')?'Product':'TaxiService';
   if(!schemas.some(s=>s['@type']===type&&s.image===expected))failures.push({url,test:'schema image',type});
