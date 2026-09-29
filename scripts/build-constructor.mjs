@@ -4,7 +4,9 @@ import { createHash } from 'node:crypto';
 const folder = new URL('../public/trip-constructor/', import.meta.url);
 // Pin the build-only bundler. npm caches it; no extra production runtime dependency.
 for (const [entry,output] of [['constructor.js','constructor.bundle.js'],['constructor-entry.css','constructor.bundle.css']]) {
-  execFileSync('npm', ['exec','--yes','--package=esbuild@0.25.9','--','esbuild',new URL(entry,folder).pathname,'--bundle','--format=esm','--target=es2020','--minify','--outfile='+new URL(output,folder).pathname], {stdio:'inherit'});
+  const args=[new URL(entry,folder).pathname,'--bundle','--format=esm','--target=es2020','--minify','--outfile='+new URL(output,folder).pathname];
+  if (process.env.ZM_ESBUILD_BINARY) execFileSync(process.env.ZM_ESBUILD_BINARY,args,{stdio:'inherit'});
+  else execFileSync('npm',['exec','--yes','--package=esbuild@0.25.9','--','esbuild',...args],{stdio:'inherit'});
 }
 const version=createHash('sha256').update(fs.readFileSync(new URL('constructor.bundle.js',folder))).update(fs.readFileSync(new URL('constructor.bundle.css',folder))).digest('hex').slice(0,12);
 const htmlFile=new URL('constructor.html',folder);

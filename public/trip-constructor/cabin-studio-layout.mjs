@@ -1,5 +1,5 @@
 // Coordinates belong to our generated 1536 × 1024 illustration, not a vehicle plan.
-export const studioAssets={body:'h1-studio-v3.png',people:'h1-family-v5.png',baggage:'h1-baggage-v3.png',cargo:'h1-cargo-v4.png',fold1:'h1-fold1-v5.png',fold2:'h1-fold2-v5.png',fold3:'h1-fold3-v4.png',legacy:'h1-luggage-v2.png'};
+export const studioAssets={body:'h1-studio-v3-opt.webp',people:'h1-family-v5-opt.webp',baggage:'h1-baggage-v3-opt.webp',cargo:'h1-cargo-v4-opt.webp',fold1:'h1-fold1-v5-opt.webp',fold2:'h1-fold2-v5-opt.webp',fold3:'h1-fold3-v4-opt.webp',legacy:'h1-luggage-v2-opt.webp'};
 export function seatPosition(seat,capacity){
   const middle=[[652,315],[749,253],[843,199]],rear=[[932,449],[1033,380],[1110,326]];
   let point;

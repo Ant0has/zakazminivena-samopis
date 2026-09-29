@@ -24,7 +24,8 @@ function position(node,{x,y,width},anchorX=.69,anchorY=.24,ratio=1){
 function preload(src){return new Promise((resolve,reject)=>{const img=new Image();img.onload=resolve;img.onerror=()=>reject(new Error(`Не загружено изображение ${src}`));img.src=src;});}
 
 export async function mountCabin(container,{state,capacity,onLayout}){
-  await Promise.all(Object.values(studioAssets).map(preload));
+  // Start with the visible scene; folded seats and special cargo load on demand.
+  await Promise.all([studioAssets.body,studioAssets.people,studioAssets.baggage].map(preload));
   const root=make('div','studio-root'),frame=make('div','studio-frame'),layers=make('div','studio-layers');
   const base=picture(studioAssets.body,'studio-body');base.alt='Серебристый минивэн без логотипов: вид сзади-сверху, открытый салон и багажник';
   frame.append(base,layers);root.append(frame);container.append(root);
