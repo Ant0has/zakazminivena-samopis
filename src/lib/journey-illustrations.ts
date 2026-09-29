@@ -6,6 +6,14 @@ const illustration = (id: string, alt: string): JourneyIllustration => ({
 
 // Explicit URL assignments: do not silently reuse a different destination's image.
 export const journeyIllustrations: Record<string, JourneyIllustration> = {
+  '/routes/krasnodar-sochi': illustration('krasnodar-sochi', 'Семья с двумя детьми и чемоданами у светлого минивэна среди субтропической зелени Сочи'),
+  '/routes/krasnodar-novorossiysk': illustration('krasnodar-novorossiysk', 'Компания друзей с дорожными сумками у минивэна на фоне бухты Новороссийска'),
+  '/routes/ekaterinburg-tyumen': illustration('ekaterinburg-tyumen', 'Мама, сын и бабушка у минивэна на фоне уютной улицы Тюмени'),
+  '/routes/samara-kazan': illustration('samara-kazan', 'Пара путешественников с багажом у минивэна на фоне речной панорамы Казани'),
+  '/routes/spb-petrozavodsk': illustration('spb-petrozavodsk', 'Семья с подростком и рюкзаками у минивэна на фоне Онежского озера в Петрозаводске'),
+  '/routes/volgograd-astrakhan': illustration('volgograd-astrakhan', 'Семья с мальчиком у минивэна среди набережной и зелени Астрахани'),
+  '/routes/moskva-yaroslavl': illustration('moskva-yaroslavl', 'Родители с двумя детьми и чемоданами у минивэна в историческом Ярославле'),
+  '/routes/moskva-vladimir': illustration('moskva-vladimir', 'Пара с дочерью и багажом у минивэна на фоне белокаменного Владимира'),
   '/routes/ekaterinburg-perm': illustration('ekaterinburg-perm', 'Пара путешественников и водитель у минивэна на фоне Камы в Перми'),
   '/routes/ekaterinburg-kurgan': illustration('ekaterinburg-kurgan', 'Мама с дочерью и бабушка с багажом после поездки на минивэне в Курган'),
   '/routes/kazan-nizhniy-novgorod': illustration('kazan-nizhniy-novgorod', 'Семья с двумя детьми у минивэна на фоне речной панорамы Нижнего Новгорода'),

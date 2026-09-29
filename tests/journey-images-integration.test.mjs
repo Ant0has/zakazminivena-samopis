@@ -9,9 +9,9 @@ const source=fs.readFileSync(new URL('src/lib/journey-illustrations.ts',root),'u
 const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const sandbox={exports:{}};vm.runInNewContext(code,sandbox);
 const {journeyIllustrations,getJourneyIllustration,journeySocialImage}=sandbox.exports;
-test('All 33 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
-  assert.equal(Object.keys(journeyIllustrations).length,33);
-  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,33);
+test('All 41 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
+  assert.equal(Object.keys(journeyIllustrations).length,41);
+  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,41);
   for(const [route,image] of Object.entries(journeyIllustrations)){
     assert.ok(route.startsWith('/'));
     assert.match(image.alt,/рисованная иллюстрация/);
