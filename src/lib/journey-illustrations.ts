@@ -1,11 +1,22 @@
 export type JourneyIllustration = { src: string; alt: string; width: number; height: number };
 
-const illustration = (id: string, alt: string): JourneyIllustration => ({
-  src: `/images/journeys/${id}-v1.webp`, alt: `${alt} — рисованная иллюстрация`, width: 1536, height: 1024,
+const illustration = (id: string, alt: string, version = 1): JourneyIllustration => ({
+  src: `/images/journeys/${id}-v${version}.webp`, alt: `${alt} — рисованная иллюстрация`, width: 1536, height: 1024,
 });
 
 // Explicit URL assignments: do not silently reuse a different destination's image.
 export const journeyIllustrations: Record<string, JourneyIllustration> = {
+  '/routes/moskva-tver': illustration('moskva-tver', 'Семья с дорожными чемоданами у светлого минивэна на фоне тихого исторического квартала Твери'),
+  '/routes/volgograd-rostov': illustration('volgograd-rostov', 'Компания путешественников с багажом рядом с минивэном в тёплом южном Ростове-на-Дону'),
+  '/routes/krasnodar-adler': illustration('krasnodar-adler', 'Семья с чемоданами прибывает на минивэне в зелёный приморский Адлер'),
+  '/routes/moskva-nizhniy-novgorod': illustration('moskva-nizhniy-novgorod', 'Путешественники с багажом рядом с минивэном на фоне речного Нижнего Новгорода'),
+  '/routes/yaroslavl-moskva': illustration('yaroslavl-moskva', 'Семья и чемоданы у минивэна на фоне московского городского пейзажа'),
+  '/routes/moskva-tula': illustration('moskva-tula', 'Семья с дорожными сумками у минивэна среди уютных старых улиц Тулы', 2),
+  '/routes/moskva-ryazan': illustration('moskva-ryazan', 'Путешественники с чемоданами у минивэна на фоне зелёной Рязани'),
+  '/routes/moskva-kaluga': illustration('moskva-kaluga', 'Родители с ребёнком и чемоданами у минивэна после поездки в Калугу'),
+  '/routes/moskva-kostroma': illustration('moskva-kostroma', 'Семья с багажом рядом с минивэном на тихой исторической улице Костромы', 2),
+  '/routes/nizhniy-novgorod-moskva': illustration('nizhniy-novgorod-moskva', 'Компания с дорожными чемоданами у минивэна на фоне Москвы'),
+  '/routes/krasnodar-simferopol': illustration('krasnodar-simferopol', 'Путешественники с багажом у минивэна в залитом солнцем южном городе'),
   '/routes/rostov-anapa': illustration('rostov-anapa', 'Родители с дочерью и чемоданами рядом с минивэном среди сосен и морского света Анапы'),
   '/routes/chelyabinsk-ekaterinburg': illustration('chelyabinsk-ekaterinburg', 'Небольшая компания с дорожными сумками у минивэна на фоне городского пруда Екатеринбурга'),
   '/routes/nizhniy-novgorod-kazan': illustration('nizhniy-novgorod-kazan', 'Мама, папа и дочь с чемоданами у минивэна в старом квартале Казани'),
