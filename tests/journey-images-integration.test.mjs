@@ -9,9 +9,9 @@ const source=fs.readFileSync(new URL('src/lib/journey-illustrations.ts',root),'u
 const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const sandbox={exports:{}};vm.runInNewContext(code,sandbox);
 const {journeyIllustrations,getJourneyIllustration,journeySocialImage}=sandbox.exports;
-test('All 41 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
-  assert.equal(Object.keys(journeyIllustrations).length,41);
-  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,41);
+test('All 45 explicit hero mappings have distinct local WebP files and meaningful alt text',()=>{
+  assert.equal(Object.keys(journeyIllustrations).length,45);
+  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,45);
   for(const [route,image] of Object.entries(journeyIllustrations)){
     assert.ok(route.startsWith('/'));
     assert.match(image.alt,/рисованная иллюстрация/);
@@ -22,6 +22,19 @@ test('All 41 explicit hero mappings have distinct local WebP files and meaningfu
     assert.equal(bytes.toString('ascii',8,12),'WEBP');
     assert.ok(bytes.length<600000,'Oversized hero: '+route);
     assert.equal(journeySocialImage(route).url,'https://zakazminivena.ru'+image.src);
+  }
+});
+test('Regional batch B maps four existing reviewed-distance routes with reproducible assets',()=>{
+  const manifest=JSON.parse(fs.readFileSync(new URL('docs/illustrations/regional-prompts-2026-09-29-b.json',root),'utf8'));
+  const registry=JSON.parse(fs.readFileSync(new URL('src/lib/route-registry.json',root),'utf8'));
+  assert.equal(manifest.scenes.length,4);
+  assert.equal(new Set(manifest.scenes.map(s=>s.path)).size,4);
+  for(const scene of manifest.scenes){
+    assert.equal(registry.byPath[scene.path]?.distanceStatus,'c2c-cache-endpoints-reviewed');
+    assert.equal(getJourneyIllustration(scene.path).src,scene.src);
+    assert.equal(scene.src,'/images/journeys/'+scene.id+'-v1.webp');
+    assert.ok(scene.prompt.includes('illustration-story'));
+    assert.equal(scene.width,1536);assert.equal(scene.height,1024);
   }
 });
 test('Only the 13 reviewed airport hubs receive illustrations; no generic airport fallback',()=>{

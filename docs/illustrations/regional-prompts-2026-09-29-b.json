@@ -1,0 +1,73 @@
+{
+  "date": "2026-09-29",
+  "mode": "built-in image_gen",
+  "useCase": "illustration-story",
+  "scope": "Four existing mid-distance route pages with reviewed City2City distances; no new routes or prices",
+  "style": "Use case: illustration-story. Asset type: one finished 1536x1024 landscape hero for a ZM minivan route page. Paint in the established warm travel-storybook style: sophisticated gouache with delicate colored-pencil detail on creamy textured paper and gently feathered edges. Believable human anatomy and natural faces; not a photo, 3D render or flat vector. Muted ivory, sage green, soft emerald, ochre and sky blue. Show one complete pearl-white midsize passenger minivan with practical Hyundai Starex H-1-like proportions, real-looking wheels and a sliding door; absolutely no badges, brands or lettering. Whole minivan, both bumpers, all people, all feet and substantial grounded suitcases fit inside the frame with at least 6% outer margins. Vehicle is parked legally in a quiet hotel bay or roadside pull-in, never on a pedestrian promenade or active road. Distinct warm human arrival story. Landscape is an artistic regional evocation rather than a factual pickup location. No readable text, signs, numbers, plates, flags, logos, watermark, UI, captions or prices.",
+  "scenes": [
+    {
+      "id": "rostov-anapa",
+      "path": "/routes/rostov-anapa",
+      "title": "Минивэн Ростов — Анапа от 25 000 ₽, ≈ 430 км — цены 2026",
+      "alt": "Родители с дочерью и чемоданами рядом с минивэном среди сосен и морского света Анапы",
+      "scene": "Destination Anapa, summer coastal arrival. Two parents and their school-age daughter stand with two large wheeled suitcases and one beach tote beside the fully visible white minivan, viewed from a rear-side three-quarter angle near a small guesthouse parking bay. Behind them: low green pines, sandy coastal vegetation and a modest glimpse of the Black Sea in soft sunlight. Exactly three people, natural poses; no car on sand or walkway, no crowded beach.",
+      "prompt": "Use case: illustration-story. Asset type: one finished 1536x1024 landscape hero for a ZM minivan route page. Paint in the established warm travel-storybook style: sophisticated gouache with delicate colored-pencil detail on creamy textured paper and gently feathered edges. Believable human anatomy and natural faces; not a photo, 3D render or flat vector. Muted ivory, sage green, soft emerald, ochre and sky blue. Show one complete pearl-white midsize passenger minivan with practical Hyundai Starex H-1-like proportions, real-looking wheels and a sliding door; absolutely no badges, brands or lettering. Whole minivan, both bumpers, all people, all feet and substantial grounded suitcases fit inside the frame with at least 6% outer margins. Vehicle is parked legally in a quiet hotel bay or roadside pull-in, never on a pedestrian promenade or active road. Distinct warm human arrival story. Landscape is an artistic regional evocation rather than a factual pickup location. No readable text, signs, numbers, plates, flags, logos, watermark, UI, captions or prices. Destination Anapa, summer coastal arrival. Two parents and their school-age daughter stand with two large wheeled suitcases and one beach tote beside the fully visible white minivan, viewed from a rear-side three-quarter angle near a small guesthouse parking bay. Behind them: low green pines, sandy coastal vegetation and a modest glimpse of the Black Sea in soft sunlight. Exactly three people, natural poses; no car on sand or walkway, no crowded beach.",
+      "edits": [],
+      "selectedSource": "exec-df82c5c1-e328-4384-9fd8-85a1cf082729.png",
+      "sourceSha256": "2294a5a0b5954340c1d14ecf9f55783514887c1cd0b16ccb1aba0e5fd85388d0",
+      "src": "/images/journeys/rostov-anapa-v1.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 308166,
+      "sha256": "20c861d489902c3656c50a34ab07517fc9d63f84f5d587cf52fb1d287b163166"
+    },
+    {
+      "id": "chelyabinsk-ekaterinburg",
+      "path": "/routes/chelyabinsk-ekaterinburg",
+      "title": "Минивэн Челябинск — Екатеринбург от 13 500 ₽, ≈ 220 км — цены 2026",
+      "alt": "Небольшая компания с дорожными сумками у минивэна на фоне городского пруда Екатеринбурга",
+      "scene": "Destination Ekaterinburg, clear early autumn afternoon. Two women and one man, adult friends travelling together, stand beside two sturdy suitcases and one duffel at the side door of the complete white minivan, viewed from front-side three-quarter angle in a discreet hotel pull-in. Background: a painterly city pond, trees in early ochre color and restrained modern city skyline with a distant historic roofline. Exactly three people, relaxed arrival, not a literal reconstruction of a named street.",
+      "prompt": "Use case: illustration-story. Asset type: one finished 1536x1024 landscape hero for a ZM minivan route page. Paint in the established warm travel-storybook style: sophisticated gouache with delicate colored-pencil detail on creamy textured paper and gently feathered edges. Believable human anatomy and natural faces; not a photo, 3D render or flat vector. Muted ivory, sage green, soft emerald, ochre and sky blue. Show one complete pearl-white midsize passenger minivan with practical Hyundai Starex H-1-like proportions, real-looking wheels and a sliding door; absolutely no badges, brands or lettering. Whole minivan, both bumpers, all people, all feet and substantial grounded suitcases fit inside the frame with at least 6% outer margins. Vehicle is parked legally in a quiet hotel bay or roadside pull-in, never on a pedestrian promenade or active road. Distinct warm human arrival story. Landscape is an artistic regional evocation rather than a factual pickup location. No readable text, signs, numbers, plates, flags, logos, watermark, UI, captions or prices. Destination Ekaterinburg, clear early autumn afternoon. Two women and one man, adult friends travelling together, stand beside two sturdy suitcases and one duffel at the side door of the complete white minivan, viewed from front-side three-quarter angle in a discreet hotel pull-in. Background: a painterly city pond, trees in early ochre color and restrained modern city skyline with a distant historic roofline. Exactly three people, relaxed arrival, not a literal reconstruction of a named street.",
+      "edits": [],
+      "selectedSource": "exec-9d435f3f-cd3b-4842-bf31-ffe19b617f77.png",
+      "sourceSha256": "694b16be609d01aba645593f19da438087e47f022875e0f560fabe1127144e56",
+      "src": "/images/journeys/chelyabinsk-ekaterinburg-v1.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 309614,
+      "sha256": "ee37bd45489dc110393d5c443febbdc9dc4cd496a84768bb161538fa9c558a5b"
+    },
+    {
+      "id": "nizhniy-novgorod-kazan",
+      "path": "/routes/nizhniy-novgorod-kazan",
+      "title": "Минивэн Нижний Новгород — Казань от 23 000 ₽, ≈ 400 км — цены 2026",
+      "alt": "Мама, папа и дочь с чемоданами у минивэна в старом квартале Казани",
+      "scene": "Destination Kazan, warm sunny morning. Mother, father and their school-age daughter have arrived with two large rolling cases and a small backpack beside the complete pearl-white minivan, shown from rear-side three-quarter view in a quiet guesthouse parking space. Beyond a leafy street are pale stone historic buildings and a few distant turquoise domes, different from the earlier Kazan river-panorama illustrations. Exactly three people; welcoming city-break mood without showing a precise pickup location.",
+      "prompt": "Use case: illustration-story. Asset type: one finished 1536x1024 landscape hero for a ZM minivan route page. Paint in the established warm travel-storybook style: sophisticated gouache with delicate colored-pencil detail on creamy textured paper and gently feathered edges. Believable human anatomy and natural faces; not a photo, 3D render or flat vector. Muted ivory, sage green, soft emerald, ochre and sky blue. Show one complete pearl-white midsize passenger minivan with practical Hyundai Starex H-1-like proportions, real-looking wheels and a sliding door; absolutely no badges, brands or lettering. Whole minivan, both bumpers, all people, all feet and substantial grounded suitcases fit inside the frame with at least 6% outer margins. Vehicle is parked legally in a quiet hotel bay or roadside pull-in, never on a pedestrian promenade or active road. Distinct warm human arrival story. Landscape is an artistic regional evocation rather than a factual pickup location. No readable text, signs, numbers, plates, flags, logos, watermark, UI, captions or prices. Destination Kazan, warm sunny morning. Mother, father and their school-age daughter have arrived with two large rolling cases and a small backpack beside the complete pearl-white minivan, shown from rear-side three-quarter view in a quiet guesthouse parking space. Beyond a leafy street are pale stone historic buildings and a few distant turquoise domes, different from the earlier Kazan river-panorama illustrations. Exactly three people; welcoming city-break mood without showing a precise pickup location.",
+      "edits": [],
+      "selectedSource": "exec-3aed99ca-7e4d-4872-857b-a6e3d39e4041.png",
+      "sourceSha256": "f3769536b1c5085b1f3698240f682bd4a1ccc63c405e0afcab856a3d9f5328ad",
+      "src": "/images/journeys/nizhniy-novgorod-kazan-v1.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 260250,
+      "sha256": "a6912e69fb3830f537b1ffa9b6d7545273a5398779834ba731e8c70c3fbb3557"
+    },
+    {
+      "id": "moskva-suzdal",
+      "path": "/routes/moskva-suzdal",
+      "title": "Минивэн Москва — Суздаль от 14 500 ₽, ≈ 240 км — цены 2026",
+      "alt": "Пара и их взрослая дочь с багажом у минивэна среди деревянных домов Суздаля",
+      "scene": "Destination Suzdal, golden late-summer afternoon. An older couple and their adult daughter stand near two rolling suitcases and a small soft bag beside the entire pearl-white minivan, seen from front-side three-quarter angle in a safe guesthouse parking bay. Background: low timber houses with gardens, a gently winding lane and distant small white church silhouettes across green meadows, an artistic evocation rather than an exact historic landmark. Exactly three adults, calm weekend trip, not on the pedestrian path.",
+      "prompt": "Use case: illustration-story. Asset type: one finished 1536x1024 landscape hero for a ZM minivan route page. Paint in the established warm travel-storybook style: sophisticated gouache with delicate colored-pencil detail on creamy textured paper and gently feathered edges. Believable human anatomy and natural faces; not a photo, 3D render or flat vector. Muted ivory, sage green, soft emerald, ochre and sky blue. Show one complete pearl-white midsize passenger minivan with practical Hyundai Starex H-1-like proportions, real-looking wheels and a sliding door; absolutely no badges, brands or lettering. Whole minivan, both bumpers, all people, all feet and substantial grounded suitcases fit inside the frame with at least 6% outer margins. Vehicle is parked legally in a quiet hotel bay or roadside pull-in, never on a pedestrian promenade or active road. Distinct warm human arrival story. Landscape is an artistic regional evocation rather than a factual pickup location. No readable text, signs, numbers, plates, flags, logos, watermark, UI, captions or prices. Destination Suzdal, golden late-summer afternoon. An older couple and their adult daughter stand near two rolling suitcases and a small soft bag beside the entire pearl-white minivan, seen from front-side three-quarter angle in a safe guesthouse parking bay. Background: low timber houses with gardens, a gently winding lane and distant small white church silhouettes across green meadows, an artistic evocation rather than an exact historic landmark. Exactly three adults, calm weekend trip, not on the pedestrian path.",
+      "edits": [],
+      "selectedSource": "exec-f21c1d61-997e-481b-b92e-96c5b7cfcad9.png",
+      "sourceSha256": "56c3562267a08a67cbbdbf8dd7bce64117f07e0ccaaafe7dbe40e07b696ecbd1",
+      "src": "/images/journeys/moskva-suzdal-v1.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 326620,
+      "sha256": "66d8bac459b604c587ed369d83758d2a9208a31580c75bc229036027ff0ec81f"
+    }
+  ]
+}

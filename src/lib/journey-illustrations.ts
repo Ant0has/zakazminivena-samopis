@@ -6,6 +6,10 @@ const illustration = (id: string, alt: string): JourneyIllustration => ({
 
 // Explicit URL assignments: do not silently reuse a different destination's image.
 export const journeyIllustrations: Record<string, JourneyIllustration> = {
+  '/routes/rostov-anapa': illustration('rostov-anapa', 'Родители с дочерью и чемоданами рядом с минивэном среди сосен и морского света Анапы'),
+  '/routes/chelyabinsk-ekaterinburg': illustration('chelyabinsk-ekaterinburg', 'Небольшая компания с дорожными сумками у минивэна на фоне городского пруда Екатеринбурга'),
+  '/routes/nizhniy-novgorod-kazan': illustration('nizhniy-novgorod-kazan', 'Мама, папа и дочь с чемоданами у минивэна в старом квартале Казани'),
+  '/routes/moskva-suzdal': illustration('moskva-suzdal', 'Пара и их взрослая дочь с багажом у минивэна среди деревянных домов Суздаля'),
   '/routes/krasnodar-sochi': illustration('krasnodar-sochi', 'Семья с двумя детьми и чемоданами у светлого минивэна среди субтропической зелени Сочи'),
   '/routes/krasnodar-novorossiysk': illustration('krasnodar-novorossiysk', 'Компания друзей с дорожными сумками у минивэна на фоне бухты Новороссийска'),
   '/routes/ekaterinburg-tyumen': illustration('ekaterinburg-tyumen', 'Мама, сын и бабушка у минивэна на фоне уютной улицы Тюмени'),
