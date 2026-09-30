@@ -1,0 +1,3 @@
+const http=require('node:http');const fs=require('node:fs');const path=require('node:path');
+const allowed={'/':'index.html','/index.html':'index.html','/graph.json':'graph.json','/pages.csv':'pages.csv','/REPORT.md':'REPORT.md'};
+http.createServer((req,res)=>{const name=allowed[new URL(req.url,'http://127.0.0.1').pathname];if(!name){res.writeHead(404);res.end('Not found');return;}const types={'.html':'text/html; charset=utf-8','.json':'application/json','.csv':'text/csv; charset=utf-8','.md':'text/plain; charset=utf-8'};res.writeHead(200,{'Content-Type':types[path.extname(name)],'Cache-Control':'no-store'});fs.createReadStream(path.join(__dirname,name)).pipe(res);}).listen(55310,'127.0.0.1',()=>console.log('ZM graph: http://127.0.0.1:55310/'));
