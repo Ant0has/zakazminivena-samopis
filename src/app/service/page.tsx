@@ -2,15 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { EditorialHeroImage } from "@/components/EditorialHeroImage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Card } from "@/components/ui/card";
 import { servicesData } from "@/lib/services-data";
+import { journeySocialImage } from "@/lib/journey-illustrations";
 
 export const metadata: Metadata = {
   title: "Сценарии заказа минивэна — все варианты с водителем | ЗаказМинивэна.ru",
   description:
     "Минивэн под любой сценарий: аэропорт, межгород, свадьба, корпоратив, делегации, конференции, экскурсии, почасовая, многодневная, спорткоманды, съёмочные группы.",
   alternates: { canonical: "https://zakazminivena.ru/service" },
+  openGraph: { images: [journeySocialImage('/service')!] },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/service')!] },
 };
 
 export default function ServiceIndexPage() {
@@ -30,6 +34,7 @@ export default function ServiceIndexPage() {
                 спортивной команды. Выберите свой случай — увидите цены и описание.
               </p>
             </div>
+            <EditorialHeroImage path="/service" className="mb-10" />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[['luggage', 'Минивэн с большим багажом', 'Чемоданы, коляска и коробки — проверяем компоновку салона.'], ['ski-transfer', 'С лыжами и сноубордами', 'Длина чехлов, пассажиры и маршруты до зимних курортов.']].map(([slug, title, text]) => <Link key={slug} href={`/service/${slug}`}><Card className="h-full border-emerald/30 bg-emerald/5 p-5"><h2 className="mb-2 text-lg font-semibold">{title}</h2><p className="text-sm text-muted-foreground">{text}</p></Card></Link>)}
               {servicesData.map((s) => (

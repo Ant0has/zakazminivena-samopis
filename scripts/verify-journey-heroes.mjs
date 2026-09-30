@@ -11,7 +11,9 @@ const capture=process.argv.includes('--capture');
 if(!Number.isInteger(port)||port<1||port>65535)throw Error('Invalid port');
 const sandbox={exports:{}};
 vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(root,'src/lib/journey-illustrations.ts'),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,sandbox);
-const images=sandbox.exports.journeyIllustrations, failures=[], pages={};
+// This checker protects the original 200 route/city/airport destination pages.
+// Editorial first screens have a separate layout and smoke test.
+const images=Object.fromEntries(Object.entries(sandbox.exports.journeyIllustrations).filter(([,image])=>!image.src.includes('/series-'))), failures=[], pages={};
 const previous=baselineFile&&!capture?JSON.parse(fs.readFileSync(baselineFile,'utf8')).pages:null;
 const decode=s=>s.replaceAll('&amp;','&').replaceAll('&quot;','"');
 const get=p=>new Promise((resolve,reject)=>{

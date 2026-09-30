@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
+import { journeySocialImage } from "@/lib/journey-illustrations";
 import { Button } from "@/components/ui/button";
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { Badge } from "@/components/ui/badge";
@@ -20,9 +21,11 @@ export const metadata: Metadata = {
     description: "Трансфер в аэропорт на минивэне с водителем для семьи или группы до 7 человек. Встреча с табличкой, отслеживание рейса, детское кресло бесплатно. Фиксированная цена. Звоните +7 (918) 587-54-54",
     url: "https://zakazminivena.ru/services/airport",
     siteName: "ЗаказМинивэна.ru",
+    images: [journeySocialImage('/services/airport')!],
     locale: "ru_RU",
     type: "website",
   },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/services/airport')!] },
   alternates: {
     canonical: "https://zakazminivena.ru/services/airport",
   },
@@ -77,7 +80,7 @@ export default function AirportServicePage() {
             </h1>
 
             <div className="mt-8 overflow-hidden rounded-2xl">
-              <Image src="/images/services/airport.webp" alt="Встреча с табличкой в аэропорту" width={1024} height={576} className="w-full h-auto object-cover" priority />
+              <Image src="/images/journeys/series-services-airport-v1.webp" alt="Семья отправляется в аэропорт на минивэне — рисованная иллюстрация" width={1536} height={1024} className="aspect-[16/9] w-full object-cover" priority />
             </div>
 
             {/* Content */}

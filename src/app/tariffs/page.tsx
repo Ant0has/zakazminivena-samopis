@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { EditorialHeroImage } from '@/components/EditorialHeroImage';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { TariffsSection } from '@/components/TariffsSection';
 import { TripConstructor } from '@/components/TripConstructor';
 import { tariff, pricingYear } from '@/lib/route-pricing';
 import { routeOffer } from '@/lib/route-seo';
+import { journeySocialImage } from '@/lib/journey-illustrations';
 
 const title = `Цены на минивэн в ${pricingYear} году — «Комфорт» от 3 000 ₽`;
 const description = `Цены ${pricingYear}: минивэн «Комфорт» до 7 пассажиров от 3 000 ₽ за автомобиль. Базовая ставка 60 ₽/км, коэффициенты и округление. Итоговую цену подтвердим до заказа.`;
-export const metadata: Metadata = { title, description, alternates: { canonical: 'https://zakazminivena.ru/tariffs' }, openGraph: { title, description, url: 'https://zakazminivena.ru/tariffs' }, twitter: { title, description } };
+export const metadata: Metadata = { title, description, alternates: { canonical: 'https://zakazminivena.ru/tariffs' }, openGraph: { title, description, url: 'https://zakazminivena.ru/tariffs', images: [journeySocialImage('/tariffs')!] }, twitter: { title, description, card: 'summary_large_image', images: [journeySocialImage('/tariffs')!] } };
 
 export default function TariffsPage() {
   return <div><Header /><main className="pt-24">
@@ -18,6 +20,7 @@ export default function TariffsPage() {
       <Breadcrumbs items={[{ label: 'Главная', href: '/' }, { label: 'Тарифы' }]} />
       <h1 className="mt-6 text-4xl font-bold">Цены на минивэн в {pricingYear} году: тариф «Комфорт»</h1>
       <p className="mt-4 text-muted-foreground">Сейчас онлайн рассчитывается только «Комфорт». Другие классы в этот расчёт не входят.</p>
+      <EditorialHeroImage path="/tariffs" />
     </div>
     <TariffsSection />
     <section className="mx-auto max-w-4xl space-y-6 px-4 pb-12">

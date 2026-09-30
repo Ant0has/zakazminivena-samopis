@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
+import { journeySocialImage } from "@/lib/journey-illustrations";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -27,9 +28,11 @@ export const metadata: Metadata = {
     description: "ЗаказМинивэна.ru — сервис заказа минивэнов с водителем на 7 мест для межгородних поездок и трансфера в аэропорт. Фиксированные цены, 21+ регион России.",
     url: "https://zakazminivena.ru/about",
     siteName: "ЗаказМинивэна.ru",
+    images: [journeySocialImage('/about')!],
     locale: "ru_RU",
     type: "website",
   },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/about')!] },
   alternates: {
     canonical: "https://zakazminivena.ru/about",
   },
@@ -118,7 +121,7 @@ export default function AboutPage() {
             </h1>
 
             <div className="mt-8 overflow-hidden rounded-2xl">
-              <Image src="/images/services/about.webp" alt="Минивэн ЗаказМинивэна.ru с водителем" width={1024} height={576} className="w-full h-auto object-cover" priority />
+              <Image src="/images/journeys/series-about-v1.webp" alt="Водитель приветствует семью у минивэна — рисованная иллюстрация, не фотография сотрудников" width={1536} height={1024} className="aspect-[16/9] w-full object-cover" priority />
             </div>
 
             {/* Description */}

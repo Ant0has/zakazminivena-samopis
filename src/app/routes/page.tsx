@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
+import { journeySocialImage } from "@/lib/journey-illustrations";
+import { EditorialHeroImage } from "@/components/EditorialHeroImage";
 import {
   allRoutes,
   calcPrice,
@@ -32,9 +34,11 @@ export const metadata: Metadata = {
       "Более 80 маршрутов на минивэне 7 мест с водителем. Фиксированные цены, детское кресло бесплатно.",
     url: "https://zakazminivena.ru/routes",
     siteName: "ЗаказМинивэна.ru",
+    images: [journeySocialImage('/routes')!],
     locale: "ru_RU",
     type: "website",
   },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/routes')!] },
 };
 
 // Group routes by region
@@ -208,6 +212,7 @@ export default function RoutesListPage() {
               <Badge variant="secondary">Без предоплаты</Badge>
               <Badge variant="secondary">Детское кресло бесплатно</Badge>
             </div>
+            <EditorialHeroImage path="/routes" />
           </div>
         </section>
 

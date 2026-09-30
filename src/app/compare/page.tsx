@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
+import { journeySocialImage } from "@/lib/journey-illustrations";
+import { EditorialHeroImage } from "@/components/EditorialHeroImage";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRightIcon, ScaleIcon } from "lucide-react";
 import { comparisons } from "@/lib/comparison-data";
@@ -17,9 +19,11 @@ export const metadata: Metadata = {
     description: "Честное сравнение минивэна с поездом, автобусом и BlaBlaCar. Что выбрать для семьи, группы или поездки с детьми? Комфорт, безопасность, стоимость — все параметры.",
     url: "https://zakazminivena.ru/compare",
     siteName: "ЗаказМинивэна.ru",
+    images: [journeySocialImage('/compare')!],
     locale: "ru_RU",
     type: "website",
   },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/compare')!] },
   alternates: {
     canonical: "https://zakazminivena.ru/compare",
   },
@@ -68,6 +72,7 @@ export default function ComparePage() {
               междугороднего трансфера.
             </p>
 
+            <EditorialHeroImage path="/compare" />
             <div className="mt-12 grid gap-8">
               {comparisons.map((item) => (
                 <Link

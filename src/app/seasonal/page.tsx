@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
+import { journeySocialImage } from "@/lib/journey-illustrations";
+import { EditorialHeroImage } from "@/components/EditorialHeroImage";
 import { seasonalPages } from "@/lib/seasonal-data";
 
 export const metadata: Metadata = {
@@ -15,9 +17,11 @@ export const metadata: Metadata = {
     description: "Сезонные предложения на заказ минивэна: новогодние трансферы, свадебный сезон, летний отпуск к морю. Специальные маршруты и комфортные условия для каждого сезона.",
     url: "https://zakazminivena.ru/seasonal",
     siteName: "ЗаказМинивэна.ru",
+    images: [journeySocialImage('/seasonal')!],
     locale: "ru_RU",
     type: "website",
   },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/seasonal')!] },
   alternates: {
     canonical: "https://zakazminivena.ru/seasonal",
   },
@@ -60,6 +64,7 @@ export default function SeasonalIndexPage() {
               подходящее предложение и закажите минивэн для комфортной поездки.
             </p>
 
+            <EditorialHeroImage path="/seasonal" />
             <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
               {seasonalPages.map((page) => (
                 <Link

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
+import { journeySocialImage } from "@/lib/journey-illustrations";
+import { EditorialHeroImage } from "@/components/EditorialHeroImage";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PlaneIcon, MapPinIcon } from "lucide-react";
@@ -19,9 +21,11 @@ export const metadata: Metadata = {
     description: "Трансфер на минивэне 7 мест в аэропорты России: Шереметьево, Домодедово, Внуково, Пулково, Кольцово и другие. Фиксированная цена, встреча с табличкой, детское кресло бесплатно.",
     url: "https://zakazminivena.ru/airports",
     siteName: "ЗаказМинивэна.ru",
+    images: [journeySocialImage('/airports')!],
     locale: "ru_RU",
     type: "website",
   },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/airports')!] },
   alternates: {
     canonical: "https://zakazminivena.ru/airports",
   },
@@ -68,6 +72,7 @@ export default function AirportsPage() {
               </p>
             </div>
 
+            <EditorialHeroImage path="/airports" className="mx-auto mb-12 max-w-5xl" />
             <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {allAirports.map((airport) => (
                 <Link

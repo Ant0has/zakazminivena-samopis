@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
+import { journeySocialImage } from "@/lib/journey-illustrations";
+import { EditorialHeroImage } from "@/components/EditorialHeroImage";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,9 +24,11 @@ export const metadata: Metadata = {
       "Заказать минивэн с водителем в городах России. Межгородние поездки и трансферы в аэропорт на комфортном минивэне 7 мест.",
     url: "https://zakazminivena.ru/cities",
     siteName: "ЗаказМинивэна.ru",
+    images: [journeySocialImage('/cities')!],
     locale: "ru_RU",
     type: "website",
   },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/cities')!] },
 };
 
 export default function CitiesPage() {
@@ -61,6 +65,7 @@ export default function CitiesPage() {
           </p>
         </div>
 
+        <EditorialHeroImage path="/cities" className="mb-10" />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {allCities.map((city) => {
             const routeCount = allRoutes.filter(

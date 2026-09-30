@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Header } from "@/components/Header";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
+import { journeySocialImage } from "@/lib/journey-illustrations";
 import { Button } from "@/components/ui/button";
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import { Badge } from "@/components/ui/badge";
@@ -20,9 +21,11 @@ export const metadata: Metadata = {
     description: "Групповой трансфер на минивэне с водителем для 7 пассажиров. Межгородние поездки, корпоративные перевозки, экскурсии. Фиксированная цена. Звоните +7 (918) 587-54-54",
     url: "https://zakazminivena.ru/services/group-transfer",
     siteName: "ЗаказМинивэна.ru",
+    images: [journeySocialImage('/services/group-transfer')!],
     locale: "ru_RU",
     type: "website",
   },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/services/group-transfer')!] },
   alternates: {
     canonical: "https://zakazminivena.ru/services/group-transfer",
   },
@@ -77,7 +80,7 @@ export default function GroupTransferPage() {
             </h1>
 
             <div className="mt-8 overflow-hidden rounded-2xl">
-              <Image src="/images/services/group-transfer.webp" alt="Групповой трансфер на минивэне" width={1024} height={576} className="w-full h-auto object-cover" priority />
+              <Image src="/images/journeys/series-services-group-transfer-v1.webp" alt="Компания друзей собирается в поездку на минивэне — рисованная иллюстрация" width={1536} height={1024} className="aspect-[16/9] w-full object-cover" priority />
             </div>
 
             {/* Content */}

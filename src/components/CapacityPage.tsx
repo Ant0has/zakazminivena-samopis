@@ -5,6 +5,8 @@ import { Footer } from './Footer';
 import { Breadcrumbs } from './Breadcrumbs';
 import { TripConstructor } from './TripConstructor';
 import { PricingNote } from './PricingNote';
+import { EditorialHeroImage } from './EditorialHeroImage';
+import { journeySocialImage } from '@/lib/journey-illustrations';
 import { pricingYear, priceForDistance } from '@/lib/route-pricing';
 
 const variants = {
@@ -17,7 +19,8 @@ export function capacityMetadata(count: 5 | 6 | 7): Metadata {
   const title = `Минивэн на ${count} человек с водителем — цены ${pricingYear}`;
   const description = `${count} пассажиров в одном минивэне «Комфорт». ${variants[count].fold}. Расчёт от 3 000 ₽ за автомобиль; проверьте детей и багаж в конструкторе.`;
   const url = `https://zakazminivena.ru/minivan-${count}-mest`;
-  return { title, description, alternates: { canonical: url }, openGraph: { title, description, url }, twitter: { title, description, card: 'summary_large_image' } };
+  const image = journeySocialImage(`/minivan-${count}-mest`);
+  return { title, description, alternates: { canonical: url }, openGraph: { title, description, url, images: image ? [image] : undefined }, twitter: { title, description, card: 'summary_large_image', images: image ? [image] : undefined } };
 }
 
 export function CapacityPage({ count }: { count: 5 | 6 | 7 }) {
@@ -36,6 +39,7 @@ export function CapacityPage({ count }: { count: 5 | 6 | 7 }) {
       <p className="mt-6 text-sm font-semibold uppercase tracking-widest text-emerald">{v.use}</p>
       <h1 className="mt-3 text-3xl font-bold sm:text-5xl">Минивэн на {count} человек с водителем</h1>
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">{v.intro}</p>
+      <EditorialHeroImage path={`/minivan-${count}-mest`} />
       <p className="mt-5 rounded-xl bg-emerald/5 p-4 font-medium">{v.fold}. Конкретную компоновку и багаж согласуем перед заказом.</p>
       <div className="mt-4"><PricingNote /></div>
       <a href="#trip-constructor" className="mt-6 inline-flex rounded-full bg-emerald px-6 py-3 font-semibold text-white">Посмотреть свою компанию и багаж ↓</a>

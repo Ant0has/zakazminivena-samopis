@@ -218,6 +218,27 @@ for (const [destination, route] of Object.entries(sameRoadTrip)) {
   journeyIllustrations[destination] = image;
 }
 
+// Editorial first-screen illustrations. Named case studies and personnel pages
+// are excluded until factual presentation is reviewed.
+Object.assign(journeyIllustrations, {
+  '/routes': illustration('series-routes', 'Все маршруты минивэна по России', 1),
+  '/cities': illustration('series-cities', 'Минивэн с водителем', 1),
+  '/airports': illustration('series-airports', 'Трансфер минивэн в аэропорт', 1),
+  '/tariffs': illustration('series-tariffs', 'Минивэн «Комфорт»', 2),
+  '/about': illustration('series-about', 'О сервисе ЗаказМинивэна.ru', 1),
+  '/services/airport': illustration('series-services-airport', 'Трансфер в аэропорт на минивэне 7 мест', 1),
+  '/services/group-transfer': illustration('series-services-group-transfer', 'Групповой трансфер на минивэне 7 мест', 1),
+  '/services/wedding': illustration('series-services-wedding', 'Минивэн на свадьбу', 1),
+  '/compare': illustration('series-compare', 'Сравнение: минивэн vs другие виды транспорта', 1),
+  '/seasonal': illustration('series-seasonal', 'Сезонные предложения', 1),
+  '/airport': illustration('series-airport', 'Минивэн в аэропорт', 1),
+  '/destination': illustration('series-destination', 'Туристические направления', 1),
+  '/service': illustration('series-service', 'Сценарии заказа минивэна', 1),
+  '/minivan-5-mest': illustration('series-minivan-5-mest', 'Минивэн на 5 человек с водителем', 1),
+  '/minivan-6-mest': illustration('series-minivan-6-mest', 'Минивэн на 6 человек с водителем', 1),
+  '/minivan-7-mest': illustration('series-minivan-7-mest', 'Минивэн на 7 человек с водителем', 2),
+});
+
 export function getJourneyIllustration(path: string) { return journeyIllustrations[path]; }
 export function journeySocialImage(path: string) {
   const image = getJourneyIllustration(path);

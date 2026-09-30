@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { journeySocialImage } from "@/lib/journey-illustrations";
+import { EditorialHeroImage } from "@/components/EditorialHeroImage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Card } from "@/components/ui/card";
 import { PlaneIcon, MapPinIcon } from "lucide-react";
@@ -17,9 +19,11 @@ export const metadata: Metadata = {
     description: "Минивэн в аэропорты России: SVO, VKO, DME, LED, AER, MRV и другие. Фикс цена, встреча с табличкой.",
     url: "https://zakazminivena.ru/airport",
     siteName: "ЗаказМинивэна.ru",
+    images: [journeySocialImage('/airport')!],
     locale: "ru_RU",
     type: "website",
   },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/airport')!] },
 };
 
 export default function AirportIndexPage() {
@@ -40,6 +44,7 @@ export default function AirportIndexPage() {
                 все направления и цены.
               </p>
             </div>
+            <EditorialHeroImage path="/airport" className="mb-10" />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {iataAirports.map((a) => (
                 <Link key={a.iata} href={`/airport/${a.iata}`} className="block">

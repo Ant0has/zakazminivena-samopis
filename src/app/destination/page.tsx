@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { EditorialHeroImage } from "@/components/EditorialHeroImage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Card } from "@/components/ui/card";
 import { destinationHubs } from "@/lib/destinations-data";
+import { journeySocialImage } from "@/lib/journey-illustrations";
 import { MapPinIcon } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -12,6 +14,8 @@ export const metadata: Metadata = {
   description:
     "Минивэн в туристические регионы: Карелия, КМВ, Алтай, Байкал, Крым, Краснодарское побережье, Калининград, Север. Однодневные и многодневные туры.",
   alternates: { canonical: "https://zakazminivena.ru/destination" },
+  openGraph: { images: [journeySocialImage('/destination')!] },
+  twitter: { card: "summary_large_image", images: [journeySocialImage('/destination')!] },
 };
 
 export default function DestinationIndexPage() {
@@ -32,6 +36,7 @@ export default function DestinationIndexPage() {
                 Север с северным сиянием.
               </p>
             </div>
+            <EditorialHeroImage path="/destination" className="mb-10" />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {destinationHubs.map((h) => (
                 <Link key={h.slug} href={`/destination/${h.slug}`}>
