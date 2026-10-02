@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-02",
+  "pages": 16,
+  "existing": 12,
+  "missing": 4,
+  "ads": 22,
+  "keywords": 67,
+  "negativePhrases": 45,
+  "queryExamples": 16,
+  "negativeSize": 660,
+  "errors": [],
+  "notVerified": [
+    "Actual Yandex matching/morphology and moderation",
+    "Current campaign settings, budgets and CPC",
+    "Real lead delivery and CRM qualification",
+    "New airport distances and reverse routes",
+    "Visual browser check: file protocol blocked by browser tool; no workaround attempted"
+  ],
+  "publicChanges": false,
+  "campaignCreated": false
+}
