@@ -8,7 +8,11 @@ for (const [entry,output] of [['constructor.js','constructor.bundle.js'],['const
   if (process.env.ZM_ESBUILD_BINARY) execFileSync(process.env.ZM_ESBUILD_BINARY,args,{stdio:'inherit'});
   else execFileSync('npm',['exec','--yes','--package=esbuild@0.25.9','--','esbuild',...args],{stdio:'inherit'});
 }
-const version=createHash('sha256').update(fs.readFileSync(new URL('constructor.bundle.js',folder))).update(fs.readFileSync(new URL('constructor.bundle.css',folder))).digest('hex').slice(0,12);
+// The iframe and the server-rendered page must load the same route prices.
+const registry=JSON.parse(fs.readFileSync(new URL('../src/lib/route-registry.json',import.meta.url),'utf8'));
+const data=`window.ZM_TRIP=${JSON.stringify({revision:registry.revision,routes:registry.records})};\n`;
+fs.writeFileSync(new URL('trip-data.js',folder),data);
+const version=createHash('sha256').update(data).update(fs.readFileSync(new URL('constructor.bundle.js',folder))).update(fs.readFileSync(new URL('constructor.bundle.css',folder))).digest('hex').slice(0,12);
 const htmlFile=new URL('constructor.html',folder);
 let html=fs.readFileSync(htmlFile,'utf8');
 html=html.replace(/<link rel="stylesheet"[^>]*>/g,'');

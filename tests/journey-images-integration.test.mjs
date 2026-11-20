@@ -9,10 +9,10 @@ const source=fs.readFileSync(new URL('src/lib/journey-illustrations.ts',root),'u
 const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
 const sandbox={exports:{}};vm.runInNewContext(code,sandbox);
 const {journeyIllustrations,getJourneyIllustration,journeySocialImage}=sandbox.exports;
-test('All 216 hero mappings have local optimized WebP files and meaningful alt text',()=>{
-  assert.equal(Object.keys(journeyIllustrations).length,216);
-  // 13 tourist pages share the exact physical route and its existing illustration.
-  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,203);
+test('All 224 hero mappings have local optimized WebP files and meaningful alt text',()=>{
+  assert.equal(Object.keys(journeyIllustrations).length,224);
+  // 13 tourist pages and four reverse Kazan transfers share the same road illustration.
+  assert.equal(new Set(Object.values(journeyIllustrations).map(v=>v.src)).size,207);
   for(const [route,image] of Object.entries(journeyIllustrations)){
     assert.ok(route.startsWith('/'));
     assert.match(image.alt,/рисованная иллюстрация/);
@@ -82,7 +82,7 @@ test('17 regional scenes do not upgrade legacy distance status or silently inclu
     assert.equal(registry.byPath[path]?.distanceStatus,'legacy-estimate-needs-road-check');
     assert.equal(getJourneyIllustration(path).src,'/images/journeys/'+id+'-v1.webp');
   }
-  assert.equal(Object.keys(journeyIllustrations).filter(path=>path.startsWith('/routes/')).length,65);
+  assert.equal(Object.keys(journeyIllustrations).filter(path=>path.startsWith('/routes/')).length,69);
   const missing=Object.keys(registry.byPath).filter(path=>path.startsWith('/routes/')&&!getJourneyIllustration(path)).sort();
   assert.deepEqual(missing,['/routes/voronezh-belgorod','/routes/voronezh-kursk']);
 });
@@ -127,7 +127,7 @@ test('57 airport-to-city pages receive their own image and structured data uses 
     assert.match(scene.title,/^Минивэн /);
     assert.match(scene.source,/^airport-.+-source-v[12]\.png$/);
   }
-  assert.equal(Object.keys(journeyIllustrations).filter(path=>/^\/airport\/[^/]+\/[^/]+$/.test(path)).length,58);
+  assert.equal(Object.keys(journeyIllustrations).filter(path=>/^\/airport\/[^/]+\/[^/]+$/.test(path)).length,62);
   assert.match(pages,/image: illustration\s*\? `https:\/\/zakazminivena\.ru\$\{illustration\.src\}`/);
   assert.match(pages,/getJourneyIllustration\('\/airport\/' \+ iata \+ '\/' \+ destination\)/);
 });

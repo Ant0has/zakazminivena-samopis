@@ -1,3 +1,6 @@
+import { TripConstructor } from '@/components/TripConstructor';
+import { JourneyHero } from '@/components/JourneyHero';
+import { KazanDestinations } from '@/components/KazanTransfers';
 import { B2bCtaBlock } from "@/components/B2bCtaBlock";
 import type { Metadata } from "next";
 import { airportHref } from '@/lib/airport-canonical';
@@ -256,6 +259,11 @@ export default async function CityPage({
       <Header />
       <main>
         {/* ===== HERO ===== */}
+        {slug === 'kazan' && cityIllustration ? <>
+          <JourneyHero image={cityIllustration} title="Минивэн с водителем в Казани" description="Весь автомобиль для вашей семьи или компании, до семи пассажиров с учётом детей. Поездки по Казани, к рейсу и в соседние города. Отдельные места не продаём." eyebrow="Казань и Поволжье" />
+          <KazanDestinations />
+          <TripConstructor emptyRoute defaultFrom="Казань" contextNote="Укажите аэропорт или адрес назначения и подберите места для пассажиров и вещей." />
+        </> : (
         <section className="relative overflow-hidden">
           <HeroBackground />
           <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 sm:pb-16 sm:pt-8 lg:px-8 lg:pb-20">
@@ -330,7 +338,7 @@ export default async function CityPage({
               />
             </div>
           </div>
-        </section>
+        </section>)}
 
         {/* ===== ОПИСАНИЕ + КАЛЬКУЛЯТОР ===== */}
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
@@ -356,7 +364,7 @@ export default async function CityPage({
           </div>
 
           {/* Калькулятор — отправление предзаполнено городом */}
-          <section>
+          {slug !== 'kazan' && <section>
             <h2 className="mb-2 text-2xl font-bold tracking-tight">
               Рассчитать стоимость поездки из {city.name}
             </h2>
@@ -365,7 +373,7 @@ export default async function CityPage({
               цену за минивэн. Без предоплаты, детское кресло бесплатно.
             </p>
             <PriceCalculator defaultFrom={city.name} />
-          </section>
+          </section>}
         </div>
 
         {/* ===== ЧТО ВХОДИТ В ЦЕНУ ===== */}

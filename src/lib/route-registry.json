@@ -4645,6 +4645,214 @@
         "Сохранён ориентир исходного ZM, не новый дорожный расчёт",
         "Историческая двусторонняя страница: обратное дорожное расстояние отдельно не подтверждено"
       ]
+    },
+    {
+      "id": "/airport/kzn/yoshkar-ola",
+      "pairKey": "аэропорт казань|йошкар ола",
+      "kind": "airport-route",
+      "from": "Аэропорт Казань",
+      "to": "Йошкар-Ола",
+      "slug": "yoshkar-ola",
+      "hours": "около 2 ч 35 мин",
+      "rawDistanceM": 171591.8,
+      "pricingDistanceM": 171591.8,
+      "km": 180,
+      "price": 12000,
+      "coefficient": 1.1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "road-verified",
+      "sourceUrl": "https://router.project-osrm.org/route/v1/driving/49.2994253,55.6093557;47.8868803,56.6315556?overview=false",
+      "calculatedAt": "2026-11-20T16:55+00:00",
+      "direction": "forward",
+      "pages": [
+        "/airport/kzn/yoshkar-ola"
+      ],
+      "notes": [
+        "Дорожный маршрут между подъездом к KZN и центральной точкой города. Без учёта пробок и остановок."
+      ]
+    },
+    {
+      "id": "/routes/yoshkar-ola-aeroport-kazan",
+      "pairKey": "аэропорт казань|йошкар ола",
+      "kind": "main",
+      "from": "Йошкар-Ола",
+      "to": "Аэропорт Казань",
+      "slug": "yoshkar-ola-aeroport-kazan",
+      "hours": "около 2 ч 40 мин",
+      "rawDistanceM": 172125.7,
+      "pricingDistanceM": 172125.7,
+      "km": 180,
+      "price": 12000,
+      "coefficient": 1.1,
+      "calculatedPrice": 12000,
+      "discount": 0,
+      "distanceStatus": "road-verified",
+      "sourceUrl": "https://router.project-osrm.org/route/v1/driving/47.8868803,56.6315556;49.2994253,55.6093557?overview=false",
+      "calculatedAt": "2026-11-20T16:55+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/yoshkar-ola-aeroport-kazan"
+      ],
+      "notes": [
+        "Дорожный маршрут между подъездом к KZN и центральной точкой города. Без учёта пробок и остановок."
+      ]
+    },
+    {
+      "id": "/airport/kzn/ulyanovsk",
+      "pairKey": "аэропорт казань|ульяновск",
+      "kind": "airport-route",
+      "from": "Аэропорт Казань",
+      "to": "Ульяновск",
+      "slug": "ulyanovsk",
+      "hours": "около 3 ч 15 мин",
+      "rawDistanceM": 213393.4,
+      "pricingDistanceM": 213393.4,
+      "km": 220,
+      "price": 13500,
+      "coefficient": 1,
+      "calculatedPrice": 13500,
+      "discount": 0,
+      "distanceStatus": "road-verified",
+      "sourceUrl": "https://router.project-osrm.org/route/v1/driving/49.2994253,55.6093557;48.4033730,54.3150278?overview=false",
+      "calculatedAt": "2026-11-20T16:55+00:00",
+      "direction": "forward",
+      "pages": [
+        "/airport/kzn/ulyanovsk"
+      ],
+      "notes": [
+        "Дорожный маршрут между подъездом к KZN и центральной точкой города. Без учёта пробок и остановок."
+      ]
+    },
+    {
+      "id": "/routes/ulyanovsk-aeroport-kazan",
+      "pairKey": "аэропорт казань|ульяновск",
+      "kind": "main",
+      "from": "Ульяновск",
+      "to": "Аэропорт Казань",
+      "slug": "ulyanovsk-aeroport-kazan",
+      "hours": "около 3 ч 10 мин",
+      "rawDistanceM": 209335.9,
+      "pricingDistanceM": 209335.9,
+      "km": 210,
+      "price": 13000,
+      "coefficient": 1,
+      "calculatedPrice": 13000,
+      "discount": 0,
+      "distanceStatus": "road-verified",
+      "sourceUrl": "https://router.project-osrm.org/route/v1/driving/48.4033730,54.3150278;49.2994253,55.6093557?overview=false",
+      "calculatedAt": "2026-11-20T16:55+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/ulyanovsk-aeroport-kazan"
+      ],
+      "notes": [
+        "Дорожный маршрут между подъездом к KZN и центральной точкой города. Без учёта пробок и остановок."
+      ]
+    },
+    {
+      "id": "/airport/kzn/tolyatti",
+      "pairKey": "аэропорт казань|тольятти",
+      "kind": "airport-route",
+      "from": "Аэропорт Казань",
+      "to": "Тольятти",
+      "slug": "tolyatti",
+      "hours": "около 4 ч 50 мин",
+      "rawDistanceM": 322632.2,
+      "pricingDistanceM": 322632.2,
+      "km": 330,
+      "price": 19000,
+      "coefficient": 1,
+      "calculatedPrice": 20000,
+      "discount": 1000,
+      "distanceStatus": "road-verified",
+      "sourceUrl": "https://router.project-osrm.org/route/v1/driving/49.2994253,55.6093557;49.4189187,53.5098845?overview=false",
+      "calculatedAt": "2026-11-20T16:55+00:00",
+      "direction": "forward",
+      "pages": [
+        "/airport/kzn/tolyatti"
+      ],
+      "notes": [
+        "Дорожный маршрут между подъездом к KZN и центральной точкой города. Без учёта пробок и остановок."
+      ]
+    },
+    {
+      "id": "/routes/tolyatti-aeroport-kazan",
+      "pairKey": "аэропорт казань|тольятти",
+      "kind": "main",
+      "from": "Тольятти",
+      "to": "Аэропорт Казань",
+      "slug": "tolyatti-aeroport-kazan",
+      "hours": "около 4 ч 55 мин",
+      "rawDistanceM": 324306.3,
+      "pricingDistanceM": 324306.3,
+      "km": 330,
+      "price": 19000,
+      "coefficient": 1,
+      "calculatedPrice": 20000,
+      "discount": 1000,
+      "distanceStatus": "road-verified",
+      "sourceUrl": "https://router.project-osrm.org/route/v1/driving/49.4189187,53.5098845;49.2994253,55.6093557?overview=false",
+      "calculatedAt": "2026-11-20T16:55+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/tolyatti-aeroport-kazan"
+      ],
+      "notes": [
+        "Дорожный маршрут между подъездом к KZN и центральной точкой города. Без учёта пробок и остановок."
+      ]
+    },
+    {
+      "id": "/airport/kzn/saransk",
+      "pairKey": "аэропорт казань|саранск",
+      "kind": "airport-route",
+      "from": "Аэропорт Казань",
+      "to": "Саранск",
+      "slug": "saransk",
+      "hours": "около 6 ч 10 мин",
+      "rawDistanceM": 407456.8,
+      "pricingDistanceM": 407456.8,
+      "km": 410,
+      "price": 24000,
+      "coefficient": 1,
+      "calculatedPrice": 25000,
+      "discount": 1000,
+      "distanceStatus": "road-verified",
+      "sourceUrl": "https://router.project-osrm.org/route/v1/driving/49.2994253,55.6093557;45.1838300,54.1867100?overview=false",
+      "calculatedAt": "2026-11-20T16:55+00:00",
+      "direction": "forward",
+      "pages": [
+        "/airport/kzn/saransk"
+      ],
+      "notes": [
+        "Дорожный маршрут между подъездом к KZN и центральной точкой города. Без учёта пробок и остановок."
+      ]
+    },
+    {
+      "id": "/routes/saransk-aeroport-kazan",
+      "pairKey": "аэропорт казань|саранск",
+      "kind": "main",
+      "from": "Саранск",
+      "to": "Аэропорт Казань",
+      "slug": "saransk-aeroport-kazan",
+      "hours": "около 6 ч 5 мин",
+      "rawDistanceM": 414303.3,
+      "pricingDistanceM": 414303.3,
+      "km": 420,
+      "price": 24500,
+      "coefficient": 1,
+      "calculatedPrice": 25500,
+      "discount": 1000,
+      "distanceStatus": "road-verified",
+      "sourceUrl": "https://router.project-osrm.org/route/v1/driving/45.1838300,54.1867100;49.2994253,55.6093557?overview=false",
+      "calculatedAt": "2026-11-20T16:55+00:00",
+      "direction": "forward",
+      "pages": [
+        "/routes/saransk-aeroport-kazan"
+      ],
+      "notes": [
+        "Дорожный маршрут между подъездом к KZN и центральной точкой города. Без учёта пробок и остановок."
+      ]
     }
   ],
   "byPath": {
@@ -6191,6 +6399,70 @@
       "pricingDistanceM": 10000,
       "price": 3000,
       "distanceStatus": "legacy-estimate-needs-road-check"
+    },
+    "/airport/kzn/yoshkar-ola": {
+      "routeId": "/airport/kzn/yoshkar-ola",
+      "km": 180,
+      "rawDistanceM": 171591.8,
+      "pricingDistanceM": 171591.8,
+      "price": 12000,
+      "distanceStatus": "road-verified"
+    },
+    "/routes/yoshkar-ola-aeroport-kazan": {
+      "routeId": "/routes/yoshkar-ola-aeroport-kazan",
+      "km": 180,
+      "rawDistanceM": 172125.7,
+      "pricingDistanceM": 172125.7,
+      "price": 12000,
+      "distanceStatus": "road-verified"
+    },
+    "/airport/kzn/ulyanovsk": {
+      "routeId": "/airport/kzn/ulyanovsk",
+      "km": 220,
+      "rawDistanceM": 213393.4,
+      "pricingDistanceM": 213393.4,
+      "price": 13500,
+      "distanceStatus": "road-verified"
+    },
+    "/routes/ulyanovsk-aeroport-kazan": {
+      "routeId": "/routes/ulyanovsk-aeroport-kazan",
+      "km": 210,
+      "rawDistanceM": 209335.9,
+      "pricingDistanceM": 209335.9,
+      "price": 13000,
+      "distanceStatus": "road-verified"
+    },
+    "/airport/kzn/tolyatti": {
+      "routeId": "/airport/kzn/tolyatti",
+      "km": 330,
+      "rawDistanceM": 322632.2,
+      "pricingDistanceM": 322632.2,
+      "price": 19000,
+      "distanceStatus": "road-verified"
+    },
+    "/routes/tolyatti-aeroport-kazan": {
+      "routeId": "/routes/tolyatti-aeroport-kazan",
+      "km": 330,
+      "rawDistanceM": 324306.3,
+      "pricingDistanceM": 324306.3,
+      "price": 19000,
+      "distanceStatus": "road-verified"
+    },
+    "/airport/kzn/saransk": {
+      "routeId": "/airport/kzn/saransk",
+      "km": 410,
+      "rawDistanceM": 407456.8,
+      "pricingDistanceM": 407456.8,
+      "price": 24000,
+      "distanceStatus": "road-verified"
+    },
+    "/routes/saransk-aeroport-kazan": {
+      "routeId": "/routes/saransk-aeroport-kazan",
+      "km": 420,
+      "rawDistanceM": 414303.3,
+      "pricingDistanceM": 414303.3,
+      "price": 24500,
+      "distanceStatus": "road-verified"
     }
   }
 }

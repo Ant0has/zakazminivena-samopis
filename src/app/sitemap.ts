@@ -1,3 +1,4 @@
+import { kazanTransfers } from '@/lib/kazan-transfers';
 import type { MetadataRoute } from "next";
 import { allRoutes, allCities, allAirports } from "@/lib/routes-data";
 import { seasonalPages } from "@/lib/seasonal-data";
@@ -131,6 +132,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...kazanTransfers.map(route => ({url: BASE + route.path, changeFrequency: 'monthly' as const, priority: 0.8})),
     ...seasonalPageEntries,
     ...routePages,
     ...cityPages,

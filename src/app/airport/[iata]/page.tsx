@@ -1,3 +1,4 @@
+import { KazanDestinations } from '@/components/KazanTransfers';
 import type { Metadata } from "next";
 import { JourneyHero } from '@/components/JourneyHero';
 import { getJourneyIllustration, journeySocialImage } from '@/lib/journey-illustrations';
@@ -59,6 +60,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     city: airport.city,
     minPrice,
   });
+  if (iata === 'kzn') {
+    const title = 'Трансфер на минивэне в аэропорт Казани и из KZN';
+    const description = 'Минивэн целиком до 7 пассажиров. К рейсу и по прилёте между аэропортом Казани, Йошкар-Олой, Ульяновском, Тольятти и Саранском. Цена за машину по направлению.';
+    Object.assign(meta, {title, description, openGraph: {...meta.openGraph,title,description}, twitter: {...meta.twitter,title,description}});
+  }
   const image = journeySocialImage('/airport/' + iata);
   return { ...meta, ...(image ? { openGraph: { ...meta.openGraph, images: [image] }, twitter: { ...meta.twitter, card: 'summary_large_image' as const, images: [image.url] } } : {}), alternates: { canonical: `https://zakazminivena.ru/airport/${iata}` } };
 }
@@ -152,7 +158,7 @@ export default async function AirportHubPage({ params }: Props) {
         />
 
         {/* ===== HERO (airport hub) ===== */}
-        {illustration ? <JourneyHero image={illustration} title={'Минивэн в аэропорт ' + airport.name + ' (' + iata.toUpperCase() + ')'} description="Начните или завершите путешествие спокойно. Встреча по рейсу, семья и чемоданы в одной машине — выберите вашу поездку в конструкторе ниже." price={formatPrice(minPrice)} eyebrow="Путешествие начинается с заботы" /> : <section data-route-hero className="relative overflow-hidden">
+        {illustration ? <JourneyHero image={illustration} title={iata === 'kzn' ? 'Минивэн в аэропорт Казани и из аэропорта' : 'Минивэн в аэропорт ' + airport.name + ' (' + iata.toUpperCase() + ')'} description={iata === 'kzn' ? 'Минивэн «Комфорт» целиком для 1–7 пассажиров. Встреча по рейсу и поездки из соседних городов к вылету. Выберите своё направление ниже. Отдельные места не продаём.' : 'Начните или завершите путешествие спокойно. Встреча по рейсу, семья и чемоданы в одной машине — выберите вашу поездку в конструкторе ниже.'} price={iata === 'kzn' ? undefined : formatPrice(minPrice)} eyebrow="Путешествие начинается с заботы" /> : <section data-route-hero className="relative overflow-hidden">
           <HeroBackground mobilePosition="top" />
           <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8 lg:pb-20">
             {/* Бейджи-чеклист */}
@@ -199,6 +205,7 @@ export default async function AirportHubPage({ params }: Props) {
           </div>
         </section>}
 
+        {iata === 'kzn' && <KazanDestinations />}
         <TripConstructor
           routePath={constructorRoute ? `/airport/${iata}/${constructorRoute.destinationSlug}` : ''}
           defaultFrom={'Аэропорт ' + airport.name}

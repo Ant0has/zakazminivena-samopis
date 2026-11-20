@@ -1,3 +1,5 @@
+import { kazanTransfers, kazanTransferAt } from '@/lib/kazan-transfers';
+import { KazanTransferPage, kazanTransferMeta } from '@/components/KazanTransfers';
 import { TripConstructor } from '@/components/TripConstructor';
 import { JourneyHero } from '@/components/JourneyHero';
 import { getJourneyIllustration } from '@/lib/journey-illustrations';
@@ -49,17 +51,22 @@ import {
 } from "lucide-react";
 
 export function generateStaticParams() {
-  return airportRoutes.map((r) => ({ iata: r.iata, destination: r.destinationSlug }));
+  return [...airportRoutes.map((r) => ({iata:r.iata, destination:r.destinationSlug})), ...kazanTransfers.filter(r => !r.toAirport).map(r => ({iata:'kzn',destination:r.slug}))];
 }
 
 type Props = { params: Promise<{ iata: string; destination: string }> };
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
-  const {iata,destination}=await params;const airport=getIataAirport(iata),route=getAirportRoute(iata,destination);if(!airport||!route)return {};return routeMetadata({from:'Аэропорт '+airport.name,to:route.destinationName,km:route.km,pricingDistanceM:route.pricingDistanceM,path:'/airport/'+iata+'/'+destination});
+  const {iata,destination}=await params;
+  const regional = kazanTransferAt('/airport/'+iata+'/'+destination);
+  if (regional) return kazanTransferMeta(regional);
+  const airport=getIataAirport(iata),route=getAirportRoute(iata,destination);if(!airport||!route)return {};return routeMetadata({from:'Аэропорт '+airport.name,to:route.destinationName,km:route.km,pricingDistanceM:route.pricingDistanceM,path:'/airport/'+iata+'/'+destination});
 }
 
 export default async function AirportRoutePage({ params }: Props) {
   const { iata, destination } = await params;
+  const regional = kazanTransferAt('/airport/'+iata+'/'+destination);
+  if (regional) return <KazanTransferPage route={regional} />;
   const airport = getIataAirport(iata);
   const route = getAirportRoute(iata, destination);
   if (!airport || !route) notFound();

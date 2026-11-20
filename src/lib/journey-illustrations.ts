@@ -239,6 +239,18 @@ Object.assign(journeyIllustrations, {
   '/minivan-7-mest': illustration('series-minivan-7-mest', 'Минивэн на 7 человек с водителем', 2),
 });
 
+// Both travel directions share the illustration of the same city.
+for (const [slug, alt] of [
+  ['yoshkar-ola', 'Минивэн у набережной Брюгге в Йошкар-Оле'],
+  ['ulyanovsk', 'Минивэн и пассажиры у Волги в Ульяновске'],
+  ['tolyatti', 'Минивэн с чемоданами на фоне Волги и Жигулёвских гор в Тольятти'],
+  ['saransk', 'Семья у минивэна на фоне собора в Саранске']
+]) {
+  const image = illustration('kzn-' + slug + '-transfer', alt);
+  journeyIllustrations['/airport/kzn/' + slug] = image;
+  journeyIllustrations['/routes/' + slug + '-aeroport-kazan'] = image;
+}
+
 export function getJourneyIllustration(path: string) { return journeyIllustrations[path]; }
 export function journeySocialImage(path: string) {
   const image = getJourneyIllustration(path);

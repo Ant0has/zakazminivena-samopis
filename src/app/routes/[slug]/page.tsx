@@ -1,3 +1,5 @@
+import { kazanTransfers, kazanTransferAt } from '@/lib/kazan-transfers';
+import { KazanTransferPage, kazanTransferMeta } from '@/components/KazanTransfers';
 import { TripConstructor } from '@/components/TripConstructor';
 import { JourneyHero } from '@/components/JourneyHero';
 import { getJourneyIllustration } from '@/lib/journey-illustrations';
@@ -42,9 +44,7 @@ import {
 import { ReviewsSection } from "@/components/ReviewsSection";
 
 export function generateStaticParams() {
-  return allRoutes.map((route) => ({
-    slug: route.slug,
-  }));
+  return [...allRoutes.map(route => ({slug: route.slug})), ...kazanTransfers.filter(route => route.toAirport).map(route => ({slug:route.slug}))];
 }
 
 type Props = {
@@ -52,7 +52,10 @@ type Props = {
 };
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
-  const {slug}=await params;const route=allRoutes.find(r=>r.slug===slug);if(!route)return {};return routeMetadata({from:route.from,to:route.to,km:route.km,pricingDistanceM:route.pricingDistanceM,path:'/routes/'+slug});
+  const {slug}=await params;
+  const regional = kazanTransferAt('/routes/'+slug);
+  if (regional) return kazanTransferMeta(regional);
+  const route=allRoutes.find(r=>r.slug===slug);if(!route)return {};return routeMetadata({from:route.from,to:route.to,km:route.km,pricingDistanceM:route.pricingDistanceM,path:'/routes/'+slug});
 }
 
 function getRouteDescription(route: RouteData, priceFormatted: string, perPerson: string): string[] {
@@ -129,6 +132,8 @@ function getRouteTags(fromSlug: string, toSlug: string): string[] {
 
 export default async function RoutePage({ params }: Props) {
   const { slug } = await params;
+  const regional = kazanTransferAt('/routes/'+slug);
+  if (regional) return <KazanTransferPage route={regional} />;
   const route = allRoutes.find((r) => r.slug === slug);
 
   if (!route) {
