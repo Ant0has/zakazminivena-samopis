@@ -4,6 +4,7 @@ import type { JourneyIllustration } from '@/lib/journey-illustrations';
 
 interface JourneyHeroProps {
   image: JourneyIllustration;
+  mobileImageSrc?: string;
   title: string;
   description: string;
   eyebrow?: string;
@@ -12,7 +13,7 @@ interface JourneyHeroProps {
   duration?: string;
 }
 
-export function JourneyHero({ image, title, description, eyebrow = 'Вместе — удобнее', price, distance, duration }: JourneyHeroProps) {
+export function JourneyHero({ image, mobileImageSrc, title, description, eyebrow = 'Вместе — удобнее', price, distance, duration }: JourneyHeroProps) {
   return <section data-route-hero data-journey-hero className="overflow-hidden bg-[#f6f4e9] text-[#203e32]">
     <div className="mx-auto grid max-w-7xl items-center gap-5 px-4 py-7 sm:gap-7 sm:px-6 sm:py-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:px-8 lg:py-12">
       <div className="contents lg:block lg:min-w-0">
@@ -37,7 +38,13 @@ export function JourneyHero({ image, title, description, eyebrow = 'Вместе
         </div>
       </div>
       <figure className="order-2 min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem]">
-        <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 1023px) 100vw, 680px" className="h-auto w-full" priority />
+        {mobileImageSrc ? (
+          <img src={image.src} srcSet={`${mobileImageSrc} 750w, ${image.src} ${image.width}w`}
+            sizes="(max-width: 1023px) 100vw, 680px" width={image.width} height={image.height}
+            alt={image.alt} fetchPriority="high" decoding="async" className="h-auto w-full" />
+        ) : (
+          <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 1023px) 100vw, 680px" className="h-auto w-full" priority />
+        )}
       </figure>
     </div>
   </section>;

@@ -5,6 +5,7 @@ import { TripConstructor } from './TripConstructor';
 import { JourneyHero } from './JourneyHero';
 import { Breadcrumbs } from './Breadcrumbs';
 import { kazanTransfers, type KazanTransfer } from '@/lib/kazan-transfers';
+import { kazanArtUrl } from '@/lib/kazan-art-calendar';
 import { getJourneyIllustration } from '@/lib/journey-illustrations';
 import { routeOffer, routeMetadata } from '@/lib/route-seo';
 
@@ -12,7 +13,7 @@ const money = (n: number) => n.toLocaleString('ru-RU');
 const airport = 'Аэропорт Казани';
 export function kazanTransferMeta(route: KazanTransfer) {
   const { record, path } = route;
-  return routeMetadata({from: route.toAirport ? route.city.name : airport, to: route.toAirport ? airport : route.city.name, km: record.km, pricingDistanceM: record.pricingDistanceM, path});
+  return routeMetadata({from: route.toAirport ? route.city.name : airport, to: route.toAirport ? airport : route.city.name, km: record.km, pricingDistanceM: record.pricingDistanceM, path, imageUrl: 'https://zakazminivena.ru' + kazanArtUrl(route.city.slug)});
 
 }
 
@@ -35,13 +36,13 @@ export function KazanDestinations() {
 export function KazanTransferPage({route}: {route: KazanTransfer}) {
   const { record, city, toAirport, path, price, title } = route;
   const other = kazanTransfers.find(r => r.city.slug === city.slug && r.toAirport !== toAirport)!;
-  const image = getJourneyIllustration(path);
+  const image = { ...getJourneyIllustration(path), src: kazanArtUrl(city.slug) };
   const details = toAirport ? city.departure : city.arrival;
   const description = 'Минивэн «Комфорт» целиком для вашей компании. До семи пассажиров, включая детей. Отдельные места не продаём.';
   const ld = {'@context': 'https://schema.org', '@type': 'TaxiService', name: title, url: 'https://zakazminivena.ru'+path, image:'https://zakazminivena.ru'+image.src, description, offers: routeOffer(price), provider: {'@type':'Organization', name:'ЗаказМинивэна.ru', url:'https://zakazminivena.ru'}};
   return <><Header /><main className="pt-16">
     <div className="mx-auto max-w-7xl px-4 py-3"><Breadcrumbs items={[{label:'Казань',href:'/cities/kazan'},{label:'Аэропорт Казани',href:'/airport/kzn'},{label:toAirport ? city.name + ' → KZN' : 'KZN → ' + city.name}]} /></div>
-    <JourneyHero image={image} title={title} description={description} price={money(price)} distance={record.km} duration={record.hours} eyebrow={toAirport ? 'К вылету из Казани' : 'Встреча по прилёте в Казань'} />
+    <JourneyHero image={image} mobileImageSrc={image.src + '?size=mobile'} title={title} description={description} price={money(price)} distance={record.km} duration={record.hours} eyebrow={toAirport ? 'К вылету из Казани' : 'Встреча по прилёте в Казань'} />
     <TripConstructor routePath={path} defaultFrom={record.from} defaultTo={record.to} contextNote={details}/>
     <section className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
       <h2 className="text-2xl font-bold">Как согласовать поездку</h2>
